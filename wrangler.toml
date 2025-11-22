@@ -1,0 +1,12 @@
+# Cloudflare Pages configuration
+name = "meshrheinland"
+compatibility_date = "2025-01-01"
+
+# Pages-specific configuration
+pages_build_output_dir = "build"
+
+# Custom headers for security
+[env.production.vars]
+# Add any environment variables needed for production
+
+# Optional: Custom routes/redirects can be handled via _redirects file
