@@ -23,7 +23,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'meshrheinland',
-  projectName: 'meshrheinland-website',
+  projectName: 'website',
 
   onBrokenLinks: 'throw',
 
@@ -40,9 +40,10 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/meshrheinland/meshrheinland-website/tree/main/',
+            'https://github.com/meshrheinland/website/tree/main/',
         },
         blog: false,
         theme: {
@@ -66,12 +67,12 @@ const config: Config = {
       },
       items: [
         {
-          to: '/docs/meshtastic/intro',
+          to: '/meshtastic/intro',
           label: 'Meshtastic',
           position: 'left',
         },
         {
-          to: '/docs/meshcore/intro',
+          to: '/meshcore/intro',
           label: 'Meshcore',
           position: 'left',
         },
@@ -90,11 +91,11 @@ const config: Config = {
           items: [
             {
               label: 'Meshtastic',
-              to: '/docs/meshtastic/intro',
+              to: '/meshtastic/intro',
             },
             {
               label: 'Meshcore',
-              to: '/docs/meshcore/intro',
+              to: '/meshcore/intro',
             },
           ],
         },

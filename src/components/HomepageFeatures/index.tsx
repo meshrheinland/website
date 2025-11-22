@@ -21,7 +21,7 @@ const FeatureList: FeatureItem[] = [
         Ideal für Wandern, Notfälle und dezentrale Kommunikation.
       </>
     ),
-    link: '/docs/meshtastic/intro',
+    link: '/meshtastic/intro',
   },
   {
     title: 'Meshcore',
@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
         Perfekt für lokale Community-Netzwerke und Internet-Sharing.
       </>
     ),
-    link: '/docs/meshcore/intro',
+    link: '/meshcore/intro',
   },
 ];
 
