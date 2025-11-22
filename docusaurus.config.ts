@@ -101,6 +101,10 @@ const config: Config = {
               label: 'Mesh Rheinland Karte',
               href: 'https://map.meshrheinland.de',
             },
+            {
+              label: 'WhatsApp Community',
+              href: 'https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi?mode=wwt',
+            },
           ],
         },
         {
@@ -113,6 +117,10 @@ const config: Config = {
             {
               label: 'Offizielle Karte',
               href: 'https://map.meshcore.dev/?zoom=11&lat=50.8235&lon=7.2496&cluster=10',
+            },
+            {
+              label: 'WhatsApp Community',
+              href: 'https://chat.whatsapp.com/GKnoM4NDHQD9crIZpvv0Q1?mode=wwt',
             },
           ],
         },

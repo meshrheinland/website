@@ -104,6 +104,7 @@ Für Details, welche Repeater in Reichweite sind:
 
 ## Community & Karte
 
+- WhatsApp Community: [MeshCore Rheinland](https://chat.whatsapp.com/GKnoM4NDHQD9crIZpvv0Q1?mode=wwt)
 - [Offizielle MeshCore Karte](https://map.meshcore.dev/?zoom=11&lat=50.8235&lon=7.2496&cluster=10)
 - [MeshCore Flasher](https://flasher.meshcore.dev/)
 
