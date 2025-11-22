@@ -1,9 +1,6 @@
 name: Deploy to Cloudflare Pages
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -32,13 +29,58 @@ jobs:
         run: npm run build
 
       - name: Deploy to Cloudflare Pages
+        id: cloudflare-deployment
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: meshrheinland
           directory: build
-          # Optional: Git info for better deployment tracking
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Production deployment only on main branch
-          branch: ${{ github.ref_name }}
+          # Use PR number for preview deployments
+          branch: pr-${{ github.event.pull_request.number }}
+
+      - name: Comment PR with preview URL
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const deploymentUrl = '${{ steps.cloudflare-deployment.outputs.url }}';
+            const prNumber = context.issue.number;
+
+            const comment = `## 🚀 Preview Deployment
+
+            Die Preview wurde erfolgreich ausgerollt!
+
+            **Preview-URL:** ${deploymentUrl}
+
+            `;
+
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+            });
+
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('Preview Deployment')
+            );
+
+            // Update or create comment
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: comment
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: comment
+              });
+            }
