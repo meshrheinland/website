@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        LoRa-basiertes Mesh-Netzwerk für Outdoor-Kommunikation ohne Mobilfunknetz.
+        test LoRa-basiertes Mesh-Netzwerk für Outdoor-Kommunikation ohne Mobilfunknetz.
         Ideal für Wandern, Notfälle und dezentrale Kommunikation.
       </>
     ),
