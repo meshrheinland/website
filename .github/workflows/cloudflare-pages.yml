@@ -37,5 +37,3 @@ jobs:
           projectName: meshrheinland
           directory: build
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Use PR number for preview deployments
-          branch: pr-${{ github.event.pull_request.number }}
