@@ -31,7 +31,6 @@ export default function Root({children}) {
           padding: '10px 20px',
         }}
         expires={365}
-        overlay
       >
         <div style={{fontSize: '14px', lineHeight: '1.6'}}>
           <strong>Cookie-Einstellungen</strong>
