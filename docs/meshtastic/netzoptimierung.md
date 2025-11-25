@@ -173,6 +173,6 @@ Teilt eure Erfahrungen in der WhatsApp-Gruppe "Netz - Optimierung" oder per E-Ma
 
 ## Support & Fragen
 
-Bei Fragen oder Unklarheiten wende dich an die WhatsApp-Gruppe oder einen Meshtastic-Teilnehmer deines Vertrauens!
+Bei Fragen oder Unklarheiten wende dich an die WhatsApp-Gruppe "Netz - Optimierung" oder einen Meshtastic-Teilnehmer deines Vertrauens!
 
 **Viel Erfolg und danke fürs Mitmachen!**
