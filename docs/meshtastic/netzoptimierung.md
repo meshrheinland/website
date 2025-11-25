@@ -131,7 +131,7 @@ Um das Experiment erfolgreich zu machen, ist es wichtig, dass M1_Messages und M2
 | 3+ | Weitere Kanäle | Nach Bedarf |
 
 :::tip User können ShortSlow behalten
-Als User kannst du weiterhin auf dem ShortSlow-Kanal unterwegs sein. Füge einfach M1_Messages und M1_Tests hinzu.
+Als User kannst du weiterhin auf dem ShortSlow-Kanal unterwegs sein. Füge einfach M1_Messages und M2_Tests hinzu.
 :::
 
 ---
