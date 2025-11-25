@@ -113,9 +113,24 @@ Falls du keinen eigenen Kanal brauchst, erstelle einen Platzhalter-Kanal.
 - Name: `M2_Tests`
 - Passwort: `6t4uxIUD7wNGt5c332oR6cd/+/cmEz9UVlTUKoCsGJI=`
 
-### Schritt 2: ShortSlow behalten
+### Schritt 2: Kanalposition beachten
 
-:::tip User dürfen ShortSlow behalten
+:::warning Bitte M1_Messages/M2_Tests nicht als primären Kanal nutzen
+Um das Experiment erfolgreich zu machen, ist es wichtig, dass M1_Messages und M2_Tests **nicht auf Position 0** liegen.
+
+**Hintergrund:** Auf dem primären Kanal (Position 0) wird, wenn aktiviert, die **Telemetrie** gesendet. Für das Experiment möchten wir in M1_Messages und M2_Tests aber nur Nachrichtenverkehr, um das Netz zu entlasten.
+:::
+
+**Empfohlene Konfiguration für das Experiment:**
+
+| Position | Kanal | Verwendung |
+|----------|-------|------------|
+| 0 | ShortSlow (oder eigener Kanal) | Primärkanal für Telemetrie |
+| 1 | M1_Messages | Überregionale Kommunikation |
+| 2 | M2_Tests | Test-Nachrichten |
+| 3+ | Weitere Kanäle | Nach Bedarf |
+
+:::tip User können ShortSlow behalten
 Als User kannst du weiterhin auf dem ShortSlow-Kanal unterwegs sein. Füge einfach M1_Messages und M1_Tests hinzu.
 :::
 
