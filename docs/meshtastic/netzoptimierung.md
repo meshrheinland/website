@@ -46,6 +46,10 @@ Router aktivieren die `LOCAL_ONLY`-Einstellung, um nur noch definierte Kanäle w
 
 Der Link enthält bereits optimierte Einstellungen.
 
+**QR-Code für Smartphone:**
+
+![QR-Code Kanalkonfiguration](/img/m1m2-channel-config.png)
+
 #### Option B: Manuell / Remote Admin
 
 **Kanal M1_Messages:**
@@ -94,6 +98,10 @@ Falls du keinen eigenen Kanal brauchst, erstelle einen Platzhalter-Kanal.
 #### Option A: Per Link (empfohlen)
 
 [https://meshtastic.org/e/#CjMSII7JP0V7P8f5HomQRUdyqWT9RitJzq9bK-C7ZFTz5AEWGgtNMV9NZXNzYWdlczoCCA0KLBIg6t4uxIUD7wNGt5c332oR6cd_-_cmEz9UVlTUKoCsGJIaCE0yX1Rlc3RzEhEIARAFOANAAkgBUBtoAcAGAQ](https://meshtastic.org/e/#CjMSII7JP0V7P8f5HomQRUdyqWT9RitJzq9bK-C7ZFTz5AEWGgtNMV9NZXNzYWdlczoCCA0KLBIg6t4uxIUD7wNGt5c332oR6cd_-_cmEz9UVlTUKoCsGJIaCE0yX1Rlc3RzEhEIARAFOANAAkgBUBtoAcAGAQ)
+
+**QR-Code für Smartphone:**
+
+![QR-Code Kanalkonfiguration](/img/m1m2-channel-config.png)
 
 #### Option B: Manuell
 
