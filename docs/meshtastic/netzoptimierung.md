@@ -24,10 +24,6 @@ Um dies zu lösen, testen wir eine neue Netzstruktur:
 
 **Ziel:** Alle Teilnehmer richten die neuen Kanäle M1_Messages und M1_Tests ein.
 
-:::warning Wichtig
-Die `LOCAL_ONLY`-Einstellung auf den Routern kommt erst in Phase 2! Zunächst richten alle nur die Kanäle ein.
-:::
-
 ### Phase 2: LOCAL_ONLY aktivieren (aktuell, KW48-KW49)
 
 Router aktivieren die `LOCAL_ONLY`-Einstellung, um nur noch definierte Kanäle weiterzuleiten. Danach sammeln wir Feedback zur Netzqualität.
