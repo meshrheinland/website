@@ -1,13 +1,25 @@
 # Netzoptimierung (Experiment)
 
-:::info Experimenteller Testbetrieb
-Diese Umstellung ist ein **Experiment**, um zu evaluieren:
-- Ob die Trennung von Telemetrie und Messaging das Netz entlastet
-- Welche Nachteile durch die neue Struktur entstehen
-- Ob die Lösung praktikabel für alle Teilnehmer ist
+:::danger Experiment beendet
+**Update 29.11.2025:** Das Experiment wurde beendet. Leider zu viele Probleme bei der Weitergabe der NodeInfos.
 
-Wir sammeln Erfahrungen und passen das Konzept bei Bedarf an.
+**Hauptproblem:** Die aktuelle Firmware erlaubt uns nicht, Telemetrie- und NodeInfo-Frames unterschiedlich zu behandeln. Entweder wird alles transportiert oder nichts. Beides bringt uns leider nicht weiter.
+
+Meshtastic ist zu stark auf einen gemeinsamen Primärkanal angewiesen.
+
+**Rollback:**
+- Primärkanal #0: **ShortSlow** (offen)
+- Repeat-Modus: **ALL** (nicht LOCAL_ONLY)
+- Telemetrie/Position/NodeInfo: **sparsam** oder ganz aus
+
+**Wichtige Erkenntnis:** Die TX-Queue von Meshtastic fasst nur 16 Pakete. Kommt ein siebzehntes dazu, wird das zuletzt empfangene Paket verworfen, sofern es von seiner Priorität niedriger ist.
+
+**Positiv:** Die neueste Firmware sendet kaum noch Telemetrie. Das heißt, wenn alle updaten (neue Firmware, neue App), wird das Mesh bereits entlastet.
 :::
+
+---
+
+**Historische Dokumentation des Experiments:**
 
 ## Hintergrund
 
