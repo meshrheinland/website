@@ -116,9 +116,15 @@ Für Details, welche Repeater in Reichweite sind:
 
 ## Häufige Fragen (FAQ)
 
-**Warum sehe ich keine anderen Nodes?**
+**Warum sehe ich in der Kontaktliste so viele Infrastruktur-Nodes und kaum User?**
 
-Companion-Nodes senden keine periodischen Adverts. Du siehst primär Repeater (Infrastruktur) und Nodes, die aktiv Adverts senden.
+Das liegt am sparsamen Umgang mit Adverts in MeshCore:
+
+- **Infrastruktur** (Repeater, Room Server): Sendet automatisch in der Regel alle 3 Stunden Adverts → zeitnah sichtbar in der Kontaktliste
+- **Companion-Nodes** (User): Senden Adverts **nur manuell** über den Button "Advert - Flood Routed"
+- User erscheinen erst nach einem Advert in deiner Kontaktliste
+
+MeshCore zielt auf minimalen Funkverkehr ab. Infrastruktur kündigt sich automatisiert regelmäßig an, Companion-Nodes senden Adverts nur bei Aufforderung, um das Netz nicht zu belasten. Im **Mesh Rheinland** gibt es den **"Advert Sonntag"**, an dem alle Teilnehmer einmal wöchentlich aufgerufen sind, einen Advert zu senden, damit die Community sich gegenseitig sieht.
 
 **Wie weiß ich, ob meine Nachricht angekommen ist?**
 
