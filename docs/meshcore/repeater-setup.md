@@ -48,7 +48,11 @@ Die Radio-Parameter sollten automatisch korrekt gesetzt sein:
 - **Spreading Factor**: 8
 - **Coding Rate**: 8
 - **TX Power**: 22 dBm
-- **Airtime factor**: 1
+- **Airtime factor**: 9
+
+:::info Airtime Factor
+Der Airtime Factor begrenzt die Sendezeit und berechnet sich aus: `airtime_factor = (100 / duty_cycle) - 1`. Für Deutschland gilt ein 10% Duty Cycle (ETSI EN300.220-2), daher: `(100 / 10) - 1 = 9`.
+:::
 
 :::info Einstellungen speichern
 Klicke nach allen Änderungen auf "Save settings" am unteren Rand.
