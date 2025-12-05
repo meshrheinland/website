@@ -121,7 +121,7 @@ Für Details, welche Repeater in Reichweite sind:
 Das liegt am sparsamen Umgang mit Adverts in MeshCore:
 
 - **Infrastruktur** (Repeater, Room Server): Sendet automatisch in der Regel alle 3 Stunden Adverts → zeitnah sichtbar in der Kontaktliste
-- **Companion-Nodes** (User): Senden Adverts **nur manuell** über den Button "Advert - Flood Routed"
+- **Companion-Nodes** (User): Senden Adverts **nur manuell** bei Betätigung des Buttons "Advert - Flood Routed" in der App
 - User erscheinen erst nach einem Advert in deiner Kontaktliste
 
 MeshCore zielt auf minimalen Funkverkehr ab. Infrastruktur kündigt sich automatisiert regelmäßig an, Companion-Nodes senden Adverts nur bei Aufforderung, um das Netz nicht zu belasten. Im **Mesh Rheinland** gibt es den **"Advert Sonntag"**, an dem alle Teilnehmer einmal wöchentlich aufgerufen sind, einen Advert zu senden, damit die Community sich gegenseitig sieht.
