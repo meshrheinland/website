@@ -60,17 +60,16 @@ Köln, Düsseldorf, Bonn, Aachen, Wuppertal, Leverkusen, Krefeld, Mönchengladba
 ### 2) Region/Band: EU868
 
 - LoRa‑Einstellungen → Region auf EU868 setzen
-- [Radio‑Konfiguration](https://meshtastic.org/docs/configuration/radio/)
+- [Radio‑Konfiguration](https://meshtastic.org/docs/configuration/radio/lora/)
 
 ### 3) Kanäle
 
 - Öffentlich zum Testen oder privat mit Schlüssel
-- [Kanal‑Doku](https://meshtastic.org/docs/configuration/channels/)
+- [Kanal‑Doku](https://meshtastic.org/docs/configuration/radio/channels/)
 
 ### 4) Rollen & Strom
 
-- [Geräte‑Rollen (Router/Client/etc.)](https://meshtastic.org/docs/configuration/device/)
-- [Power‑Tipps](https://meshtastic.org/docs/configuration/power/)
+- [Geräte‑Rollen (Router/Client/etc.)](https://meshtastic.org/docs/configuration/radio/device/)
 
 ## Häufige Fragen (FAQ)
 
@@ -89,7 +88,7 @@ Antenne möglichst hoch und frei platzieren, Router‑Knoten strategisch setzen.
 ## Offizielle Ressourcen
 
 - [Meshtastic Dokumentation](https://meshtastic.org/docs)
-- [Radio‑Konfiguration](https://meshtastic.org/docs/configuration/radio/)
+- [Radio‑Konfiguration](https://meshtastic.org/docs/configuration/radio/device/)
 - [Getting Started](https://meshtastic.org/docs/getting-started/)
 
 ## Fragen & Support
