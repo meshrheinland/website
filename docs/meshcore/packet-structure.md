@@ -117,14 +117,7 @@ graph TB
     (2 Bits)     (4 Bits)    (2 Bits)
 ```
 
-**Beispiel-Bytes:**
-```
-Byte 0: Header
-Byte 1: Path Length (0x00)
-Byte 2+: Payload
-```
-
-**Gesamtlänge**: 2 + Payload-Länge
+**Gesamtlänge in Bytes**: 2 + Payload-Länge
 
 ### Vollständiges Frame (mit Transport Codes und Path)
 
@@ -182,49 +175,13 @@ Byte  6-8:  Path (3 Node-Hashes à 1 Byte)
 Byte  9+:   Payload
 ```
 
-**Gesamtlänge**: 6 + Path-Länge + Payload-Länge
+**Gesamtlänge in Bytes**: 6 + Path-Länge + Payload-Länge
 
 ## Längenbestimmung
 
 :::info Keine explizite Payload-Länge
 Das Mesh-Protokoll speichert **keine** explizite Payload-Länge. Diese wird implizit berechnet.
 :::
-
-### Berechnung beim Senden
-
-```cpp
-int Packet::getRawLength() const {
-  return 2                              // Header + Path Length
-       + path_len                       // Path
-       + payload_len                    // Payload
-       + (hasTransportCodes() ? 4 : 0); // Optional: Transport Codes
-}
-```
-
-### Berechnung beim Empfangen
-
-Die Firmware erhält die **Gesamt-Frame-Länge** vom LoRa-Chip:
-
-```cpp
-bool Packet::readFrom(const uint8_t src[], uint8_t len) {
-  uint8_t i = 0;
-  header = src[i++];                    // 1 Byte
-
-  if (hasTransportCodes()) {
-    memcpy(&transport_codes[0], &src[i], 2); i += 2;
-    memcpy(&transport_codes[1], &src[i], 2); i += 2;
-  }
-
-  path_len = src[i++];                  // 1 Byte
-  memcpy(path, &src[i], path_len);
-  i += path_len;
-
-  payload_len = len - i;  // ← Implizite Berechnung!
-  memcpy(payload, &src[i], payload_len);
-
-  return true;
-}
-```
 
 **Formel**:
 ```
