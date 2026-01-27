@@ -8,7 +8,7 @@ Meshtastic wird im gesamten Rheinland eingesetzt – rund um Köln, Düsseldorf,
 
 - Region/Band: European Union 868MHz (EU868)
 - Modem‑Preset: Kurze Reichweite - Langsam (**ShortSlow**)
-- WhatsApp Community: [Meshtastic Rheinland](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi?mode=wwt) mit über 200 Mitgliedern
+- WhatsApp Community: [Meshtastic Rheinland](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi) mit über 200 Mitgliedern
 
 :::warning Lokale Vorschriften
 Bitte beachte lokale Funkrichtlinien (z. B. Duty Cycle im 868‑MHz‑Band). Stelle in Meshtastic die richtige Region ein und nutze angemessene Sendeleistung. Details siehe [Radio‑Konfiguration](https://meshtastic.org/docs/configuration/radio/) in der Meshtastic‑Doku.
@@ -44,7 +44,7 @@ Mehr Hintergründe: [Radio‑Konfiguration (Modem‑Parameter)](https://meshtast
 ## Community & Mesh Map
 
 - [Mesh Rheinland Karte](https://map.meshrheinland.de)
-- WhatsApp Community: [Meshtastic Rheinland](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi?mode=wwt)
+- WhatsApp Community: [Meshtastic Rheinland](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi)
 
 ### Lokal vernetzt in vielen Städten
 
