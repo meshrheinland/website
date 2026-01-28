@@ -33,5 +33,12 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           command: pages deploy build --project-name=meshrheinland --branch=pr-${{ github.event.pull_request.number }}
+
+      - name: Create GitHub Deployment
+        uses: chrnorm/deployment-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: pr-${{ github.event.pull_request.number }}
+          environment-url: https://pr-${{ github.event.pull_request.number }}.meshrheinland.pages.dev
+          production-environment: false
