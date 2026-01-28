@@ -36,4 +36,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: meshrheinland
           directory: build
+          branch: pr-${{ github.event.pull_request.number }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
