@@ -19,10 +19,26 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
+
+      - name: Cache node_modules
+        id: cache-modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
+        if: steps.cache-modules.outputs.cache-hit != 'true'
         run: npm ci
+
+      - name: Cache Docusaurus
+        uses: actions/cache@v4
+        with:
+          path: .docusaurus
+          key: docusaurus-${{ github.ref }}-${{ hashFiles('docs/**', 'blog/**', 'src/**', 'docusaurus.config.*') }}
+          restore-keys: |
+            docusaurus-${{ github.ref }}-
+            docusaurus-
 
       - name: Build website
         run: npm run build
