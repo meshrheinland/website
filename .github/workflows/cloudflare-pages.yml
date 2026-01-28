@@ -10,7 +10,6 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -34,35 +33,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           command: pages deploy build --project-name=meshrheinland --branch=pr-${{ github.event.pull_request.number }}
-
-      - name: Comment PR with preview URL
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const prNumber = context.payload.pull_request.number;
-            const previewUrl = `https://pr-${prNumber}.meshrheinland.pages.dev`;
-            const body = `🔗 Preview: ${previewUrl}`;
-
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber
-            });
-
-            const existing = comments.find(c => c.body.includes('🔗 Preview:'));
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existing.id,
-                body
-              });
-            } else {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: prNumber,
-                body
-              });
-            }
