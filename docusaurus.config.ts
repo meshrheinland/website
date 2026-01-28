@@ -4,6 +4,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const editRepo = process.env.EDIT_REPO || 'meshrheinland/website';
+const editBranch = process.env.EDIT_BRANCH || 'main';
+
 const config: Config = {
   title: 'Mesh Rheinland',
   tagline: 'Meshtastic und MeshCore Community im Rheinland',
@@ -42,8 +45,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/meshrheinland/website/tree/main/',
+          editUrl: `https://github.com/${editRepo}/tree/${editBranch}/`,
         },
         blog: false,
         theme: {
