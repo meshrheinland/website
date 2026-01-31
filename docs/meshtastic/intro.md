@@ -86,6 +86,10 @@ Köln, Düsseldorf, Bonn, Aachen, Wuppertal, Leverkusen, Krefeld, Mönchengladba
 
 - [Geräte‑Rollen (Router/Client/etc.)](https://meshtastic.org/docs/configuration/radio/device/)
 
+### 5) Übersicht (Netzdienliche) Konfiguration der Nodes
+
+- [Node-Konfiguration](https://docs.google.com/spreadsheets/d/16gFUd1APi93P-PScxhxkql41uNJPvjO_D3EiOONcij4/edit?usp=sharing)
+
 ## Häufige Fragen (FAQ)
 
 **Gibt es Gruppen in Köln, Düsseldorf, Bonn, Aachen?**
