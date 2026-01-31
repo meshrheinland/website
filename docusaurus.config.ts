@@ -99,6 +99,11 @@ const config: Config = {
           position: 'left',
         },
         {
+          to: '/hardware/intro',
+          label: 'Hardware',
+          position: 'left',
+        },
+        {
           href: 'https://github.com/meshrheinland/website/',
           label: 'GitHub',
           position: 'right',
