@@ -57,6 +57,20 @@ const config: Config = {
 
   themes: ['@docusaurus/theme-mermaid'],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/meshcore/packet-structure',
+            to: '/meshcore/paketstruktur',
+          },
+        ],
+      },
+    ],
+  ],
+
   markdown: {
     mermaid: true,
   },
