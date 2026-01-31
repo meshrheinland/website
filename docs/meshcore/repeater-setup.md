@@ -169,6 +169,16 @@ Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilizati
 - Visualisiert die Belegung aller 255 möglichen IDs (00-FE)
 - Ideal zur Vermeidung von Kollisionen vor dem Deployment
 
+## Regionen konfigurieren
+
+:::tip Wichtiger letzter Schritt
+Nach der Grundkonfiguration solltest du deinen Repeater mit den passenden Regionen ausstatten. Dies ist für das zukünftige Netzwerk essentiell.
+:::
+
+Regionen begrenzen die Weiterleitung von Nachrichten auf definierte geografische Bereiche und verhindern unkontrolliertes Flooding im Netz. In der Mesh Rheinland Community verwenden wir derzeit die Regionen `#de`, `#nrw`, `#rheinland`, `#bonn` und `#koeln`.
+
+**Nächster Schritt:** Lies die Anleitung zur [Regionen-Konfiguration](regionen.md), um deinen Repeater mit den passenden Regionen auszustatten.
+
 ## Häufige Fragen
 
 **Wie finde ich heraus, welche IDs in meiner Nähe aktiv sind?**
