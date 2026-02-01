@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Firmware aufspielen
 
 Das Flashen der Firmware erfolgt über den offiziellen Web‑Flasher. Die anschließende Erstkonfiguration kannst du wahlweise im Web‑Client, über die CLI oder per Smartphone‑App durchführen.

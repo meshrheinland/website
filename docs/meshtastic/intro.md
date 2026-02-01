@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Willkommen
 Willkommen auf der Info-Seite für Meshtastic Nutzer im Rheinland. Du findest hier den Schnellstart, die in der Region genutzten Grundeinstellungen und die wichtigsten Links.
 
