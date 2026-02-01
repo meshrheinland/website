@@ -39,10 +39,8 @@ meshtastic --port /dev/ttyUSB0 --commit-edit
 
 Auch hier gilt: egal wie viele Werte du setzt, der Node startet nur einmal neu – nämlich beim Commit.
 
-## Übersicht
-Wenn du einen schnellen Überblick über die gängigen Einstellungen brauchst, findest du im Folgenden die wichtigsten Parameter, die im Alltag – und besonders hier in NRW – häufig verwendet werden und dir die Konfiguration deines Nodes angenehm leicht machen.
-
 ## Nützliche Meshtastic‑CLI‑Befehle
+Wenn du einen schnellen Überblick über die gängigen Einstellungen brauchst, findest du im Folgenden die wichtigsten Parameter, die im Alltag – und besonders hier in NRW – häufig verwendet werden und dir die Konfiguration deines Nodes angenehm leicht machen.
 
 | Befehl | Beschreibung |
 |--------|--------------|
