@@ -86,9 +86,11 @@ Köln, Düsseldorf, Bonn, Aachen, Wuppertal, Leverkusen, Krefeld, Mönchengladba
 
 - [Geräte‑Rollen (Router/Client/etc.)](https://meshtastic.org/docs/configuration/radio/device/)
 
-### 5) Übersicht (Netzdienliche) Konfiguration der Nodes
+### 5) Empfohlene Node-Einstellungen
 
-- [Node-Konfiguration](https://docs.google.com/spreadsheets/d/16gFUd1APi93P-PScxhxkql41uNJPvjO_D3EiOONcij4/edit?usp=sharing)
+Diese Einstellungen wurden in der Community erarbeitet und gelten als Best Practice für einen rücksichtsvollen Mesh-Betrieb. Ziel ist es, unnötige Telemetrie und häufige Selbstankündigungen zu reduzieren, damit das Netz nicht überlastet wird und alle Teilnehmer von einem stabilen Mesh profitieren.
+
+- [Übersicht der empfohlenen Einstellungen](https://docs.google.com/spreadsheets/d/16gFUd1APi93P-PScxhxkql41uNJPvjO_D3EiOONcij4/edit?usp=sharing)
 
 ## Häufige Fragen (FAQ)
 
