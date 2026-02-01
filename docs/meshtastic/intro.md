@@ -1,8 +1,26 @@
-# Meshtastic im Rheinland
-
+# Willkommen
 Willkommen auf der Info-Seite für Meshtastic Nutzer im Rheinland. Du findest hier den Schnellstart, die in der Region genutzten Grundeinstellungen und die wichtigsten Links.
 
-Meshtastic wird im gesamten Rheinland eingesetzt – rund um Köln, Düsseldorf, Bonn, Aachen, Wuppertal, Leverkusen, Krefeld, Mönchengladbach sowie in den Kreisen Rhein‑Erft, Rhein‑Sieg, Rhein‑Berg, Rhein‑Kreis Neuss, Heinsberg, Düren, Euskirchen und dem Bergischen Land.
+Meshtastic ist ein offenes, community‑getragenes Mesh‑Funknetz, das mit kostengünstigen, energieeffizienten LoRa‑Geräten zuverlässige Kommunikation ganz ohne bestehende Infrastruktur ermöglicht. Die Geräte bilden ein dezentrales Netz, leiten Nachrichten automatisch weiter und verbinden so Menschen auch dort, wo Mobilfunk nicht mehr ausreicht. Als Open‑Source‑Projekt lebt Meshtastic von einer aktiven Community, die Software und Hardware kontinuierlich weiterentwickelt.
+Das Projekt nutzt das lizenzfreie LoRa‑Funkprotokoll, das in vielen Regionen ohne zusätzliche Genehmigungen betrieben werden kann. Jeder Knoten empfängt und leitet Nachrichten weiter, wodurch ein selbstheilendes Mesh entsteht: Fällt ein Knoten aus, nutzen die übrigen Geräte automatisch alternative Pfade, sodass Nachrichten zuverlässig ihr Ziel erreichen. Dadurch bleibt die Kommunikation auch bei Ausfällen oder in schwierigem Gelände stabil - ein klarer Vorteil, gerade im Rheinland. Geräte lassen sich per Bluetooth mit dem Smartphone koppeln oder autark mit Display und Tastatur betreiben - die Mesh‑Funktion bleibt dabei immer aktiv.
+
+Meshtastic verbindet robuste Funktechnik, große Reichweite und echten Datenschutz in einer unkomplizierten, kostengünstigen Plattform. Es lässt sich leicht ausprobieren und flexibel anpassen. Ob unabhängige Kommunikation ohne Mobilfunk, verlässliche Verbindungen in abgelegenen Gebieten oder eine vielseitige Basis für deine eigenen Projekte: Meshtastic bietet eine pragmatische Lösung. Verschlüsselte Nachrichten, lange Akkulaufzeiten und vielfältige Einsatzmöglichkeiten machen es ideal für Outdoor‑Touren, Notfälle und gemeinschaftliche Projekte.
+
+# Community Rheinland
+Die Community Rheinland bringt Menschen zusammen, die Meshtastic im Rheinland ausprobieren, verbessern und gemeinsam nutzen möchten. Bei unseren lokalen Treffen, im Austausch und bei Tests im Gelände teilen wir Erfahrungen, helfen bei der Hardware‑Auswahl und unterstützen dich bei der Konfiguration deiner Geräte.
+
+Egal ob du gerade erst anfängst oder schon tief im Thema steckst – bei uns bist du willkommen. Wenn du aus dem Rheinland kommst und Lust auf Austausch, Unterstützung oder gemeinsame Projekte hast, findest du hier genau die richtige Gruppe.
+
+Wenn du sehen möchtest, wo im Rheinland bereits Meshtastic‑Knoten aktiv sind, wirf einen Blick auf unsere [Übersichtskarte](https://map.meshrheinland.de/). 
+
+Dort findest du unter anderem Köln, Düsseldorf, Bonn, Aachen, Wuppertal, Leverkusen, Krefeld, Mönchengladbach, den Rhein-Kreis-Neuss, Solingen, Remscheid, Bergisch Gladbach und viele weitere Kreise - das Rheinland‑Mesh wächst stetig.
+
+Tritt unserer WhatsApp‑Community bei: Scanne einfach den QR‑Code und komm direkt dazu. Dort verabreden wir Treffen, teilen Tipps, unterstützen dich bei der Auswahl der passenden Hardware und helfen uns gegenseitig weiter.
+
+<img src="https://raw.githubusercontent.com/Neukirchener/website/main/docs/meshtastic/wa.svg" 
+     alt="wa" width="240" height="240">
+ 
+[Link](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi)
 
 ## TL;DR
 
