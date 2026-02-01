@@ -13,7 +13,7 @@ Für den Start benötigst du lediglich:
 ## Meshtastic Web Flasher
 Im nächsten Schritt verbindest du das Gerät per USB mit deinem Computer. Anschließend öffnest du im Browser den [Meshtastic Web‑Flasher](https://flasher.meshtastic.org).
 
-![Meshtastic WebFlasher](https://raw.githubusercontent.com/Neukirchener/website/refs/heads/main/docs/meshtastic/MeshtasticWebFlasher.png)
+![Meshtastic WebFlasher](/img/meshtastic/meshtastic-web-flasher.png)
 
 
 1. Gerät: Wähle das passende Modell aus. Die Filterkategorien helfen dir dabei, die Auswahl schnell einzugrenzen.
