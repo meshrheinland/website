@@ -17,8 +17,7 @@ Dort findest du unter anderem Köln, Düsseldorf, Bonn, Aachen, Wuppertal, Lever
 
 Tritt unserer WhatsApp‑Community bei: Scanne einfach den QR‑Code und komm direkt dazu. Dort verabreden wir Treffen, teilen Tipps, unterstützen dich bei der Auswahl der passenden Hardware und helfen uns gegenseitig weiter.
 
-<img src="https://raw.githubusercontent.com/Neukirchener/website/main/docs/meshtastic/wa.svg" 
-     alt="wa" width="240" height="240">
+BILD
  
 [Link](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi)
 
