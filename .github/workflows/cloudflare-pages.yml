@@ -3,17 +3,26 @@ name: Deploy to Cloudflare Pages
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  pull_request_target:
+    types: [opened, synchronize, reopened]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # pull_request for internal PRs (has secrets), pull_request_target for forks
+    if: >
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository)
     permissions:
       contents: read
       pull-requests: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout PR head
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
