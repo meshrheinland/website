@@ -33,3 +33,7 @@ Am unteren Rand der Seite findest du hilfreiche Links, unter anderem zu den Spra
 
 Nach dem Flashen startet das Gerät einmal neu. Warte einige Sekunden, bis es im Web‑Client erscheint. Möchtest du stattdessen mit der App oder dem CLI fortfahren, folge der entsprechenden Anleitung weiter unten.
 :::
+
+## Nächster Schritt
+
+Firmware installiert? Weiter zu den [Grundeinstellungen](grundeinstellungen).
