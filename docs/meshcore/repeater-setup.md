@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Repeater-Setup
 
 Ein Repeater erweitert die Reichweite des MeshCore-Netzwerks, indem er Nachrichten weiterleitet. Diese Anleitung erklärt die wichtigsten Einstellungen und wie du Node-ID-Kollisionen mit benachbarten Repeatern vermeidest.

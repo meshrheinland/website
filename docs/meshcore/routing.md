@@ -1,7 +1,3 @@
----
-sidebar_position: 5
----
-
 # Routing
 
 Diese Seite erklärt, wie MeshCore-Repeater Nachrichten weiterleiten, wie Flooding funktioniert und welche Rolle Timing dabei spielt.

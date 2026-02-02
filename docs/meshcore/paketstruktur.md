@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # Paketstruktur
 
 Diese Seite erklärt den Aufbau eines MeshCore-Pakets auf Bit- und Byte-Ebene – vom LoRa-Funkpaket bis zum Mesh-Protokoll.

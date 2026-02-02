@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # MeshCore im Rheinland
 
 MeshCore ist ein LoRa-basiertes Mesh-Netzwerk mit Fokus auf präzise Nachrichtenzustellung und minimalem Funkverkehr. Im Gegensatz zu Meshtastic unterscheidet MeshCore zwischen Infrastruktur (Repeater/Room Server) und Anwendern (Companion).

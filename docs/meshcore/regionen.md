@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Regionen
 
 Regionen sind geografische Bereiche, die in MeshCore verwendet werden, um die Weiterleitung von Nachrichten auf definierte Gebiete zu begrenzen. Dies verhindert unkontrolliertes Flooding und entlastet das Netzwerk.
