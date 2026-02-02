@@ -7,7 +7,7 @@ sidebar_position: 3
 Nach dem Flashen der Firmware verbindest du dich per App oder Web‑Client mit deinem Gerät und nimmst die folgenden Einstellungen vor.
 
 :::warning Lokale Vorschriften
-Bitte beachte lokale Funkrichtlinien (z. B. Duty Cycle im 868‑MHz‑Band). Stelle in Meshtastic die richtige Region ein und nutze angemessene Sendeleistung. Details siehe [Radio‑Konfiguration](https://meshtastic.org/docs/configuration/radio/) in der Meshtastic‑Doku.
+Bitte beachte lokale Funkrichtlinien (z. B. Duty Cycle im 868‑MHz‑Band). Stelle die Region auf EU868 und achte darauf, dass Sendeleistung plus Antennengewinn die erlaubten 27 dBm nicht überschreiten.
 :::
 
 ## Region: EU868
