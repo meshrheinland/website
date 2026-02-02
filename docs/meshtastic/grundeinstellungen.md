@@ -19,15 +19,22 @@ Stelle als Erstes die Region auf **EU868** (Europa/Deutschland):
 
 ## Modem‑Preset: ShortSlow
 
-Im Rheinland nutzen wir einheitlich das Modem‑Profil **ShortSlow**. Das sorgt für gute Reichweite bei vertretbarem Durchsatz und erleichtert die Interoperabilität im Mesh.
+Im Rheinland nutzen wir das Modem‑Profil **ShortSlow**. Das ist wichtig, denn Geräte mit unterschiedlichen Presets können sich **nicht gegenseitig hören** – ein Gerät auf LongFast und eines auf ShortSlow sprechen aneinander vorbei, als wären sie in getrennten Netzen.
 
-:::info Warum ShortSlow im Rheinland?
-- **Getestet und bewährt:** In mehreren Community-Tests als optimal ermittelt
-- **Nicht der Standard:** Wichtig für neue Nutzer – NICHT die Meshtastic-Standardeinstellung verwenden!
-- **Rheinland-optimiert:** Robuste Reichweite in urbanen und hügeligen Gebieten
-- **Mesh-Performance:** Geringe Airtime, bessere Netzwerk-Durchdringung
-- **Community-Standard:** Einheitliche Basis für alle 200+ Mitglieder
+:::warning Nicht der Standard
+ShortSlow ist nicht die Meshtastic-Standardeinstellung – bitte aktiv umstellen!
 :::
+
+**Du wohnst ländlich und hast noch keine Verbindung?**
+
+In dünn besiedelten Gebieten ist der Weg zum nächsten Knoten manchmal weit. Trotzdem lohnt sich ShortSlow:
+
+- **Jeder neue Knoten hilft** – dein Gerät kann die Brücke für andere werden
+- **Das Netz wächst** – was heute eine Lücke ist, kann morgen geschlossen sein
+- **ShortSlow verbindet** – nur so erreichst du das gesamte Mesh Rheinland
+- **Gemeinsam skalierbar** – ShortSlow nutzt weniger Airtime und lässt Raum für ein großes Netz
+
+Hast du Ideen für einen Standort, der eine Lücke schließen könnte? Melde dich in der Community – gemeinsam finden wir Lösungen!
 
 So stellst du es ein:
 
