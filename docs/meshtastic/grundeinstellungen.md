@@ -7,15 +7,15 @@ sidebar_position: 3
 Nach dem Flashen der Firmware verbindest du dich per App oder Web‑Client mit deinem Gerät und nimmst die folgenden Einstellungen vor.
 
 :::warning Lokale Vorschriften
-Bitte beachte lokale Funkrichtlinien (z. B. Duty Cycle im 868‑MHz‑Band). Stelle in Meshtastic die richtige Region ein und nutze angemessene Sendeleistung. Details siehe [Radio‑Konfiguration](https://meshtastic.org/docs/configuration/radio/) in der Meshtastic‑Doku.
+Bitte beachte lokale Funkrichtlinien (z. B. Duty Cycle im 868‑MHz‑Band). Stelle in Meshtastic die richtige Region ein und nutze nicht mehr als die erlaubte Sendeleistung von 0,5W / 27 dBm.
 :::
 
 ## Region: EU868
 
 Stelle als Erstes die Region auf **EU868** (Europa/Deutschland):
 
-1. In der App: Geräteeinstellungen → LoRa/Modem
-2. Region/Band: **EU868** auswählen und speichern
+1. In der App: Einstellungen → Geräteeinstellungen → LoRa
+2. Region: **European Union 868MHz** auswählen und speichern
 
 ## Modem‑Preset: ShortSlow
 
@@ -31,7 +31,7 @@ Im Rheinland nutzen wir einheitlich das Modem‑Profil **ShortSlow**. Das sorgt 
 
 So stellst du es ein:
 
-1. In der App: Geräteeinstellungen → LoRa/Modem
+1. In der App: Einstellungen → Geräteeinstellungen → LoRa
 2. „Modem Preset": **ShortSlow** auswählen und speichern
 
 Mehr Hintergründe: [Radio‑Konfiguration (Modem‑Parameter)](https://meshtastic.org/docs/configuration/radio/)
