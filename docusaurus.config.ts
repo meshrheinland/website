@@ -85,7 +85,7 @@ const config: Config = {
       title: 'Mesh Rheinland',
       logo: {
         alt: 'Mesh Rheinland Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {
