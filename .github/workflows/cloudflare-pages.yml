@@ -54,6 +54,7 @@ jobs:
         env:
           EDIT_BRANCH: ${{ github.event.pull_request.head.ref }}
           EDIT_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          SITE_URL: https://pr-${{ github.event.pull_request.number }}.meshrheinland.pages.dev
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3

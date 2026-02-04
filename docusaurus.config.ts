@@ -6,6 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const editRepo = process.env.EDIT_REPO || 'meshrheinland/website';
 const editBranch = process.env.EDIT_BRANCH || 'main';
+const siteUrl = process.env.SITE_URL || 'https://www.meshrheinland.de';
 
 const config: Config = {
   title: 'Mesh Rheinland',
@@ -18,7 +19,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://meshrheinland.de',
+  url: siteUrl,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
