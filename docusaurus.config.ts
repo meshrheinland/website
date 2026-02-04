@@ -81,8 +81,7 @@ const config: Config = {
   },
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -90,7 +89,7 @@ const config: Config = {
       title: 'Mesh Rheinland',
       logo: {
         alt: 'Mesh Rheinland Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {
