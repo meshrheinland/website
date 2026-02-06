@@ -57,7 +57,7 @@ In der Regionen-Ansicht kannst du über das **"+"** oben rechts neue Regionen zu
 
 </div>
 
-*Beispiel: Die Regionen-Liste mit #bonn, #de, #nrw und #rheinland*
+*Beispiel: Die Regionen-Liste mit #bonn, #de, #de-nw und #rheinland*
 
 ### Scope einem Kanal zuweisen
 
