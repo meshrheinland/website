@@ -30,14 +30,10 @@ Der gewählte Scope beeinflusst nur deine gesendeten Nachrichten. Empfangen kann
 In der Mesh Rheinland Community verwenden wir derzeit folgende Regionen:
 
 - `#de` – Deutschland
-- `#nrw` – Nordrhein-Westfalen
+- `#de-nw` – Nordrhein-Westfalen
 - `#rheinland` – Rheinland
 - `#bonn` – Bonn
 - `#koeln` – Köln
-
-:::info Eingeschränkte Regionenliste
-Wir bewerben derzeit **nur** die oben genannten Regionen. Die Community sondiert noch alle Möglichkeiten für Regionen und Schemas.
-:::
 
 ## Companion-Nutzer: Regionen in der App verwenden
 
@@ -103,8 +99,8 @@ Regionen werden über die CLI des Repeaters konfiguriert (USB, Seriell oder Remo
 region put #de
 region allowf #de
 
-region put #nrw
-region allowf #nrw
+region put #de-nw
+region allowf #de-nw
 
 region put #rheinland
 region allowf #rheinland
@@ -141,10 +137,6 @@ Die Community hat erkannt: **„Es wird nicht das eine Schema geben, was jeder v
 
 Zu feinkörnige Aufteilungen sind kontraproduktiv. Landschaften und Metropolregionen (beispielsweise `#rhein-main`) sind oft sinnvoller als starre Verwaltungsgrenzen.
 
-:::info Laufende Diskussion
-Die Community sondiert noch alle Möglichkeiten für Regionen und Schemas. Beteilige dich an der Diskussion im [MeshCore Wiki DE](https://meshcore-de.fyi/meshcore:allgemeines:regions) im Abschnitt **Diskussion**.
-:::
-
 ### Basis-Schema (ISO 3166-2)
 
 Als empfohlenes grundlegendes Schema für Deutschland:
@@ -155,14 +147,6 @@ Als empfohlenes grundlegendes Schema für Deutschland:
 - `#de-he` – Hessen
 - `#de-nw` – Nordrhein-Westfalen
 - ... (weitere Bundesländer nach ISO 3166-2)
-
-## Weitere Informationen
-
-Detaillierte Informationen zu Regionen, Schemas und der laufenden Community-Diskussion findest du im offiziellen Wiki:
-
-**[MeshCore Wiki DE: Regionen](https://meshcore-de.fyi/meshcore:allgemeines:regions)**
-
-Besonders interessant ist der **Diskussions-Abschnitt**, in dem verschiedene Ansätze und ihre Vor- und Nachteile erörtert werden.
 
 ## Ressourcen
 
