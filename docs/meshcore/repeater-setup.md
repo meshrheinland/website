@@ -20,7 +20,7 @@ Nach dem Flashen kannst du deinen Repeater über die Web-Oberfläche konfigurier
 
 #### Name & Standort
 
-**Name**: Wähle einen aussagekräftigen Namen (z.B. "DE-BN-53225 Beuel")
+**Name**: Wähle einen aussagekräftigen Namen (z.B. "DE-NW Bonn-Beuel")
 
 **Latitude / Longitude**:
 
