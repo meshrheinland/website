@@ -8,20 +8,78 @@ Empfohlene LoRa-Geräte für Meshtastic und MeshCore im Rheinland.
 
 ## Heltec Mesh Node T114
 
-_Inhalt folgt_
+| Eigenschaft | Details |
+|---|---|
+| Preis | ~30–40 € |
+| MCU | Nordic nRF52840 |
+| LoRa | SX1262, 868 MHz (EU), 22 dBm Sendeleistung |
+| Konnektivität | Bluetooth 5.0 (kein WiFi) |
+| Display | 0.96" OLED |
+| Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
+| Formfaktor | Kompakt, gut für mobile Nutzung |
+
+Stromsparender Einsteiger-Node dank nRF52840. Kein WiFi, daher kein MQTT-Bridge-Betrieb. Ideal als tragbares Gerät oder für stationären Betrieb. Dank des geringen Stromverbrauchs sehr beliebt für Solarbetrieb.
+
+---
 
 ## Heltec V3
 
-_Inhalt folgt_
+| Eigenschaft | Details |
+|---|---|
+| Preis | ~20–25 € |
+| MCU | Espressif ESP32-S3 |
+| LoRa | SX1262, 868 MHz (EU), 22 dBm Sendeleistung |
+| Konnektivität | WiFi 2.4 GHz + Bluetooth 5.0 |
+| Display | 0.96" OLED |
+| Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
+| Formfaktor | Kompakt |
+
+Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes im Netz — gut unterstützt, viele Anleitungen verfügbar.
+
+---
 
 ## Heltec V4
 
-_Inhalt folgt_
+| Eigenschaft | Details |
+|---|---|
+| Preis | ~25–30 € |
+| MCU | Espressif ESP32-S3 |
+| LoRa | SX1262 + PA, 868 MHz (EU), bis zu 27 dBm Sendeleistung |
+| Konnektivität | WiFi 2.4 GHz + Bluetooth 5.0 |
+| Display | 0.96" OLED |
+| Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
+| Formfaktor | Kompakt |
 
-## Seeed Studio Xiao nRF52 WIO
+Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
 
-_Inhalt folgt_
+---
+
+## Seeed Studio Xiao nRF52840 WIO
+
+| Eigenschaft | Details |
+|---|---|
+| Preis | ~35–45 € |
+| MCU | Nordic nRF52840 |
+| LoRa | Wio-SX1262, 868 MHz (EU), 22 dBm Sendeleistung |
+| Konnektivität | Bluetooth 5.0 (kein WiFi) |
+| Display | Keins (extern möglich) |
+| Akku | Li-Po Anschluss |
+| Formfaktor | Sehr kompakt (Briefmarkengröße) |
+
+Kleinstes verfügbares Format. XIAO-Board + Wio-SX1262-Modul werden kombiniert — einfaches Aufstecken, kein Löten notwendig. Kein Display serienmäßig, daher eher für stationären Betrieb geeignet.
+
+---
 
 ## RAK Wireless WisBlock
 
-_Inhalt folgt_
+| Eigenschaft | Details |
+|---|---|
+| Preis | ~50–80 € (Starter-Kit) |
+| MCU | Nordic nRF52840 (RAK4631) |
+| LoRa | SX1262, 868 MHz (EU), 22 dBm Sendeleistung |
+| Konnektivität | Bluetooth 5.0; WiFi über optionales Modul |
+| Display | Optional (Erweiterungsmodul) |
+| Akku | Li-Po Anschluss |
+| Formfaktor | Modular, industrietauglich |
+
+Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Solar). Höchste Flexibilität, aber auch höchster Preis und mehr Einarbeitungsaufwand. Empfehlenswert für Fortgeschrittene oder spezielle Anforderungen (z. B. Solarknoten, Wetterstation).
