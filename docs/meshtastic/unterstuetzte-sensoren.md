@@ -27,14 +27,14 @@ Für Nodes mit Akku oder Solar empfiehlt es sich, das Sendeintervall großzügig
 
 ## Unterstützte Sensorarten
 
-- Temperatur & Luftfeuchtigkeit: z. B. AHT10, BME280, SHT31
+- Temperatur und Luftfeuchtigkeit: z. B. AHT10, BME280, SHT31
 - Barometrischer Druck: z. B. BMP280, DPS310
-- Licht & UV: z. B. OPT3001, LTR390UV, BH1750
-- Strom & Spannung: z. B. INA219, INA260
+- Licht und UV: z. B. OPT3001, LTR390UV, BH1750
+- Strom und Spannung: z. B. INA219, INA260
 - CO₂: SCD4X
 - Regen: DFROBOT_RAIN
 - Partikel (Luftqualität): PMSA003I
-- Herzfrequenz & Körpertemperatur: MAX30102, MLX90614 (Health Metrics)
+- Herzfrequenz und Körpertemperatur: MAX30102, MLX90614 (Health Metrics)
 
 ## I²C‑Schnittstelle
 
@@ -58,7 +58,7 @@ Ein BME280 genügt für Temperatur, Luftfeuchtigkeit, Druck und Höhenschätzung
 Sensorwerte können durch **Körperwärme, direkte Sonneneinstrahlung oder Berührung** verfälscht werden.
 :::
 
-### Outdoor‑Einsatz & Gehäuse
+### Outdoor‑Einsatz und Gehäuse
 
 Temperatur‑ und Feuchtesensoren gehören in ein belüftetes Gehäuse (Stevenson‑Screen), UV‑Sensoren brauchen freie Sicht nach oben, Regenmesser müssen waagerecht stehen.
 
@@ -70,43 +70,43 @@ Feuchtigkeit im Gehäuse kann die Sensoren beeinflussen.
 
 | **Sensor** | **I²C‑Adresse** | **Messwerte** |
 |---|---|---|
-| AHT10, AHT20 | 0x38 | Temperatur, Luftfeuchtigkeit |
-| BMP085, BMP180 | 0x76, 0x77 | Temperatur, barometrischer Druck |
-| BMP280 | 0x76, 0x77 | Temperatur, barometrischer Druck |
-| BME280 | 0x76, 0x77 | Temperatur, barometrischer Druck, Luftfeuchtigkeit |
-| BMP388 | 0x76, 0x77 | Barometrischer Druck, Temperatur |
-| BMP390 | 0x76, 0x77 | Barometrischer Druck, Temperatur |
-| BME68x | 0x76, 0x77 | Temperatur, barometrischer Druck, Luftfeuchtigkeit, Luftwiderstand |
-| DPS310 | 0x76, 0x77 | Barometrischer Druck, Temperatur |
-| MCP9808 | 0x18 | Temperatur |
-| PCT2075 | 0x37 | Temperatur |
-| INA219 | 0x40, 0x41, 0x43 | Strom, Spannung |
-| INA226 | 0x40, 0x41, 0x43 | Strom, Spannung |
-| INA260 | 0x40, 0x41, 0x43 | Strom, Spannung |
-| INA3221 | 0x42 | 3‑Kanal Strom, Spannung |
-| LPS22 | 0x5C, 0x5D | Barometrischer Druck |
-| SHTC3 | 0x70 | Temperatur, Luftfeuchtigkeit |
-| SHT31 | 0x44, 0x45 | Temperatur, Luftfeuchtigkeit |
-| SHT4X | 0x44, 0x45 | Temperatur, Luftfeuchtigkeit |
-| OPT3001 | 0x44, 0x45 | Lichtintensität |
-| VEML7700 | 0x10 | Lichtintensität |
-| TSL2561 | 0x29 | Lichtintensität |
-| TSL2591 | 0x29 | Lichtintensität |
-| BH1750 | 0x23 | Lichtintensität |
-| LTR553ALS | 0x23 | Lichtintensität |
-| LTR390UV | 0x53 | UV‑Lichtintensität |
-| RCWL9620 | 0x57 | Ultraschall‑Entfernungssensor |
-| PMSA003I | 0x12 | Partikelkonzentration (PM2.5, PM10) |
-| SCD4X | 0x62 | CO₂, Temperatur, Luftfeuchtigkeit |
-| DFROBOT_LARK | 0x42 | Temperatur, barometrischer Druck, Luftfeuchtigkeit, Windrichtung, Windgeschwindigkeit |
-| DFROBOT_RAIN | 0x1D | Regenmesser (Tip Bucket) |
-| RadSens | 0x66 | Radioaktivitäts‑Dosimeter |
-| MAX30102 | 0x57 | Herzfrequenz, Sauerstoffsättigung |
-| MLX90614 | 0x5A | Körpertemperatur (IR) |
-| MLX90632 | 0x3A | Körpertemperatur (IR) |
-| NAU7802 | 0x2A | 24‑Bit‑Differenz‑ADC (Wägezellen) |
-| MAX17048 | 0x36 | Batterie‑Ladezustand |
-| CW2015 | 0x62 | Batterie‑Ladezustand |
-| RAK12035 | 0x20, 0x21, 0x22 | Bodenfeuchtigkeit, Bodentemperatur |
+| AHT10, AHT20 | `0x38` | Temperatur, Luftfeuchtigkeit |
+| BMP085, BMP180 | `0x76`, `0x77` | Temperatur, barometrischer Druck |
+| BMP280 | `0x76`, `0x77` | Temperatur, barometrischer Druck |
+| BME280 | `0x76`, `0x77` | Temperatur, barometrischer Druck, Luftfeuchtigkeit |
+| BMP388 | `0x76`, `0x77` | Barometrischer Druck, Temperatur |
+| BMP390 | `0x76`, `0x77` | Barometrischer Druck, Temperatur |
+| BME68x | `0x76`, `0x77` | Temperatur, barometrischer Druck, Luftfeuchtigkeit, Luftwiderstand |
+| DPS310 | `0x76`, `0x77` | Barometrischer Druck, Temperatur |
+| MCP9808 | `0x18` | Temperatur |
+| PCT2075 | `0x37` | Temperatur |
+| INA219 | `0x40`, `0x41`, `0x43` | Strom, Spannung |
+| INA226 | `0x40`, `0x41`, `0x43` | Strom, Spannung |
+| INA260 | `0x40`, `0x41`, `0x43` | Strom, Spannung |
+| INA3221 | `0x42` | 3‑Kanal Strom, Spannung |
+| LPS22 | `0x5C`, `0x5D` | Barometrischer Druck |
+| SHTC3 | `0x70` | Temperatur, Luftfeuchtigkeit |
+| SHT31 | `0x44`, `0x45` | Temperatur, Luftfeuchtigkeit |
+| SHT4X | `0x44`, `0x45` | Temperatur, Luftfeuchtigkeit |
+| OPT3001 | `0x44`, `0x45` | Lichtintensität |
+| VEML7700 | `0x10` | Lichtintensität |
+| TSL2561 | `0x29` | Lichtintensität |
+| TSL2591 | `0x29` | Lichtintensität |
+| BH1750 | `0x23` | Lichtintensität |
+| LTR553ALS | `0x23` | Lichtintensität |
+| LTR390UV | `0x53` | UV‑Lichtintensität |
+| RCWL9620 | `0x57` | Ultraschall‑Entfernungssensor |
+| PMSA003I | `0x12` | Partikelkonzentration (PM2.5, PM10) |
+| SCD4X | `0x62` | CO₂, Temperatur, Luftfeuchtigkeit |
+| DFROBOT_LARK | `0x42` | Temperatur, barometrischer Druck, Luftfeuchtigkeit, Windrichtung, Windgeschwindigkeit |
+| DFROBOT_RAIN | `0x1D` | Regenmesser (Tip Bucket) |
+| RadSens | `0x66` | Radioaktivitäts‑Dosimeter |
+| MAX30102 | `0x57` | Herzfrequenz, Sauerstoffsättigung |
+| MLX90614 | `0x5A` | Körpertemperatur (IR) |
+| MLX90632 | `0x3A` | Körpertemperatur (IR) |
+| NAU7802 | `0x2A` | 24‑Bit‑Differenz‑ADC (Wägezellen) |
+| MAX17048 | `0x36` | Batterie‑Ladezustand |
+| CW2015 | `0x62` | Batterie‑Ladezustand |
+| RAK12035 | `0x20`, `0x21`, `0x22` | Bodenfeuchtigkeit, Bodentemperatur |
 
 Eine aktuelle Übersicht zu den unterstützten Sensoren und Konfigurationsoptionen findet sich in der [Meshtastic‑Dokumentation zum Telemetry‑Modul](https://meshtastic.org/docs/configuration/module/telemetry/).
