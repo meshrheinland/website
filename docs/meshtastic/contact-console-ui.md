@@ -2,6 +2,8 @@
 
 Contact ist ein Terminal User Interface (TUI) für Meshtastic. Die textbasierte Oberfläche läuft vollständig im Terminal und eignet sich besonders für Headless-Systeme, Raspberry Pis und Remote-Server per SSH.
 
+![Contact Console UI](/img/meshtastic/contact-console-ui.png)
+
 Die Oberfläche ist in drei Bereiche aufgeteilt:
 
 1. Kanäle
@@ -15,7 +17,7 @@ Die Navigation erfolgt über die Pfeiltasten (<kbd>↑</kbd> <kbd>↓</kbd> <kbd
 
 ### Vorbereitung
 
-Die Installation über `pipx` hält Contact in einer isolierten Umgebung und vermeidet Konflikte mit Systempaketen. Falls `pipx` noch nicht installiert ist, siehe [Python CLI – Installation](python-cli#installation).
+Die Installation über `pipx` hält Contact in einer isolierten Umgebung und vermeidet Konflikte mit Systempaketen. Falls `pipx` noch nicht installiert ist, siehe [Python CLI – Installation](./python-cli.md#installation).
 
 ### Contact
 
@@ -63,17 +65,12 @@ Die Struktur orientiert sich an der offiziellen Meshtastic-App und umfasst unter
 - Kanal-Konfiguration
 - Geräteeinstellungen
 
-## Skripte
+## Automatisierung
 
-Contact lässt sich auch ohne TUI aus Skripten heraus nutzen, z. B. für regelmäßige Statusmeldungen per Cron:
-
-```bash
-#!/bin/bash
-contact --host 192.168.1.50 --send "Still alive."
-```
+Contact lässt sich auch ohne TUI verwenden, z. B. für regelmäßige Statusmeldungen per Cron:
 
 ```bash
-*/30 * * * * /home/user/scripts/status.sh
+*/30 * * * * ~/.local/bin/contact --host 192.168.1.50 --send "Still alive."
 ```
 
 ## Befehlsübersicht
@@ -108,4 +105,3 @@ contact --host 192.168.1.50 --send "Still alive."
 
 ## Links
 - [GitHub](https://github.com/pdxlocations/contact)
-- [pipx](https://wiki.ubuntuusers.de/pipx/)
