@@ -14,7 +14,7 @@ Die Rolle bestimmt, wie ein Node im Mesh agiert – ob er Nachrichten routet, Te
 | **CLIENT_MUTE** | Nur eigene Nachrichten, kein Routing | Mobile/portable Nodes, mehrere Geräte am selben Standort |
 | **CLIENT_HIDDEN** | Sendet nur bei Bedarf | Stealth, Energiesparen |
 | **CLIENT_BASE** | Bevorzugtes Rebroadcasting für/von favorisierte Nodes | Dachantenne mit definierten Favoriten |
-| **ROUTER** | Bricht Rebroadcast nie ab, reduzierte Telemetrie | Feste Infrastrukturknoten |
+| **ROUTER** | Rebroadcastet jede Nachricht zuverlässig, reduzierte Telemetrie | Feste Infrastrukturknoten |
 | **ROUTER\_LATE** | Wie ROUTER, aber mit spätem Zeitslot | Isolierte Mesh-Segmente ohne direkten Router-Sichtbereich |
 | **REPEATER** | Wie ROUTER, komplett unsichtbar (kein Remote-Admin möglich) | Unsichtbare Reichweitenerweiterung |
 | **SENSOR** | Priorisierte Telemetrieübertragung | Wetter-/Umweltsensoren |
@@ -39,11 +39,11 @@ Priorisiert das Routing von und zu favorisierten Nodes, alle anderen Pakete beha
 
 ### ROUTER
 
-Für fest installierte Knoten an strategischen Positionen (Dach, Turm, Mast). Bricht einen geplanten Rebroadcast nie ab – auch dann nicht, wenn ein anderer Node das Paket bereits weitergeleitet hat. Sendet weniger Telemetrie und „schneidet sich vor" beim Rebroadcasting. Wird in der Nodes-Liste angezeigt. Werden Router gegenseitig als Favoriten eingetragen, zählen Hops zwischen ihnen nicht gegen das Hop-Limit (**Zero-Cost Hops**).
+Für fest installierte Knoten an strategischen Positionen (Dach, Turm, Mast). Rebroadcastet jede Nachricht zuverlässig – auch dann, wenn ein anderer Node das Paket bereits weitergeleitet hat. Sendet weniger Telemetrie und „schneidet sich vor" beim Rebroadcasting. Wird in der Nodes-Liste angezeigt. Werden Router gegenseitig als Favoriten eingetragen, zählen Hops zwischen ihnen nicht gegen das Hop-Limit (**Zero-Cost Hops**).
 
 ### ROUTER\_LATE
 
-Wie ROUTER – bricht Rebroadcast nie ab – verwendet aber immer den späten Zeitslot, sodass ROUTER und andere höher priorisierte Nodes zuerst senden können. Geeignet für Standorte, die geografisch isolierte Mesh-Segmente anbinden (Tallagen, Funklöcher hinter Hügeln) – aber nur dort, wo kein normaler ROUTER die Verbindung übernehmen kann.
+Rebroadcastet jede Nachricht zuverlässig wie ROUTER, verwendet aber immer den späten Zeitslot, sodass ROUTER und andere höher priorisierte Nodes zuerst senden können. Geeignet für Standorte, die geografisch isolierte Mesh-Segmente anbinden (Tallagen, Funklöcher hinter Hügeln) – aber nur dort, wo kein normaler ROUTER die Verbindung übernehmen kann.
 
 :::warning Airtime beachten
 ROUTER_LATE erhöht die Gesamtairtime spürbar. ChUtil sollte unter 25 % und AirTxUtil unter 7–8 % bleiben. Für Dachknoten oder mobile Geräte ist CLIENT die bessere Wahl.
