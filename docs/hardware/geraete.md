@@ -83,3 +83,15 @@ Kleinstes verfügbares Format. XIAO-Board + Wio-SX1262-Modul werden kombiniert �
 | Formfaktor | Modular, industrietauglich |
 
 Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Solar). Höchste Flexibilität, aber auch höchster Preis und mehr Einarbeitungsaufwand. Empfehlenswert für Fortgeschrittene oder spezielle Anforderungen (z. B. Solarknoten, Wetterstation).
+
+---
+
+## Vergleich
+
+| Gerät | Display | WiFi | Akku-Anschluss | Solar-Anschluss | Sendeleistung |
+|---|---|---|---|---|---|
+| Heltec Mesh Node T114 | ✓ | ✗ | ✓ | ✓ | 22 dBm |
+| Heltec V3 | ✓ | ✓ | ✓ | ✗ | 22 dBm |
+| Heltec V4 | ✓ | ✓ | ✓ | ✓ | 27 dBm |
+| Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✓ | ✗ | 22 dBm |
+| RAK Wireless WisBlock | optional | optional | ✓ | optional | 22 dBm |
