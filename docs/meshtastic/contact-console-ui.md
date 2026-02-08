@@ -103,5 +103,10 @@ Contact lässt sich auch ohne TUI verwenden, z. B. für regelmäßige Statusmeld
 | <kbd>Ctrl</kbd> + <kbd>/</kbd> | Suche starten |
 | <kbd>Esc</kbd> | Menü schließen oder App beenden |
 
+## Alternativen
+
+[MiniMeshT](https://github.com/allanrbo/minimesht) ist ein weiterer Terminal-Client für Meshtastic – minimalistischer Ansatz, keine offiziellen Meshtastic-Bibliotheken, ca. 1.200 Zeilen Python, irssi-ähnliche Oberfläche.
+
 ## Links
 - [Quellcode auf GitHub (pdxlocations/contact)](https://github.com/pdxlocations/contact)
+- [MiniMeshT auf GitHub (allanrbo/minimesht)](https://github.com/allanrbo/minimesht)
