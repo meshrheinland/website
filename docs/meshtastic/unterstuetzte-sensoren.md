@@ -63,7 +63,7 @@ Sensorwerte können durch **Körperwärme, direkte Sonneneinstrahlung oder Berü
 Temperatur‑ und Feuchtesensoren gehören in ein belüftetes Gehäuse (Stevenson‑Screen), UV‑Sensoren brauchen freie Sicht nach oben, Regenmesser müssen waagerecht stehen.
 
 :::note Kondenswasser
-Feuchtigkeit im Gehäuse kann die Sensoren beeinflussen.
+Feuchtigkeit im Gehäuse kann die Sensoren beeinflussen. Gleichzeitig kann der Messwert helfen, Feuchtigkeit im Gehäuse zu identifizieren.
 :::
 
 ## Sensorübersicht
