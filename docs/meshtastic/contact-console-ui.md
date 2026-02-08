@@ -17,9 +17,9 @@ Die Navigation erfolgt über die Pfeiltasten (<kbd>↑</kbd> <kbd>↓</kbd> <kbd
 
 ### Vorbereitung
 
-Die Installation über `pipx` hält Contact in einer isolierten Umgebung und vermeidet Konflikte mit Systempaketen. Falls `pipx` noch nicht installiert ist, siehe [Python CLI – Installation](./python-cli.md#installation).
+Die Installation mittels `pipx` hält Contact in einer isolierten Umgebung und vermeidet Konflikte mit Systempaketen. Falls `pipx` noch nicht installiert ist, siehe [Python CLI – Installation](./python-cli.md#installation).
 
-### Contact
+### Installieren
 
 ```bash
 pipx install contact
@@ -104,4 +104,4 @@ Contact lässt sich auch ohne TUI verwenden, z. B. für regelmäßige Statusmeld
 | <kbd>Esc</kbd> | Menü schließen oder App beenden |
 
 ## Links
-- [GitHub](https://github.com/pdxlocations/contact)
+- [Quellcode auf GitHub (pdxlocations/contact)](https://github.com/pdxlocations/contact)
