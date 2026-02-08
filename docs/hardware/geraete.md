@@ -20,7 +20,6 @@ Empfohlene LoRa-Geräte für Meshtastic und MeshCore im Rheinland.
 
 Stromsparender Einsteiger-Node dank nRF52840. Kein WiFi, daher kein MQTT-Bridge-Betrieb. Ideal als tragbares Gerät oder für stationären Betrieb. Dank des geringen Stromverbrauchs sehr beliebt für Solarbetrieb.
 
----
 
 ## Heltec V3
 
@@ -36,7 +35,6 @@ Stromsparender Einsteiger-Node dank nRF52840. Kein WiFi, daher kein MQTT-Bridge-
 
 Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes im Netz — gut unterstützt, viele Anleitungen verfügbar.
 
----
 
 ## Heltec V4
 
@@ -52,7 +50,6 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 
 Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
 
----
 
 ## Seeed Studio Xiao nRF52840 WIO
 
@@ -68,7 +65,6 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 
 Kleinstes verfügbares Format. XIAO-Board + Wio-SX1262-Modul werden kombiniert — einfaches Aufstecken, kein Löten notwendig. Kein Display serienmäßig, daher eher für stationären Betrieb geeignet.
 
----
 
 ## RAK Wireless WisBlock
 
@@ -84,7 +80,6 @@ Kleinstes verfügbares Format. XIAO-Board + Wio-SX1262-Modul werden kombiniert �
 
 Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Solar). Höchste Flexibilität, aber auch höchster Preis und mehr Einarbeitungsaufwand. Empfehlenswert für Fortgeschrittene oder spezielle Anforderungen (z. B. Solarknoten, Wetterstation).
 
----
 
 ## Vergleich
 
