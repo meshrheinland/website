@@ -5,10 +5,11 @@ Contact ist ein Terminal User Interface (TUI) für Meshtastic. Die textbasierte 
 Die Oberfläche ist in drei Bereiche aufgeteilt:
 
 1. Kanäle
-2. Nachrichtenfenster
+2. Nachrichtenverlauf
 3. Nodes im Mesh
+4. Eingabefeld
 
-Die Navigation erfolgt über die Pfeiltasten, Aktionen werden mit Enter ausgelöst. Empfangene Nachrichten und Node-Infos werden in einer lokalen SQLite-Datenbank (`client.db`) gespeichert und beim nächsten Start wiederhergestellt.
+Die Navigation erfolgt über die Pfeiltasten (<kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd>), Aktionen werden mit <kbd>Enter</kbd> ausgelöst. Empfangene Nachrichten und Node-Infos werden in einer lokalen SQLite-Datenbank (`client.db`) gespeichert und beim nächsten Start wiederhergestellt.
 
 ## Installation
 
@@ -91,20 +92,20 @@ contact --host 192.168.1.50 --send "Still alive."
 
 | Taste | Beschreibung |
 |---|---|
-| `↑` `↓` `←` `→` | Navigation |
-| `F1` / `F2` / `F3` | Zu Kanälen / Nachrichten / Nodes springen |
-| `ENTER` | Nachricht senden oder Node für DM auswählen |
-| `` ` `` oder `F12` | Einstellungen öffnen |
-| `CTRL+K` | Befehlsliste anzeigen |
-| `CTRL+P` | Paket-Log ein/ausblenden |
-| `CTRL+T` oder `F4` | Traceroute zu einer Node |
-| `F5` | Node-Info anzeigen |
-| `CTRL+F` | Node als Favorit markieren |
-| `CTRL+G` | Node ignorieren |
-| `CTRL+D` | Chat archivieren oder Node entfernen |
-| `CTRL+/` | Suche starten |
-| `ESC` | Menü schließen oder App beenden |
+| <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> | Navigation |
+| <kbd>F1</kbd> / <kbd>F2</kbd> / <kbd>F3</kbd> | Zu Kanälen / Nachrichten / Nodes springen |
+| <kbd>Enter</kbd> | Nachricht senden oder Node für DM auswählen |
+| <kbd>`</kbd> oder <kbd>F12</kbd> | Einstellungen öffnen |
+| <kbd>Ctrl</kbd> + <kbd>K</kbd> | Befehlsliste anzeigen |
+| <kbd>Ctrl</kbd> + <kbd>P</kbd> | Paket‑Log ein/ausblenden |
+| <kbd>Ctrl</kbd> + <kbd>T</kbd> oder <kbd>F4</kbd> | Traceroute zu einer Node |
+| <kbd>F5</kbd> | Node‑Info anzeigen |
+| <kbd>Ctrl</kbd> + <kbd>F</kbd> | Node als Favorit markieren |
+| <kbd>Ctrl</kbd> + <kbd>G</kbd> | Node ignorieren |
+| <kbd>Ctrl</kbd> + <kbd>D</kbd> | Chat archivieren oder Node entfernen |
+| <kbd>Ctrl</kbd> + <kbd>/</kbd> | Suche starten |
+| <kbd>Esc</kbd> | Menü schließen oder App beenden |
 
 ## Links
-
 - [GitHub](https://github.com/pdxlocations/contact)
+- [pipx](https://wiki.ubuntuusers.de/pipx/)
