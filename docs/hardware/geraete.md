@@ -48,7 +48,7 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 | Konnektivität | WiFi 2.4 GHz + Bluetooth 5.0 |
 | Display | 0.96" OLED |
 | Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
-| GPS | ✗ |
+| GPS | Optional (L76K GNSS) |
 | Formfaktor | Kompakt |
 
 Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
@@ -92,6 +92,6 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 |---|---|---|---|---|---|---|
 | Heltec Mesh Node T114 | ✓ | ✗ | optional | ✓ | ✓ | 22 dBm |
 | Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
-| Heltec V4 | ✓ | ✓ | ✗ | ✓ | ✓ | 27 dBm |
+| Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 27 dBm |
 | Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✗ | ✓ | ✗ | 22 dBm |
 | RAK Wireless WisBlock | optional | optional | optional | ✓ | optional | 22 dBm |
