@@ -8,20 +8,17 @@ Liebe Funkamateure und Hobbyfunker,
 
 am **Samstag, den 21. Februar 2026**, führt der DARC Distrikt G eine Notfunkübung durch, an der alle Funkamateure und Hobbyfunker herzlich eingeladen sind teilzunehmen.
 
-<div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-
 ## Hintergrund und Konzept
-
-<div style={{flexShrink: 0, marginLeft: '20px'}}>
-
-![DARC Notfunk Logo](/img/darc-notfunk-logo.png)
-
-</div>
-</div>
 
 Aufgrund des kürzlichen Stromausfalls in Berlin haben wir das Übungskonzept für den Großraum Bonn **an aktuelle Erkenntnisse angepasst und erweitert**. **Wichtig:** Es werden keine simulierten Notmeldungen abgesetzt! Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungseffekt ist gewollt und Teil des Trainings.
 
 ## Teilnahme und Funkbereiche
+
+<div style={{textAlign: 'right'}}>
+
+![DARC Notfunk Logo](/img/darc-notfunk-logo.png)
+
+</div>
 
 **Allgemein (Großraum Aachen – Köln – Bonn):**
 - Amateurfunk (primär 2m FM)
@@ -70,5 +67,5 @@ Alle Funkamateure und Hobbyfunker sind willkommen – unabhängig von Erfahrung 
 
 73 und viel Erfolg bei der Notfunkübung!
 
-*Mathias, DL3KE*
+*Mathias, DL3KE*<br/>
 *Notfunkreferent DARC Distrikt G, Notfunk Bonn*
