@@ -14,7 +14,7 @@ Aufgrund des kürzlichen Stromausfalls in Berlin haben wir das Übungskonzept f�
 
 ## Teilnahme und Funkbereiche
 
-<img src="/img/darc-notfunk-logo.png" alt="DARC Notfunk Logo" style={{float: 'right', padding: '0 0 20px 20px'}} />
+<img src="/img/darc-notfunk-logo.png" alt="DARC Notfunk Logo" style={{float: 'right', padding: '0 0 30px 30px'}} />
 
 **Allgemein (Großraum Aachen – Köln – Bonn):**
 - Amateurfunk (primär 2m FM)
