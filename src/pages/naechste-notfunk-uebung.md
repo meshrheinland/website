@@ -10,7 +10,11 @@ am **Samstag, den 21. Februar 2026**, führt der DARC Distrikt G eine Notfunküb
 
 ## Hintergrund und Konzept
 
-Aufgrund des kürzlichen Stromausfalls in Berlin haben wir das Übungskonzept für den Großraum Bonn **an aktuelle Erkenntnisse angepasst und erweitert**. **Wichtig:** Es werden keine simulierten Notmeldungen abgesetzt! Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungseffekt ist gewollt und Teil des Trainings.
+Aufgrund des kürzlichen Stromausfalls in Berlin haben wir das Übungskonzept für den Großraum Bonn **an aktuelle Erkenntnisse angepasst und erweitert**.
+
+**Wichtig:** Es werden keine simulierten Notmeldungen abgesetzt!
+
+Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungseffekt ist gewollt und Teil des Trainings.
 
 ## Teilnahme und Funkbereiche
 
@@ -49,7 +53,6 @@ Während der Übung können verschiedene praxisnahe Fragen gestellt werden, beis
 - Ist eine aktuelle BBK-Broschüre (Bundesamt für Bevölkerungsschutz) vorhanden?
 - Wie lautet die Adresse der nächsten Feuerwache?
 - Wie viele Tage kannst du bei Stromausfall funken?
-- Ist Kochen ohne Strom möglich?
 
 **Hinweis:** Bereitet euch darauf vor, Straßennamen zu buchstabieren!
 
