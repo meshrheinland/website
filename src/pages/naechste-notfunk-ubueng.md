@@ -4,7 +4,7 @@ title: Notfunkübung des DARC Distrikt G am 21. Februar 2026
 
 # Notfunkübung des DARC Distrikt G am 21. Februar 2026
 
-<div style="text-align: right;">
+<div style={{textAlign: 'right'}}>
 
 ![DARC Notfunk Logo](/img/darc-notfunk-logo.png)
 
