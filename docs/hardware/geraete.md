@@ -16,6 +16,7 @@ Empfohlene LoRa-Geräte für Meshtastic und MeshCore im Rheinland.
 | Konnektivität | Bluetooth 5.0 (kein WiFi) |
 | Display | 0.96" OLED |
 | Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
+| GPS | Optional |
 | Formfaktor | Kompakt, gut für mobile Nutzung |
 
 Stromsparender Einsteiger-Node dank nRF52840. Kein WiFi, daher kein MQTT-Bridge-Betrieb. Ideal als tragbares Gerät oder für stationären Betrieb. Dank des geringen Stromverbrauchs sehr beliebt für Solarbetrieb.
@@ -31,6 +32,7 @@ Stromsparender Einsteiger-Node dank nRF52840. Kein WiFi, daher kein MQTT-Bridge-
 | Konnektivität | WiFi 2.4 GHz + Bluetooth 5.0 |
 | Display | 0.96" OLED |
 | Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
+| GPS | ✗ |
 | Formfaktor | Kompakt |
 
 Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes im Netz — gut unterstützt, viele Anleitungen verfügbar.
@@ -46,6 +48,7 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 | Konnektivität | WiFi 2.4 GHz + Bluetooth 5.0 |
 | Display | 0.96" OLED |
 | Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
+| GPS | ✗ |
 | Formfaktor | Kompakt |
 
 Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
@@ -61,6 +64,7 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 | Konnektivität | Bluetooth 5.0 (kein WiFi) |
 | Display | Keins (extern möglich) |
 | Akku | Li-Po Anschluss |
+| GPS | ✗ |
 | Formfaktor | Sehr kompakt (Briefmarkengröße) |
 
 Kleinstes verfügbares Format. XIAO-Board + Wio-SX1262-Modul werden kombiniert — einfaches Aufstecken, kein Löten notwendig. Kein Display serienmäßig, daher eher für stationären Betrieb geeignet.
@@ -76,6 +80,7 @@ Kleinstes verfügbares Format. XIAO-Board + Wio-SX1262-Modul werden kombiniert �
 | Konnektivität | Bluetooth 5.0; WiFi über optionales Modul |
 | Display | Optional (Erweiterungsmodul) |
 | Akku | Li-Po Anschluss |
+| GPS | Optional (RAK1910 Modul) |
 | Formfaktor | Modular, industrietauglich |
 
 Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Solar). Höchste Flexibilität, aber auch höchster Preis und mehr Einarbeitungsaufwand. Empfehlenswert für Fortgeschrittene oder spezielle Anforderungen (z. B. Solarknoten, Wetterstation).
@@ -83,10 +88,10 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 
 ## Vergleich
 
-| Gerät | Display | WiFi | Akku-Anschluss | Solar-Anschluss | Sendeleistung |
-|---|---|---|---|---|---|
-| Heltec Mesh Node T114 | ✓ | ✗ | ✓ | ✓ | 22 dBm |
-| Heltec V3 | ✓ | ✓ | ✓ | ✗ | 22 dBm |
-| Heltec V4 | ✓ | ✓ | ✓ | ✓ | 27 dBm |
-| Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✓ | ✗ | 22 dBm |
-| RAK Wireless WisBlock | optional | optional | ✓ | optional | 22 dBm |
+| Gerät | Display | WiFi | GPS | Akku-Anschluss | Solar-Anschluss | Sendeleistung |
+|---|---|---|---|---|---|---|
+| Heltec Mesh Node T114 | ✓ | ✗ | optional | ✓ | ✓ | 22 dBm |
+| Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
+| Heltec V4 | ✓ | ✓ | ✗ | ✓ | ✓ | 27 dBm |
+| Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✗ | ✓ | ✗ | 22 dBm |
+| RAK Wireless WisBlock | optional | optional | optional | ✓ | optional | 22 dBm |
