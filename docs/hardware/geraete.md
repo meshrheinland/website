@@ -16,7 +16,7 @@ Empfohlene LoRa-Geräte für Meshtastic und MeshCore im Rheinland.
 | Konnektivität | Bluetooth 5.0 (kein WiFi) |
 | Display | 0.96" OLED |
 | Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
-| GPS | Optional |
+| GPS | Optional (L76K GNSS) |
 | Formfaktor | Kompakt, gut für mobile Nutzung |
 
 Stromsparender Einsteiger-Node dank nRF52840. Kein WiFi, daher kein MQTT-Bridge-Betrieb. Ideal als tragbares Gerät oder für stationären Betrieb. Dank des geringen Stromverbrauchs sehr beliebt für Solarbetrieb.
