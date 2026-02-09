@@ -29,19 +29,19 @@ Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungse
 - Meshtastic
 - MeshCore 🎉
 
-Die Leitstelle auf der **Burg Limperich** ist unter dem Rufzeichen **DL0OV auf 144.675 MHz** QRV. Zudem wird das **Notfunkrelais DB0DBN** der IGFS im Siebengebirge bespielt.
+Die Leitstelle auf der **Burg Limperich** ist unter dem Rufzeichen **DLØOV auf 144.675 MHz** QRV. Zudem wird das **Notfunkrelais DBØDBN** der IGFS im Siebengebirge bespielt.
 
 ## Zeitplan für den Großraum Bonn
 
 Die angegebenen Zeiten dienen als Orientierung und können je nach Übungslage variieren:
 
-**14:00 – 14:30 Uhr:** Kontaktaufnahme mit DL0OV auf 144.675 MHz
+**14:00 – 14:30 Uhr:** Kontaktaufnahme mit DLØOV auf 144.675 MHz
 Austausch von Rapporten und Klärung eventueller Rückfragen
 
-**14:40 – 15:00 Uhr:** Kontaktaufnahme mit DL0OV über das Notfunkrelais DB0DBN der IGFS im Siebengebirge
+**14:40 – 15:00 Uhr:** Kontaktaufnahme mit DLØOV über das Notfunkrelais DBØDBN der IGFS im Siebengebirge
 
 **15:10 – 15:45 Uhr:** Notfunkübung über Meshtastic/MeshCore
-Bearbeitung von Aufgaben und Rückfragen der Leitstelle DL0OV
+Bearbeitung von Aufgaben und Rückfragen der Leitstelle DLØOV
 
 ## Beispielhafte Aufgabenstellungen
 
