@@ -18,7 +18,7 @@ Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungse
 
 ## Teilnahme und Funkbereiche
 
-<img src="/img/darc-notfunk-logo.png" alt="DARC Notfunk Logo" style={{float: 'right', padding: '0 0 30px 30px'}} />
+<img src="/img/darc-notfunk-logo.png" alt="DARC Notfunk Logo" style={{float: 'right', padding: '0 0 30px 30px', maxWidth: '200px', width: '100%'}} />
 
 **Allgemein (Großraum Aachen – Köln – Bonn):**
 - Amateurfunk (primär 2m FM)
