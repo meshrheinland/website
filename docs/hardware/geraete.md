@@ -58,12 +58,12 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 | Eigenschaft | Details |
 |---|---|
 | Preis | ~50–70 € |
-| MCU | — |
-| LoRa | 868 MHz (EU), 27 dBm Sendeleistung |
+| MCU | Nordic nRF52840 |
+| LoRa | LR1110, 868 MHz (EU), 22 dBm Sendeleistung |
 | Konnektivität | Bluetooth 5.1 |
 | Display | ✗ |
 | Akku | 700 mAh integriert |
-| GPS | ✓ (GNSS) |
+| GPS | ✓ (AG3335) |
 | Formfaktor | Kreditkartengroß (85 × 55 × 6.5 mm), IP65 |
 
 ![SenseCAP Card Tracker T1000-E](/img/hardware/devices/sensecap-card-tracker-t1000-e.jpg)
@@ -114,6 +114,6 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 | Heltec Mesh Node T114 | ✓ | ✗ | optional | ✓ | ✓ | 22 dBm |
 | Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
 | Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 27 dBm |
-| Seeed T1000-E | ✗ | ✗ | ✓ | ✓ (intern, 700 mAh) | ✗ | 27 dBm |
+| Seeed T1000-E | ✗ | ✗ | ✓ | ✓ (intern, 700 mAh) | ✗ | 22 dBm |
 | Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✗ | ✓ | ✗ | 22 dBm |
 | RAK Wireless WisBlock | optional | optional | optional | ✓ | optional | 22 dBm |
