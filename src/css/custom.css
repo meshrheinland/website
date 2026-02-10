@@ -28,3 +28,20 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.logo-float-right {
+  float: right;
+  padding: 0 0 30px 30px;
+  max-width: 200px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .logo-float-right {
+    float: none;
+    display: block;
+    margin: 0 auto 20px;
+    padding: 0;
+    max-width: 150px;
+  }
+}
