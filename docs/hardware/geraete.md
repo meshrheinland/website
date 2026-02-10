@@ -53,56 +53,26 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 
 Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
 
-## SenseCAP Card Tracker T1000-E für Meshtastic
-Der SenseCAP Card Tracker T1000-E für Meshtastic ist ein kompakter, kreditkartengroßer Tracker mit integrierter GPS- und LoRa-Technologie für präzise und stromsparende Ortung und Kommunikation.
+## SenseCAP Card Tracker T1000-E
 
-Geliefert wird er mit einem magnetischen Ladekabel. Option 
+| Eigenschaft | Details |
+|---|---|
+| Preis | ~50–70 € |
+| MCU | — |
+| LoRa | 868 MHz (EU), 27 dBm Sendeleistung |
+| Konnektivität | Bluetooth 5.1 |
+| Display | ✗ |
+| Akku | 700 mAh integriert |
+| GPS | ✓ (GNSS) |
+| Formfaktor | Kreditkartengroß (85 × 55 × 6.5 mm), IP65 |
+
+![SenseCAP Card Tracker T1000-E](/img/hardware/devices/sensecap-card-tracker-t1000-e.jpg)
+
+Kompakter GPS-Tracker im Kreditkartenformat mit integriertem 700 mAh Akku und IP65-Schutz. Trotz kleiner, interner Antenne erreicht er überraschend gute Reichweiten und genießt große Beliebtheit. Besonderheit: Integrierte Sensoren für Temperatur, Licht und Bewegung sowie Status-LED, Buzzer und Bedientaster. Wird mit magnetischem Ladekabel geliefert.
 
 :::note Hinweis
-Achte beim Kauf darauf, die „for Meshtastic“-Version zu wählen.
+Achte beim Kauf darauf, die „for Meshtastic"-Version zu wählen. [Herstellerseite](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html) · [Wiki](https://wiki.seeedstudio.com/sensecap_t1000_e/) · [Forum](https://forum.seeedstudio.com/t/sensecap-t1000-e-meshtastic-tracker-user-guide/287783)
 :::
-| Eigenschaft | Beschreibung |
-|------------|---------|
-| Netzwerkprotokolle | LoRa (863–928 MHz), Bluetooth v5.1 |
-| Reichweite | 2–5 km (abhängig von Antenne, Installation und Umgebung) |
-| Antenne | Intern (GNSS / LoRa / Wi-Fi / BLE) |
-| Schutzklasse | IP65 |
-| Zertifizierung | CE / FCC |
-| Abmessungen | 85 × 55 × 6.5 mm |
-| Gewicht | 32 g |
-| Betriebstemperatur | −20 °C bis +60 °C |
-| Betriebsfeuchtigkeit | 5 % – 95 % (keine Kondensation) |
-
-### Sensoren & Bedienelemente
-
-| Eigenschaft | Beschreibung |
-|------------|---------|
-| Temperatursensor | −20 bis 60 °C, ±1 °C Genauigkeit (min ±0.5 °C), Auflösung 0.1 °C |
-| Lichtsensor | 0–100 % (0 % = dunkel, 100 % = maximale Helligkeit) |
-| Beschleunigungssensor | 3-Achs-Accelerometer (Bewegungserkennung, aktuell nicht in Meshtastic genutzt) |
-| LED | 1× Status-LED |
-| Buzzer | 1× akustisches Statussignal |
-| Taster | 1× Bedienknopf |
-
-### Stromversorgung & Akku
-
-| Eigenschaft | Beschreibung |
-|------------|---------|
-| Akkutyp | Wiederaufladbarer Lithium-Akku |
-| Akkukapazität | 700 mAh |
-| Batteriestatus | Periodische Übertragung des Akkustands |
-| Ladeanschluss | Magnetisches USB-Ladekabel (1 m, Adapter nicht enthalten) |
-| Eingangsspannung | 4.7 – 5.5 V DC |
-| Ladetemperatur | 0 °C bis +45 °C |
-
-:::note Taster
-Der Taster dient zum Ein-/Ausschalten, Aktivieren von Bluetooth und zum Auslösen von Statusfunktionen. Signaltöne beschränken sich derzeit auf Start- und Bestätigungstöne sowie Warnungen bei niedrigem Akkustand.
-:::
-
-### Links
- * [Herstellerseite](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html)
- * [Wikieintrag](https://wiki.seeedstudio.com/sensecap_t1000_e/)
- * [Forum](https://forum.seeedstudio.com/t/sensecap-t1000-e-meshtastic-tracker-user-guide/287783)
 
 
 ## Seeed Studio Xiao nRF52840 WIO
