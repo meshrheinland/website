@@ -6,7 +6,7 @@ title: Notfunkübung des DARC Distrikt G am 21. Februar 2026
 
 Liebe Funkamateure und Hobbyfunker,
 
-am **Samstag, den 21. Februar 2026**, führt der DARC Distrikt G eine Notfunkübung durch, an der alle Funkamateure und Hobbyfunker herzlich eingeladen sind teilzunehmen.
+am **Samstag, den 21. Februar 2026**, führt der DARC Distrikt G eine Notfunkübung durch, zu der alle Funkamateure und Hobbyfunker herzlich eingeladen sind, teilzunehmen.
 
 ## Hintergrund und Konzept
 
@@ -22,23 +22,23 @@ Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungse
 
 **Allgemein (Großraum Aachen – Köln – Bonn):**
 - Amateurfunk (primär 2m FM)
-- CB-Funk (Kanal 3 wird beobachtet)
-- PMR-Funk (Kanal 1 wird beobachtet)
+- CB-Funk: Kanal 3 (FM) wird beobachtet
+- PMR-Funk: Kanal 1 wird beobachtet
 
 **Zusätzlich im Großraum Bonn:**
-- Meshtastic
-- MeshCore 🎉
+- Meshtastic <span className="tag-gray">(Kanal: ShortSlow)</span>
+- MeshCore 🎉 <span className="tag-gray">(Kanal: Public und #emergency)</span>
 
-Die Leitstelle auf der **Burg Limperich** ist unter dem Rufzeichen **DLØOV auf 144.675 MHz** QRV. Zudem wird das **Notfunkrelais DBØDBN** der IGFS im Siebengebirge bespielt.
+Die Leitstelle auf der **Burg Limperich** ist unter dem Rufzeichen **DLØOV auf 144,675&nbsp;MHz** QRV. Zudem wird das **Notfunkrelais DBØDBN** der IGFS im Siebengebirge aktiv in das Übungsszenario integriert.
 
 ## Zeitplan für den Großraum Bonn
 
 Die angegebenen Zeiten dienen als Orientierung und können je nach Übungslage variieren:
 
-**14:00 – 14:30 Uhr:** Kontaktaufnahme mit DLØOV auf 144.675 MHz
+**14:00 – 14:30 Uhr:** Kontaktaufnahme mit DLØOV auf 144,675&nbsp;MHz&nbsp;(FM)
 Austausch von Rapporten und Klärung eventueller Rückfragen
 
-**14:40 – 15:00 Uhr:** Kontaktaufnahme mit DLØOV über das Notfunkrelais DBØDBN der IGFS im Siebengebirge
+**14:40 – 15:00 Uhr:** Kontaktaufnahme mit DLØOV über das Notfunkrelais DBØDBN (145,575&nbsp;MHz, FM, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS) der IGFS im Siebengebirge
 
 **15:10 – 15:45 Uhr:** Notfunkübung über Meshtastic/MeshCore
 Bearbeitung von Aufgaben und Rückfragen der Leitstelle DLØOV
@@ -53,6 +53,7 @@ Während der Übung können verschiedene praxisnahe Fragen gestellt werden, beis
 - Ist eine aktuelle BBK-Broschüre (Bundesamt für Bevölkerungsschutz) vorhanden?
 - Wie lautet die Adresse der nächsten Feuerwache?
 - Wie viele Tage kannst du bei Stromausfall funken?
+- Gibt es in deinem Nahbereich Personen, die bei Stromausfall Hilfe benötigen?
 
 **Hinweis:** Bereitet euch darauf vor, Straßennamen zu buchstabieren!
 
