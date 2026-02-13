@@ -22,8 +22,8 @@ Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungse
 
 **Allgemein (Großraum Aachen – Köln – Bonn):**
 - Amateurfunk (primär 2m FM)
-- CB-Funk (Kanal 3 wird beobachtet)
-- PMR-Funk (Kanal 1 wird beobachtet)
+- CB-Funk: Kanal 3 (FM) wird beobachtet
+- PMR-Funk: Kanal 1 wird beobachtet
 
 **Zusätzlich im Großraum Bonn:**
 - Meshtastic
