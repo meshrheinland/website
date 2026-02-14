@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580">
+  <!-- Titel -->
+  <text x="600" y="40" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="bold" fill="#1e293b">Payload-Format nach Typ</text>
+
+  <!-- 1. Advertisement (ADVERT) -->
+  <text x="60" y="85" font-family="sans-serif" font-size="16" fill="#1e293b" font-weight="bold">ADVERT (0x04) – Broadcast, unverschlüsselt</text>
+  <rect x="50" y="95" width="1100" height="70" rx="6" fill="#1e293b"/>
+
+  <rect x="60" y="105" width="280" height="50" rx="4" fill="#8b5cf6"/>
+  <text x="200" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" fill="white" font-weight="bold">Public Key</text>
+  <text x="200" y="145" text-anchor="middle" font-family="monospace" font-size="10" fill="#c4b5fd">32 Bytes</text>
+
+  <rect x="350" y="105" width="100" height="50" rx="4" fill="#06b6d4"/>
+  <text x="400" y="130" text-anchor="middle" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">Timestamp</text>
+  <text x="400" y="145" text-anchor="middle" font-family="monospace" font-size="10" fill="#a5f3fc">4 Bytes</text>
+
+  <rect x="460" y="105" width="340" height="50" rx="4" fill="#ec4899"/>
+  <text x="630" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" fill="white" font-weight="bold">Signature (Ed25519)</text>
+  <text x="630" y="145" text-anchor="middle" font-family="monospace" font-size="10" fill="#fbcfe8">64 Bytes</text>
+
+  <rect x="810" y="105" width="330" height="50" rx="4" fill="#22c55e"/>
+  <text x="975" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" fill="white" font-weight="bold">App Data (Flags, Position, Name)</text>
+  <text x="975" y="145" text-anchor="middle" font-family="monospace" font-size="10" fill="#bbf7d0">variabel</text>
+
+  <!-- 2. Text Message (TXT_MSG) -->
+  <text x="60" y="200" font-family="sans-serif" font-size="16" fill="#1e293b" font-weight="bold">TXT_MSG (0x02) – Private Nachricht, verschlüsselt</text>
+  <rect x="50" y="210" width="1100" height="70" rx="6" fill="#1e293b"/>
+
+  <rect x="60" y="220" width="100" height="50" rx="4" fill="#f97316"/>
+  <text x="110" y="245" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="bold">Dest ID</text>
+  <text x="110" y="260" text-anchor="middle" font-family="monospace" font-size="10" fill="#fed7aa">1 Byte</text>
+
+  <rect x="170" y="220" width="100" height="50" rx="4" fill="#eab308"/>
+  <text x="220" y="245" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="bold">Src ID</text>
+  <text x="220" y="260" text-anchor="middle" font-family="monospace" font-size="10" fill="#fef08a">1 Byte</text>
+
+  <rect x="280" y="220" width="100" height="50" rx="4" fill="#ef4444"/>
+  <text x="330" y="245" text-anchor="middle" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">MAC</text>
+  <text x="330" y="260" text-anchor="middle" font-family="monospace" font-size="10" fill="#fecaca">2 Bytes</text>
+
+  <rect x="390" y="220" width="750" height="50" rx="4" fill="#3b82f6"/>
+  <text x="765" y="240" text-anchor="middle" font-family="sans-serif" font-size="13" fill="white" font-weight="bold">Ciphertext (ECDH verschlüsselt)</text>
+  <text x="765" y="258" text-anchor="middle" font-family="monospace" font-size="10" fill="#bfdbfe">Timestamp (4) + Type (1) + Nachricht (variabel)</text>
+
+  <!-- 3. ACK -->
+  <text x="60" y="315" font-family="sans-serif" font-size="16" fill="#1e293b" font-weight="bold">ACK (0x03) – Empfangsbestätigung</text>
+  <rect x="50" y="325" width="1100" height="70" rx="6" fill="#1e293b"/>
+
+  <rect x="60" y="335" width="100" height="50" rx="4" fill="#f97316"/>
+  <text x="110" y="360" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="bold">Dest ID</text>
+  <text x="110" y="375" text-anchor="middle" font-family="monospace" font-size="10" fill="#fed7aa">1 Byte</text>
+
+  <rect x="170" y="335" width="100" height="50" rx="4" fill="#eab308"/>
+  <text x="220" y="360" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="bold">Src ID</text>
+  <text x="220" y="375" text-anchor="middle" font-family="monospace" font-size="10" fill="#fef08a">1 Byte</text>
+
+  <rect x="280" y="335" width="150" height="50" rx="4" fill="#10b981"/>
+  <text x="355" y="360" text-anchor="middle" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">CRC32</text>
+  <text x="355" y="375" text-anchor="middle" font-family="monospace" font-size="10" fill="#a7f3d0">4 Bytes</text>
+
+  <rect x="440" y="335" width="150" height="50" rx="4" fill="#6b7280"/>
+  <text x="515" y="360" text-anchor="middle" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">SNR Info</text>
+  <text x="515" y="375" text-anchor="middle" font-family="monospace" font-size="10" fill="#d1d5db">optional</text>
+
+  <!-- 4. PATH -->
+  <text x="60" y="430" font-family="sans-serif" font-size="16" fill="#1e293b" font-weight="bold">PATH (0x06) – Pfad-Lernen / Bestätigung</text>
+  <rect x="50" y="440" width="1100" height="70" rx="6" fill="#1e293b"/>
+
+  <rect x="60" y="450" width="100" height="50" rx="4" fill="#f97316"/>
+  <text x="110" y="475" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="bold">Dest ID</text>
+  <text x="110" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#fed7aa">1 Byte</text>
+
+  <rect x="170" y="450" width="100" height="50" rx="4" fill="#eab308"/>
+  <text x="220" y="475" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="bold">Src ID</text>
+  <text x="220" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#fef08a">1 Byte</text>
+
+  <rect x="280" y="450" width="400" height="50" rx="4" fill="#a855f7"/>
+  <text x="480" y="475" text-anchor="middle" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">Gelernter Pfad (Repeater-IDs)</text>
+  <text x="480" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#e9d5ff">variabel</text>
+
+  <rect x="690" y="450" width="200" height="50" rx="4" fill="#6b7280"/>
+  <text x="790" y="475" text-anchor="middle" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">Optional: ACK</text>
+  <text x="790" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#d1d5db">bei Antwort</text>
+
+  <!-- Legende unten -->
+  <rect x="50" y="530" width="1100" height="40" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="600" y="555" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#92400e">
+    <tspan font-weight="bold">Dest/Src ID:</tspan> Erstes Byte des Public Key – identifiziert Empfänger/Absender
+  </text>
+</svg>
