@@ -14,6 +14,7 @@ graph LR
     B --> B1[Broadcast]
     B --> B2[Alle Repeater leiten weiter]
     B --> B3[Optional: Path Learning]
+    B --> B4[Regionen: Alle Repeater der gewählten Region leiten weiter]
 
     C --> C1[Punkt-zu-Punkt]
     C --> C2[Source Routing]
