@@ -103,6 +103,7 @@ Klassische Ground-Plane-Basisantenne aus dem Amateurfunkbereich.
 | Eigenschaft | Details |
 |---|---|
 | Gewinn | 8 dBi |
+| Bandbreite | 860–880 MHz |
 | Öffnungswinkel | 70° |
 | Anschluss | N-Buchse |
 
