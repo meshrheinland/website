@@ -71,7 +71,7 @@ Es gibt mehrere ähnlich aussehende Modelle (868 MHz, 915 MHz, Vorgängerversion
 | Gewinn | 8 dBi |
 | Länge | ~55 cm |
 | Anschluss | N-Stecker |
-| Preis | ~13–15 € |
+| Preis | ~15–25 € |
 
 Gute Messwerte: SWR 1,17, Resonanz bei 868 MHz. Beim Kauf auf die 868-MHz-Version achten, nicht 915 MHz.
 
@@ -137,7 +137,7 @@ Anleitung GP-Antenne für 868 MHz: [DARC OV O38 Bericht](https://www.darc.de/fil
 | Gizont Peitschen-Antenne | ~3,5 dBi | SMA | ~10–15 € | Portabel |
 | Eightwood | 3,5 dBi | RP-SMA | ~8–12 € | Portabel |
 | MikroTik 868 Omni | 6,5 dBi | SMA | ~45–50 € | Outdoor |
-| Ziisor 8 dBi | 8 dBi | N | ~13–15 € | Outdoor |
+| Ziisor 8 dBi | 8 dBi | N | ~15–25 € | Outdoor |
 | ALFA AOA-868-5ACM | 5 dBi | N | ~14 € | Outdoor |
 | Sirio GP 868C | 5,14 dBi | N | ~58 € | Outdoor |
 | Interline Horizon 868 | 5–8 dBi | N | ~90 € | Outdoor, mit Filter |
