@@ -26,7 +26,7 @@ Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungse
 - PMR-Funk: Kanal 1 wird beobachtet
 
 **Zusätzlich im Großraum Bonn:**
-- Meshtastic <span className="tag-gray">(Kanal: ShortSlow)</span>
+- Meshtastic <span className="tag-gray">(Kanal: ShortSlow und emergency mit PSK `AQ==`)</span>
 - MeshCore 🎉 <span className="tag-gray">(Kanal: Public und #emergency)</span>
 
 Die Leitstelle auf der **Burg Limperich** ist unter dem Rufzeichen **DLØOV auf 144,675&nbsp;MHz** QRV. Zudem wird das **Notfunkrelais DBØDBN** der IGFS im Siebengebirge aktiv in das Übungsszenario integriert.
