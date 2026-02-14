@@ -102,40 +102,6 @@ Path-Learning nutzt den **Payload** — nicht den Path-Header!
 
 ![Path Learning: Bidirektional](/img/meshcore/routing/path-learning.svg)
 
-```mermaid
-sequenceDiagram
-    participant A as Alice
-    participant R1 as Repeater 1<br/>0xA1
-    participant R2 as Repeater 2<br/>0xB2
-    participant R3 as Repeater 3<br/>0xC3
-    participant B as Bob
-
-    Note over B: TXT_MSG empfangen<br/>via Path=[0xA1]<br/>(First Packet Wins!)
-
-    Note over B: Payload: [0xA1] als Routing-Info für Alice<br/>+ ACK ins PATH-Paket packen
-
-    B->>R2: PATH per FLOOD<br/>Path=[]<br/>Payload: [0xA1] + ACK
-    B->>R3: PATH per FLOOD<br/>Path=[]<br/>Payload: [0xA1] + ACK
-
-    Note over R2,R3: RX + TX Delay<br/>(SNR-abhängig)
-
-    R2->>A: PATH per FLOOD<br/>Path=[0xB2]<br/>Payload: [0xA1] + ACK
-
-    Note over A: Path-Header [0xB2] = Reise-Pfad dieses Pakets<br/>Payload [0xA1] = Alice's Route zu Bob!<br/>✓ Speichere out_path=[0xA1]<br/>✓ Verarbeite ACK
-
-    Note over A: Sende reciprocal PATH<br/>per DIRECT zurück
-
-    A->>R1: PATH per DIRECT<br/>Path=[0xA1]<br/>Payload: [0xB2]
-
-    Note over R1: Ich bin 0xA1<br/>→ Entferne mich<br/>Path=[]
-
-    R1->>B: PATH per DIRECT<br/>Path=[]<br/>Payload: [0xB2]
-
-    Note over B: ✓ Speichere out_path=[0xB2]
-
-    Note over A,B: Beide Routen gelernt!<br/>Alice→Bob: [0xA1]<br/>Bob→Alice: [0xB2]<br/>(asymmetrisch)
-```
-
 **Der Ablauf im Detail:**
 
 1. **Bob empfängt TXT_MSG per FLOOD** mit Path=`[0xA1]` (erstes angekommenes Paket)
@@ -242,57 +208,9 @@ Wenn zwei Repeater dieselbe 1-Byte-ID haben:
 
 ## Timing & Delays
 
-MeshCore nutzt **zwei verschiedene Delay-Mechanismen**, um Kollisionen zu vermeiden und die besten Pfade zu bevorzugen:
+MeshCore fügt vor dem Weiterleiten ein **zufälliges TX Delay** ein, um Kollisionen zu vermeiden:
 
-### 1. RX Delay (Signalstärke-basiert, nur FLOOD)
-
-:::info Nur für FLOOD
-RX Delay wird **nur bei FLOOD-Paketen** angewendet. DIRECT-Pakete werden sofort verarbeitet (RX Delay = 0 ms).
-:::
-
-Beim Empfang eines FLOOD-Pakets wird zunächst basierend auf der **Signalstärke (SNR)** ein Delay berechnet:
-
-```cpp
-// Score aus SNR berechnen (0.0 = schwach, 1.0 = stark)
-float score = (snr - snr_threshold) / 10.0;
-
-// RX Delay berechnen
-int rx_delay = (pow(rx_delay_base, 0.85 - score) - 1.0) * airtime;
-```
-
-**Formel:**
-```
-RX Delay = (rx_delay_base^(0.85 - Score) - 1) × Airtime
-```
-
-**Der `rx_delay_base` ist konfigurierbar:**
-- **Default**: `10.0` (Basis-Implementierung)
-- **Repeater-Firmware**: Oft `0.0` (deaktiviert)
-- **Bereich**: `0.0 - 20.0`
-- **CLI-Kommando**: `set rxdelay <wert>`
-- **Effekt**: Höhere Basis = stärkerer SNR-Effekt
-
-**Effekt:**
-- **Starkes Signal** (hoher SNR) → hoher Score → **kurzes Delay** → frühe Verarbeitung
-- **Schwaches Signal** (niedriger SNR) → niedriger Score → **langes Delay** → späte Verarbeitung
-- Falls RX Delay < 50 ms: **sofortige Verarbeitung**
-- Falls `rx_delay_base = 0.0`: RX Delay deaktiviert (nur TX Delay aktiv)
-
-**Beispiel mit rx_delay_base = 10.0** (Airtime = 200 ms):
-- SNR = +10 dB → Score ≈ 0.8 → RX Delay ≈ 20 ms
-- SNR = 0 dB → Score ≈ 0.5 → RX Delay ≈ 224 ms
-- SNR = -10 dB → Score ≈ 0.2 → RX Delay ≈ 894 ms
-
-**Beispiel mit rx_delay_base = 0.0** (deaktiviert):
-- RX Delay = 0 ms (unabhängig vom SNR)
-
-:::tip Beste Pfade gewinnen
-Durch das SNR-basierte Delay setzen sich automatisch die **besten Routen** durch: Repeater mit starkem Signal verarbeiten und senden früher, schwache Signale kommen zu spät und werden durch "First Packet Wins" verworfen.
-
-**Hinweis**: In vielen Repeater-Firmwares ist RX Delay standardmäßig deaktiviert (`rx_delay_base = 0.0`), sodass nur TX Delay zur Kollisionsvermeidung verwendet wird.
-:::
-
-### 2. TX Delay (Zufalls-basiert)
+### TX Delay (Zufalls-basiert)
 
 Nach der Verarbeitung wird zusätzlich ein **zufälliges Delay** hinzugefügt, bevor das Paket weitergeleitet wird:
 
@@ -325,44 +243,6 @@ TX Delay = Zufallszahl(0, 5 × Airtime × tx_delay_factor)
 Ein höherer `tx_delay_factor` vergrößert den Zufallsbereich und reduziert Kollisionen, erhöht aber die Latenz. Der Default-Wert `0.5` ist für die meisten Netzwerke optimal.
 :::
 
-### Gesamt-Delay
-
-Das **Gesamt-Delay** vom Empfang bis zur Weiterleitung ist:
-
-```
-Gesamt-Delay = RX Delay + TX Delay
-```
-
-```mermaid
-gantt
-    title FLOOD Timing mit RX Delay (rx_delay_base = 10.0)
-    dateFormat X
-    axisFormat %L ms
-
-    section Alice
-    Sendet Paket              :0, 0
-
-    section Repeater 1 (SNR +5dB)
-    Empfängt                  :0, 0
-    RX Delay (50ms)           :0, 50
-    TX Delay (104ms)          :50, 154
-    Sendet                    :154, 154
-
-    section Repeater 2 (SNR -5dB)
-    Empfängt                  :0, 0
-    RX Delay (500ms)          :0, 500
-    TX Delay (208ms)          :500, 708
-    Sendet                    :708, 708
-
-    section Repeater 3 (SNR +10dB)
-    Empfängt                  :0, 0
-    RX Delay (20ms)           :0, 20
-    TX Delay (312ms)          :20, 332
-    Sendet                    :332, 332
-```
-
-**Wichtig:** Repeater 2 mit schwachem Signal sendet zu spät - sein Paket wird durch "First Packet Wins" verworfen!
-
 ### TX Delay bei DIRECT
 
 Bei DIRECT-Routing wird ebenfalls ein TX Delay verwendet, allerdings mit einem **kleineren Faktor**:
@@ -387,12 +267,12 @@ uint32_t delay = random(0, 5 * t);
 
 **Vergleich:**
 
-| Routing-Modus | RX Delay | TX Delay | Gesamt | Grund |
-|---------------|----------|----------|--------|-------|
-| **FLOOD** | 20-900 ms (SNR-basiert) | 0-500 ms (random) | 20-1400 ms | SNR-Priorisierung + Kollisionsvermeidung |
-| **DIRECT** | 0 ms | 0-200 ms (random) | 0-200 ms | Geringe Kollisionsvermeidung, niedrige Latenz |
+| Routing-Modus | TX Delay | Grund |
+|---------------|----------|-------|
+| **FLOOD** | 0-500 ms (random) | Kollisionsvermeidung |
+| **DIRECT** | 0-200 ms (random) | Geringe Kollisionsvermeidung, niedrige Latenz |
 
-*Bei direct_tx_delay_factor = 0.2 (Default). Mit 0.0 → 0 ms TX Delay.
+*Bei den jeweiligen Default-Faktoren und 200 ms Airtime.
 
 ## Prioritäten
 
@@ -476,24 +356,24 @@ sequenceDiagram
     A->>R1: TXT_MSG Path=[], t=0ms
     A->>R2: TXT_MSG Path=[], t=0ms
 
-    Note over R1: SNR +5dB<br/>RX=50ms + TX=50ms
-    Note over R2: SNR -5dB<br/>RX=500ms + TX=200ms
+    Note over R1: TX Delay ~50ms
+    Note over R2: TX Delay ~200ms
 
-    Note over R1: t=100ms
+    Note over R1: t=50ms
     R1->>B: TXT_MSG Path=[0xA1]
 
     Note over B: Erste Ankunft!<br/>✓ Nachricht empfangen<br/>✓ Path [0xA1] gespeichert
 
-    Note over R2: t=700ms<br/>Hash prüfen<br/>✗ Schon gesehen → Verwerfen
+    Note over R2: t=200ms<br/>Hash prüfen<br/>✗ Schon gesehen → Verwerfen
 
     Note over B: Automatisch: PATH per FLOOD<br/>mit ACK
     B->>R1: PATH Path=[], t=100ms<br/>Payload:[0xA1]+ACK
     B->>R2: PATH Path=[], t=100ms<br/>Payload:[0xA1]+ACK
 
-    Note over R1: SNR +8dB<br/>RX=30ms + TX=50ms
-    Note over R2: SNR -3dB<br/>RX=400ms + TX=150ms
+    Note over R1: TX Delay ~50ms
+    Note over R2: TX Delay ~150ms
 
-    Note over R1: t=180ms
+    Note over R1: t=100ms
     R1->>A: PATH Path=[0xA1]<br/>Payload:[0xA1]+ACK
 
     Note over A: ✓ Path [0xA1] gespeichert<br/>✓ ACK verarbeitet
@@ -529,17 +409,14 @@ sequenceDiagram
 | **Zweck** | Broadcast (Öffentlich) oder Path Learning (Privat) | Effiziente Punkt-zu-Punkt-Zustellung |
 | **Path** | Wächst (jeder Hop hängt sich an) | Schrumpft (jeder Hop entfernt sich) |
 | **Weiterleitung** | Alle Repeater | Nur Hops im Path |
-| **RX Delay** | 0-900 ms (SNR, konfigurierbar)* | 0 ms |
-| **TX Delay** | 0-500 ms (random, konfigurierbar)** | 0-200 ms (random, konfigurierbar)*** |
-| **Gesamt Delay** | 0-1400 ms | 0-200 ms |
+| **TX Delay** | 0-500 ms (random, konfigurierbar)* | 0-200 ms (random, konfigurierbar)** |
 | **Priorität** | path_len | 0 (höchste) |
 | **Duplikate** | Viele (über verschiedene Wege) | Keine |
 | **Airtime** | Hoch | Niedrig |
 | **Anwendung** | Öffentliche Kanäle (immer) + erste private Nachricht | Folgende private Nachrichten |
 
-*RX Delay: `rx_delay_base` (Default: `10.0`, Repeater oft: `0.0`)
-**TX Delay: `tx_delay_factor` (Default: `0.5`)
-***DIRECT TX Delay: `direct_tx_delay_factor` (Default: `0.2`, ergibt 0-200ms bei 200ms Airtime)
+*TX Delay: `tx_delay_factor` (Default: `0.5`)
+**DIRECT TX Delay: `direct_tx_delay_factor` (Default: `0.2`, ergibt 0-200ms bei 200ms Airtime)
 
 **Best Practice:**
 
