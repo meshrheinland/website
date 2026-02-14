@@ -102,11 +102,11 @@ Klassische Ground-Plane-Basisantenne aus dem Amateurfunkbereich.
 
 | Eigenschaft | Details |
 |---|---|
-| Typ | Panel-Richtantenne |
-| Öffnungswinkel | ca. 70° |
+| Gewinn | 8 dBi |
+| Öffnungswinkel | 70° |
 | Anschluss | N-Buchse |
 
-In SNR-Tests auf 35 km ca. **+15 dB** gegenüber einer Stummelantenne.
+In Feldtests auf 35 km SNR +5,7 gegenüber SNR -12 mit Stummelantenne. Richtantennen verbessern nicht nur den Gewinn, sondern unterdrücken auch Rauschen aus anderen Richtungen.
 
 ### Interline Horizon 868
 
