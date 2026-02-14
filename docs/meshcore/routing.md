@@ -150,9 +150,29 @@ graph TD
 
 Bob akzeptiert **nur das erste empfangene Paket** ("First Packet Wins"). Alle anderen werden als Duplikate verworfen.
 
+**Frame-Wachstum bei FLOOD** — PathLen nimmt mit jedem Hop zu:
+
+```
+Alice:  [H][0][Payload]              → 2 + Payload Bytes
+    ↓ R1 hängt sich an
+R1:     [H][1][A1][Payload]          → 3 + Payload Bytes
+    ↓ R3 hängt sich an
+R3:     [H][2][A1][C3][Payload]      → 4 + Payload Bytes
+    ↓
+Bob empfängt!
+```
+
 ### 5. Automatischer bidirektionaler Path-Learning
 
 Nach dem Empfang einer FLOOD-Nachricht startet ein automatischer Prozess, der **beide Routen gleichzeitig lernt**:
+
+:::warning Payload vs. Path-Header
+Im PATH-Paket sind zwei verschiedene Routing-Informationen enthalten:
+- **Path-Header** (wächst beim FLOOD): der Reise-Pfad, den *dieses* Paket genommen hat
+- **Payload**: die explizite Route, die der Empfänger für zukünftige DIRECT-Nachrichten nutzen soll
+
+Path-Learning nutzt den **Payload** — nicht den Path-Header!
+:::
 
 ```mermaid
 sequenceDiagram
@@ -164,7 +184,7 @@ sequenceDiagram
 
     Note over B: TXT_MSG empfangen<br/>via Path=[0xA1]<br/>(First Packet Wins!)
 
-    Note over B: Speichere Path [0xA1]<br/>im Payload eines PATH-Pakets
+    Note over B: Payload: [0xA1] als Routing-Info für Alice<br/>+ ACK ins PATH-Paket packen
 
     B->>R2: PATH per FLOOD<br/>Path=[]<br/>Payload: [0xA1] + ACK
     B->>R3: PATH per FLOOD<br/>Path=[]<br/>Payload: [0xA1] + ACK
@@ -173,46 +193,46 @@ sequenceDiagram
 
     R2->>A: PATH per FLOOD<br/>Path=[0xB2]<br/>Payload: [0xA1] + ACK
 
-    Note over A: Erste Ankunft!<br/>✓ Speichere out_path=[0xB2]<br/>✓ Verarbeite ACK
+    Note over A: Path-Header [0xB2] = Reise-Pfad dieses Pakets<br/>Payload [0xA1] = Alice's Route zu Bob!<br/>✓ Speichere out_path=[0xA1]<br/>✓ Verarbeite ACK
 
     Note over A: Sende reciprocal PATH<br/>per DIRECT zurück
 
-    A->>R2: PATH per DIRECT<br/>Path=[0xB2]<br/>Payload: [0xA1]
+    A->>R1: PATH per DIRECT<br/>Path=[0xA1]<br/>Payload: [0xB2]
 
-    Note over R2: Ich bin 0xB2<br/>→ Entferne mich<br/>Path=[]
+    Note over R1: Ich bin 0xA1<br/>→ Entferne mich<br/>Path=[]
 
-    R2->>B: PATH per DIRECT<br/>Path=[]<br/>Payload: [0xA1]
+    R1->>B: PATH per DIRECT<br/>Path=[]<br/>Payload: [0xB2]
 
-    Note over B: ✓ Bestätige out_path=[0xA1]
+    Note over B: ✓ Speichere out_path=[0xB2]
 
-    Note over A,B: Beide Routen gelernt!<br/>Alice→Bob: [0xB2]<br/>Bob→Alice: [0xA1]<br/>(asymmetrisch)
+    Note over A,B: Beide Routen gelernt!<br/>Alice→Bob: [0xA1]<br/>Bob→Alice: [0xB2]<br/>(asymmetrisch)
 ```
 
 **Der Ablauf im Detail:**
 
 1. **Bob empfängt TXT_MSG per FLOOD** mit Path=`[0xA1]` (erstes angekommenes Paket)
-2. **Bob speichert den Pfad** `[0xA1]` (Bob → Alice)
+2. **Bob legt `[0xA1]` in den Payload** des PATH-Pakets ab: "Alice, nutze `[0xA1]` um mich zu erreichen"
 3. **Bob sendet PATH-Paket per FLOOD**
-   - Im Payload: Der empfangene Pfad `[0xA1]`
+   - Im Payload: `[0xA1]` (Routing-Info für Alice)
    - Als Extra: ACK für die Nachricht
-4. **Alice empfängt PATH per FLOOD** mit neuem Path=`[0xB2]`
-5. **Alice speichert den Pfad** `[0xB2]` (Alice → Bob)
+4. **Alice empfängt PATH per FLOOD**: Path-Header=`[0xB2]` (Reise-Pfad), Payload=`[0xA1]` (Routing-Info)
+5. **Alice liest den Payload `[0xA1]`** und speichert out_path=`[0xA1]` (Alice → Bob)
 6. **Alice verarbeitet das ACK** im PATH-Paket
 7. **Alice sendet automatisch reciprocal PATH per DIRECT**
-   - Via Pfad `[0xB2]` (aus dem Payload des empfangenen PATH)
-   - Im Payload: Der ursprüngliche Pfad `[0xA1]`
-8. **Bob empfängt PATH per DIRECT** und bestätigt den Pfad
+   - Via Pfad `[0xA1]` (aus dem **Payload** des empfangenen PATH)
+   - Im Payload: `[0xB2]` (der Path-Header des empfangenen PATH = Bobs Reise-Pfad zu Alice)
+8. **Bob empfängt PATH per DIRECT** mit Payload=`[0xB2]` und speichert out_path=`[0xB2]` (Bob → Alice)
 
 **Ergebnis nach einer FLOOD-Nachricht:**
-- ✅ Alice kennt Pfad zu Bob: `[0xB2]`
-- ✅ Bob kennt Pfad zu Alice: `[0xA1]`
+- ✅ Alice kennt Pfad zu Bob: `[0xA1]`
+- ✅ Bob kennt Pfad zu Alice: `[0xB2]`
 - ✅ Beide können DIRECT kommunizieren
 - ✅ Routen sind **asymmetrisch** (in diesem Beispiel)
 
 **Wichtig:**
 - **Ein FLOOD reicht** für bidirektionales Path-Learning
 - Die Routen **können asymmetrisch sein** (abhängig von der Netzwerktopologie)
-- Jeder lernt den Pfad, über den das PATH-Paket zu ihm kam
+- Der **Payload des PATH-Pakets** enthält die Route für den Empfänger — nicht der Path-Header
 - Kein Problem: Jede Richtung funktioniert unabhängig
 
 ## DIRECT-Routing: Source Routing
@@ -240,11 +260,60 @@ sequenceDiagram
     Note over B: Nachricht erhalten!
 ```
 
+**Frame-Schrumpfung bei DIRECT** — PathLen nimmt mit jedem Hop ab:
+
+```
+Alice:  [H][2][A1][C3][Payload]   → 4 + Payload Bytes
+    ↓ R1 entfernt sich
+R1:     [H][1][C3][Payload]       → 3 + Payload Bytes
+    ↓ R3 entfernt sich
+R3:     [H][0][Payload]           → 2 + Payload Bytes
+    ↓
+Bob empfängt!
+```
+
 **Wichtig:**
 - Nur der **erste Repeater im Path** (0xA1) leitet weiter
 - Repeater 2 verwirft das Paket, da er nicht im Path ist
 - Der Repeater **entfernt sich selbst** aus dem Path beim Weiterleiten
 - Am Ende erhält Bob ein Paket mit leerem Path (`Path=[]`)
+
+## Repeater-IDs
+
+Jeder Repeater ist im Path durch eine **1-Byte-ID** identifiziert.
+
+### Herkunft der ID
+
+Die Repeater-ID ist das **erste Byte des 32-Byte Public Keys**:
+
+```
+Public Key:  FE 56 16 14 0E 71 B9 E0 1E 5D A7 51 03 F5 65 50 ...
+                ↓
+Repeater-ID: 0xFE
+```
+
+Das ergibt **254 mögliche IDs** (0x00–0xFF minus reservierte Werte). Kollisionen sind wahrscheinlich und bewusst eingeplant.
+
+### Warum nur 1 Byte?
+
+Airtime ist die wertvollste Ressource im Mesh:
+
+| | 1-Byte-ID | 2-Byte-ID (hypothetisch) |
+|---|---|---|
+| **Path bei 64 Hops** | 64 × 1 = **64 Bytes** | 64 × 2 = **128 Bytes** |
+| **Max. Payload** | **184 Bytes** | ~120 Bytes |
+| **Airtime** | optimal | +50% länger |
+
+### Verhalten bei Kollisionen
+
+Wenn zwei Repeater dieselbe 1-Byte-ID haben:
+
+| | Auswirkung |
+|---|---|
+| **FLOOD** | Beide leiten weiter — funktioniert korrekt |
+| **DIRECT** | Einer oder beide leiten weiter — funktioniert in der Regel |
+| **Kryptografie** | Nutzt immer den vollen 32-Byte-Key — keine Sicherheitslücke |
+| **App-Anzeige** | Kann "2 known repeaters" zeigen — für Nutzer verwirrend, aber unkritisch |
 
 ## Timing & Delays
 
@@ -533,7 +602,7 @@ sequenceDiagram
 | Aspekt | FLOOD | DIRECT |
 |--------|-------|--------|
 | **Zweck** | Broadcast (Öffentlich) oder Path Learning (Privat) | Effiziente Punkt-zu-Punkt-Zustellung |
-| **Path** | Wird aufgebaut (bei privaten Nachrichten) | Vorgegeben |
+| **Path** | Wächst (jeder Hop hängt sich an) | Schrumpft (jeder Hop entfernt sich) |
 | **Weiterleitung** | Alle Repeater | Nur Hops im Path |
 | **RX Delay** | 0-900 ms (SNR, konfigurierbar)* | 0 ms |
 | **TX Delay** | 0-500 ms (random, konfigurierbar)** | 0-200 ms (random, konfigurierbar)*** |
