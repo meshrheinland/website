@@ -113,7 +113,7 @@ Gehäuse immer mit Druckausgleichsstutzen oder einem kleinen Loch am tiefsten Pu
 
 ## Laderegler
 
-Ein Solarpanel liefert je nach Einstrahlung schwankende Spannung – ohne Laderegler würde diese ungefiltert an den Akku und ihn durch Überladung beschädigen. Der Laderegler begrenzt Spannung und Strom auf die sicheren Ladeparameter des Akkus (~4,2 V für LiPo/Li-Ion). Ein **MPPT**-Regler (Maximum Power Point Tracking) passt seinen Arbeitspunkt dynamisch ans Panel an und holt besonders bei Bewölkung oder Teilverschattung spürbar mehr Energie heraus als ein einfacher PWM-Regler.
+Ein Solarpanel liefert je nach Einstrahlung schwankende Spannung – ohne Laderegler würde diese ungefiltert an den Akku gelangen und ihn durch Überladung beschädigen. Der Laderegler begrenzt Spannung und Strom auf die sicheren Ladeparameter des Akkus (4,2 V für LiPo/Li-Ion, 3,65 V für LiFePO4). Ein **MPPT**-Regler (Maximum Power Point Tracking) passt seinen Arbeitspunkt dynamisch ans Panel an und holt besonders bei Bewölkung oder Teilverschattung spürbar mehr Energie heraus als ein einfacher PWM-Regler.
 
 Viele LoRa-Geräte bringen einen Laderegler bereits mit. Beim Kauf lohnt es sich zu prüfen, ob einer verbaut ist und ob sein maximaler Ladestrom für den geplanten Einsatz ausreicht. Ist ein Regler fest verbaut, muss das Solarpanel zu dessen Eingangsgrenzen passen – Spannung und Leistung des Panels dürfen den zulässigen Eingangsbereich nicht überschreiten.
 
