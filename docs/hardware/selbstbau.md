@@ -15,6 +15,8 @@ Der wichtigste Faktor für einen funktionierenden Solar-Node ist der Chip:
 | **nRF52840** | RAK4631, T114, Seeed XIAO | ~8 mA / ~300 mAh täglich | ab 3 W |
 | **ESP32** | Heltec V3/V4, T-Beam | ~50 mA / ~1300 mAh täglich | im Winter kaum machbar |
 
+Der **Heltec V3** ist ein fertiges ESP32-Entwicklungsboard mit integriertem LoRa-Chip – günstig und weit verbreitet, aber wegen des hohen ESP32-Stromverbrauchs für dauerhaften Solarbetrieb kaum geeignet.
+
 Hinter jedes Solarpanel gehört zwingend ein **Laderegler**. Rohe 18650-Zellen (unprotected) brauchen zusätzlich eine **Schutzschaltung (BMS)**.
 
 :::warning
@@ -94,6 +96,8 @@ Flashen per DFU-Bootloader, danach Meshtastic-UF2 per Drag & Drop. Kein WiFi –
 
 ## Gehäuse
 
+Ein wetterfestes Gehäuse ist für Außeninstallationen entscheidend. Die Wahl zwischen Aluminium, Kunststoff oder Fertiglösung beeinflusst Schutzklasse, Bearbeitungsaufwand und Kosten.
+
 | Gehäuse | Vorteile | Nachteile |
 |---|---|---|
 | **Aluminium IP66** | Robust, langlebig, EMV-Abschirmung | Schwerer zu bearbeiten |
@@ -107,7 +111,9 @@ Gehäuse immer mit Druckausgleichsstutzen oder einem kleinen Loch am tiefsten Pu
 - [Meshtastic Solar Tube Node (PVC OD32mm)](https://www.printables.com/model/1316317-meshtastic-solar-tube-node-diy-pvc-od32mm/files)
 - [Meshtastic Solar Station](https://www.printables.com/model/1027508-meshtastic-solar-station)
 
-## Laderegler und Akkus
+## Laderegler
+
+Ein Solarpanel liefert je nach Einstrahlung schwankende Spannung – ohne Laderegler würde diese ungefiltert an den Akku und ihn durch Überladung beschädigen. Der Laderegler begrenzt Spannung und Strom auf die sicheren Ladeparameter des Akkus (~4,2 V für LiPo/Li-Ion). Ein **MPPT**-Regler (Maximum Power Point Tracking) passt seinen Arbeitspunkt dynamisch ans Panel an und holt besonders bei Bewölkung oder Teilverschattung spürbar mehr Energie heraus als ein einfacher PWM-Regler.
 
 | Regler | MPPT | Max. Eingang | Tiefentladeschutz | Hinweise |
 |---|---|---|---|---|
@@ -117,12 +123,30 @@ Gehäuse immer mit Druckausgleichsstutzen oder einem kleinen Loch am tiefsten Pu
 | TP4056/TP4057 | ✗ | ~6 V | ✗ | Einfach, günstig |
 | TP5100 | ✗ | – | ✗ | Mit USB-C-Anschluss |
 
+## Akkus
+
+Für Solar-Nodes kommen hauptsächlich zwei Typen in Frage: **18650-Zellen** (zylindrisch, 18 × 65 mm – das gängige Rundzellen-Format aus Laptopakkus und Taschenlampen) und **LiPo-Pouches** (flache Folienzellen, oft mit JST-Stecker, wie in Smartphones). Beide haben 3,7 V Nennspannung und sind elektrisch identisch. Der Unterschied liegt in Form, Anschluss und Robustheit. 18650 sind günstiger, einzeln austauschbar und mechanisch belastbarer; LiPos passen besser in enge Gehäuse, reagieren aber empfindlicher auf Hitze und können sich bei Überhitzung aufblähen.
+
+In der Community wird regelmäßig davor gewarnt, LiPo-Pouches (umgangssprachlich auch „Tütensuppen-Akkus") im Außenbetrieb einzusetzen: Die flexible Folienhülle bietet keinerlei mechanischen Schutz – schon leichter Druck, ein spitzer Gegenstand beim Einbau oder wiederholte Temperaturschwankungen können die Zelle beschädigen und einen Schwelbrand auslösen. 18650-Zellen sind durch ihr stabiles Metallgehäuse deutlich robuster und verzeihen raue Bedingungen erheblich besser.
+
+Wenn eine Anleitung „LiPo" nennt und du 18650-Zellen hast: Das funktioniert, solange du einen passenden Zellenhalter und einen Steckeradapter verwendest. Spannung und Chemie sind gleich, nur der physische Anschluss unterscheidet sich. Die Kapazität bestimmt, wie viele Tage der Node ohne Sonnenlicht überbrückt – bei nRF52840-Geräten reichen schon 3 Ah für mehrere Wochen Puffer.
+
 | Akku | Vorteil | Nachteil |
 |---|---|---|
 | **18650 unprotected** | Günstig, hohe Kapazität | Externes BMS erforderlich |
 | **18650 protected** | BMS integriert | Minimal teurer |
 | **LiPo-Pouch** | Kompakt, leicht | Empfindlich bei Hitze |
 | **LiFePO4** | Hitzebeständig, mehr Zyklen | Eigener LFP-Laderegler nötig |
+
+## Schutzschaltung (BMS)
+
+Lithium-Akkus nehmen dauerhaften Schaden, wenn sie unter ~2,8 V entladen oder überladen werden – im schlimmsten Fall blähen sie sich auf oder entzünden sich. Eine **Schutzschaltung** (Battery Management System kurz BMS) ist eine kleine Platine, die den Akku vor **Überladung**, **Tiefentladung** und **Überstrom/Kurzschluss** schützt. Einige Boards bieten zusätzlich einen Temperatursensor, der das Laden bei Frost unterbindet – das ist für Außeninstallationen ideal, wird in der Praxis aber meist vernachlässigt: Frost ist selten, und im Winter sind die Ladeströme durch die geringe Sonneneinstrahlung ohnehin so niedrig, dass das Schadensrisiko gering bleibt.
+
+**Protected 18650-Zellen** haben diesen Chip bereits eingebaut (erkennbar am leicht längeren Gehäuse). **Unprotected-Zellen** und LiPo-Pouches ohne eingebauten Schutz benötigen ein externes BMS-Board – in den Build-Tabellen ist das jeweils angegeben. Wichtig: Manche Laderegler (z. B. der RAK-interne) bieten einen Tiefentladeschutz; der CN3791 hingegen nicht – dort ist ein separates BMS zwingend.
+
+## Solarpanels
+
+Die benötigte Panelgröße hängt stark vom Standort (Ausrichtung und Winkel zur Sonne) und dem verbauten Chip ab – ESP32-Geräte verbrauchen so viel Strom, dass ein zuverlässiger Solarbetrieb im Freien kaum möglich ist.
 
 | Standort | Empfohlene Panelgröße |
 |---|---|
