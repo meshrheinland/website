@@ -122,6 +122,7 @@ Viele LoRa-Geräte bringen einen Laderegler bereits mit. Beim Kauf lohnt es sich
 | RAK eingebaut | ✗ | 5,5 V | ✗ | Nur 10-zellige Panels |
 | T114 eingebaut | ✗ | – | ✗ | Max. 1 A |
 | **CN3791** | **✓** | Konfigurierbar | **✗** | Widerstand für Panel-Spannung tauschen |
+| **SD05CRMA** (CN3163) | **✓** | 6,5 V | **✗** | Ladestrom konfigurierbar; passend für 5-V-Panels |
 | TP4056/TP4057 | ✗ | ~6 V | ✗ | Einfach, günstig |
 | TP5100 | ✗ | – | ✗ | Mit USB-C-Anschluss |
 
