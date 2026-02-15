@@ -122,7 +122,6 @@ Gehäuse immer mit Druckausgleichsstutzen oder einem kleinen Loch am tiefsten Pu
 | **18650 unprotected** | Günstig, hohe Kapazität | Externes BMS erforderlich |
 | **18650 protected** | BMS integriert | Minimal teurer |
 | **LiPo-Pouch** | Kompakt, leicht | Empfindlich bei Hitze |
-| **Boston Power Swing 5300** | Bis tief unter 0 °C ladbar, >5000 mAh | Teuer, schwer erhältlich |
 | **LiFePO4** | Hitzebeständig, mehr Zyklen | Eigener LFP-Laderegler nötig |
 
 | Standort | Empfohlene Panelgröße |
