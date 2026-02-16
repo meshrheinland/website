@@ -13,10 +13,10 @@ Alle Meshtastic- und MeshCore-Geräte im Rheinland senden auf **868 MHz**. Eine 
 Worauf es ankommt:
 
 - **Resonanzfrequenz**: Die Antenne muss auf 868 MHz abgestimmt sein. Viele günstige Antennen resonieren auf ~915 MHz oder ~1000 MHz und bringen kaum Mehrwert gegenüber dem mitgelieferten Stummel.
+- **SWR** (Stehwellenverhältnis): Misst, wieviel Energie abgestrahlt wird statt zum Sender zurückzufließen. SWR 1,5 bedeutet ~4 % Rücklaufleistung (0,2 dB Verlust) – noch akzeptabel. SWR 2,0 bedeutet bereits ~11 % (0,5 dB) – im Amateurfunk toleriert, für LoRa-Geräte mit knappem Linkbudget und Akkubetrieb aber ungünstig. Ein NanoVNA (~34 € auf AliExpress) macht Fehlkäufe sichtbar.
 - **Schmalbandigkeit**: LoRa-Module haben eine schlechte Selektivität - sie können Signale außerhalb der Zielfrequenz kaum herausfiltern. Breitbandige Antennen nehmen deshalb auch starke Mobilfunksignale (z. B. GSM-900) auf und sättigen den Empfänger, was die Reichweite verschlechtert. Schmalbandig auf 868 MHz abgestimmte Antennen verringern dieses Problem deutlich.
-- **SWR**: Je näher an 1,0, desto besser. Bis 1,5 ist akzeptabel. Ein NanoVNA (~34 € auf AliExpress) macht Fehlkäufe sichtbar.
 - **Anschluss**: SMA reicht für Indoor und mobile Nutzung. Für Außenmontage ist N-Typ zu bevorzugen - wetterbeständiger und robuster.
-- **Kabel**: CFD400/LMR-200 verliert ca. 1,2 dB pro 5 m, RG-58 dagegen ca. 3,3 dB.
+- **Kabel**: CFD400/LMR-200 verliert ca. 1,2 dB pro 5 m, H155 ca. 1,5 dB, RG-58 dagegen ca. 3,3 dB.
 
 :::warning
 Die mitgelieferten Stummelantennen sind häufig mangelhaft - teils auf 915 MHz optimiert. Schon eine günstige Gizont-Antenne bringt deutlich mehr Reichweite.
