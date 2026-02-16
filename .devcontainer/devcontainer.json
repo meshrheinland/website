@@ -1,5 +1,9 @@
 {
   "name": "meshrheinland-website",
+  "runArgs": [
+    "--name",
+    "meshrheinland-website"
+  ],
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
   "postCreateCommand": "npm install"
 }
