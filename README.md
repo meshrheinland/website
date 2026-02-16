@@ -45,8 +45,14 @@ Dieser Weg ist empfehlenswert für umfangreichere Änderungen oder wenn du mehre
 
 ### Voraussetzungen
 
+Du hast zwei Optionen:
+
+**Option A: Lokal**
 - Node.js (Version 18 oder höher)
 - npm
+
+**Option B: Dev Container**
+- VS Code + Dev Containers Extension
 
 ### Repository forken und clonen
 
@@ -60,11 +66,20 @@ cd meshrheinland-website
 
 ### Projekt starten
 
+**Lokal**
 Installiere die Abhängigkeiten und starte den Entwicklungsserver:
 
 ```bash
 npm install
 npm start
+```
+
+**Dev Container**
+1. Repository in VS Code öffnen und "Reopen in Container" wählen
+2. Im Container starten:
+
+```bash
+npm run start:devcontainer
 ```
 
 Der Entwicklungsserver startet unter `http://localhost:3000` und lädt Änderungen automatisch neu.
