@@ -48,7 +48,7 @@ Dieser Weg ist empfehlenswert für umfangreichere Änderungen oder wenn du mehre
 Du hast zwei Optionen:
 
 **Option A: Lokal**
-- Node.js (Version 18 oder höher)
+- Node.js (Version 20 oder höher, empfohlen: 22)
 - npm
 
 **Option B: Dev Container**
