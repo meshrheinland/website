@@ -20,13 +20,8 @@ Die Werte gelten für einen Router-Node ohne GPS, ohne Display, mit deaktivierte
 
 ### Rechner
 
-<iframe
-  src="/power-calc/"
-  width="100%"
-  height="680"
-  style={{border: 'none', borderRadius: '8px'}}
-  title="Meshtastic Stromverbrauch-Rechner"
-/>
+<div data-power-architect></div>
+<script src="https://power-architect.meshrheinland.de/embed.js"></script>
 
 Der **Heltec V3** ist ein fertiges ESP32-Entwicklungsboard mit integriertem LoRa-Chip – günstig und weit verbreitet. Mit aktiviertem Light Sleep und deaktiviertem Display ist Solarbetrieb möglich, aber nRF52840-Geräte sind bei gleicher Akkukapazität 2–3× effizienter.
 
