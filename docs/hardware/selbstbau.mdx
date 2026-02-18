@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+import PowerArchitectWidget from '@site/src/components/PowerArchitectWidget';
+
 # Selbstbau
 
 DIY-Projekte für Meshtastic und MeshCore Hardware.
@@ -20,8 +22,7 @@ Die Werte gelten für einen Router-Node ohne GPS, ohne Display, mit deaktivierte
 
 ### Rechner
 
-<div data-power-architect></div>
-<script src="https://power-architect.meshrheinland.de/embed.js"></script>
+<PowerArchitectWidget />
 
 Der **Heltec V3** ist ein fertiges ESP32-Entwicklungsboard mit integriertem LoRa-Chip – günstig und weit verbreitet. Mit aktiviertem Light Sleep und deaktiviertem Display ist Solarbetrieb möglich, aber nRF52840-Geräte sind bei gleicher Akkukapazität 2–3× effizienter.
 
