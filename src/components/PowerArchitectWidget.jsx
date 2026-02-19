@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import iframeResize from '@iframe-resizer/parent';
+import { initialize } from '@open-iframe-resizer/core';
 
 export default function PowerArchitectWidget() {
   const ref = useRef(null);
 
   useEffect(() => {
-    iframeResize({ checkOrigin: false }, ref.current);
+    initialize({ checkOrigin: false }, ref.current);
   }, []);
 
   return (
