@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+import PowerArchitectWidget from '@site/src/components/PowerArchitectWidget';
+
 # Selbstbau
 
 DIY-Projekte für Meshtastic und MeshCore Hardware.
@@ -10,12 +12,21 @@ DIY-Projekte für Meshtastic und MeshCore Hardware.
 
 Der wichtigste Faktor für einen funktionierenden Solar-Node ist der Chip:
 
-| Chip | Geräte | Verbrauch | Solarpanel |
-|---|---|---|---|
-| **nRF52840** | RAK4631, T114, Seeed XIAO | ~8 mA / ~300 mAh täglich | ab 3 W |
-| **ESP32** | Heltec V3/V4, T-Beam | ~50 mA / ~1300 mAh täglich | im Winter kaum machbar |
+| Chip | Geräte | Ø Strom | Tägl. Verbrauch | Solarpanel |
+|---|---|---|---|---|
+| **nRF52840** | RAK4631, T114, Seeed XIAO | 5–8 mA | ~120–190 mAh | ab 1–3 W |
+| **ESP32** (Light Sleep, kein Display) | Heltec V3/V4 | 15–20 mA | ~360–480 mAh | ab 3–5 W |
+| **ESP32** (Standard, mit Display/BT) | Heltec V3/V4, T-Beam | 50–130 mA | >1200 mAh | nicht empfohlen |
 
-Der **Heltec V3** ist ein fertiges ESP32-Entwicklungsboard mit integriertem LoRa-Chip – günstig und weit verbreitet, aber wegen des hohen ESP32-Stromverbrauchs für dauerhaften Solarbetrieb kaum geeignet.
+Die Werte gelten für einen Router-Node ohne GPS, ohne Display, mit deaktiviertem BT/WiFi. GPS-Betrieb verdoppelt den Verbrauch näherungsweise (T114: ~220 h ohne GPS vs. ~119 h mit GPS bei 1100 mAh). Der Durchschnittsstrom wird fast ausschließlich durch den RX-Betrieb des SX1262 (~4,8 mA) bestimmt – eigene Sendungen machen weniger als 0,2 % der Zeit aus.
+
+### Rechner
+
+<PowerArchitectWidget />
+
+<br />
+
+Der **Heltec V3** ist ein fertiges ESP32-Entwicklungsboard mit integriertem LoRa-Chip – günstig und weit verbreitet. Mit aktiviertem Light Sleep und deaktiviertem Display ist Solarbetrieb möglich, aber nRF52840-Geräte sind bei gleicher Akkukapazität 2–3× effizienter.
 
 Hinter jedes Solarpanel gehört zwingend ein **Laderegler**. Rohe 18650-Zellen (unprotected) brauchen zusätzlich eine **Schutzschaltung (BMS)**.
 
