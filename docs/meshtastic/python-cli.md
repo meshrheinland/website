@@ -167,6 +167,29 @@ Wenn du einen schnellen Überblick über die gängigen Einstellungen brauchst, f
 Diese Option würde die gesetzlich vorgeschriebenen Sendezeitbegrenzungen umgehen.
 :::
 
+## Datensicherung
+Die erstellten Datensicherungen enthalten nur die Konfiguration und nicht die Nachrichten. Ein klar strukturierter Dateiname, wie z.B. `config_2025-09-19.yaml`, sorgt im Nachhinein für eine bessere Übersicht.
+
+### Datensicherung erstellen
+```
+meshtastic --export config.yaml
+```
+
+Optional kann hier die Schnittstelle mit übergeben werden:
+```
+meshtastic --port /dev/ttyUSB0 --export config.yaml
+```
+
+### Wiederherstellung
+YAML‑Dateien lassen sich vor dem Import anpassen. Nach dem Einspielen lohnt sich ein kurzer Abgleich, ob die Einstellungen wie gewünscht übernommen wurden.
+```
+meshtastic --set config.yaml
+meshtastic --reboot
+```
+:::note
+Firmware‑Updates können neue oder geänderte Schlüssel einführen.
+:::
+
 ## Sonstiges
 ### Installation aktualisieren
 Wenn du Meshtastic über pipx installiert hast, kannst du Updates sehr einfach einspielen:
