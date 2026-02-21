@@ -172,18 +172,18 @@ Die erstellten Datensicherungen enthalten nur die Konfiguration und nicht die Na
 
 ### Datensicherung erstellen
 ```
-meshtastic --export config.yaml
+meshtastic --export-config > config_2025-09-19.yaml
 ```
 
 Optional kann hier die Schnittstelle mit übergeben werden:
 ```
-meshtastic --port /dev/ttyUSB0 --export config.yaml
+meshtastic --port /dev/ttyUSB0 --export config_2025-09-19.yaml
 ```
 
 ### Wiederherstellung
 YAML‑Dateien lassen sich vor dem Import anpassen. Nach dem Einspielen lohnt sich ein kurzer Abgleich, ob die Einstellungen wie gewünscht übernommen wurden.
 ```
-meshtastic --set config.yaml
+meshtastic --configure config_2025-09-19.yaml
 meshtastic --reboot
 ```
 :::note
