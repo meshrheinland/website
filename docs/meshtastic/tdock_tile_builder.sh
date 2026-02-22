@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 ###############################################################################
 # Metadaten
@@ -9,8 +10,8 @@ PROJECT_URL="https://meshrheinland.de"
 AUTHOR="Neukirchener"
 LICENSE_URL="https://creativecommons.org/licenses/by-nc-sa/2.0/de/"
 
-# Farben
 GREEN="\033[32m"
+RED="\033[31m"
 RESET="\033[0m"
 
 echo -e "${GREEN}"
@@ -22,35 +23,46 @@ echo "Lizenz: CC BY-NC-SA 2.0 DE ($LICENSE_URL)"
 echo -e "${RESET}"
 echo
 
+###############################################################################
+# Voraussetzungen prüfen
+###############################################################################
+
+command -v python3 >/dev/null || { echo -e "${RED}python3 nicht gefunden${RESET}"; exit 1; }
+command -v zip >/dev/null || { echo -e "${RED}zip nicht gefunden${RESET}"; exit 1; }
+
+if [ ! -f "meshtastic_tiles.py" ]; then
+  echo -e "${RED}meshtastic_tiles.py nicht gefunden!${RESET}"
+  exit 1
+fi
 
 ###############################################################################
 # Konfiguration
 ###############################################################################
 
-# Basis-Ausgabeverzeichnis (absoluter Pfad)
-BASE_OUTDIR="$(dirname "$0")/tiles_output"
+BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
+BASE_OUTDIR="${BASE_DIR}/tiles_output"
 mkdir -p "$BASE_OUTDIR"
 
-# Regionen aktivieren/deaktivieren
 REGION_RHEINLAND=true
 REGION_RUHRGEBIET=false
 REGION_BERGISCHES_LAND=false
 REGION_RHEIN_KREIS_NEUSS=false
 
-# Zoom-Level
 MIN_ZOOM=8
 MAX_ZOOM=12
-
-# Quelle
 SOURCE="osm"
-
-# Nach Download als ZIP packen?
 ZIP_AFTER_DOWNLOAD=true
 
+###############################################################################
+# Regionsdefinitionen
+###############################################################################
 
-###############################################################################
-# Regionale Bounding Boxes
-###############################################################################
+declare -A REGION_LABELS=(
+  [rheinland]="Rheinland"
+  [ruhrgebiet]="Ruhrgebiet"
+  [bergisches]="Bergisches Land"
+  [rkn]="Rhein-Kreis Neuss"
+)
 
 declare -A NORTH=(
   [rheinland]=51.80
@@ -80,19 +92,51 @@ declare -A WEST=(
   [rkn]=6.50
 )
 
+###############################################################################
+# Logging Funktion
+###############################################################################
+
+log() {
+  echo -e "${GREEN}[$(date +"%H:%M:%S")]${RESET} $1"
+}
+
+error_exit() {
+  echo -e "${RED}[FEHLER] $1${RESET}"
+  exit 1
+}
 
 ###############################################################################
-# Funktion: Region verarbeiten
+# Bounding Box Validierung
+###############################################################################
+
+validate_bbox() {
+  local name="$1"
+
+  if (( $(echo "${NORTH[$name]} <= ${SOUTH[$name]}" | bc -l) )); then
+    error_exit "Ungültige Bounding Box (North <= South) bei ${name}"
+  fi
+
+  if (( $(echo "${EAST[$name]} <= ${WEST[$name]}" | bc -l) )); then
+    error_exit "Ungültige Bounding Box (East <= West) bei ${name}"
+  fi
+}
+
+###############################################################################
+# Region verarbeiten
 ###############################################################################
 
 process_region() {
   local name="$1"
+  local label="${REGION_LABELS[$name]}"
   local outdir="${BASE_OUTDIR}/${name}"
   local date_str
-  date_str=$(date +"%Y-%m-%d")
+  date_str="$(date +"%Y-%m-%d")"
 
-  echo -e "${GREEN}[1/3] Region wird vorbereitet:${RESET} ${name}"
-  echo -e "${GREEN}[2/3] Kartendaten werden heruntergeladen...${RESET}"
+  log "Region wird vorbereitet: ${label}"
+
+  validate_bbox "$name"
+
+  log "Kartendaten werden heruntergeladen..."
 
   python3 meshtastic_tiles.py --coords \
     --north "${NORTH[$name]}" \
@@ -105,26 +149,29 @@ process_region() {
     --output-dir "$outdir"
 
   if [ "$ZIP_AFTER_DOWNLOAD" = true ]; then
-    echo -e "${GREEN}[3/3] ZIP wird erstellt...${RESET}"
-    local zipname="${name}_${date_str}.zip"
-    zip -r "$zipname" "$outdir"
-
-    echo -e "${GREEN}Aufräumen...${RESET}"
+    log "ZIP wird erstellt..."
+    local zipname="${BASE_OUTDIR}/${name}_${date_str}.zip"
+    zip -r "$zipname" "$outdir" >/dev/null
     rm -rf "$outdir"
   fi
 
-  echo -e "${GREEN}Region ${name} erstellt.${RESET}"
+  log "Region ${label} erfolgreich erstellt."
   echo
 }
-
 
 ###############################################################################
 # Hauptlogik
 ###############################################################################
 
-[ "$REGION_RHEINLAND" = true ]        && process_region "rheinland"
-[ "$REGION_RUHRGEBIET" = true ]       && process_region "ruhrgebiet"
-[ "$REGION_BERGISCHES_LAND" = true ]  && process_region "bergisches"
-[ "$REGION_RHEIN_KREIS_NEUSS" = true ]&& process_region "rkn"
+REGION_COUNT=0
 
-echo -e "${GREEN}Alle aktiven Regionen wurden verarbeitet.${RESET}"
+[ "$REGION_RHEINLAND" = true ]        && { process_region "rheinland"; ((REGION_COUNT++)); }
+[ "$REGION_RUHRGEBIET" = true ]       && { process_region "ruhrgebiet"; ((REGION_COUNT++)); }
+[ "$REGION_BERGISCHES_LAND" = true ]  && { process_region "bergisches"; ((REGION_COUNT++)); }
+[ "$REGION_RHEIN_KREIS_NEUSS" = true ]&& { process_region "rkn"; ((REGION_COUNT++)); }
+
+if [ "$REGION_COUNT" -eq 0 ]; then
+  error_exit "Keine Region aktiviert!"
+fi
+
+log "Alle aktiven Regionen wurden verarbeitet."
