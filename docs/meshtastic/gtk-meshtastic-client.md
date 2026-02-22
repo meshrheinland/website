@@ -1,8 +1,8 @@
 # GTK Meshtastic Client
 
-![GTK Meshtastic Client Logo](/img/meshtastic/gtk-meshtastic-client/logo.svg)
+<img src="/img/meshtastic/gtk-meshtastic-client/logo.svg" alt="GTK Meshtastic Client Logo" className="logo-float-right" />
 
-Der **gtk-meshtastic-client** ist eine GTK-basierte Desktop-Oberfläche für Meshtastic unter Linux – gedacht für alle, die ihre Nodes lieber am Rechner verwalten als per Smartphone-App oder Web-Interface.
+Der **gtk-meshtastic-client** ist eine GTK-basierte Desktop-Anwendung für Meshtastic unter Linux – für alle, die Meshtastic lieber am Rechner nutzen als per Smartphone-App oder Web-Interface.
 
 ## Installation
 
