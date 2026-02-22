@@ -56,6 +56,8 @@ python3 meshtastic_tiles.py \
 
 Im Archiv liegt `maps.html`, die sich direkt im Browser öffnen lässt. Dort wählst du den Kartenausschnitt per Klick, setzt die Zoomstufen und lässt dir den passenden Befehl generieren.
 
+![Kartenausschnitt in der Browser-Oberfläche](/img/meshtastic/tdeck-maps/map-region.png)
+
 ### Auf das T-Deck übertragen
 
 Kopiere den erzeugten Ordner nach `/sdcard/maps/` auf der microSD-Karte (z. B. `/sdcard/maps/grevenbroich/`). Auf dem Gerät: **Settings → Maps → Offline Maps aktivieren → Map Style auswählen**. Der Map Style entspricht dem Ordnernamen unter `/maps/`.
