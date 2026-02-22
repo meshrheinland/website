@@ -167,6 +167,29 @@ Wenn du einen schnellen Überblick über die gängigen Einstellungen brauchst, f
 Diese Option würde die gesetzlich vorgeschriebenen Sendezeitbegrenzungen umgehen.
 :::
 
+## Backup & Restore
+
+Der Export speichert die vollständige Node-Konfiguration als YAML-Datei – einschließlich des privaten Schlüssels. Das ist wichtig, weil ein verlorener Private Key den Zugriff auf per Remote-Admin verwaltete Nodes dauerhaft sperrt. Gleichzeitig lassen sich so verschiedene Konfigurationsstände aufbewahren und bei Bedarf miteinander vergleichen.
+
+### Backup erstellen
+
+```bash
+meshtastic --port /dev/ttyUSB0 --export-config > config.yaml
+```
+
+### Wiederherstellen
+
+Die YAML-Datei lässt sich vor dem Import manuell anpassen.
+
+```bash
+meshtastic --configure config.yaml
+meshtastic --reboot
+```
+
+:::note
+Nach einem Firmware-Update können neue Konfigurationsfelder hinzugekommen sein, die im Backup fehlen. Betroffene Einstellungen müssen dann manuell nachgetragen werden.
+:::
+
 ## Sonstiges
 ### Installation aktualisieren
 Wenn du Meshtastic über pipx installiert hast, kannst du Updates sehr einfach einspielen:
