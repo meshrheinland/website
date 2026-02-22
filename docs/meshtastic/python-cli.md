@@ -167,27 +167,29 @@ Wenn du einen schnellen Überblick über die gängigen Einstellungen brauchst, f
 Diese Option würde die gesetzlich vorgeschriebenen Sendezeitbegrenzungen umgehen.
 :::
 
-## Datensicherung
-Die erstellten Datensicherungen enthalten nur die Konfiguration und nicht die Nachrichten. Ein klar strukturierter Dateiname, wie z.B. `config_2025-09-19.yaml`, sorgt im Nachhinein für eine bessere Übersicht.
+## Backup & Restore
 
-### Datensicherung erstellen
-```
-meshtastic --export-config > config_2025-09-19.yaml
+Der Export speichert die vollständige Node-Konfiguration als YAML-Datei – einschließlich des privaten Schlüssels. Das ist wichtig, weil ein verlorener Private Key den Zugriff auf per Remote-Admin verwaltete Nodes dauerhaft sperrt. Gleichzeitig lassen sich so verschiedene Konfigurationsstände aufbewahren und bei Bedarf miteinander vergleichen.
+
+### Backup erstellen
+
+```bash
+meshtastic --export-config > config.yaml
+# oder mit explizitem Port:
+meshtastic --port /dev/ttyUSB0 --export-config > config.yaml
 ```
 
-Optional kann hier die Schnittstelle mit übergeben werden:
-```
-meshtastic --port /dev/ttyUSB0 --export config_2025-09-19.yaml
-```
+### Wiederherstellen
 
-### Wiederherstellung
-YAML‑Dateien lassen sich vor dem Import anpassen. Nach dem Einspielen lohnt sich ein kurzer Abgleich, ob die Einstellungen wie gewünscht übernommen wurden.
-```
-meshtastic --configure config_2025-09-19.yaml
+Die YAML-Datei lässt sich vor dem Import manuell anpassen.
+
+```bash
+meshtastic --configure config.yaml
 meshtastic --reboot
 ```
+
 :::note
-Firmware‑Updates können neue oder geänderte Schlüssel einführen.
+Nach einem Firmware-Update können neue Konfigurationsfelder hinzugekommen sein, die im Backup fehlen. Betroffene Einstellungen müssen dann manuell nachgetragen werden.
 :::
 
 ## Sonstiges
