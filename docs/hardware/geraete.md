@@ -54,117 +54,117 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
 
 
-## HELTEC WiFi LoRa 32 Expansion Kit
+## Heltec WiFi LoRa 32 Expansion Kit
 
-| Eigenschaft	| Details | 
-|---|---| 
-| Preis	| ~70–80 € (je nach Händler/Version) | 
-| MCU	| ESP32-S3 Dual-Core 32-bit | 
-| LoRa | SX1262, 863–928 MHz (EU/US) | 
-| Konnektivität	| Wi-Fi b/g/n + Bluetooth 5.0 (BLE) | 
-| Display	| Farb-LCD / Touchscreen-Option (in manchen Kits) | 
-| Akku | 18650 Li-Ion (optional/enthalten je nach Version) | 
-| GPS	| Quectel L76K GNSS (enthalten bei manchen Kits)| 
-| Formfaktor | Kompakt, robust für stationären und tragbaren Gebrauch | 
-| Besonderheiten | Erweiterungsboard + Display + Batterie­management, USB-C, Sensor-Port, SMA-Antenne | 
+| Eigenschaft	| Details |
+|---|---|
+| Preis	| ~70–80 € (je nach Händler/Version) |
+| MCU	| ESP32-S3 Dual-Core 32-bit |
+| LoRa | SX1262, 863–928 MHz (EU/US) |
+| Konnektivität	| Wi-Fi b/g/n + Bluetooth 5.0 (BLE) |
+| Display	| Farb-LCD / Touchscreen-Option (in manchen Kits) |
+| Akku | 18650 Li-Ion (optional/enthalten je nach Version) |
+| GPS	| Quectel L76K GNSS (enthalten bei manchen Kits)|
+| Formfaktor | Kompakt, robust für stationären und tragbaren Gebrauch |
+| Besonderheiten | Erweiterungsboard + Display + Batterie­management, USB-C, Sensor-Port, SMA-Antenne |
 
-Vielseitiges Entwicklungs-/Mesh-Kit basierend auf dem Heltec WiFi LoRa 32 (V4) Board – kombiniert LoRa mit Wi-Fi/BLE, batteriebetriebenem Off-Grid-Betrieb und Display. Ideal für Meshtastic/MeshCore Mesh-Nodes, IoT-Sensorintegration oder lokale Applikationen
-
-
-## HELTEC MeshPocket
-
-| Eigenschaft	| Details | 
-|---|---| 
-| Preis	| ~90–130 € |  
-| MCU	| Nordic nRF52840 | 
-| LoRa | SX1262, 863–870 MHz (EU) | 
-| Konnektivität	| Bluetooth 5.0 (kein Wi-Fi) | 
-| Display	| 2.13" E-Ink | 
-| Akku | 5000 mAh oder 10000 mAh intern | 
-| GPS	| Optional (je nach Version) | 
-| Besonderheiten | QI2 magnetisches Drahtlos-Laden, Powerbank-Funktion verfügbar, portable All-in-One Einheit | 
-
-Kompaktes Portabel-Gerät für Off-Grid-Kommunikation mit langer Laufzeit und integriertem Akku & E-Ink-Anzeige.
+Vielseitiges Kit basierend auf dem Heltec WiFi LoRa 32 (V4) – kombiniert LoRa mit WiFi/BLE, Display und Akkumanagement. Ideal für stationäre Meshtastic/MeshCore-Nodes, IoT-Sensorintegration oder lokale Anwendungen.
 
 
-## HELTEC MeshSolar
+## Heltec MeshPocket
 
-| Eigenschaft	| Details | 
-|---|---| 
-| Preis	| ~50 € | 
-| MCU	| nRF52840 (BLE) | 
-| LoRa | SX1262, 863–870 MHz (EU) | 
-| Konnektivität	| Bluetooth 5.0 | 
-| Display	| – | 
-| Akku | Externe Batterie(n) 1–4 Zellen (Solar-powered) | 
-| GPS	| – | 
-| Formfaktor | Power Management & Comm-Board für Outdoor Nodes | 
-| Besonderheiten | Integriertes Power-Management (MPPT, USB-PD-/DC-Charging), duale LoRa/BLE Komms, low-power Design | 
+| Eigenschaft	| Details |
+|---|---|
+| Preis	| ~90–130 € |
+| MCU	| Nordic nRF52840 |
+| LoRa | SX1262, 863–870 MHz (EU) |
+| Konnektivität	| Bluetooth 5.0 (kein Wi-Fi) |
+| Display	| 2.13" E-Ink |
+| Akku | 5000 mAh oder 10000 mAh intern |
+| GPS	| Optional (je nach Version) |
+| Besonderheiten | QI2 magnetisches Drahtlos-Laden, Powerbank-Funktion verfügbar, portable All-in-One Einheit |
 
-Basis-Board zur Solar-/Batterie-Integration für outdoor Meshtastic/MeshCore Nodes
+Kompaktes, portables Gerät für Off-Grid-Kommunikation mit langer Laufzeit und integriertem Akku und E-Ink-Display.
 
 
-## HELTEC MeshTower (Solar-Outdoor-Node)
+## Heltec MeshSolar
 
-| Eigenschaft	| Details | 
-|---|---| 
-| Preis	| ~140–210 € | 
-| MCU	| nRF52840 (BLE) | 
-| LoRa | SX1262, 863–870 MHz (EU), ~21 ± 1 dBm | 
-| Konnektivität	| Bluetooth 5.0 | 
-| Display	| – | 
-| Akku | 3×2800 mAh Li-Ion | 
-| GPS	| Optional | 
-| Formfaktor | Wetterfest IP65 Aluminiumgehäuse | 
-| Besonderheiten | Integriertes 18 V/10 W Solarpanel, externe SMA Antennen, Mast-/Wand-Montage möglich | 
+| Eigenschaft	| Details |
+|---|---|
+| Preis	| ~50 € |
+| MCU	| nRF52840 (BLE) |
+| LoRa | SX1262, 863–870 MHz (EU) |
+| Konnektivität	| Bluetooth 5.0 |
+| Display	| ✗ |
+| Akku | Externe Batterie(n) 1–4 Zellen (Solar-powered) |
+| GPS	| ✗ |
+| Formfaktor | Power Management & Comm-Board für Outdoor Nodes |
+| Besonderheiten | Integriertes Power-Management (MPPT, USB-PD-/DC-Charging), duale LoRa/BLE Komms, low-power Design |
 
-Robuster Outdoor-Mesh-Node für dauerhaften Solar-Betrieb und große Coverage.
+Basisboard zur Solar- und Batterieintegration für Meshtastic/MeshCore-Nodes im Außenbereich.
+
+
+## Heltec MeshTower (Solar-Outdoor-Node)
+
+| Eigenschaft	| Details |
+|---|---|
+| Preis	| ~140–210 € |
+| MCU	| nRF52840 (BLE) |
+| LoRa | SX1262, 863–870 MHz (EU), ~21 ± 1 dBm |
+| Konnektivität	| Bluetooth 5.0 |
+| Display	| ✗ |
+| Akku | 3×2800 mAh Li-Ion |
+| GPS	| Optional |
+| Formfaktor | Wetterfest IP65 Aluminiumgehäuse |
+| Besonderheiten | Integriertes 18 V/10 W Solarpanel, externe SMA Antennen, Mast-/Wand-Montage möglich |
+
+Robuster Outdoor-Node für dauerhaften Solarbetrieb und große Reichweite.
 
 
 ## LilyGO T-Echo
 
-| Eigenschaft	| Details | 
-|---|---| 
-| Preis	| ~45–60 € | 
-| MCU	| Nordic nRF52840 | 
-| LoRa	| SX1262, 868 MHz (EU), bis 22 dBm | 
-| Konnektivität	| Bluetooth 5.0 (kein WiFi) | 
-| Display	| 1.54" E-Paper | 
-| Akku | 18650 integriert (je nach Version) | 
-| GPS	| Optional (L76K) | 
-| Formfaktor | Sehr mobil, robustes Gehäuse | 
+| Eigenschaft	| Details |
+|---|---|
+| Preis	| ~45–60 € |
+| MCU	| Nordic nRF52840 |
+| LoRa	| SX1262, 868 MHz (EU), bis 22 dBm |
+| Konnektivität	| Bluetooth 5.0 (kein WiFi) |
+| Display	| 1.54" E-Paper |
+| Akku | 18650 integriert (je nach Version) |
+| GPS	| Optional (L76K) |
+| Formfaktor | Sehr mobil, robustes Gehäuse |
 
 Extrem stromsparend durch E-Paper + nRF52. Sehr beliebt als Off-Grid-Handgerät.
 
 
 ## LilyGO T-Beam (v1.1 / Supreme)
 
-| Eigenschaft	| Details | 
-|---|---| 
-| Preis	| ~35–60 € | 
-| MCU	| ESP32 (Dual Core) | 
-| LoRa | SX1276 (älter) oder SX1262 (Supreme), 868 MHz | 
-| Konnektivität	| WiFi + Bluetooth | 
-| Display	| Kein Display | 
-| Akku | 18650 Slot integriert | 
-| GPS	| Meist NEO-6M oder L76K onboard | 
-| Formfaktor | Größer, Outdoor-geeignet | 
+| Eigenschaft	| Details |
+|---|---|
+| Preis	| ~35–60 € |
+| MCU	| ESP32 (Dual Core) |
+| LoRa | SX1276 (älter) oder SX1262 (Supreme), 868 MHz |
+| Konnektivität	| WiFi + Bluetooth |
+| Display	| ✗ |
+| Akku | 18650 Slot integriert |
+| GPS	| Meist NEO-6M oder L76K onboard |
+| Formfaktor | Größer, Outdoor-geeignet |
 
 Klassiker mit WiFi – ideal für MQTT-Bridge, Gateway oder feste Installation mit GPS-Tracking.
 
 
 ## LilyGO T-Deck
 
-| Eigenschaft	| Details | 
-|---|---| 
-| Preis	| ~90–120 € | 
-| MCU	| ESP32-S3 | 
-| LoRa | SX1262, 868 MHz | 
-| Konnektivität	| WiFi + Bluetooth | 
-| Display	| 2.8" IPS Touch | 
-| Akku | Li-Po integriert | 
-| GPS	| Optional | 
-| Formfaktor | Handheld mit Tastatur | 
+| Eigenschaft	| Details |
+|---|---|
+| Preis	| ~90–120 € |
+| MCU	| ESP32-S3 |
+| LoRa | SX1262, 868 MHz |
+| Konnektivität	| WiFi + Bluetooth |
+| Display	| 2.8" IPS Touch |
+| Akku | Li-Po integriert |
+| GPS	| Optional |
+| Formfaktor | Handheld mit Tastatur |
 
 „LoRa-Messenger“ mit Tastatur. Ideal für Direktnachrichten ohne Smartphone. Höherer Stromverbrauch (ESP32 + Display).
 
@@ -230,6 +230,13 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 | Heltec Mesh Node T114 | ✓ | ✗ | optional | ✓ | ✓ | 22 dBm |
 | Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
 | Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 27 dBm |
+| Heltec WiFi LoRa 32 Expansion Kit | ✓ | ✓ | optional | ✓ | ✗ | 22 dBm |
+| Heltec MeshPocket | ✓ | ✗ | optional | ✓ (intern) | ✗ | 22 dBm |
+| Heltec MeshSolar | ✗ | ✗ | ✗ | ✓ | ✓ | 22 dBm |
+| Heltec MeshTower | ✗ | ✗ | optional | ✓ (intern) | ✓ | 21 dBm |
+| LilyGO T-Echo | ✓ | ✗ | optional | ✓ | ✗ | 22 dBm |
+| LilyGO T-Beam | ✗ | ✓ | ✓ | ✓ | ✗ | 22 dBm |
+| LilyGO T-Deck | ✓ | ✓ | optional | ✓ | ✗ | 22 dBm |
 | Seeed T1000-E | ✗ | ✗ | ✓ | ✓ (intern, 700 mAh) | ✗ | 22 dBm |
 | Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✗ | ✓ | ✗ | 22 dBm |
 | RAK Wireless WisBlock | optional | optional | optional | ✓ | optional | 22 dBm |
