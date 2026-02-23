@@ -191,6 +191,40 @@ Achte beim Kauf darauf, die „for Meshtastic"-Version zu wählen. [Herstellerse
 :::
 
 
+## Seeed Studio SenseCAP Indicator
+ 
+| Eigenschaft	| Details | 
+|---|---| 
+| Preis	| ~65–94 € je nach Version/Shop | 
+| MCU	| ESP32-S3 + RP2040 Dual-MCU | 
+| LoRa | SX1262, 862–930 MHz | 
+| Konnektivität	| Wi-Fi 2.4 GHz + Bluetooth 5.0 LE | 
+| Display	| 4" (3.95") kapazitiver RGB-Touchscreen, 480×480 px | 
+| Akku | – (kein Akku) (USB-C 5 V/1 A) | 
+| GPS	| Optional (über Grove, extern) | 
+| Formfaktor | Kompaktes Touch-Display-Node | 
+| Besonderheiten | Vorinstallierte Meshtastic-Firmware; stationärer Desktop-Node oder IoT-Hub; großer Touchscreen zur Visualisierung/Konfiguration 
+
+Ideal als lokales Meshtastic-Interface / LoRa-Hub mit Display und Wi-Fi/BLE, z. B. für Tracking, Dashboard oder Netzwerk-Steuerung.
+
+
+## Seeed Studio SenseCAP Solar Node P1‑Pro
+
+| Eigenschaft	| Details | 
+|---|---| 
+| Preis	| ~115–163 € je nach Händler | 
+| MCU	| XIAO nRF52840 Plus (Nordic nRF52840) | 
+| LoRa | SX1262, 862–930 MHz, bis ~22 dBm | 
+| Konnektivität | Bluetooth 5.0 BLE | 
+| Display	| – | 
+| Akku | 4×18650 Li-Ion Batterien (inkl. bei Pro), Solar-Charging über 5 W Panel | 
+| GPS	| Integriert (XIAO L76K GNSS) | 
+| Formfaktor | Robustes Outdoor-Node mit 5 W Solarpanel & Batteriebackup | 
+| Besonderheiten | Vorinstallierte Meshtastic-Firmware; Langzeit-Outdoor-Betrieb; externe Antennen möglich; Grove-Port für Sensor-Expansion (I²C/GPIO) | 
+
+Solar-Outdoor-Node mit GPS/Repeater-Funktion – ideal für Mesh-Netzerweiterung ohne Netzversorgung.
+
+
 ## Seeed Studio Xiao nRF52840 WIO
 
 | Eigenschaft | Details |
@@ -229,14 +263,16 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 |---|---|---|---|---|---|---|
 | Heltec Mesh Node T114 | ✓ | ✗ | optional | ✓ | ✓ | 22 dBm |
 | Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
-| Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 27 dBm |
-| Heltec WiFi LoRa 32 Expansion Kit | ✓ | ✓ | optional | ✓ | ✗ | 22 dBm |
+| Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 28 dBm |
+| Heltec WiFi LoRa 32 Expansion Kit | ✓ | ✓ | optional | ✓ | ✗ | 22/28 dBm |
 | Heltec MeshPocket | ✓ | ✗ | optional | ✓ (intern) | ✗ | 22 dBm |
 | Heltec MeshSolar | ✗ | ✗ | ✗ | ✓ | ✓ | 22 dBm |
-| Heltec MeshTower | ✗ | ✗ | optional | ✓ (intern) | ✓ | 21 dBm |
+| Heltec MeshTower | ✗ | ✗ | optional | ✓ (intern) | ✓ | 22 dBm |
 | LilyGO T-Echo | ✓ | ✗ | optional | ✓ | ✗ | 22 dBm |
 | LilyGO T-Beam | ✗ | ✓ | ✓ | ✓ | ✗ | 22 dBm |
 | LilyGO T-Deck | ✓ | ✓ | optional | ✓ | ✗ | 22 dBm |
 | Seeed T1000-E | ✗ | ✗ | ✓ | ✓ (intern, 700 mAh) | ✗ | 22 dBm |
+| Seeed Studio SenseCAP Indicator | ✓ | ✓ | ✗ | ✗ | ✗ | 22 dBm |
+| Seeed Studio SenseCAP Solar Node P1‑Pro | ✗ | ✗ | ✓ | ✓ | ✓ | 22 dBm |
 | Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✗ | ✓ | ✗ | 22 dBm |
 | RAK Wireless WisBlock | optional | optional | optional | ✓ | optional | 22 dBm |
