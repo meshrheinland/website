@@ -14,7 +14,7 @@ Empfohlene LoRa-Geräte für Meshtastic und MeshCore im Rheinland.
 | MCU | Nordic nRF52840 |
 | LoRa | SX1262, 868 MHz (EU), 22 dBm Sendeleistung |
 | Konnektivität | Bluetooth 5.0 (kein WiFi) |
-| Display | 0.96" OLED |
+| Display | 0.96" OLED (optional) |
 | Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
 | GPS | Optional (L76K GNSS) |
 | Formfaktor | Kompakt, gut für mobile Nutzung |
@@ -261,7 +261,7 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 
 | Gerät | Display | WiFi | GPS | Akku-Anschluss | Solar-Anschluss | Sendeleistung |
 |---|---|---|---|---|---|---|
-| Heltec Mesh Node T114 | ✓ | ✗ | optional | ✓ | ✓ | 22 dBm |
+| Heltec Mesh Node T114 | optional | ✗ | optional | ✓ | ✓ | 22 dBm |
 | Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
 | Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 28 dBm |
 | Heltec WiFi LoRa 32 Expansion Kit | ✓ | ✓ | optional | ✓ | ✗ | 22/28 dBm |
