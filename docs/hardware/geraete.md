@@ -50,6 +50,7 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 | Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
 | GPS | Optional (L76K GNSS) |
 | Formfaktor | Kompakt |
+| Besonderheiten | *1 |
 
 Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
 
@@ -67,6 +68,7 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 | GPS	| Quectel L76K GNSS (enthalten bei manchen Kits)|
 | Formfaktor | Kompakt, robust für stationären und tragbaren Gebrauch |
 | Besonderheiten | Erweiterungsboard + Display + Batterie­management, USB-C, Sensor-Port, SMA-Antenne |
+|  | *1 |
 
 Vielseitiges Kit basierend auf dem Heltec WiFi LoRa 32 (V4) – kombiniert LoRa mit WiFi/BLE, Display und Akkumanagement. Ideal für stationäre Meshtastic/MeshCore-Nodes, IoT-Sensorintegration oder lokale Anwendungen.
 
@@ -117,6 +119,7 @@ Basisboard zur Solar- und Batterieintegration für Meshtastic/MeshCore-Nodes im 
 | GPS	| Optional |
 | Formfaktor | Wetterfest IP65 Aluminiumgehäuse |
 | Besonderheiten | Integriertes 18 V/10 W Solarpanel, externe SMA Antennen, Mast-/Wand-Montage möglich |
+|  | *2 |
 
 Robuster Outdoor-Node für dauerhaften Solarbetrieb und große Reichweite.
 
@@ -276,3 +279,11 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 | Seeed Studio SenseCAP Solar Node P1‑Pro | ✗ | ✗ | ✓ | ✓ | ✓ | 22 dBm |
 | Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✗ | ✓ | ✗ | 22 dBm |
 | RAK Wireless WisBlock | optional | optional | optional | ✓ | optional | 22 dBm |
+
+
+## Besonderheiten
+
+*1 Bis FW 1.13 gibt es Dauerlauf-Probleme mit der USB-Verbindung. Zur Verbindung mit einem Bot kann es hilfreich sein folgenden Eintrag in /boot/firmware/cmdline.txt anzufügen: usbcore.autosuspend=-1
+
+*2 Das aktuelle MeshSolar Modul im Heltec MeshTower hat ein fehlerhaftes Layout und führt zu Abstürzen beim Betrieb mit Solarpanel. Eine korrigierte Version befindet sich im Test (Feb 2026) und wird kostenfrei nachgeliefert.
+
