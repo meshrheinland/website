@@ -1,4 +1,4 @@
-# Kanäle / Channels
+# Kanäle
 
 Nach der Installation eines Companion ist bereits der `Public` Kanal für offenen, meshweite Kommunikation verfügbar.
 
