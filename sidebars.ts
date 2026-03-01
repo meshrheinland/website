@@ -23,6 +23,7 @@ const sidebars: SidebarsConfig = {
     'meshcore/intro',
     'meshcore/repeater-setup',
     'meshcore/regionen',
+    'meshcore/channels',
     'meshcore/paketstruktur',
     'meshcore/routing',
     {
