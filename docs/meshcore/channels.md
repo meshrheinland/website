@@ -41,8 +41,8 @@ Hash Kanäle:
 - `#koeln` - Köln
 - `#nrw` - Nordrhein-Westfalen
 - `#rheinland` - Rheinland
-- `#test` - Testkanal 1 mit Bots
-- `#testkanal` - Testkanal 2 mit Bots
+- `#test` - Testkanal mit Bots um `Ping` und `Test` Nachrichten zu nutzen, ohne *Mensch zu Mensch* Kommunikation Kanäle damit zu füllen
+- `#testkanal` - weiterer Testkanal mit Bots um `Ping` und `Test` Nachrichten zu nutzen, ohne *Mensch zu Mensch* Kommunikation Kanäle damit zu füllen
 - `#wetter` - Wetter
 
 ## Ressourcen
