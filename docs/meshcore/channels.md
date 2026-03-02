@@ -5,11 +5,12 @@ Nach der Installation eines Companion ist bereits der `Public` Kanal für offene
 ## Was sind Kanäle?
 
 Ein **Kanal** erlaubt es die Kommunikation zu strukturieren. MeshCore erlaubt 
-- *Private Kanäle*
+  
+- **Private Kanäle**
   durch geheimen, privaten Schlüssel gesicherte Kommunikation, nur von Teilnehmer mit diesem Schlüssel lesbar, nutzt einen 16-byte key.
-- *Öffentlicher Kanal*
+- **Öffentlicher Kanal**
   durch statischen, im MeshCore Code, abgelegter Schlüssel gesicherte Kommunikation, nutzt einen 16-byte key.
-- *Hashtag Kanäle*
+- **Hashtag Kanäle**
   öffentliche Kanäle, durch a-z, 0-9 und Bindestriche erzeugt MeshCore selbst einen Schlüssel über den Namen. Nutzt die ersten 16-byte von z.B. `sha256("#test")`
 
 Für private oder sensible Informationen solltest du private Kanäle nutzen. Die individuellen, geheimen Schlüssel, schützen die Kommunikation zwischen den Teilnehmern denen dieser mitgeteilt wurde.
