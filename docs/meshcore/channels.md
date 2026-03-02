@@ -26,7 +26,9 @@ MeshCore Repeater transportiert alle Nachrichten in allen Kanälen im Mesh. Comp
 
 ## Kanäle in unserer Community
 
-In der Mesh Rheinland Community verwenden wir derzeit folgende Kanäle:
+In der Mesh Rheinland Community verwenden wir derzeit folgende Kanäle.
+
+Beachte bitte, dass durch die 64 Hop Anzahl aktuell in MeshCore, das Mesh bereits eine große Ausdehnung hat und es durchaus die Regel ist, dass Kanäle von mehreren Communitys oder Einzelpersonen genutzt werden. Diese Liste soll trotzdem einen Startpunkt für unsere Nutzer bieten um Fragen zu unseren Kanälen mit einem Link zu dieser Dokumentation beantworten zu können.
 
 Öffentliche Kanäle:
 - `Public` - Default bereits durch den Client vorhanden, wird von allen Mesh Teilnehmern genutzt, auch ausserhalb von Mesh-Rheinland.
