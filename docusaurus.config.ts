@@ -28,6 +28,7 @@ const config: Config = {
   organizationName: 'meshrheinland',
   projectName: 'website',
 
+  trailingSlash: false,
   onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
