@@ -4,6 +4,10 @@ title: Notfunkübung Bonn am 12. März 2026 (Landesweiter Warntag NRW)
 
 # Notfunkübung Bonn am 12. März 2026
 
+:::caution Vorläufige Planung
+Dieser Termin ist noch nicht offiziell bestätigt.
+:::
+
 Anlässlich des **Landesweiten Warntags Nordrhein-Westfalen** findet am **Donnerstag, den 12. März 2026** eine kleine lokale Notfunkübung im Großraum Bonn statt.
 
 **Hinweis:** Dies ist eine lokale Übung in Bonn – keine Distrikt-G-Übung und keine Übung der Region Köln–Bonn–Aachen.
@@ -24,7 +28,7 @@ Der Warntag-Alarm ertönt um 11:00 Uhr – der frühe Start gibt Zeit zur Kontak
 
 ## Wer kann teilnehmen?
 
-Alle Funkamateure im Großraum Bonn sind willkommen.
+Alle Funkamateure im Großraum Bonn sind willkommen – unabhängig von Erfahrung oder Ausrüstung. Die Übung dient der Vorbereitung auf echte Notfallsituationen und dem Austausch untereinander.
 
 ---
 
