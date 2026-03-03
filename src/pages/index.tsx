@@ -76,8 +76,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Willkommen bei ${siteConfig.title}`}
-      description="Meshtastic und MeshCore Community im Rheinland">
+      title="LoRa-Mesh-Community im Rheinland"
+      description="LoRa-Mesh-Community im Rheinland und Umgebung. Kommunikation ohne Internet und Mobilfunk – Schnellstart, regionale Einstellungen und häufige Fragen.">
       <EventBanner />
       <HomepageHeader />
       <main>
