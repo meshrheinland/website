@@ -10,8 +10,6 @@ Dieser Termin ist noch nicht offiziell bestätigt.
 
 Anlässlich des **Landesweiten Warntags Nordrhein-Westfalen** findet am **Donnerstag, den 12. März 2026** eine kleine lokale Notfunkübung im Großraum Bonn statt.
 
-**Hinweis:** Dies ist eine lokale Übung in Bonn – keine Distrikt-G-Übung und keine Übung der Region Köln–Bonn–Aachen.
-
 ## Teilnahme und Funkbereiche
 
 <img src="/img/darc-notfunk-logo.png" alt="DARC Notfunk Logo" className="logo-float-right" />
