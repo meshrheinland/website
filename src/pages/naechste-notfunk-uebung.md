@@ -1,69 +1,34 @@
 ---
-title: Notfunkübung des DARC Distrikt G am 21. Februar 2026
+title: Notfunkübung Bonn am 12. März 2026 (Landesweiter Warntag NRW)
 ---
 
-# Notfunkübung des DARC Distrikt G am 21. Februar 2026
+# Notfunkübung Bonn am 12. März 2026
 
-Liebe Funkamateure und Hobbyfunker,
+Anlässlich des **Landesweiten Warntags Nordrhein-Westfalen** findet am **Donnerstag, den 12. März 2026** eine kleine lokale Notfunkübung im Großraum Bonn statt.
 
-am **Samstag, den 21. Februar 2026**, führt der DARC Distrikt G eine Notfunkübung durch, zu der alle Funkamateure und Hobbyfunker herzlich eingeladen sind, teilzunehmen.
-
-## Hintergrund und Konzept
-
-Aufgrund des kürzlichen Stromausfalls in Berlin haben wir das Übungskonzept für den Großraum Bonn **an aktuelle Erkenntnisse angepasst und erweitert**.
-
-**Wichtig:** Es werden keine simulierten Notmeldungen abgesetzt!
-
-Mehr Details zum Konzept erfahrt ihr während der Übung – der Überraschungseffekt ist gewollt und Teil des Trainings.
+**Hinweis:** Dies ist eine lokale Übung in Bonn – keine Distrikt-G-Übung und keine Übung der Region Köln–Bonn–Aachen.
 
 ## Teilnahme und Funkbereiche
 
 <img src="/img/darc-notfunk-logo.png" alt="DARC Notfunk Logo" className="logo-float-right" />
 
-**Allgemein (Großraum Aachen – Köln – Bonn):**
 - Amateurfunk (primär 2m FM)
-- CB-Funk: Kanal 3 (FM) wird beobachtet
-- PMR-Funk: Kanal 1 wird beobachtet
 
-**Zusätzlich im Großraum Bonn:**
-- Meshtastic <span className="tag-gray">(Kanal: ShortSlow und emergency mit PSK `AQ==`)</span>
-- MeshCore 🎉 <span className="tag-gray">(Kanal: Public und #emergency)</span>
+Die Leitstelle auf der **Burg Limperich** ist unter dem Rufzeichen **DLØOV auf 144,675&nbsp;MHz** QRV.
 
-Die Leitstelle auf der **Burg Limperich** ist unter dem Rufzeichen **DLØOV auf 144,675&nbsp;MHz** QRV. Zudem wird das **Notfunkrelais DBØDBN** der IGFS im Siebengebirge aktiv in das Übungsszenario integriert.
+## Zeitplan
 
-## Zeitplan für den Großraum Bonn
+**10:50 – 11:30 Uhr:** 2m FM Betrieb mit DLØOV auf 144,675&nbsp;MHz
 
-Die angegebenen Zeiten dienen als Orientierung und können je nach Übungslage variieren:
-
-**14:00 – 14:30 Uhr:** Kontaktaufnahme mit DLØOV auf 144,675&nbsp;MHz&nbsp;(FM)
-Austausch von Rapporten und Klärung eventueller Rückfragen
-
-**14:40 – 15:00 Uhr:** Kontaktaufnahme mit DLØOV über das Notfunkrelais DBØDBN (145,575&nbsp;MHz, FM, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS) der IGFS im Siebengebirge
-
-**15:10 – 15:45 Uhr:** Notfunkübung über Meshtastic/MeshCore
-Bearbeitung von Aufgaben und Rückfragen der Leitstelle DLØOV
-
-## Beispielhafte Aufgabenstellungen
-
-Während der Übung können verschiedene praxisnahe Fragen gestellt werden, beispielsweise:
-
-- Kann in deinem Haushalt länger als drei Tage ohne Strom gekocht werden?
-- Hat ein Nachbar von dir ein Balkonkraftwerk zur unabhängigen Stromversorgung?
-- In welchem Jahr war dein letzter Erste-Hilfe-Lehrgang?
-- Ist eine aktuelle BBK-Broschüre (Bundesamt für Bevölkerungsschutz) vorhanden?
-- Wie lautet die Adresse der nächsten Feuerwache?
-- Wie viele Tage kannst du bei Stromausfall funken?
-- Gibt es in deinem Nahbereich Personen, die bei Stromausfall Hilfe benötigen?
-
-**Hinweis:** Bereitet euch darauf vor, Straßennamen zu buchstabieren!
+Der Warntag-Alarm ertönt um 11:00 Uhr – der frühe Start gibt Zeit zur Kontaktaufnahme und Klärung von Rückfragen.
 
 ## Wer kann teilnehmen?
 
-Alle Funkamateure und Hobbyfunker sind willkommen – unabhängig von Erfahrung oder Ausrüstung. Die Übung dient der Vorbereitung auf echte Notfallsituationen und dem Austausch untereinander.
+Alle Funkamateure im Großraum Bonn sind willkommen.
 
 ---
 
-**Wir freuen uns auf eure Teilnahme und eine realitätsnahe, lehrreiche Übung!**
+**Wir freuen uns auf eure Teilnahme!**
 
 73 und viel Erfolg bei der Notfunkübung!
 
