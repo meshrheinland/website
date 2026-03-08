@@ -35,7 +35,7 @@ Die Leitstelle ist auf dem Kanal **emergency** erreichbar. Der Ablauf orientiert
 
 Sendet eine Nachricht mit eurem Namen und Standort an die Leitstelle:
 
-> `Notfunkleitstelle von [Name], Standort [Ort] – ich melde mich an`
+> `[Name], Standort [Ort] meldet mich an den Notfunkverkehrskreis an`
 
 Die Leitstelle bestätigt die Anmeldung. Nach der Bestätigung erhaltet ihr ggf. eine Aufgabe.
 
@@ -53,7 +53,7 @@ Beantwortet die Aufgabe im Kanal. Korrekturen leitet ihr mit **„Ich berichtige
 
 Gegen Ende der Übung meldet euch ab:
 
-> `Notfunkleitstelle von [Name] – ich melde mich ab`
+> `[Name] meldet sich vom Notfunkverkehrskreis ab`
 
 Die Leitstelle bestätigt die Abmeldung.
 
