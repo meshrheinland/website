@@ -6,6 +6,25 @@ sidebar_position: 2
 
 Empfohlene LoRa-Geräte für Meshtastic und MeshCore im Rheinland.
 
+## Elecrow ThinkNode M6 Outdoor Solar
+
+| Eigenschaft | Details |
+|------------|---------|
+| Preis | ~72 € |
+| MCU | Nordic nRF52840, 64 MHz Cortex-M4F, 256 KB RAM, 1 MB Flash |
+| LoRa | SX1262, 150–960 MHz, EU868/US915, RP-SMA |
+| Konnektivität | Bluetooth 5.4 (BLE), LoRa |
+| Display | ✗ |
+| Akku | 2× 18650, 7000 mAh gesamt |
+| Solar | 6 W Solarpanel integriert (MPPT) |
+| GPS | Ja (L76K, externer RP-SMA Anschluss) |
+| Formfaktor | Outdoor-Node, IP65, 210×156×42 mm |
+| Besonderheiten | Dual SP11-Industrie-Ports (UART/I²C), -20 °C bis 60 °C |
+
+:::note Hinweis
+Die Hinweise aus dem [Heise‑Artikel](https://www.heise.de/news/Elecrow-ThinkNode-M6-Solarbetriebener-Meshtastic-Knoten-fuer-Ausseneinsatz-11187337.html) beachten. [Herstellerseite](https://www.elecrow.com/thinknode-m6-outdoor-solar-power-for-meshtastic-powered-by-nrf52840-supports-gps.html) - [Wiki](https://www.elecrow.com/pub/wiki/ThinkNode_M6_Outdoor_Solar_Power_for_Meshtastic_Powered_By_nRF52840_Supports_GPS.html) - [Manual](https://www.elecrow.com/download/product/LMM14106D/ThinkNode_M6_Outdoor_Solar_Power_for_Meshtastic_User_Manual.pdf)
+:::
+
 ## Heltec Mesh Node T114
 
 | Eigenschaft | Details |
