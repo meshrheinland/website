@@ -28,7 +28,7 @@ function HomepageHeader() {
   );
 }
 
-const EVENT_DATE = new Date('2026-02-21T00:00:00');
+const EVENT_DATE = new Date('2026-03-12T00:00:00');
 
 function getEventLabel(): string | null {
   const today = new Date();
@@ -36,10 +36,11 @@ function getEventLabel(): string | null {
   const diffDays = Math.round(
     (EVENT_DATE.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
   );
+  if (diffDays > 7 || diffDays < -1) return null;
   if (diffDays === 1) return 'Morgen:';
   if (diffDays === 0) return 'Heute:';
   if (diffDays === -1) return 'Gestern:';
-  return null;
+  return `In ${diffDays} Tagen:`;
 }
 
 function EventBanner(): ReactNode {
@@ -55,10 +56,10 @@ function EventBanner(): ReactNode {
       <div className="container">
         <div style={{textAlign: 'center'}}>
           <p style={{fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 0.25rem'}}>
-            {label} Notfunkübung DARC Distrikt G – 21. Februar 2026
+            {label} Notfunkübung DARC Distrikt G – Warntag NRW, 12. März 2026
           </p>
           <p style={{margin: '0 0 0.75rem', opacity: 0.9}}>
-            Meshtastic & MeshCore im Einsatz – Großraum Aachen · Köln · Bonn, ab 14:00 Uhr
+            Meshtastic & MeshCore im Einsatz – Großraum Bonn, ab 10:50 Uhr
           </p>
           <Link
             className="button button--lg"

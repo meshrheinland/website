@@ -4,25 +4,26 @@ title: Notfunkübung Bonn am 12. März 2026 (Landesweiter Warntag NRW)
 
 # Notfunkübung Bonn am 12. März 2026
 
-:::caution Vorläufige Planung
-Dieser Termin ist noch nicht offiziell bestätigt.
-:::
+Anlässlich des **Landesweiten Warntags Nordrhein-Westfalen** findet am **Donnerstag, den 12. März 2026** im Rahmen einer Notfunkübung des **DARC Distrikts G** eine kleine lokale Übung im Großraum Bonn statt.
 
-Anlässlich des **Landesweiten Warntags Nordrhein-Westfalen** findet am **Donnerstag, den 12. März 2026** eine kleine lokale Notfunkübung im Großraum Bonn statt.
+Gegen **11:00 Uhr** ertönen die Sirenen – wir nutzen den Anlass für einen Verbindungs- und Belastungstest über verschiedene Kommunikationswege.
 
 ## Teilnahme und Funkbereiche
 
 <img src="/img/darc-notfunk-logo.png" alt="DARC Notfunk Logo" className="logo-float-right" />
 
-- Amateurfunk (primär 2m FM)
-
-Die Leitstelle auf der **Burg Limperich** ist unter dem Rufzeichen **DLØOV auf 144,675&nbsp;MHz** QRV.
+**Großraum Bonn:**
+- Amateurfunk (2m FM über DBØDBN)
+- MeshCore <span className="tag-gray">(Kanal: #emergency)</span>
+- Meshtastic <span className="tag-gray">(Kanal: emergency mit PSK `AQ==`)</span>
 
 ## Zeitplan
 
-**10:50 – 11:30 Uhr:** 2m FM Betrieb mit DLØOV auf 144,675&nbsp;MHz
+**10:50 – 11:10 Uhr:** Sprechfunk über **DBØDBN**, Verbindungstest
 
-Der Warntag-Alarm ertönt um 11:00 Uhr.
+**11:15 – 11:30 Uhr:** **MeshCore**, Kanal: #emergency – Belastungstest
+
+**11:40 – 11:55 Uhr:** **Meshtastic**, Kanal: emergency – Belastungstest
 
 ## Wer kann teilnehmen?
 
