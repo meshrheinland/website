@@ -41,13 +41,13 @@ Die Leitstelle ist auf dem Kanal **emergency** erreichbar. Der Ablauf orientiert
 
 2. **Aufgabe bearbeiten**
 
-   Die Leitstelle kann euch eine Frage oder Aufgabe stellen, zum Beispiel:
+   Die Leitstelle stellt euch eine Frage oder Aufgabe. Beantwortet sie öffentlich im Kanal. Korrekturen leitet ihr mit **„Ich berichtige"** ein.
+
+   Beispiele:
 
    - Wie lautet die Adresse der nächsten Apotheke?
    - Wie viele Tage könnt ihr bei Stromausfall funken?
    - Habt ihr eine aktuelle BBK-Broschüre?
-
-   Beantwortet die Aufgabe im Kanal. Korrekturen leitet ihr mit **„Ich berichtige"** ein.
 
 3. **Abmeldung**
 
