@@ -49,6 +49,8 @@ Die Leitstelle ist auf dem Kanal **emergency** erreichbar. Der Ablauf orientiert
    - Wie viele Tage könnt ihr bei Stromausfall funken?
    - Habt ihr eine aktuelle BBK-Broschüre?
 
+   <br/>
+
 3. **Abmeldung**
 
    Gegen Ende der Übung meldet euch ab:
