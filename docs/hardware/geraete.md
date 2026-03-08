@@ -21,7 +21,7 @@ Empfohlene LoRa-Geräte für Meshtastic und MeshCore im Rheinland.
 | Formfaktor | Outdoor-Node, IP65, 210×156×42 mm |
 | Besonderheiten | Dual SP11-Industrie-Ports (UART/I²C), -20 °C bis 60 °C |
 
-<div style={{display: 'flex', gap: '1rem'}}>
+<div style={{display: 'flex', gap: '1rem', marginBottom: '1rem'}}>
   <img src="/img/hardware/devices/elecrow-thinknode-m6-front.jpg" alt="Elecrow ThinkNode M6 Vorderseite (Solarpanel)" style={{width: '50%'}} />
   <img src="/img/hardware/devices/elecrow-thinknode-m6-back.jpg" alt="Elecrow ThinkNode M6 Rückseite" style={{width: '50%'}} />
 </div>
