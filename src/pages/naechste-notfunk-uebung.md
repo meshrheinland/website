@@ -35,7 +35,7 @@ Die Leitstelle ist auf dem Kanal **emergency** erreichbar. Der Ablauf orientiert
 
    Sendet eine Nachricht mit eurem Namen und Standort an die Leitstelle:
 
-   > `[Name], Standort [Ort] meldet mich an den Notfunkverkehrskreis an`
+   > `[Name], Standort [Ort] meldet sich an den Notfunkverkehrskreis an`
 
    Die Leitstelle bestätigt die Anmeldung. Nach der Bestätigung erhaltet ihr ggf. eine Aufgabe.
 
