@@ -31,31 +31,31 @@ Gegen **11:00 Uhr** ertönen die Sirenen – wir nutzen den Anlass für einen Ve
 
 Die Leitstelle ist auf dem Kanal **emergency** erreichbar. Der Ablauf orientiert sich an den Grundsätzen des Notfunk-Sprechverkehrs – angepasst für die Textkommunikation im Mesh-Netzwerk.
 
-### 1. Anmeldung
+1. **Anmeldung**
 
-Sendet eine Nachricht mit eurem Namen und Standort an die Leitstelle:
+   Sendet eine Nachricht mit eurem Namen und Standort an die Leitstelle:
 
-> `[Name], Standort [Ort] meldet mich an den Notfunkverkehrskreis an`
+   > `[Name], Standort [Ort] meldet mich an den Notfunkverkehrskreis an`
 
-Die Leitstelle bestätigt die Anmeldung. Nach der Bestätigung erhaltet ihr ggf. eine Aufgabe.
+   Die Leitstelle bestätigt die Anmeldung. Nach der Bestätigung erhaltet ihr ggf. eine Aufgabe.
 
-### 2. Aufgabe bearbeiten
+2. **Aufgabe bearbeiten**
 
-Die Leitstelle kann euch eine Frage oder Aufgabe stellen, zum Beispiel:
+   Die Leitstelle kann euch eine Frage oder Aufgabe stellen, zum Beispiel:
 
-- Buchstabiert euren Standort (Straße) mit dem ICAO-Alphabet
-- Wie viele Tage könnt ihr bei Stromausfall funken?
-- Habt ihr eine aktuelle BBK-Broschüre?
+   - Wie lautet die Adresse der nächsten Apotheke?
+   - Wie viele Tage könnt ihr bei Stromausfall funken?
+   - Habt ihr eine aktuelle BBK-Broschüre?
 
-Beantwortet die Aufgabe im Kanal. Korrekturen leitet ihr mit **„Ich berichtige"** ein.
+   Beantwortet die Aufgabe im Kanal. Korrekturen leitet ihr mit **„Ich berichtige"** ein.
 
-### 3. Abmeldung
+3. **Abmeldung**
 
-Gegen Ende der Übung meldet euch ab:
+   Gegen Ende der Übung meldet euch ab:
 
-> `[Name] meldet sich vom Notfunkverkehrskreis ab`
+   > `[Name] meldet sich vom Notfunkverkehrskreis ab`
 
-Die Leitstelle bestätigt die Abmeldung.
+   Die Leitstelle bestätigt die Abmeldung.
 
 ---
 
