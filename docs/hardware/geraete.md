@@ -261,6 +261,7 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 
 | Gerät | Display | WiFi | GPS | Akku-Anschluss | Solar-Anschluss | Sendeleistung |
 |---|---|---|---|---|---|---|
+| Elecrow ThinkNode M6 Outdoor Solar | ✗ | ✗ | ✓ | ✓ (2× 18650) | ✓ (6 W, MPPT) | 22 dBm |
 | Heltec Mesh Node T114 | optional | ✗ | optional | ✓ | ✓ | 22 dBm |
 | Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
 | Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 28 dBm |
