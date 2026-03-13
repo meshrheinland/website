@@ -1,0 +1,237 @@
+---
+title: MeshCore – Belastungstest Nachrichtenvolumen
+sidebar_label: Belastungstest
+sidebar_position: 1
+tags: [meshcore, test, lora]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# MeshCore – Belastungstest Nachrichtenvolumen
+
+## Hintergrund
+
+Am 12. März 2026 fand eine Notfunkübung über MeshCore im Raum Bonn/Köln statt. Dabei erzeugten 11 lokale Teilnehmer insgesamt ca. 50 Nachrichten mit einer durchschnittlichen Länge von ca. 55 Zeichen. Ziel dieses Folgetests ist es, ein vergleichbares Nachrichtenvolumen mit nur **4 Personen** zu erzeugen und dabei die Zustellbarkeit systematisch zu dokumentieren.
+
+## Testparameter
+
+| Parameter | Wert |
+|---|---|
+| **Datum** | *(einsetzen)* |
+| **Startzeit** | 15:30 Uhr |
+| **Dauer** | 15 Minuten |
+| **Teilnehmer** | 4 Personen (A, B, C, D) |
+| **Nachrichten pro Person** | 13 / 13 / 13 / 12 |
+| **Nachrichten gesamt** | 51 |
+| **Zeichenlänge pro Nachricht** | ca. 55 Zeichen |
+
+## Ablauf
+
+1. Alle vier Teilnehmer sind um **15:30 Uhr** sendebereit.
+2. Nach dem **Startschuss** beginnen alle gleichzeitig, ihre vorbereiteten Nachrichten abzusetzen.
+3. Die Testphase endet nach **15 Minuten** (spätestens 15:45 Uhr).
+4. Jeder Teilnehmer dokumentiert pro Nachricht die Zustellversuche (siehe [Protokollformat](#protokollformat)).
+5. Nach Ende des Tests werden die Reports gesammelt und gemeinsam ausgewertet.
+
+:::tip[Tipp für Teilnehmer]
+Bereitet euch die Nachrichten vorab als Textbausteine vor, damit ihr sie im 15-Minuten-Fenster schnell per Copy & Paste absetzen könnt.
+:::
+
+## Vorbereitete Nachrichten
+
+<Tabs>
+<TabItem value="a" label="Person A (13)" default>
+
+```
+A-01/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-02/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-03/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-04/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-05/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-06/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-07/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-08/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-09/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-10/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-11/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-12/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+A-13/13 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+```
+
+</TabItem>
+<TabItem value="b" label="Person B (13)">
+
+```
+B-01/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-02/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-03/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-04/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-05/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-06/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-07/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-08/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-09/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-10/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-11/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-12/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+B-13/13 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+```
+
+</TabItem>
+<TabItem value="c" label="Person C (13)">
+
+```
+C-01/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-02/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-03/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-04/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-05/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-06/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-07/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-08/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-09/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-10/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-11/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-12/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C-13/13 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+```
+
+</TabItem>
+<TabItem value="d" label="Person D (12)">
+
+```
+D-01/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-02/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-03/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-04/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-05/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-06/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-07/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-08/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-09/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-10/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-11/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+D-12/12 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+```
+
+</TabItem>
+</Tabs>
+
+## Protokollformat
+
+Jeder Teilnehmer notiert pro Nachricht eine **Zahlenkolonne**: Jede Zahl steht für einen Sendeversuch und gibt die Anzahl der Repeats an.
+
+:::info[So liest man die Notation]
+- `5` → 1. Versuch: 5 Repeats → sofort erfolgreich
+- `0 0 3` → 1. Versuch: 0 Repeats, 2. Versuch: 0 Repeats, 3. Versuch: 3 Repeats
+- `0 0 0 0` → 4 Versuche, nie zugestellt (0 Repeats)
+
+Die **Länge der Kolonne** = Anzahl der Versuche. Eine Nachricht gilt als **zugestellt**, sobald mindestens ein Wert > 0 auftritt.
+:::
+
+### Beispiel
+
+| Nachricht | Versuche (Repeats) | Bedeutung |
+|---|---|---|
+| A-01/13 | `5` | 1. Versuch: 5 Repeats → sofort erfolgreich |
+| A-02/13 | `0 0 3` | 1. Versuch: 0 Repeats, 2. Versuch: 0 Repeats, 3. Versuch: 3 Repeats |
+| A-03/13 | `0 0 0 0` | 4 Versuche, nie zugestellt (0 Repeats) |
+
+### Protokolltabellen
+
+<details>
+<summary>Protokolltabelle Person A</summary>
+
+| Nr. | Versuche (Repeats) |
+|---|---|
+| A-01/13 | |
+| A-02/13 | |
+| A-03/13 | |
+| A-04/13 | |
+| A-05/13 | |
+| A-06/13 | |
+| A-07/13 | |
+| A-08/13 | |
+| A-09/13 | |
+| A-10/13 | |
+| A-11/13 | |
+| A-12/13 | |
+| A-13/13 | |
+
+</details>
+
+<details>
+<summary>Protokolltabelle Person B</summary>
+
+| Nr. | Versuche (Repeats) |
+|---|---|
+| B-01/13 | |
+| B-02/13 | |
+| B-03/13 | |
+| B-04/13 | |
+| B-05/13 | |
+| B-06/13 | |
+| B-07/13 | |
+| B-08/13 | |
+| B-09/13 | |
+| B-10/13 | |
+| B-11/13 | |
+| B-12/13 | |
+| B-13/13 | |
+
+</details>
+
+<details>
+<summary>Protokolltabelle Person C</summary>
+
+| Nr. | Versuche (Repeats) |
+|---|---|
+| C-01/13 | |
+| C-02/13 | |
+| C-03/13 | |
+| C-04/13 | |
+| C-05/13 | |
+| C-06/13 | |
+| C-07/13 | |
+| C-08/13 | |
+| C-09/13 | |
+| C-10/13 | |
+| C-11/13 | |
+| C-12/13 | |
+| C-13/13 | |
+
+</details>
+
+<details>
+<summary>Protokolltabelle Person D</summary>
+
+| Nr. | Versuche (Repeats) |
+|---|---|
+| D-01/12 | |
+| D-02/12 | |
+| D-03/12 | |
+| D-04/12 | |
+| D-05/12 | |
+| D-06/12 | |
+| D-07/12 | |
+| D-08/12 | |
+| D-09/12 | |
+| D-10/12 | |
+| D-11/12 | |
+| D-12/12 | |
+
+</details>
+
+## Auswertung
+
+Nach dem Test werden folgende Kennzahlen ermittelt:
+
+- **Zustellrate** – Anteil der Nachrichten, die mindestens 1 Repeat erhalten haben
+- **Versuche bis Zustellung** – Durchschnittliche Anzahl Sendeversuche pro erfolgreicher Nachricht
+- **Repeat-Durchschnitt** – Mittlere Repeat-Anzahl bei erfolgreichen Zustellungen
+- **Vergleich mit Übung vom 12.03.** – Wie verhält sich die Zustellbarkeit bei 4 vs. 11 Teilnehmern?
+
+:::note[Ergebnisse]
+Die Ergebnisse werden nach Durchführung des Tests hier ergänzt.
+:::
