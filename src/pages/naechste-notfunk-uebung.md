@@ -16,8 +16,8 @@ Gegen **11:00 Uhr** ertönen die Sirenen – wir nutzen den Anlass für einen Ve
 
 **Großraum Bonn:**
 - Amateurfunk (2m FM über DBØDBN)
-- MeshCore <span className="tag-gray">(Kanal: #emergency, LoRa-Einstellungssatz `EU/UK (Narrow)`)</span>
-- Meshtastic <span className="tag-gray">(Kanal: emergency mit PSK `AQ==`, LoRa-Einstellungssatz `SHORT_SLOW`)</span>
+- MeshCore <span className="tag-gray">(Kanal: #emergency, LoRa `EU/UK (Narrow)`)</span>
+- Meshtastic <span className="tag-gray">(Kanal: emergency mit PSK `AQ==`, LoRa `SHORT_SLOW`)</span>
 
 ## Zeitplan
 
