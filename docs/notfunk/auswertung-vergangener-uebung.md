@@ -10,6 +10,10 @@ Diese Auswertung bezieht sich ausschließlich auf den Mesh-Teil der Übung und i
 
 Die Übung war ein voller Erfolg: Trotz des engen Zeitfensters an einem normalen Werktag beteiligten sich jeweils **9 Teilnehmer** an beiden Mesh-Abschnitten – eine starke Resonanz, die das gewachsene Interesse an digitaler Notfunkkommunikation im Großraum Bonn unterstreicht.
 
+## Sprechfunk auf DBØDBN
+
+Der Sprechfunkbetrieb über **DBØDBN** verlief störungsfrei. 9 OMs meldeten sich auf dem Relais. Signalstärke und Verständlichkeit waren bei allen Verbindungen durchgehend hervorragend.
+
 ## MeshCore
 
 Der Verkehrskreis auf dem #emergency-Kanal verlief geordnet. Die Teilnehmer meldeten sich an, beantworteten die gestellten Aufgaben und meldeten sich zum Abschluss korrekt ab.
@@ -26,4 +30,4 @@ Ein starkes Zeichen der Community – engagiert, pünktlich und gut vorbereitet.
 
 ## Teilnehmer
 
-In zufälliger Reihenfolge: Franz-Peter, Ulli, Martin, Linus, Martin, Marcus E., Andres, Kaiser, Alex, Stephan, Colin, Marcus, Jörn und Patrick.
+In zufälliger Reihenfolge: Franz-Peter, Ulli, Martin, Linus, Martin, Marcus E., Andres, Kaiser, Alex, Stephan, Colin, Marcus, Jörn, Patrick, Marc, Basti, Alexander, Roland, Samuel und Tom.
