@@ -18,7 +18,7 @@ Die Leitstelle hatte zeitweise Schwierigkeiten, eigene Nachrichten abzusetzen. G
 
 ## Meshtastic
 
-Der Abschnitt verlief reibungslos. Die Netzabdeckung am Standort der Leitstelle war durchgehend gut, die Leitstellen-Anbindung stabil und die Kommunikation lief zuverlässig durch.
+Die Netzabdeckung am Standort der Leitstelle war durchgehend gut, die Leitstellen-Anbindung stabil und die Kommunikation verlief zuverlässig.
 
 ## Fazit
 
