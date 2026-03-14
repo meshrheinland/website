@@ -79,7 +79,6 @@ export default function Home(): ReactNode {
     <Layout
       title="LoRa-Mesh-Community im Rheinland"
       description="LoRa-Mesh-Community im Rheinland und Umgebung. Kommunikation ohne Internet und Mobilfunk – Schnellstart, regionale Einstellungen und häufige Fragen.">
-      <EventBanner />
       <HomepageHeader />
       <main>
         <HomepageFeatures />
