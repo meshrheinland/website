@@ -67,6 +67,10 @@ const config: Config = {
             from: '/meshcore/packet-structure',
             to: '/meshcore/paketstruktur',
           },
+          {
+            from: '/naechste-notfunk-uebung',
+            to: '/notfunk/naechste-uebung',
+          },
         ],
       },
     ],
@@ -102,6 +106,11 @@ const config: Config = {
         {
           to: '/hardware/intro',
           label: 'Hardware',
+          position: 'left',
+        },
+        {
+          to: '/notfunk/naechste-uebung',
+          label: 'Notfunk',
           position: 'left',
         },
         {

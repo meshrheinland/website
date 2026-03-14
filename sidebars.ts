@@ -38,6 +38,11 @@ const sidebars: SidebarsConfig = {
       dirName: 'hardware',
     },
   ],
+  notfunkSidebar: [
+    'notfunk/naechste-uebung',
+    'notfunk/vergangene-uebung',
+    'notfunk/auswertung-vergangener-uebung',
+  ],
 };
 
 export default sidebars;
