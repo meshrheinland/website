@@ -40,7 +40,7 @@ const sidebars: SidebarsConfig = {
   ],
   notfunkSidebar: [
     'notfunk/naechste-uebung',
-    'notfunk/vergangene-uebung',
+    'notfunk/letzte-uebung',
     'notfunk/auswertung-vergangener-uebung',
   ],
 };
