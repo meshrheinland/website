@@ -6,12 +6,24 @@ description: Auswertung der Notfunkübung Bonn vom 12. März 2026 – Ergebnisse
 
 # Auswertung Notfunkübung Bonn – 12. März 2026
 
-Diese Auswertung bezieht sich ausschließlich auf den Mesh-Teil der Übung und ist für die Mesh-Rheinland-Community bestimmt.
+Diese Auswertung bezieht sich ausschließlich auf den Mesh-Teil der Übung und ist für die Mesh-Rheinland-Community bestimmt. Den vollständigen Übungsablauf gibt es auf der Seite [Letzte Notfunkübung](letzte-uebung).
 
-Die Notfunkübung am 12. März 2026 war ein voller Erfolg. Trotz des engen Zeitfensters an einem normalen Werktag beteiligten sich jeweils neun Teilnehmer an den Mesh-Abschnitten. Eine starke Resonanz, die das gewachsene Interesse an digitaler Notfunkkommunikation im Großraum Bonn unterstreicht.
+Die Übung war ein voller Erfolg: Trotz des engen Zeitfensters an einem normalen Werktag beteiligten sich jeweils **9 Teilnehmer** an beiden Mesh-Abschnitten – eine starke Resonanz, die das gewachsene Interesse an digitaler Notfunkkommunikation im Großraum Bonn unterstreicht.
 
-Im MeshCore-Abschnitt verlief der Verkehrskreis auf dem #emergency-Kanal geordnet. Die Teilnehmer meldeten sich an, beantworteten die gestellten Aufgaben und meldeten sich zum Abschluss korrekt ab. Die Leitstelle hatte zeitweise Schwierigkeiten, eigene Nachrichten abzusetzen. Genau das zeigt den Wert solcher Übungen: Schwachstellen werden sichtbar, bevor sie im Ernstfall zählen.
+## MeshCore
 
-Der Meshtastic-Abschnitt verlief mit stabiler Leitstellen-Anbindung. Die Netzabdeckung am Standort der Leitstelle war durchgehend gut, die Kommunikation lief zuverlässig. Insgesamt ein starkes Zeichen der Community, engagiert, pünktlich und gut vorbereitet. Herzlichen Dank an alle Teilnehmer!
+Der Verkehrskreis auf dem #emergency-Kanal verlief geordnet. Die Teilnehmer meldeten sich an, beantworteten die gestellten Aufgaben und meldeten sich zum Abschluss korrekt ab.
 
-Dank geht raus an die Teilnehmer in zufälliger Reihenfolge: Franz-Peter, Ulli, Martin, Linus, Martin, Marcus E., Andres, Kaiser, Alex, Stephan, Colin, Marcus, Jörn und Patrick!
+Die Leitstelle hatte zeitweise Schwierigkeiten, eigene Nachrichten abzusetzen. Genau das zeigt den Wert solcher Übungen: Schwachstellen werden sichtbar, bevor sie im Ernstfall zählen.
+
+## Meshtastic
+
+Der Abschnitt verlief reibungslos. Die Netzabdeckung am Standort der Leitstelle war durchgehend gut, die Leitstellen-Anbindung stabil und die Kommunikation lief zuverlässig durch.
+
+## Fazit
+
+Ein starkes Zeichen der Community – engagiert, pünktlich und gut vorbereitet. Herzlichen Dank an alle Teilnehmer!
+
+## Teilnehmer
+
+In zufälliger Reihenfolge: Franz-Peter, Ulli, Martin, Linus, Martin, Marcus E., Andres, Kaiser, Alex, Stephan, Colin, Marcus, Jörn und Patrick.
