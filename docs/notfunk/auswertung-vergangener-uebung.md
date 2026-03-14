@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
+sidebar_label: Auswertung letzter Übung
 description: Auswertung der Notfunkübung Bonn vom 12. März 2026 – Ergebnisse des Mesh-Teils für die Mesh-Rheinland-Community.
 ---
 

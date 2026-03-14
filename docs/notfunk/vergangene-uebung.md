@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+sidebar_label: Letzte Übung
 title: Notfunkübung Bonn am 12. März 2026 (Landesweiter Warntag NRW)
 description: Details und Ablauf der Notfunkübung Bonn am 12. März 2026 anlässlich des Landesweiten Warntags NRW.
 ---
