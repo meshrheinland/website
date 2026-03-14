@@ -34,6 +34,7 @@ In der Mesh Rheinland Community verwenden wir derzeit folgende Regionen:
 - `#rheinland` – Rheinland
 - `#bonn` – Bonn
 - `#koeln` – Köln
+- `#leverkusen` – Leverkusen
 
 ## Companion-Nutzer: Regionen in der App verwenden
 
