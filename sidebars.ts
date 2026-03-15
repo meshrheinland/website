@@ -27,6 +27,16 @@ const sidebars: SidebarsConfig = {
     'meshcore/paketstruktur',
     'meshcore/routing',
     {
+      type: 'doc',
+      id: 'meshcore/kollisionsvermeidung',
+      label: 'Kollisionsvermeidung',
+    },
+    {
+      type: 'doc',
+      id: 'meshcore/kollisionsanalyse',
+      label: 'Kollisionsanalyse',
+    },
+    {
       type: 'link',
       label: '📄 Deep Dive',
       href: 'pathname:///pdf/meshcore-deep-dive.pdf',
