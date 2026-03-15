@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 description: Einstieg in MeshCore im Rheinland – Schnellstart, Rheinland-Standard-Preset (EU/UK Narrow, 869.618 MHz) und Erklärung der Firmware-Rollen.
 ---
 

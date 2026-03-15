@@ -6,6 +6,7 @@ description: Ankündigung der nächsten Notfunkübung für die Mesh-Rheinland-Co
 # Nächste Notfunkübung
 
 Aktuell ist keine Notfunkübung geplant.
+(Stand vom 14.03.2026)
 
 Sobald ein neuer Termin feststeht, werden hier alle Informationen zu Datum, Uhrzeit und Ablauf veröffentlicht.
 
