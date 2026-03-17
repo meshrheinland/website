@@ -1,254 +1,196 @@
 ---
-description: Warum Repeater im MeshCore-Netz kollidieren, wie wahrscheinlich das ist, und was sich dagegen tun lässt — mit Vergleich zu Meshtastic.
-tags: [meshcore, lora, kollision, repeater, cad, lbt, csma, sf8, eu-narrow]
+description: Timing-Analyse, Kollisionswahrscheinlichkeit und Verbesserungsplan für MeshCore-Repeater-Netze, inkl. Bewertung von PR #1727.
+tags: [meshcore, lora, sx1262, cad, lbt, kollision, repeater, sf8, eu-narrow]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Kollisionsanalyse: Repeater, Timing & Lösungsansätze
+# Kollisionsanalyse: Timing, Wahrscheinlichkeit & Verbesserungsplan
 
 :::info Kontext
-Alle Messungen und Codeanalysen beziehen sich auf **EU/UK Narrow (SF8, BW 62,5 kHz, CR 4/8)**.
-Firmware-Referenz: `MeshCore` `simple_repeater`, Stand März 2026.
+Alle Analysen beziehen sich auf **EU/UK Narrow (SF8, BW 62,5 kHz, CR 4/8)**, Firmware `simple_repeater`, Stand März 2026.
 :::
 
 ---
 
 ## 1. Das Problem: Synchronisierter Trigger
 
-Wenn ein Paket im Mesh-Netz geflutet wird, reagieren **alle Repeater, die das Paket hören**, auf dasselbe Ereignis: Sie wollen das Paket retransmittieren. Ihr Startzeitpunkt ist das Ende des empfangenen Pakets — gefolgt von einer zufälligen Verzögerung.
+Wenn ein Paket im Mesh geflutet wird, reagieren alle Repeater in Hörweite auf dasselbe Ereignis: das Ende des empfangenen Pakets. Jeder würfelt danach eine Verzögerung aus **demselben Zufallsfenster**. Die Kollisionswahrscheinlichkeit steigt damit schnell mit der Anzahl gleichzeitig reagierender Repeater.
 
-Das Problem: Alle Repeater wählen aus **demselben Zufallsfenster**. Sind mehrere Repeater im gegenseitigen Hörbereich, steigt die Kollisionswahrscheinlichkeit mit jeder weiteren Node schnell.
+---
 
-### Airtime bei SF8, BW 62,5 kHz, CR 4/8
-
-Die LoRa-Symbolzeit:
+## 2. Grundgrößen bei SF8, BW 62,5 kHz, CR 4/8
 
 ```
-T_s = 2^SF / BW = 256 / 62.500 ≈ 4,096 ms
+Symboldauer T_s = 2^8 / 62.500 ≈ 4,096 ms
 ```
 
-Für ein typisches Flood-Paket mit 40 Byte Nutzlast:
+Airtime für ein typisches Flood-Paket mit 40 Byte Nutzlast:
 
 | Komponente | Symbole | Zeit |
 |---|---|---|
-| Preamble (8 + 4,25 Overhead) | 12,25 | 50 ms |
+| Preamble (8 Sym. + 4,25 Overhead) | 12,25 | 50 ms |
 | Payload (CR 4/8, kein LDR) | 96 | 393 ms |
 | **Gesamt** | **108,25** | **≈ 443 ms** |
 
-```
-Payload-Symbole = 8 + ⌈(8×40 - 4×8 + 44) / 32⌉ × 8
-               = 8 + ⌈332/32⌉ × 8 = 8 + 11×8 = 96
-```
-
-**Airtime ≈ 443 ms** — fast eine halbe Sekunde pro Paket. Jede Kollision lässt beide Pakete unlesbar zurück und kostet mindestens diese Zeit Kanalkapazität.
+**Jede Kollision macht beide Pakete unlesbar und kostet mindestens 443 ms Kanalkapazität.**
 
 ---
 
-## 2. Das Zufallsfenster: Wie viele Slots hat MeshCore?
+## 3. Timing-Analyse: Wann schlägt die Kollisionserkennung an?
 
-MeshCore kennt zwei unterschiedliche `getRetransmitDelay()`-Implementierungen.
+MeshCore nutzt `PREAMBLE_DETECTED`-IRQ-Flags des SX1262 als primäre Kollisionserkennung. Entscheidend ist: **wann genau feuert dieses Flag?**
 
-### 2.1 Basis-Implementierung (`Mesh.cpp`)
+### 3.1 `isReceivingPacket()`: Reaktiv, nach Korrelatoranlauf
 
-```cpp title="MeshCore/src/Mesh.cpp"
-uint32_t Mesh::getRetransmitDelay(const mesh::Packet* packet) {
-  uint32_t t = (_radio->getEstAirtimeFor(packet->getRawLength()) * 52 / 50) / 2;
-  return _rng->nextInt(0, 5) * t;
+```cpp title="CustomSX1262.h"
+bool isReceivingPacket() {
+  uint16_t irq = getIrqFlags();
+  return (irq & SX126X_IRQ_HEADER_VALID) || (irq & SX126X_IRQ_PREAMBLE_DETECTED);
 }
 ```
 
-`nextInt(0, 5)` liefert **{0, 1, 2, 3, 4}** — genau **5 diskrete Slots**.
+Der interne Korrelator des SX1262 muss genug Up-Chirp-Symbole akkumulieren, bevor er das Flag setzt. Bei SF8:
 
-Mit Airtime ≈ 443 ms und `t = 443 × 1,04 / 2 ≈ 230 ms`:
-
-| Slot | Verzögerung |
+| Zustand | Zeitpunkt nach TX-Start des anderen |
 |---|---|
-| 0 | 0 ms |
-| 1 | 230 ms |
-| 2 | 460 ms |
-| 3 | 690 ms |
-| 4 | 920 ms |
+| Preamble beginnt | 0 ms |
+| `PREAMBLE_DETECTED` feuert | **≈ 16-25 ms** (4-6 Symbole × 4,096 ms) |
+| `HEADER_VALID` feuert | ≈ 67 ms (Preamble + Sync Word) |
+| Payload läuft | ab ≈ 67 ms |
 
-### 2.2 Repeater-Firmware-Override (`simple_repeater/MyMesh.cpp`)
+**Kritisches Kollisionsfenster:** Wenn Node B seinen TX innerhalb von **≤ 16-25 ms** nach Node A startet, hat `PREAMBLE_DETECTED` noch nicht gefeuert. Node B sieht einen freien Kanal und sendet trotzdem.
 
-```cpp title="MeshCore/examples/simple_repeater/MyMesh.cpp"
-uint32_t MyMesh::getRetransmitDelay(const mesh::Packet *packet) {
-  uint32_t t = (_radio->getEstAirtimeFor(...) * _prefs.tx_delay_factor);
-  return getRNG()->nextInt(0, 5*t + 1);
-}
-```
+### 3.2 Hardware-CAD: Proaktiv, 4x schneller
 
-Das Fenster ist **kontinuierlich** in 1-ms-Schritten:
+Der PR [#1727](https://github.com/meshcore-dev/MeshCore/pull/1727) implementiert Hardware-CAD (`scanChannel()`) als aktiven Scan unmittelbar vor TX:
 
-| `txdelay`-Faktor | Fenster | Effektive Slots |
+| Mechanismus | Erkennungszeit | Typ |
 |---|---|---|
-| 0,25 (ehemaliger Default) | 0 – 554 ms | 555 |
-| **0,5 (aktueller Default)** | **0 – 1.108 ms** | **1.109** |
-| 1,0 | 0 – 2.215 ms | 2.216 |
-| 2,0 (Maximum¹) | 0 – 4.430 ms | 4.431 |
-| 3,0 (ohne Cap¹) | 0 – 6.645 ms | 6.646 |
+| `PREAMBLE_DETECTED` IRQ | ≈ 16-25 ms nach TX-Start | reaktiv (passiv) |
+| Hardware-CAD (1 Symbol) | ≈ 4 ms | proaktiv (aktiver Scan) |
+| Hardware-CAD (2 Symbole) | ≈ 8 ms | proaktiv (aktiver Scan) |
 
-:::warning Cap auf 2,0
-Die Firmware begrenzt `tx_delay_factor` beim Laden auf maximal 2,0 (`constrain(f, 0, 2.0f)` in `CommonCLI.cpp:90`). Ein `set txdelay 3` wird gespeichert, beim nächsten Boot aber auf 2,0 reduziert. Für höhere Werte muss der Cap im Quellcode angehoben werden.
-:::
+CAD sucht spezifisch nach dem **Up-Chirp-Muster** der Preamble und benötigt nur 1-2 Symbole, weil es gezielt nach dem LoRa-Muster scannt statt auf Korrelatorkonvergenz zu warten. Das kritische Fenster schrumpft dadurch von ≈ 20 ms auf ≈ 4 ms.
+
+### 3.3 Mid-Packet-Erkennung: Strukturelle Lücke
+
+Beide Mechanismen schützen nur gegen Preambles. Ein Paket, dessen Preamble nicht gehört wurde (weil der Node gerade aus TX zurückkam und `startReceive()` die IRQ-Flags resettet), ist weder per CAD noch per IRQ erkennbar:
+
+| Szenario | CAD | Preamble-IRQ | RSSI-LBT |
+|---|:---:|:---:|:---:|
+| Preamble läuft, jetzt erkannt | ✓ | ✓ (nach 4-6 Sym.) | ✓ (wenn stark genug) |
+| Preamble verpasst, Payload läuft | ✗ | ✗ | ✓ (wenn stark genug) |
+| Schwaches Signal unter Noise Floor | ✗ | ✗ | ✗ |
+
+**Fazit:** Es gibt kein Hardware-Feature das zuverlässig mid-packet erkennt wenn die Preamble verpasst wurde. LoRa dekodiert Signale bis zu 20 dB unterhalb des Noise Floors, RSSI-LBT ist daher für den Fernbereich strukturell ungeeignet.
 
 ---
 
-## 3. Kollisionswahrscheinlichkeit
+## 4. Kollisionswahrscheinlichkeit
 
 ### Methodik
 
-Für **5 diskrete Slots** gilt die exakte Geburtstags-Formel:
+Für ein kontinuierliches Zufallsfenster (Pure ALOHA) gilt die Poisson-Näherung:
 
 ```
-P(≥1 Kollision) = 1 - k! / ((k-N)! × k^N)
+P(≥1 Kollision) ≈ 1 − e^(−N×(N−1)×T / (2×W))
 ```
 
-Für **kontinuierliche Fenster** die Näherung:
-
-```
-P(≥1 Kollision) ≈ 1 - e^(−N×(N−1)×T / (2×W))
-```
-
-mit Paketdauer T und Fensterlänge W.
+mit Paketdauer T (= Kollisionsfenster) und Fensterlänge W.
 
 ### Ergebnisse (T = 443 ms)
 
-| Repeater N | 5 Slots (Basis) | Default txdelay 0,5 | txdelay 2,0 | txdelay 3,0 |
-|---|---|---|---|---|
-| 2 | 20 % | 33 % | 10 % | 7 % |
-| 3 | **52 %** | **70 %** | 26 % | 18 % |
-| 4 | 81 % | 91 % | 45 % | 33 % |
-| 5 | 96 % | 98 % | 63 % | 49 % |
-| 6 | 100 % | ≈100 % | 78 % | 63 % |
+| Repeater N | txdelay 0,5 (Default, W=1107 ms) | txdelay 2,0 (Max, W=4430 ms) | txdelay 4,0 (W=8860 ms) |
+|---|---|---|---|
+| 2 | 33 % | 10 % | 5 % |
+| 3 | **70 %** | 26 % | 14 % |
+| 4 | 91 % | 45 % | 25 % |
+| 5 | 98 % | 63 % | 39 % |
+| 6 | ≈100 % | 78 % | 52 % |
 
 ```mermaid
 xychart-beta
     title "Kollisionswahrscheinlichkeit (SF8, BW62.5, CR4/8, 40 Byte)"
     x-axis "Repeater im gemeinsamen Hörbereich" [2, 3, 4, 5, 6]
     y-axis "P(Kollision) in %" 0 --> 100
-    line "5 Slots (Basis-Mesh)" [20, 52, 81, 96, 100]
     line "txdelay 0.5 (Default)" [33, 70, 91, 98, 100]
     line "txdelay 2.0 (Max)" [10, 26, 45, 63, 78]
-    line "txdelay 3.0 (kein Cap)" [7, 18, 33, 49, 63]
+    line "txdelay 4.0" [5, 14, 25, 39, 52]
 ```
 
 :::danger Kernbefund
-Mit dem **Standard-txdelay von 0,5** ist eine Kollision ab **3 Repeatern** wahrscheinlicher als nicht. Bei **4+ Repeatern** ist sie nahezu sicher.
+Mit dem **Standard-txdelay von 0,5** ist eine Kollision ab **3 Repeatern** wahrscheinlicher als nicht. Bei 4+ Repeatern nahezu sicher.
 :::
 
 ---
 
-## 4. Warum LBT zu spät kommt
+## 5. PR-Bewertung
 
-`checkSend()` prüft in `Dispatcher.cpp` vor jedem Sendeversuch den Kanal:
+### PR #1727: Hardware-CAD statt RSSI-LBT
 
-```cpp title="MeshCore/src/Dispatcher.cpp"
-if (_radio->isReceiving()) {  // LBT-Check
-    next_tx_time = futureMillis(getCADFailRetryDelay());
-    return;
-}
-// → Transmission starten
-```
-
-Auf dem SX1262 bedeutet `isReceiving()`:
-
-```cpp title="CustomSX1262.h"
-bool isReceiving() {
-  uint16_t irq = getIrqFlags();
-  return (irq & SX126X_IRQ_HEADER_VALID) || (irq & SX126X_IRQ_PREAMBLE_DETECTED);
-}
-```
-
-Diese Flags werden erst gesetzt, **nachdem** das Preamble vom Chip erkannt wurde — also frühestens nach 2 Preamble-Symbolen ≈ 8 ms.
-
-### Das kritische Timing-Problem
-
-```
-t = 0 ms     Alle Repeater: Paket empfangen
-
-t = 443 ms   Paket fertig. Jeder würfelt getRetransmitDelay():
-               → Repeater A: 460 ms Delay
-               → Repeater B: 470 ms Delay   ← 10 ms Unterschied
-
-t = 903 ms   Repeater A: isReceiving()? → NEIN → TX startet, Preamble beginnt
-
-t = 913 ms   Repeater B: isReceiving()?
-               SX1262 setzt PREAMBLE_DETECTED nach ~8 ms Preamble-Zeit.
-               A's Preamble ist erst 10 ms alt — Erkennung grenzwertig.
-               → Im schlechtesten Fall: NEIN → TX startet → KOLLISION
-```
-
-### Das kritische Zeitfenster
-
-| Parameter | Wert |
-|---|---|
-| SX1262 Preamble-Erkennungszeit | ~8 ms (2 Symbole × 4,096 ms) |
-| Kritisches Kollisionsfenster | ≤ 8 ms Startzeit-Unterschied |
-| Loop-Poll-Intervall (Hardware-abhängig) | ~1–5 ms |
-
-**Fazit:** LBT schlägt fehl, wenn zwei Repeater ihre Transmission innerhalb von ~8 ms starten. Bei einem Zufallsfenster von 1.000+ ms und ms-Auflösung ist das häufig — insbesondere wenn viele Repeater dasselbe Paket hören und ähnliche Zufallszahlen ziehen.
-
----
-
-## 5. PR #1727: Hardware-CAD — Schritt in die richtige Richtung
-
-[PR #1727](https://github.com/meshcore-dev/MeshCore/pull/1727) ersetzt den RSSI-basierten `isChannelActive()`-Check durch echten Hardware-CAD:
+[PR #1727](https://github.com/meshcore-dev/MeshCore/pull/1727) ersetzt `isChannelActive()` vom RSSI-basierten Vergleich auf echten Hardware-CAD (`scanChannel()`). Zusätzlich wird der Default von `interference_threshold` auf `1` erhöht (aktiviert CAD).
 
 ```cpp title="RadioLibWrappers.cpp (nach PR #1727)"
 bool RadioLibWrapper::isChannelActive() {
   if (_threshold == 0) return false;
-  int16_t result = performChannelScan(); // _radio->scanChannel()
+  int16_t result = performChannelScan();
   state = STATE_IDLE;
-  startRecv();
+  startRecv();   // CAD-Done-IRQ sauber zurücksetzen
   return result != RADIOLIB_CHANNEL_FREE;
 }
 ```
 
-| Was sich verbessert | Was bleibt ungelöst |
-|---|---|
-| Hardware-CAD erkennt LoRa-Preambles via Chip-Korrelation | CAD-Scan dauert ~8 ms — dasselbe kritische Fenster |
-| Erkennt dritte Sender, die unabhängig senden | Zwei Repeater, die beide CAD "clear" bekommen, starten beide |
-| State-Machine-Reset korrekt (`state = STATE_IDLE` + `startRecv()`) | Schmales Zufallsfenster als Grundproblem bleibt |
+<Tabs>
+  <TabItem value="positiv" label="Verbesserungen">
+
+- **4x schnellere Erkennung**: CAD detektiert nach ~4 ms (1 Symbol) statt nach ~16-25 ms
+- **Keine Kalibrierung nötig**: Noise-Floor-Konvergenz entfällt, sofort verlässlich
+- **LoRa-spezifisch**: Reagiert auf Chirp-Muster, nicht auf allgemeine RF-Energie
+- **ISR korrekt behandelt**: State-Reset und RX-Neustart nach CAD verhindert, dass der CAD-Done-Interrupt als empfangenes Paket fehlinterpretiert wird
+
+  </TabItem>
+  <TabItem value="grenzen" label="Grenzen & Implementierungsmängel">
+
+**Konzeptionelle Grenzen:**
+
+- **Nur Preamble-Erkennung**: Kein Schutz wenn Preamble verpasst wurde
+- **Schließt das kritische Fenster nicht vollständig**: Zwei Nodes die gleichzeitig CAD "clear" bekommen und gleichzeitig starten, kollidieren trotzdem
+- **Grundproblem bleibt**: Das schmale Zufallsfenster (Pure ALOHA ohne Slots) ist die eigentliche Ursache häufiger Kollisionen
+
+**Implementierungsmängel (merge-relevant):**
+
+- **CAD und TX nicht atomar**: Der CAD-Check läuft in `checkSend()` über `isReceiving()`, danach folgt Paket-Serialisierung (Header, Path, Payload kopieren), erst dann `startSendRaw()`. Zwischen CAD-Ergebnis und TX-Start vergehen mehrere Millisekunden; ein anderer Node der in diesem Fenster startet, wird nicht erkannt. Fix: CAD nochmals direkt vor `startSendRaw()` aufrufen.
+- **Threshold-Wert wird ignoriert**: `_threshold` war ursprünglich der RSSI-Schwellwert in dB. Nach dem PR wird nur noch geprüft ob er `== 0` ist, der eigentliche Wert hat keinen Effekt mehr. `set int.thresh 1` und `set int.thresh 14` verhalten sich identisch. Das ist semantisch irreführend; ein separates `_cad_enabled`-Flag wäre korrekt.
+- **Kurzzeitiger Blind Spot nach CAD**: Nach dem Scan versetzt `startRecv()` das Radio zurück in RX. Während des RX-Hochlaufs (einige hundert µs) ist das Radio blind; eine Preamble die genau in diesem Fenster beginnt, wird weder per CAD noch per IRQ erkannt.
+
+  </TabItem>
+</Tabs>
+
+**Bewertung:** Funktional sinnvoll und korrekt implementiert was den ISR-Reset betrifft. Die drei Implementierungsmängel sind reale Lücken, insbesondere der nicht-atomare CAD/TX-Abstand. Als-ist mergebar wenn man die konzeptionellen Grenzen akzeptiert; für produktionsreife Kollisionsvermeidung sollte zumindest der CAD-vor-TX Fix nachgezogen werden.
 
 ---
 
-## 6. Lösungsansätze
+## 6. Verbesserungsplan
 
-### 6.1 Sofortmaßnahme: txdelay erhöhen
+### 6.1 Sofortmaßnahmen (Konfiguration)
 
-```
-set txdelay 2.0
-```
+**`set txdelay 2.0`**: größtes Hebelpotenzial bei geringstem Aufwand:
 
-Für Werte über 2,0 muss der Cap im Quellcode angehoben werden:
-
-```cpp title="CommonCLI.cpp"
-// aktuell:
-_prefs->tx_delay_factor = constrain(_prefs->tx_delay_factor, 0, 2.0f);
-
-// empfohlen:
-_prefs->tx_delay_factor = constrain(_prefs->tx_delay_factor, 0, 8.0f);
-```
-
-**Empfehlung nach Netzgröße:**
-
-| Repeater im Hörbereich | Empfohlenes txdelay | P(Kollision, N=3) |
+| Repeater im Hörbereich | Empfehlung | P(Kollision, N=3) |
 |---|---|---|
-| 2 | 0,5 (Default) | 70 % |
-| 3–4 | 2,0 | 26 % |
-| 5–6 | 4,0 | 15 % |
-| >6 | 6,0+ | < 10 % |
+| 2-3 | `txdelay 1.0` | 42 % |
+| 4-5 | `txdelay 2.0` | 26 % |
+| > 5 | Cap-Erhöhung nötig (s.u.) | < 15 % |
 
-:::note Tradeoff
-Höheres `txdelay` verlängert die Latenz bis zum nächsten Hop. Bei `txdelay 2.0` kann die Weiterleitung bis zu 4,4 Sekunden dauern (5 × 443 ms × 2,0).
+:::warning Cap-Erhöhung erforderlich
+`txdelay` ist firmware-seitig auf 2,0 begrenzt (`constrain(..., 0, 2.0f)` in `CommonCLI.cpp`). Für höhere Werte muss der Cap im Quellcode angehoben werden.
 :::
 
-### 6.2 SNR-basierten Rx-Delay aktivieren
+**`set rx_delay_base 8.0`**: SNR-gewichtetes Backoff aktivieren:
 
-MeshCore enthält bereits einen SNR-gewichteten Verzögerungsmechanismus — der in der Repeater-Firmware standardmäßig **deaktiviert** ist (`rx_delay_base = 0.0`):
+Der Dispatcher enthält bereits einen SNR-basierten Verzögerungsmechanismus, per Default deaktiviert (`rx_delay_base = 0`):
 
 ```cpp title="Dispatcher.cpp"
 int Dispatcher::calcRxDelay(float score, uint32_t air_time) const {
@@ -256,109 +198,111 @@ int Dispatcher::calcRxDelay(float score, uint32_t air_time) const {
 }
 ```
 
-Ein Repeater mit schlechtem SNR (schwaches Signal, weiter entfernt) bekommt eine kurze Verzögerung und sendet als Erster — was physikalisch sinnvoll ist, da er das Paket für weiter entfernte Empfänger weiterleitet. Ein Repeater mit gutem SNR (nahe am Sender, redundant) wartet länger.
+Ein Repeater mit schlechtem SNR (weiter entfernt) bekommt damit weniger Verzögerung und sendet früher, was physikalisch sinnvoll ist, da er das Paket für entferntere Empfänger weiterleitet. Ein Repeater nahe am ursprünglichen Sender wartet länger.
 
-**Empfehlung:** `rx_delay_base` auf 5,0–10,0 setzen:
+**`set af 9`** für gesetzeskonformen Betrieb im deutschen 868-MHz-Band.
+
+### 6.2 Kurzfristig: PRs mergen
+
+| PR | Maßnahme | Wirkung |
+|---|---|---|
+| [#1727](https://github.com/meshcore-dev/MeshCore/pull/1727) | Hardware-CAD aktivieren | Kritisches Fenster: 20 ms → 4 ms |
+
+### 6.3 Mittelfristig: Slot-basiertes Backoff
+
+Statt eines kontinuierlichen ms-Fensters (Pure ALOHA) könnten **diskrete Slots** eingeführt werden, wobei die Slot-Dauer der CAD-Scan-Zeit entspricht:
 
 ```
-set rx_delay_base 8.0
+Slot-Dauer = 1-2 Symbole ≈ 4-8 ms (= Hardware-CAD-Dauer)
+Anzahl Slots = konfigurierbar (z. B. 100-500)
+Delay = random(0, N_slots) × slot_duration
 ```
 
-Das entzerrt Kollisionen bei Repeatern mit unterschiedlicher Empfangslage automatisch.
+**Warum das hilft:** Zwischen zwei möglichen TX-Startzeitpunkten liegt dann immer mindestens ein CAD-Zyklus. Hardware-CAD als Guard direkt vor TX wird damit strukturell wirksam, statt zufällig.
 
-### 6.3 CAD direkt vor `startSendRaw()`
+### 6.4 Mittelfristig: CAD direkt vor `startSendRaw()`
 
-Derzeit läuft der CAD-Check nur über den `loop()`-Poll-Pfad. Eine härtere Absicherung direkt vor der Transmission schließt die Poll-Latenz-Lücke:
+Aktuell läuft der CAD-Check nur über den `loop()`-Poll-Pfad. Eine explizite Prüfung direkt vor dem Senden schließt die Poll-Latenz-Lücke:
 
-```cpp title="Dispatcher.cpp — Vorgeschlagene Ergänzung"
-// Direkt vor startSendRaw():
+```cpp title="Dispatcher.cpp"
 if (_radio->isChannelActive()) {
-    next_tx_time = futureMillis(getCADFailRetryDelay());
-    return;
+  next_tx_time = futureMillis(getCADFailRetryDelay());
+  return;
 }
 bool success = _radio->startSendRaw(raw, len);
 ```
 
-Das entspricht dem CSMA/CA-Grundprinzip: kurz vor dem Senden nochmals prüfen, unabhängig vom Poll-Intervall.
+Das entspricht dem CSMA/CA-Grundprinzip: last-moment check unabhängig vom Poll-Intervall.
 
-### 6.4 Slot-basiertes Backoff
+### 6.5 Langfristig: Adaptives Contention Window
 
-Statt eines kontinuierlichen ms-Fensters könnten **diskrete Slots mit CAD-Dauer als Einheit** genutzt werden:
+Analog zu Meshtastics Ansatz könnte das Backoff-Fenster dynamisch skalieren, z. B. nach Hop-Count oder erkannter Kanalauslastung:
 
 ```
-Slot-Dauer = 2 × Symboldauer ≈ 8 ms
-Anzahl Slots = txdelay_factor × 100   (konfigurierbar)
-Delay = random(0, N_slots) × slot_duration
+W = base_slots × 2^(hop_count)
 ```
-
-Bei `N_slots = 100`: Fenster = 800 ms, jeder Slot klar voneinander abgegrenzt. Zwischen zwei möglichen Startzeitpunkten liegt immer mindestens ein CAD-Zyklus — eine strukturelle Verbesserung gegenüber dem aktuellen ms-genauen Zufallsprinzip.
 
 ---
 
-## 7. Vergleich: Meshtastic
+## 7. Maßnahmenübersicht
+
+| Priorität | Maßnahme | Aufwand | Wirkung |
+|---|---|---|---|
+| 🔴 Sofort | `set txdelay 2.0` + Cap auf 8,0 erhöhen | Minimal | P(N=3): 70 % → 26 % |
+| 🔴 Sofort | `set rx_delay_base 8.0` | Minimal | Natürliche SNR-Entzerrung |
+| 🔴 Sofort | `set af 9` (DE/868 MHz) | Minimal | Gesetzeskonformität |
+| 🟡 Kurzfristig | PR #1727 mergen (Hardware-CAD) | Niedrig | Fenster 20 ms → 4 ms |
+| 🟢 Mittelfristig | CAD direkt vor `startSendRaw()` | Mittel | Lücke durch Poll-Latenz schließen |
+| 🟢 Mittelfristig | Slot-basiertes Backoff (CAD-Slot-Dauer) | Mittel | Strukturelle Kollisionsvermeidung |
+| 🔵 Langfristig | Adaptives Contention Window | Hoch | Skaliert mit Netzgröße |
+
+:::tip Wichtigstes zuerst
+`txdelay` und `rx_delay_base` sind sofort konfigurierbar und haben den größten Hebel bei geringstem Aufwand. Slot-basiertes Backoff ist die strukturell richtige Lösung, erfordert aber Code-Änderungen.
+:::
+
+---
+
+## 8. Vergleich: Meshtastic
 
 <Tabs>
-  <TabItem value="gut" label="Was Meshtastic besser macht">
+  <TabItem value="besser" label="Was Meshtastic besser macht">
 
-### Dynamisches Contention Window
+### Slotted ALOHA mit adaptivem Contention Window
 
 ```cpp title="Meshtastic: RadioInterface.cpp"
-float channelUtil = airTime->channelUtilizationPercent();
-uint8_t CWsize = map(channelUtil, 0, 100, CWmin, CWmax); // CWmin=3, CWmax=8
+uint8_t CWsize = map(channelUtilizationPercent(), 0, 100, CWmin, CWmax);
 delay = random(0, pow_of_2(CWsize)) * slotTimeMsec;
 ```
 
-Bei hoher Kanalauslastung wächst das Fenster automatisch von 8 auf 256 Slots (exponentiell). Zusätzlich skaliert die **Slot-Dauer** mit SF und BW — die Slot-Zeit entspricht exakt der CAD-Dauer plus Propagationszuschlag.
-
-### Strukturelle Eigenschaft
-
-Zwischen zwei möglichen Startzeitpunkten liegt immer mindestens eine CAD-Dauer. Das macht Hardware-CAD als letzten Guard vor TX besonders effektiv.
+Die Slot-Zeit entspricht exakt der CAD-Scan-Dauer plus Propagationszuschlag, zwischen zwei möglichen Startzeitpunkten liegt immer mindestens ein CAD-Zyklus. Hardware-CAD als Guard direkt vor TX wird damit strukturell wirksam.
 
 ### SNR-gewichteter Offset für Relay-Nodes
 
-```cpp
-uint8_t CWsize = getCWsize(p->rx_snr); // SNR -20..+10 dB → CW 3..8
-delay = (2*CWmax * slotTimeMsec) + random(0, pow_of_2(CWsize)) * slotTimeMsec;
-```
-
-Nodes mit schlechtem SNR (weiter entfernt) senden früher — physikalisch sinnvoll.
+Nodes mit schlechtem SNR senden früher, deckt sich mit dem `rx_delay_base`-Mechanismus in MeshCore.
 
   </TabItem>
   <TabItem value="kritisch" label="Was kritisch zu sehen ist">
 
-### CWmin = 8 Slots bei niedrigem Utilization
+### Keine RSSI-Erkennung
 
-In kleinen Netzen ist die Kanalauslastung gering → CWsize bleibt bei CWmin=3 → Fenster = 8 Slots. Das ist kaum besser als MeshCores 5 Slots, zumal ein Slot nur ~15 ms dauert (LongFast): effektives Fenster ≈ 120 ms bei sehr kurzer Airtime.
-
-### Channel-Utilization als falscher Proxy
-
-Channel-Utilization misst die *eigene* Senderate, nicht die Anzahl der Repeater, die gerade dasselbe Paket weiterleiten wollen. Das Grundproblem des synchronisierten Triggers wird nicht adressiert.
-
-### Komplexität für Embedded-Geräte
-
-Die ineinandergreifenden Parameter (CWmin, CWmax, SNR-Mapping, slotTimeMsec, Utilization-Mapping) machen das System schwer zu verstehen, debuggen und für konkrete Netze zu optimieren. Historisch gab es mehrere Bugs durch falsch berechnete slotTimeMsec (zu starr, falsche Bitshift-Auswertung).
+Meshtastic hat keinen RSSI-Fallback. Breitband-Interferenz (kein LoRa-Preamble) wird nicht erkannt. MeshCores `int.thresh` kann das zumindest teilweise abdecken.
 
 ### Konfigurierbarkeit fehlt
 
-CAD-Parameter sind Kompilier-Zeit-Konstanten. Netzwerkbetreiber können nicht ohne Source-Code-Änderung optimieren.
+CAD-Parameter sind Kompilier-Zeit-Konstanten. MeshCores CLI-Interface (`set txdelay`, `set int.thresh`) ist flexibler für Netzwerkbetreiber.
+
+### Bekannte Bugs
+
+Historisch gab es mehrere Bugs in der Slot-Zeit-Berechnung (zu starr, falsche Bitshift-Auswertung, fixe statt dynamische Werte). Die Komplexität hat ihren Preis.
 
   </TabItem>
 </Tabs>
 
 ---
 
-## 8. Maßnahmenübersicht
+## 9. Relevante Referenzen
 
-| Priorität | Maßnahme | Aufwand | Wirkung |
-|---|---|---|---|
-| 🔴 Sofort | `set txdelay 2.0` (Cap auf 8,0 erhöhen) | Minimal | P(N=3): 70 % → 26 % |
-| 🔴 Sofort | `set rx_delay_base 8.0` aktivieren | Minimal | Natürliche SNR-Entzerrung |
-| 🟡 Kurzfristig | PR #1727 mergen (Hardware-CAD aktivieren) | Niedrig | Bessere Drittparteien-Erkennung |
-| 🟡 Kurzfristig | CAD direkt vor `startSendRaw()` | Mittel | Schließt Poll-Latenz-Lücke |
-| 🟢 Mittelfristig | Slot-basiertes Backoff (CAD-Slot-Dauer) | Mittel | Strukturelle Kollisionsvermeidung |
-| 🟢 Mittelfristig | Dynamisches Fenster nach Hop-Count | Mittel | Skaliert mit Netzgröße |
-| 🔵 Langfristig | Vollständiges CSMA/CA mit CAD-Slots | Hoch | Physikalisch optimale Verteilung |
-
-:::tip Wichtigstes zuerst
-`txdelay` und `rx_delay_base` sind sofort konfigurierbar und haben den größten Hebel bei geringstem Aufwand. Hardware-CAD (PR #1727) ist ein notwendiger, aber nicht hinreichender Schritt — er adressiert den Drittparteien-Fall, nicht den synchronisierten Trigger.
-:::
+- [PR #1727: Hardware-CAD](https://github.com/meshcore-dev/MeshCore/pull/1727)
+- [Issue #1716: AGC-Bug Heltec V4](https://github.com/meshcore-dev/MeshCore/issues/1716)
+- [Semtech SX1262 Datasheet](https://www.semtech.com/products/wireless-rf/lora-core/sx1262)
+- [Semtech CAD Application Note AN1200.85](https://www.semtech.com/uploads/technology/LoRa/cad-ensuring-lora-packets.pdf)

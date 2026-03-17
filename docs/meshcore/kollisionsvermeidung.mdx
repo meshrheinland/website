@@ -1,297 +1,149 @@
 ---
-description: Wie MeshCore und Meshtastic Channel Activity Detection und Listen-Before-Talk auf dem SX1262 implementieren, ein direkter Vergleich.
-tags: [meshcore, meshtastic, lora, sx1262, cad, lbt, kollisionsvermeidung]
+description: Wie MeshCore auf dem SX1262 Kollisionen vermeidet, aktuelle Implementierung, Mechanismen und Konfiguration für den simple_repeater.
+tags: [meshcore, lora, sx1262, cad, lbt, kollisionsvermeidung, repeater]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# MeshCore und CAD (Channel Activity Detection) auf dem SX1262
+# Kollisionsvermeidung in MeshCore
 
-## Kurze Antwort
-
-MeshCore nutzt **nicht** den dedizierten Hardware-CAD-Modus des SX1262. Stattdessen setzt es auf ein eigenes Software-LBT-System (Listen Before Talk, d.h. Hören vor dem Senden).
+:::info Kontext
+Alle Codeanalysen beziehen sich auf **EU/UK Narrow (SF8, BW 62,5 kHz, CR 4/8)**, Firmware `simple_repeater`, Stand März 2026. Companion-Verhalten wird nicht betrachtet.
+:::
 
 ---
 
-## Was MeshCore tatsächlich macht
+## Überblick: Zwei-Schicht-Mechanismus
 
-MeshCore implementiert zwei aufeinander aufbauende Schichten zur Kollisionsvermeidung:
+MeshCore nutzt zwei aufeinander aufbauende Mechanismen, um Kollisionen zu vermeiden:
 
-### Schicht 1: Preamble-IRQ-Erkennung (Hardware-nah)
+1. **Zufälliges Backoff** vor jeder Weiterleitung
+2. **Kanalprüfung** beim tatsächlichen Sendezeitpunkt
 
-In `src/helpers/radiolib/CustomSX1262.h` wird `isReceiving()` so implementiert:
+---
 
-```cpp title="CustomSX1262.h"
-bool isReceiving() {
-  uint16_t irq = getIrqFlags();
-  return (irq & SX126X_IRQ_HEADER_VALID) ||
-         (irq & SX126X_IRQ_PREAMBLE_DETECTED);
+## Schicht 1: Zufälliges Backoff (TX-Delay)
+
+Wenn ein Repeater ein Flood-Paket empfängt und weiterleiten möchte, berechnet er zunächst eine zufällige Verzögerung:
+
+```cpp title="simple_repeater/MyMesh.cpp"
+uint32_t MyMesh::getRetransmitDelay(const mesh::Packet *packet) {
+  uint32_t t = _radio->getEstAirtimeFor(...) * _prefs.tx_delay_factor;
+  return getRNG()->nextInt(0, 5*t + 1);
 }
 ```
 
-Das prüft, ob der Chip (der dauerhaft im RX-Modus läuft) bereits eine Preamble oder einen Header eines anderen Pakets empfängt. Das ist **kein** `scanChannel()`-CAD, sondern ein passives Auslesen von IRQ-Flags.
+Das Ergebnis ist ein **kontinuierlich gleichverteilter Zufallswert** aus `[0, 5t]`, kein Slot-System, keine Synchronisation auf Zeitgrenzen. Das entspricht reinem **Pure ALOHA**.
 
-### Schicht 2: RSSI-basierter Interferenzschwellwert (Software)
+Mit dem Default-Wert `tx_delay_factor = 0,5` und ~443 ms Airtime bei SF8, BW 62,5 kHz, CR 4/8, 40 Byte Payload:
 
-```cpp title="RadioLibWrappers.cpp"
-bool isChannelActive() {
+| Parameter | Wert |
+|---|---|
+| Airtime | ≈ 443 ms |
+| `t` = Airtime × 0,5 | ≈ 221 ms |
+| Zufallsfenster `[0, 5t]` | **0 - 1.107 ms** |
+
+:::note Kein Slot-Alignment
+Zwei Repeater können theoretisch 0,1 ms auseinanderliegen. Es gibt keine Mindestabstände zwischen möglichen Sendezeitpunkten, im Gegensatz zu Slotted ALOHA.
+:::
+
+---
+
+## Schicht 2: Kanalprüfung vor TX
+
+Kurz vor dem eigentlichen Sendevorgang prüft der Dispatcher in `checkSend()` ob der Kanal belegt ist:
+
+```cpp title="src/Dispatcher.cpp"
+if (_radio->isReceiving()) {
+  next_tx_time = futureMillis(getCADFailRetryDelay());  // 200 ms
+  return;
+}
+```
+
+`isReceiving()` kombiniert zwei Checks:
+
+```cpp title="src/helpers/radiolib/RadioLibWrappers.h"
+bool isReceiving() override {
+  if (isReceivingPacket()) return true;  // Hardware: Preamble/Header erkannt
+  return isChannelActive();             // Software: RSSI über Schwellwert
+}
+```
+
+### Preamble-IRQ-Erkennung (`isReceivingPacket`)
+
+Der SX1262 läuft dauerhaft im RX-Modus. Wenn ein anderes Gerät zu senden beginnt, setzt der Chip Hardware-IRQ-Flags:
+
+```cpp title="src/helpers/radiolib/CustomSX1262.h"
+bool isReceivingPacket() {
+  uint16_t irq = getIrqFlags();
+  return (irq & SX126X_IRQ_HEADER_VALID) || (irq & SX126X_IRQ_PREAMBLE_DETECTED);
+}
+```
+
+**Wichtige Eigenschaften:**
+- **Passiv und reaktiv**: feuert erst, nachdem der interne Korrelator genug Preamble-Symbole akkumuliert hat
+- **Timing**: bei SF8, BW 62,5 kHz (4,096 ms/Symbol) wird `PREAMBLE_DETECTED` nach ~4-6 Symbolen gesetzt, also **≈ 16-25 ms** nach Sendebeginn des anderen Geräts
+- **Sticky Flags**: einmal gesetzt, bleiben die Flags bis zum nächsten `startReceive()`, schützt also auch Header und Payload
+- **Kein Mid-Packet-Schutz bei verpasster Preamble**: wurde die Preamble überhört (z. B. weil der Node gerade aus TX zurückgekehrt ist und `startReceive()` die Flags resettet), gibt es keinen Schutz für ein laufendes Paket
+
+### RSSI-basierter Interferenz-Check (`isChannelActive`)
+
+```cpp title="src/helpers/radiolib/RadioLibWrappers.cpp"
+bool RadioLibWrapper::isChannelActive() {
   return _threshold == 0
-    ? false   // RSSI-Check deaktiviert
+    ? false                                          // standardmäßig deaktiviert
     : getCurrentRSSI() > _noise_floor + _threshold;
 }
 ```
 
-Der Noise Floor wird aus 64 RSSI-Messungen gemittelt.
-
-:::warning Zwei verschiedene Schwellwerte
-Der interne `SAMPLING_THRESHOLD` (14 dB) filtert während der Kalibrierung solche RSSI-Proben aus, die durch aktiven Paketempfang verfälscht wären. Er ist **nicht** der konfigurierbare Interferenzschwellwert.
-
-Der tatsächliche Standard-Schwellwert (`interference_threshold`) ist **0 (standardmäßig deaktiviert)**, einstellbar via `set int.thresh <dB>`.
+:::warning Standardmäßig deaktiviert
+`interference_threshold` ist per Default **0**, der RSSI-Check ist damit komplett abgeschaltet. `isChannelActive()` gibt immer `false` zurück. Aktivierbar mit `set int.thresh <dB>`.
 :::
 
-### Ablauf vor jeder Aussendung
-
-Vor der Weiterleitung eines Flood-Pakets berechnet der Repeater einen **zufälligen Verzögerungswert**:
-
-```cpp
-t = getEstAirtimeFor(paket) × tx_delay_factor   // tx_delay_factor Standard: 0,5
-delay = random(0, 5×t)
-```
-
-Dieser zufällige Backoff verhindert, dass mehrere Repeater ein Paket gleichzeitig weiterleiten. Für die Weiterleitung von Direktnachrichten gilt dasselbe mit `direct_tx_delay_factor` (Standard: 0,3).
-
-Ist der Kanal beim tatsächlichen Sendversuch dennoch belegt, greift der CAD-Mechanismus:
-
-- Bei **belegt**: wartet **120–480 ms** (zufällig: `rand(1..4) × 120 ms`) und versucht es erneut
-- Nach **4 Sekunden** erzwungener Kanal-Belegung: sendet trotzdem (CAD-Timeout), um Starvation zu vermeiden
-
-Nach jeder Sendung erzwingt der Dispatcher eine Sendepause zur Einhaltung des Duty Cycle:
-
-```
-Sendepause = gemessene Sendedauer × Airtime-Budget-Faktor
-```
-
-Der Faktor bestimmt das Verhältnis von Senden zu Schweigen: `Duty Cycle = 1 / (1 + Faktor)`. In Deutschland gilt auf dem 868-MHz-Band eine gesetzliche Obergrenze von 10 % Duty Cycle, was `af 9` erfordert: auf jede Sendung folgt eine neunfach längere Pause. Einstellbar via `set af <Faktor>`.
+Der Noise Floor wird aus 64 RSSI-Messungen gemittelt (konvergiert nach einigen Minuten). Ein inhärentes Problem: LoRa kann Signale **unterhalb des Noise Floors** dekodieren (negative SNR). Ein schwaches, aber empfangbares Paket bleibt für den RSSI-Check unsichtbar.
 
 ---
 
-## Warum echter Hardware-CAD nicht genutzt wird
+## Verhalten bei belegtem Kanal
 
-Der SX1262 kann mit `scanChannel()` (RadioLib) einen dedizierten CAD-Scan starten, der in wenigen Symbol-Perioden erkennt, ob LoRa-Energie auf dem Kanal ist. Das ist schneller und energieeffizienter als RSSI-Polling, wird in MeshCore aber **nicht aufgerufen**. Es gibt keine offenen Issues oder PRs dazu.
+Schlägt der Check an, wartet der Dispatcher und versucht es neu:
+
+| Situation | Verhalten |
+|---|---|
+| `isReceiving()` = true | Retry nach `getCADFailRetryDelay()` = 200 ms |
+| Kanal > 4 Sek. belegt | Sendet trotzdem (Starvation-Schutz, `ERR_EVENT_CAD_TIMEOUT`) |
 
 ---
 
-## Bekannte Schwächen des aktuellen Systems
+## Duty Cycle
 
-| Problem | Details | Issue |
-|---|---|---|
-| AGC-Bug auf Heltec V4 | Noise Floor wird auf -120 dBm geklemmt → LBT-Schwellwert nie überschritten → Interferenz wird nicht erkannt | [#1716](https://github.com/meshcore-dev/MeshCore/issues/1716) |
-| Transiente Störer | 64-Sample-Mittelwert glättet kurze RF-Bursts weg, die dann unentdeckt bleiben | [#1786](https://github.com/meshcore-dev/MeshCore/issues/1786) |
-| Noise Floor Clamping | Fester Mindestwert -120 dBm kann auf rauschreicher Hardware zu falschen Entscheidungen führen | [#1352](https://github.com/meshcore-dev/MeshCore/issues/1352) |
+Nach jeder Sendung erzwingt der Dispatcher eine Pause:
 
+```
+Sendepause = Sendedauer × getAirtimeBudgetFactor()
+Duty Cycle = 1 / (1 + Faktor)
+```
+
+Für Deutschland (868-MHz-Band, max. 10 % DC): `set af 9`.
 
 ---
 
 ## Konfigurationsübersicht
 
-| CLI-Befehl | Standard | Wirkung |
-|---|---|---|
-| `set int.thresh <dB>` | **0 (deaktiviert)** | RSSI-Interferenzschwellwert in dB über Noise Floor. `0` deaktiviert die RSSI-Prüfung. |
-| `set af <Faktor>` | 2,0 | Duty-Cycle-Faktor: Sendepause = Sendedauer × Faktor. Für Deutschland (868 MHz, max. 10 % DC): `af 9` |
-
----
-
-## Handlungsempfehlungen
-
-:::tip
-1. **`set int.thresh` aktivieren:** der Standard ist `0` (RSSI-Check deaktiviert). Für dichte Umgebungen empfiehlt sich ein Wert von 10–14 dB über dem Noise Floor.
-2. **`set af 9` setzen:** entspricht dem gesetzlichen Duty-Cycle-Limit von 10 % auf dem deutschen 868-MHz-Band (Sendepause = 9 × Sendedauer).
-3. **Hardware-CAD über RadioLib einbauen:** falls selbst compiliert wird, wäre der Einstiegspunkt `RadioLibWrapper`, wo `startChannelScan()` aus RadioLib aufgerufen werden könnte, bevor `startTransmit()` aufgerufen wird. Das wäre ein sinnvoller Beitrag oder Feature-Request ans MeshCore-Projekt.
-:::
-
----
-
-## Fazit MeshCore
-
-MeshCore hat eine pragmatische LBT-Implementierung, die unter normalen Bedingungen ausreicht. Der echte Hardware-CAD-Modus des SX1262 ist ungenutzte Kapazität. Für dichte Netzwerke mit vielen gleichzeitigen Sendern wäre ein Feature-Request oder PR zur Implementierung von `scanChannel()` sinnvoll.
-
----
-
-## Meshtastic: Kollisionsvermeidung im Vergleich
-
-### Kurze Antwort
-
-Meshtastic **nutzt aktiv** den Hardware-CAD-Modus des SX1262 als primären LBT-Mechanismus, ergänzt durch ein SNR-gewichtetes Backoff-System und Airtime-Tracking.
-
----
-
-### Implementierung: Hardware-CAD auf dem SX1262
-
-In `src/mesh/SX126xInterface.cpp` wird `isChannelActive()` direkt über RadioLibs `lora.scanChannel()` implementiert, was den SX1262-Befehl `SetCad` auslöst:
-
-```cpp title="SX126xInterface.cpp"
-template <typename T> bool SX126xInterface<T>::isChannelActive()
-{
-    ChannelScanConfig_t cfg = {.cad = {
-        .symNum   = NUM_SYM_CAD,   // 2 Symbole (gemäß Semtech AN1200.48)
-        .detPeak  = RADIOLIB_SX126X_CAD_PARAM_DEFAULT,
-        .detMin   = RADIOLIB_SX126X_CAD_PARAM_DEFAULT,
-        .exitMode = RADIOLIB_SX126X_CAD_PARAM_DEFAULT,
-        .timeout  = 0,
-    }};
-    setStandby();              // RX-Modus verlassen vor CAD
-    result = lora.scanChannel(cfg);
-    return (result == RADIOLIB_LORA_DETECTED);
-}
-```
-
-`NUM_SYM_CAD = 2` ist eine Kompilier-Zeit-Konstante in `RadioInterface.h`. Der Chip prüft mit diesem echten CAD-Scan in ~10–100 ms (je nach SF/BW), ob LoRa-Energie auf dem Kanal vorhanden ist, ohne RSSI-Messung.
-
-Das gleiche Prinzip gilt auch für **SX127x** (`RF95Interface`) und **SX1280** (`SX128xInterface`, dort mit 4 Symbolen für 2,4 GHz).
-
----
-
-### Mehrschichtiger Ablauf vor jeder Aussendung
-
-```
-1. Paket in txQueue eingestellt
-2. Zufälliger Backoff-Delay berechnet (Contention Window)
-3. Nach Ablauf: isActivelyReceiving()? → IRQ-Flags prüfen (HEADER_VALID | PREAMBLE_DETECTED)
-4.             isChannelActive()?      → Hardware CAD via lora.scanChannel()
-5. Kanal frei → sofort senden
-   Kanal belegt → Backoff neu starten (zurück zu Schritt 2)
-```
-
-:::note Schutz vor CAD-Unterbrechung
-Ist der Chip bereits dabei, ein Paket zu empfangen (`isActivelyReceiving()`), wird kein CAD gestartet, da CAD den RX-Modus verlässt und das Paket verloren gehen würde (Issue [#2307](https://github.com/meshtastic/firmware/issues/2307), gefixt in PR [#2333](https://github.com/meshtastic/firmware/pull/2333)).
-:::
-
----
-
-### Contention-Window und Slot-Zeit
-
-Die Wartezeit vor jedem Sendeversuch ist nicht fest, sondern wird aus einem Contention Window (CW) gezogen:
-
-<Tabs>
-  <TabItem value="own" label="Eigene Pakete" default>
-
-Abhängig von der aktuellen Kanal-Auslastung:
-
-```cpp
-uint8_t CWsize = map(channelUtilizationPercent(), 0, 100, CWmin, CWmax);
-delay = random(0, 2^CWsize) × slotTimeMsec
-```
-
-  </TabItem>
-  <TabItem value="relay" label="Weiterleitungen">
-
-Abhängig vom empfangenen SNR: schwaches Signal bedeutet längere Wartezeit:
-
-```cpp
-uint8_t CWsize = getCWsize(p->rx_snr);   // SNR -20..+10 dB → CW 3..8
-delay = random(0, 2^CWsize) × slotTimeMsec
-```
-
-Router-Knoten erhalten einen kürzeren Offset, Client-Knoten einen längeren. Das priorisiert gut positionierte Knoten als Repeater.
-
-  </TabItem>
-</Tabs>
-
-Die **Slot-Zeit** (`slotTimeMsec`) wird dynamisch aus SF, BW und CAD-Dauer berechnet:
-
-```
-slotTime = (NUM_SYM_CAD + 0.5) × symbolTime + 7,6 ms (Propagation + Turnaround + MAC)
-```
-
-Für LongFast (SF9, BW125): ca. **17,8 ms** pro Slot.
-
-| Konstante | Wert | Bedeutung |
+| CLI-Befehl | Default | Wirkung |
 |---|:---:|---|
-| `NUM_SYM_CAD` | 2 | CAD-Symbol-Anzahl (SX1262/SX127x) |
-| `CWmin` | 3 | Min. Contention Window (2³ = 8 Slots) |
-| `CWmax` | 8 | Max. Contention Window (2⁸ = 256 Slots) |
+| `set txdelay <f>` | 0,5 | TX-Delay-Faktor. Fenster = `[0, 5 × Airtime × f]`. Max. 2,0 (Cap in Firmware). |
+| `set int.thresh <dB>` | 0 | RSSI-Schwellwert in dB über Noise Floor. `0` = deaktiviert. |
+| `set af <f>` | 2 | Duty-Cycle-Faktor. `9` = max. 10 % DC für DE/868 MHz. |
 
 ---
 
-### Airtime-Tracking und Duty-Cycle-Begrenzung
+## Bekannte Schwächen
 
-Meshtastic misst laufend die Kanalauslastung über ein 60-Sekunden-Fenster (6 × 10-Sekunden-Perioden):
-
-- Bei **> 25 %** Auslastung: Contention Window vergrößert sich
-- Bei **> 40 %** Auslastung: TX wird hart gesperrt (`isTxAllowedChannelUtil()`)
-- Regionaler Duty-Cycle (z. B. EU 868: 1 %) wird separat überwacht
-
----
-
-### Konfiguration
-
-Die CAD-Parameter sind Kompilier-Zeit-Konstanten, es gibt keine Benutzeroberfläche dafür. Indirekt beeinflussbar:
-
-| Einstellung | Wirkung |
+| Problem | Ursache |
 |---|---|
-| Node-Rolle (ROUTER vs. CLIENT) | Beeinflusst Backoff-Formel (Router sendet früher) |
-| `config.lora.sx126x_rx_boosted_gain` | Erhöht RX-Empfindlichkeit, beeinflusst CAD-Qualität |
-| `config.lora.override_duty_cycle` | Umgeht EU-Duty-Cycle-Limit (nicht den LBT-Check) |
-
----
-
-### Bekannte Grenzen
-
-| Problem | Details |
-|---|---|
-| Kein Cross-SF-Schutz | CAD erkennt nur LoRa mit gleichem Spreading Factor; anderer SF oder Nicht-LoRa-Signale werden nicht erkannt |
-| Kein RSSI-Fallback | Starke Breitband-Interferenz (kein LoRa-Preamble) wird nicht erkannt |
-| Keine EU-LBT-Konformität | Hardware-CAD allein erfüllt nicht ETSI EN 300 220 (fehlendes AFA), daher keine Duty-Cycle-Ausnahme ([Issue #2419](https://github.com/meshtastic/firmware/issues/2419)) |
-
----
-
-### Relevante Meshtastic Issues und PRs
-
-| Referenz | Inhalt |
-|---|---|
-| [PR #1394](https://github.com/meshtastic/firmware/pull/1394) | Ursprüngliche LBT + CAD Implementierung (Apr 2022) |
-| [Issue #2307](https://github.com/meshtastic/firmware/issues/2307) | CAD unterbricht aktiven Empfang → Paketverlust |
-| [PR #2333](https://github.com/meshtastic/firmware/pull/2333) | Fix: HEADER_VALID IRQ prüfen vor CAD-Start |
-| [Issue #2419](https://github.com/meshtastic/firmware/issues/2419) | LBT in EU868: keine Duty-Cycle-Ausnahme ohne AFA |
-| [Issue #3892](https://github.com/meshtastic/firmware/issues/3892) | slotTimeMsec war fest statt dynamisch berechnet |
-| [PR #4469](https://github.com/meshtastic/firmware/pull/4469) | Slot-Zeit dynamisch aus SF/BW berechnen (Aug 2024) |
-| [PR #5749](https://github.com/meshtastic/firmware/pull/5749) | Verbessertes Slot-Time-Modell, CW-Tuning (Jan 2025) |
-| [PR #6653](https://github.com/meshtastic/firmware/pull/6653) | Fix: falscher IRQ-Flag-Bitshift bei Preamble-Erkennung (Apr 2025) |
-
----
-
-## Direktvergleich: MeshCore vs. Meshtastic
-
-| Merkmal | MeshCore | Meshtastic |
-|---|---|---|
-| **Hardware CAD (`scanChannel`)** | Nicht implementiert | Ja, zentraler Mechanismus |
-| **Preamble-IRQ-Auswertung** | Ja (passiv, im RX-Modus) | Ja (als aktiver Empfangsschutz) |
-| **RSSI-basierte LBT** | Ja (konfigurierbar, Standard: deaktiviert) | Nein |
-| **Backoff-Strategie** | Zufällig (0..5× Airtime), 120–480 ms zufällig bei belegtem Kanal | Zufällig, SNR/Auslastungs-gewichtet |
-| **Contention Window** | Nein | Ja (CWmin=3, CWmax=8) |
-| **Duty-Cycle-Begrenzung** | Ja (Sendepause = Sendedauer × Faktor) | Ja (60-Sek.-Fenster, max. 40 %) |
-| **Schutz vor Breitband-Interferenz** | Ja (RSSI-Schwellwert, wenn aktiviert) | Nein |
-| **Cross-SF-Erkennung** | Teilweise (RSSI) | Nein (nur gleicher SF) |
-| **Konfigurierbarkeit** | `int.thresh`, `af` via CLI | Kaum, Konstanten im Quellcode |
-| **Starvation-Schutz** | Timeout nach 4 Sek. | Indirekt über CW-Decrement |
-
-:::info Fazit
-Meshtastic löst das Problem technisch sauberer durch echtes Hardware-CAD mit intelligentem, adaptivem Backoff. MeshCore kompensiert den fehlenden Hardware-CAD teilweise durch RSSI-Monitoring, das dafür auch Nicht-LoRa-Interferenz erkennt. Für dichte LoRa-Netze ist Meshtastics Ansatz überlegen; MeshCore ist robuster gegenüber externen Störquellen.
-:::
-
----
-
-## Relevante Quellen
-
-- [meshcore-dev/MeshCore GitHub](https://github.com/meshcore-dev/MeshCore)
-- [MeshCore DeepWiki – Radio Layer](https://deepwiki.com/meshcore-dev/MeshCore/5-radio-layer)
-- [Issue #1352: Noise floor clamped to -120 dB](https://github.com/meshcore-dev/MeshCore/issues/1352)
-- [Discussion #1679: Why is noise_floor clamped to -120 dB?](https://github.com/meshcore-dev/MeshCore/discussions/1679)
-- [Issue #1786: Live noise floor misses transient noise](https://github.com/meshcore-dev/MeshCore/issues/1786)
-- [Issue #1716: AGC reset doesn't work on Heltec V4](https://github.com/meshcore-dev/MeshCore/issues/1716)
-- [meshtastic/firmware GitHub](https://github.com/meshtastic/firmware)
-- [Meshtastic PR #1394: LBT + CAD](https://github.com/meshtastic/firmware/pull/1394)
-- [Meshtastic PR #5749: Slot-Time-Verbesserung](https://github.com/meshtastic/firmware/pull/5749)
-- [RadioLib Discussion #543: startChannelScan + CSMA/CA](https://github.com/jgromes/RadioLib/discussions/543)
-- [Semtech CAD Application Note AN1200.85](https://www.semtech.com/uploads/technology/LoRa/cad-ensuring-lora-packets.pdf)
+| Kritisches Fenster ≤ 16-25 ms | `PREAMBLE_DETECTED` braucht ~4-6 Symbole zur Korrelation; zwei Repeater, die innerhalb dieses Fensters starten, kollidieren |
+| Kein Schutz bei verpasster Preamble | LoRa-Signale unterhalb Noise Floor sind per RSSI nicht detektierbar; `isReceivingPacket()` hilft nur wenn Preamble gehört wurde |
+| Pure ALOHA ohne Slots | Beliebige Startzeiten, kein Mindestabstand zwischen TX-Versuchen |
+| AGC-Bug Heltec V4 | Noise Floor wird auf -120 dBm geklemmt, RSSI-Check schlägt nie an ([#1716](https://github.com/meshcore-dev/MeshCore/issues/1716)) |
