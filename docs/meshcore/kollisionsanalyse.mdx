@@ -150,7 +150,7 @@ bool RadioLibWrapper::isChannelActive() {
 - **LoRa-spezifisch**: Reagiert auf Chirp-Muster, nicht auf allgemeine RF-Energie
 - **ISR korrekt behandelt**: State-Reset und RX-Neustart nach CAD verhindert, dass der CAD-Done-Interrupt als empfangenes Paket fehlinterpretiert wird
 
-  </TabItem>
+</TabItem>
   <TabItem value="grenzen" label="Grenzen & Implementierungsmängel">
 
 **Konzeptionelle Grenzen:**
@@ -165,7 +165,7 @@ bool RadioLibWrapper::isChannelActive() {
 - **Threshold-Wert wird ignoriert**: `_threshold` war ursprünglich der RSSI-Schwellwert in dB. Nach dem PR wird nur noch geprüft ob er `== 0` ist, der eigentliche Wert hat keinen Effekt mehr. `set int.thresh 1` und `set int.thresh 14` verhalten sich identisch. Das ist semantisch irreführend; ein separates `_cad_enabled`-Flag wäre korrekt.
 - **Kurzzeitiger Blind Spot nach CAD**: Nach dem Scan versetzt `startRecv()` das Radio zurück in RX. Während des RX-Hochlaufs (einige hundert µs) ist das Radio blind; eine Preamble die genau in diesem Fenster beginnt, wird weder per CAD noch per IRQ erkannt.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 **Bewertung:** Funktional sinnvoll und korrekt implementiert was den ISR-Reset betrifft. Die drei Implementierungsmängel sind reale Lücken, insbesondere der nicht-atomare CAD/TX-Abstand. Als-ist mergebar wenn man die konzeptionellen Grenzen akzeptiert; für produktionsreife Kollisionsvermeidung sollte zumindest der CAD-vor-TX Fix nachgezogen werden.
@@ -280,7 +280,7 @@ Die Slot-Zeit entspricht exakt der CAD-Scan-Dauer plus Propagationszuschlag, zwi
 
 Nodes mit schlechtem SNR senden früher, deckt sich mit dem `rx_delay_base`-Mechanismus in MeshCore.
 
-  </TabItem>
+</TabItem>
   <TabItem value="kritisch" label="Was kritisch zu sehen ist">
 
 ### Keine RSSI-Erkennung
@@ -295,7 +295,7 @@ CAD-Parameter sind Kompilier-Zeit-Konstanten. MeshCores CLI-Interface (`set txde
 
 Historisch gab es mehrere Bugs in der Slot-Zeit-Berechnung (zu starr, falsche Bitshift-Auswertung, fixe statt dynamische Werte). Die Komplexität hat ihren Preis.
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ---
