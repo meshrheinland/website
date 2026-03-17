@@ -5,6 +5,7 @@ tags: [meshcore, lora, sx1262, cad, lbt, kollision, repeater, sf8, eu-narrow]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CollisionAnimation from '@site/src/components/CollisionAnimation';
 
 # Kollisionsanalyse: Timing, Wahrscheinlichkeit & Verbesserungsplan
 
@@ -73,6 +74,8 @@ Der PR [#1727](https://github.com/meshcore-dev/MeshCore/pull/1727) implementiert
 | Hardware-CAD (2 Symbole) | ≈ 8 ms | proaktiv (aktiver Scan) |
 
 CAD sucht spezifisch nach dem **Up-Chirp-Muster** der Preamble und benötigt nur 1-2 Symbole, weil es gezielt nach dem LoRa-Muster scannt statt auf Korrelatorkonvergenz zu warten. Das kritische Fenster schrumpft dadurch von ≈ 20 ms auf ≈ 4 ms.
+
+<CollisionAnimation />
 
 ### 3.3 Mid-Packet-Erkennung: Strukturelle Lücke
 
