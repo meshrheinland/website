@@ -2,12 +2,12 @@
 sidebar_position: 2
 sidebar_label: Letzte Notfunkübungen
 title: Letzte Notfunkübungen
-description: Übersicht vergangener Notfunkübungen im Großraum Bonn mit einklappbaren Detailblöcken pro Übung.
+description: Übersicht vergangener Notfunkübungen im Rheinland mit einklappbaren Detailblöcken pro Übung.
 ---
 
 # Letzte Notfunkübungen
 
-Hier findet ihr die letzten Notfunkübungen im Großraum Bonn. Jede Übung hat einen eigenen einklappbaren Detailblock, sodass sich neue Termine einfach ergänzen lassen.
+Hier findet ihr die letzten Notfunkübungen im Rheinland. Jede Übung hat einen eigenen einklappbaren Detailblock, sodass sich neue Termine einfach ergänzen lassen.
 
 <details>
    <summary>
@@ -62,7 +62,7 @@ Die Netzabdeckung am Standort der Leitstelle war durchgehend gut, die Leitstelle
 
 ### Fazit
 
-Ein starkes Zeichen der Community - engagiert, pünktlich und gut vorbereitet. Herzlichen Dank an alle Teilnehmer.
+Ein starkes Zeichen der Community – engagiert, pünktlich und gut vorbereitet. Herzlichen Dank an alle Teilnehmer!
 
 ### Teilnehmer
 
@@ -129,7 +129,7 @@ Weitere Informationen folgen.
 
 ## Wer kann teilnehmen?
 
-Alle Funkamateure und Hobbyfunker im Großraum Bonn sind willkommen – unabhängig von Erfahrung oder Ausrüstung. Die Übung dient der Vorbereitung auf echte Notfallsituationen und dem Austausch untereinander.
+Alle Funkamateure und Hobbyfunker im Rheinland sind willkommen – unabhängig von Erfahrung oder Ausrüstung. Die Übung dient der Vorbereitung auf echte Notfallsituationen und dem Austausch untereinander.
 
 ---
 
