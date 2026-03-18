@@ -152,6 +152,10 @@ const config: Config = {
               href: 'https://flasher.meshcore.dev',
             },
             {
+              label: 'Meshcore-Karte',
+              href: 'https://map.meshcore.dev/',
+            },
+            {
               label: 'Letsmesh-Karte',
               href: 'https://analyzer.letsmesh.net/map?last_heard_days=1&lat=50.88376&long=7.23022&zoom=10',
             },
