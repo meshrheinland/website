@@ -135,6 +135,10 @@ Kopiere den generierten Private Key aus dem Key Generator.
 
 **5. Repeater flashen**
 
+:::tip nRF52-Hardware: Bootloader prüfen
+Bei nRF52-basierten Geräten sollte vor dem Flashen ein Bootloader-Update in Betracht gezogen werden. Nur so sind spätere OTA-Firmware-Updates über Bluetooth zuverlässig möglich. Details dazu findest du in der [MeshCore FAQ](https://github.com/meshcore-dev/MeshCore/blob/main/docs/faq.md#73-q-is-there-a-way-to-lower-the-chance-of-a-failed-ota-device-firmware-update-dfu).
+:::
+
 1. Öffne den [MeshCore Flasher](https://flasher.meshcore.dev/)
 2. Wähle Repeater-Firmware
 3. Flashe das Gerät (Keys werden automatisch generiert)
