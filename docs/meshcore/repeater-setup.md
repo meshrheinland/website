@@ -171,7 +171,7 @@ Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilizati
 Nach der Grundkonfiguration solltest du deinen Repeater mit den passenden Regionen ausstatten. Dies ist für das zukünftige Netzwerk essentiell.
 :::
 
-Regionen begrenzen die Weiterleitung von Nachrichten auf definierte geografische Bereiche und verhindern unkontrolliertes Flooding im Netz. In der Mesh Rheinland Community verwenden wir derzeit die Regionen `#de`, `#nrw`, `#rheinland`, `#bonn` und `#koeln`.
+Regionen begrenzen die Weiterleitung von Nachrichten auf definierte geografische Bereiche und verhindern unkontrolliertes Flooding im Netz. In der Mesh Rheinland Community verwenden wir derzeit die Regionen `de`, `de-nw`, `rheinland`, `bonn` und `koeln`.
 
 **Nächster Schritt:** Lies die Anleitung zur [Regionen-Konfiguration](regionen.md), um deinen Repeater mit den passenden Regionen auszustatten.
 
