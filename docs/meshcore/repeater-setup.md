@@ -6,6 +6,41 @@ Ein Repeater erweitert die Reichweite des MeshCore-Netzwerks, indem er Nachricht
 Repeater sind für unbemannten Betrieb gedacht. Für normale Nutzung flashe die **Companion**-Firmware!
 :::
 
+## CLI Cheat Sheet
+
+Alle Befehle zum Konfigurieren eines Repeaters auf einen Blick. Eingabe über die serielle Console im [MeshCore Flasher](https://flasher.meshcore.dev/) nach dem Flashen.
+
+```bash
+set name DE-NW Bonn-Beuel
+set owner.info Bernd aus Beuel
+set lat 50.73597
+set lon 7.11093
+
+set radio 869.618,62.5,8,8
+set dutycycle 10
+
+set advert.interval 240
+set flood.advert.interval 24
+
+set txdelay 0.5
+set direct.txdelay 0.3
+set rxdelay 0
+
+set multi.acks 1
+set int.thresh 1
+
+set path.hash.mode 1
+set loop.detect minimal
+
+# Weiter: Regionen konfigurieren (siehe unten)
+```
+
+:::info
+Nach allen Änderungen den Repeater neu starten: `reboot`
+:::
+
+Abschließend die Regionen konfigurieren: [Beispiel – alle Rheinland-Regionen anlegen](regionen#beispiel-alle-rheinland-regionen-anlegen)
+
 ## Konfiguration über Web-Interface
 
 Nach dem Flashen kannst du deinen Repeater über die Web-Oberfläche konfigurieren:
@@ -48,10 +83,10 @@ Die Radio-Parameter sollten automatisch korrekt gesetzt sein:
 - **Spreading Factor**: 8
 - **Coding Rate**: 8
 - **TX Power**: 22 dBm
-- **Airtime factor**: 9
+- **Duty Cycle**: 10%
 
-:::info Airtime Factor
-Der Airtime Factor begrenzt die Sendezeit und berechnet sich aus: `airtime_factor = (100 / duty_cycle) - 1`. Für Deutschland gilt ein 10% Duty Cycle (ETSI EN300.220-2), daher: `(100 / 10) - 1 = 9`.
+:::info Duty Cycle
+`set dutycycle 10` begrenzt die Sendezeit auf 10 % (ETSI EN300.220-2 für Deutschland).
 :::
 
 :::info Einstellungen speichern
@@ -135,6 +170,10 @@ Kopiere den generierten Private Key aus dem Key Generator.
 
 **5. Repeater flashen**
 
+:::tip nRF52-Hardware: Bootloader prüfen
+Bei nRF52-basierten Geräten sollte vor dem Flashen ein Bootloader-Update in Betracht gezogen werden. Nur so sind spätere OTA-Firmware-Updates über Bluetooth zuverlässig möglich. Details dazu findest du in der [MeshCore FAQ](https://github.com/meshcore-dev/MeshCore/blob/main/docs/faq.md#73-q-is-there-a-way-to-lower-the-chance-of-a-failed-ota-device-firmware-update-dfu).
+:::
+
 1. Öffne den [MeshCore Flasher](https://flasher.meshcore.dev/)
 2. Wähle Repeater-Firmware
 3. Flashe das Gerät (Keys werden automatisch generiert)
@@ -171,7 +210,7 @@ Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilizati
 Nach der Grundkonfiguration solltest du deinen Repeater mit den passenden Regionen ausstatten. Dies ist für das zukünftige Netzwerk essentiell.
 :::
 
-Regionen begrenzen die Weiterleitung von Nachrichten auf definierte geografische Bereiche und verhindern unkontrolliertes Flooding im Netz. In der Mesh Rheinland Community verwenden wir derzeit die Regionen `#de`, `#nrw`, `#rheinland`, `#bonn` und `#koeln`.
+Regionen begrenzen die Weiterleitung von Nachrichten auf definierte geografische Bereiche und verhindern unkontrolliertes Flooding im Netz. In der Mesh Rheinland Community verwenden wir derzeit die Regionen `de`, `de-nw`, `rheinland`, `bonn` und `koeln`.
 
 **Nächster Schritt:** Lies die Anleitung zur [Regionen-Konfiguration](regionen.md), um deinen Repeater mit den passenden Regionen auszustatten.
 
