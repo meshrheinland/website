@@ -240,13 +240,13 @@ Ja, wenn du das Admin-Passwort kennst oder deine Companion-Node freigeschaltet w
 ## Ressourcen
 
 **Tools:**
-- MeshCore Flasher: https://flasher.meshcore.dev
-- Prefix Analyzer: https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN
-- Key Generator: https://gessaman.com/mc-keygen/
-- USB Config Interface: https://config.meshcore.dev
+- [MeshCore Flasher](https://flasher.meshcore.dev)
+- [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN)
+- [Key Generator](https://gessaman.com/mc-keygen/)
+- [USB Config Interface](https://config.meshcore.dev)
 
 **Dokumentation:**
-- MeshCore Settings Guide: https://www.meshcore.ch/settings
-- Repeater CLI Reference: https://github.com/meshcore-dev/MeshCore/wiki/Repeater-&-Room-Server-CLI-Reference
-- MeshCore FAQ: https://github.com/meshcore-dev/MeshCore/blob/main/docs/faq.md
-- Key Generator GitHub: https://github.com/agessaman/meshcore-web-keygen
+- [MeshCore Settings Guide](https://www.meshcore.ch/settings)
+- [Repeater CLI Reference](https://github.com/meshcore-dev/MeshCore/wiki/Repeater-&-Room-Server-CLI-Reference)
+- [MeshCore FAQ](https://github.com/meshcore-dev/MeshCore/blob/main/docs/faq.md)
+- [Key Generator GitHub](https://github.com/agessaman/meshcore-web-keygen)
