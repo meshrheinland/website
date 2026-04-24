@@ -5,7 +5,7 @@ description: Companion-Firmware flashen, Node einrichten und erste Verbindung in
 
 # Companion-Setup
 
-:::warning Wichtige Änderung ab 24.04.2026
+:::warning Wichtige Änderung seit dem 24.04.2026
 Die Repeater im Mesh Rheinland transportieren keinen ungescopten Verkehr mehr. Aktualisiere deine Firmware auf die neueste Version und stelle sicher, dass du einen **Default Region Scope** gesetzt hast – sonst werden deine Nachrichten nicht weitergetragen.
 :::
 
@@ -57,9 +57,7 @@ Am einfachsten: Wähle das Preset **EU/UK (Narrow)** in den Radio-Einstellungen.
 
 ### Region Scope
 
-:::warning Ohne Scope keine Zustellung
-Nachrichten ohne Region Scope werden im Mesh Rheinland nicht mehr transportiert. Dieser Schritt der Konfiguration ist deshalb zwingend erforderlich.
-:::
+Ein Region Scope begrenzt die Weiterleitung deiner Nachrichten auf Repeater, die diese Region kennen. Seit dem 24.04.2026 transportieren die Repeater im Mesh Rheinland keinen ungescopten Verkehr mehr – Nachrichten ohne Scope werden schlicht ignoriert. Das Setzen eines Default Scopes ist daher kein optionaler Schritt, sondern Voraussetzung für die Teilnahme am Netz.
 
 Öffne in der App: **Einstellungen → Experimentelle Einstellungen**
 
