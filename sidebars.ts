@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
   ],
   meshcoreSidebar: [
     'meshcore/intro',
+    'meshcore/companion-setup',
     'meshcore/repeater-setup',
     'meshcore/channels',
     'meshcore/regionen',
