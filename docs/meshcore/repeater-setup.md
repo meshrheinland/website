@@ -27,7 +27,6 @@ set direct.txdelay 0.3
 set rxdelay 0
 
 set multi.acks 1
-set int.thresh 1
 
 set path.hash.mode 1
 set loop.detect minimal
