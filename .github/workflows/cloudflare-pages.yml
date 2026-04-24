@@ -58,3 +58,4 @@ jobs:
           name: pr-build-${{ github.run_id }}
           path: build/
           retention-days: 1
+          include-hidden-files: true
