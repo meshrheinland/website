@@ -15,6 +15,7 @@ set name DE-NW Bonn-Beuel
 set owner.info Bernd aus Beuel
 set lat 50.73597
 set lon 7.11093
+password MySecret
 
 set radio 869.618,62.5,8,8
 set dutycycle 10
@@ -48,7 +49,7 @@ Nach dem Flashen kannst du deinen Repeater über die Web-Oberfläche konfigurier
 2. Öffne https://config.meshcore.dev
 3. Klicke auf "Connect" und wähle das Gerät aus
 
-![MeshCore Repeater Konfiguration](/img/meshcore-repeater-config.png)
+![MeshCore Repeater Konfiguration](/img/meshcore/repeater-config.png)
 
 ### Wichtige Einstellungen
 
