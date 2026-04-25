@@ -29,13 +29,18 @@ Der gewählte Scope beeinflusst nur deine gesendeten Nachrichten. Empfangen kann
 
 In der Mesh Rheinland Community verwenden wir derzeit folgende Regionen:
 
+- `europe` – Europa
 - `de` – Deutschland
+- `de-mitte` – Hessen, Thüringen, Sachsen-Anhalt, Nordrhein-Westfalen, Niedersachsen, Bayern, Sachsen
+- `de-west` – Hessen, Niedersachsen, Bremen, Nordrhein-Westfalen, Rheinland-Pfalz, Saarland
 - `de-nw` – Nordrhein-Westfalen
 - `rheinland` – Rheinland
 - `bonn` – Bonn
 - `eifel` – Eifel
 - `koeln` – Köln
 - `leverkusen` – Leverkusen
+
+Siehe hierzu auch die [Basis-Regionen im MeshCore Wiki DE](https://meshcore-de.fyi/meshcore:allgemeines:regions:basis)
 
 ## Companion-Nutzer: Regionen in der App verwenden
 
@@ -98,8 +103,17 @@ Regionen werden über die CLI des Repeaters konfiguriert (USB, Seriell oder Remo
 ### Beispiel: Alle Rheinland-Regionen anlegen
 
 ```bash
+region put europe
+region allowf europe
+
 region put de
 region allowf de
+
+region put de-mitte
+region allowf de-mitte
+
+region put de-west
+region allowf de-west
 
 region put de-nw
 region allowf de-nw
