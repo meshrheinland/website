@@ -5,10 +5,27 @@ description: Ankündigung der nächsten Notfunkübung für die Mesh-Rheinland-Co
 
 # Nächste Notfunkübung
 
-Aktuell ist keine Notfunkübung geplant.
-(Stand vom 14.03.2026)
+## Do. 10.09.2026 – Bundesweiter Warntag
 
-Sobald ein neuer Termin feststeht, werden hier alle Informationen zu Datum, Uhrzeit und Ablauf veröffentlicht.
+**Kleine Notfunkübung**
+
+Im Rahmen des Bundesweiten Warntags nehmen die Notfunkkreise von ca. **10:50 bis 11:30 Ortszeit** Meldungen entgegen.
+
+:::info Details folgen noch
+Weitere Informationen werden hier veröffentlicht, sobald sie vorliegen.
+:::
+
+---
+
+## Sa. 28.11. – So. 29.11.2026 – 10. Notfunkübung des Distrikt Köln-Aachen (G)
+
+**Komplexes Übungsszenario** *(zweitägige Großübung)*
+
+:::info Details folgen noch
+Weitere Informationen werden hier veröffentlicht, sobald sie vorliegen.
+:::
+
+---
 
 :::info Auf dem Laufenden bleiben
 Ankündigungen erscheinen auch in den WhatsApp-Communities von [Meshtastic](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi) und [MeshCore](https://chat.whatsapp.com/JyNcTcgwlJf6Mhhf7vgYWD).
