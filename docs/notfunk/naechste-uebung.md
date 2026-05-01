@@ -9,7 +9,7 @@ description: Ankündigung der nächsten Notfunkübung für die Mesh-Rheinland-Co
 
 **Kleine Notfunkübung**
 
-Im Rahmen des Bundesweiten Warntags nehmen die Notfunkkreise von ca. **10:50 bis 11:30 Ortszeit** Meldungen entgegen.
+Im Rahmen des Bundesweiten Warntags nehmen die Notfunkkreise von ca. **10:50 bis 11:30 Uhr (Ortszeit)** Meldungen entgegen.
 
 Weitere Informationen werden hier veröffentlicht, sobald sie vorliegen.
 
