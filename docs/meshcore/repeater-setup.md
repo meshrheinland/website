@@ -1,6 +1,6 @@
 # Repeater-Setup
 
-Ein Repeater erweitert die Reichweite des MeshCore-Netzwerks, indem er Nachrichten weiterleitet. Diese Anleitung erklärt die wichtigsten Einstellungen und wie du Node-ID-Kollisionen mit benachbarten Repeatern vermeidest.
+Ein Repeater erweitert die Reichweite des MeshCore-Netzwerks, indem er Nachrichten weiterleitet. Diese Anleitung erklärt die wichtigsten Einstellungen für den Betrieb eines Repeaters.
 
 :::warning Nur für Infrastruktur
 Repeater sind für unbemannten Betrieb gedacht. Für normale Nutzung flashe die **Companion**-Firmware!
@@ -103,106 +103,9 @@ Für erweiterte Einstellungen, die über die Web-Oberfläche hinausgehen, steht 
 
 ## Node-ID-Kollisionen vermeiden
 
-:::warning Node-ID-Kollisionen
-MeshCore nutzt das **erste Byte** des Public Keys als Node-ID für Routing. Wenn zwei benachbarte Repeater die gleiche Node-ID haben, sind sie im Routing nicht voneinander zu unterscheiden. Für sauberes Routing sollte jeder Repeater in Funkreichweite eine eindeutige Node-ID haben.
-:::
+Seit MeshCore 1.14 werden **2-Byte-Node-IDs** verwendet, was Kollisionen deutlich unwahrscheinlicher macht. Es ist dennoch ratsam, vor dem Deployment zu prüfen, dass kein anderer Repeater in deiner direkten Funkreichweite dieselbe 2-Byte-ID hat.
 
-### Das Problem verstehen
-
-MeshCore-Nodes lernen Pfade zu anderen Nodes, indem sie sich die Hop-Sequenzen merken. Jeder Repeater wird dabei über das erste Byte seines Public Keys identifiziert.
-
-**Beispiel-Pfad:**
-```
-Node A → Repeater [3F...] → Repeater [B2...] → Node B
-```
-
-Der Pfad wird als `3F → B2` gespeichert.
-
-**Was passiert bei Kollisionen?**
-
-Wenn zwei benachbarte Repeater die gleiche Node-ID haben (z.B. beide `3F`):
-- Pfade können nicht eindeutig gespeichert werden
-- Routing-Entscheidungen werden fehlerhaft
-- Nachrichten erreichen ihr Ziel nicht zuverlässig
-
-**Kritisch:** Mit nur 255 möglichen IDs (00-FE) ist die Kollisionsgefahr in dichten Netzwerken hoch!
-
-**Kollisionswahrscheinlichkeit:**
-- Bei 10 Repeatern in der Nähe: ~4%
-- Bei 20 Repeatern: ~8%
-- Bei 30 Repeatern: ~12%
-
-### Die Lösung: Custom Key Generator
-
-#### Schritt-für-Schritt-Anleitung
-
-**1. Benachbarte Repeater-IDs prüfen**
-
-Der [MeshCore Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN) visualisiert die Nutzung von Node-Prefixen im Rheinland und zeigt dir direkt, welche IDs bereits vergeben sind und welche noch frei sind.
-
-1. Öffne https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN
-2. Überprüfe die Visualisierung der verwendeten Prefixe in der Region CGN
-3. Wähle einen freien Prefix für deinen Repeater
-
-**Beispiel belegter IDs:**
-```
-Repeater Köln-Süd:    3F...
-Repeater Bonn-Nord:   B2...
-Repeater Leverkusen:  C4...
-```
-
-**2. Freie Node-ID wählen**
-
-Wähle einen Hexwert (00-FE), der **nicht** in deiner Umgebung verwendet wird.
-
-**Tipp:** Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN), um auf einen Blick zu sehen, welche IDs frei sind.
-
-**3. Key generieren**
-
-1. Öffne https://gessaman.com/mc-keygen/
-2. Gib deine gewählte ID ein (z.B. `A7`)
-3. Klicke auf "Generate Keys"
-4. Warte, bis ein passender Key generiert wurde (bei 2 Zeichen: wenige Sekunden)
-
-**4. Private Key notieren**
-
-Kopiere den generierten Private Key aus dem Key Generator.
-
-**5. Repeater flashen**
-
-:::tip nRF52-Hardware: Bootloader prüfen
-Bei nRF52-basierten Geräten sollte vor dem Flashen ein Bootloader-Update in Betracht gezogen werden. Nur so sind spätere OTA-Firmware-Updates über Bluetooth zuverlässig möglich. Details dazu findest du in der [MeshCore FAQ](https://github.com/meshcore-dev/MeshCore/blob/main/docs/faq.md#73-q-is-there-a-way-to-lower-the-chance-of-a-failed-ota-device-firmware-update-dfu).
-:::
-
-1. Öffne den [MeshCore Flasher](https://flasher.meshcore.dev/)
-2. Wähle Repeater-Firmware
-3. Flashe das Gerät (Keys werden automatisch generiert)
-
-**6. Key über serielle Console ändern**
-
-Nach dem Flashen:
-
-1. Öffne im MeshCore Flasher die Console
-2. Setze den Private Key mit dem Kommando:
-   ```bash
-   set prv.key <dein-generierter-private-key>
-   ```
-3. Starte den Repeater neu, damit der Key aktiv wird:
-   ```bash
-   reboot
-   ```
-
-:::warning Wichtig
-Der Custom Key muss nach dem Flashen über die serielle Console gesetzt werden. Es gibt keine Möglichkeit, den Key direkt beim Flashen zu importieren. Der neue Key wird erst nach einem Neustart aktiv.
-:::
-
-### Prefix-Nutzung prüfen
-
-Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN), um die Prefix-Nutzung im Rheinland zu überprüfen:
-
-- Zeigt verwendete und freie Prefixe auf einen Blick
-- Visualisiert die Belegung aller 255 möglichen IDs (00-FE)
-- Ideal zur Vermeidung von Kollisionen vor dem Deployment
+Mehr dazu und eine Schritt-für-Schritt-Anleitung zum Generieren eines Custom Keys findest du auf der Seite [Node-ID-Kollisionen vermeiden](node-id-kollisionen.md).
 
 ## Regionen konfigurieren
 
@@ -215,23 +118,6 @@ Regionen begrenzen die Weiterleitung von Nachrichten auf definierte geografische
 **Nächster Schritt:** Lies die Anleitung zur [Regionen-Konfiguration](regionen.md), um deinen Repeater mit den passenden Regionen auszustatten.
 
 ## Häufige Fragen
-
-**Wie finde ich heraus, welche IDs in meiner Nähe aktiv sind?**
-
-Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN), der alle verwendeten und freien Node-IDs im Rheinland visualisiert.
-
-**Kann ich die ID nach dem Flashen ändern?**
-
-Ja, über die serielle Schnittstelle mit dem CLI-Kommando:
-```bash
-set prv.key <your_private_key>
-```
-
-Dies ist der empfohlene Weg, um einen Custom Key zu setzen.
-
-**Sind Kollisionen bei Companion-Nodes auch ein Problem?**
-
-Nein. Companions leiten keine Nachrichten weiter und sind nicht Teil der Routing-Pfade. Kollisionen betreffen nur Repeater.
 
 **Kann ich einen Repeater per Funk konfigurieren?**
 
