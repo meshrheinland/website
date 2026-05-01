@@ -23,6 +23,7 @@ const sidebars: SidebarsConfig = {
     'meshcore/intro',
     'meshcore/companion-setup',
     'meshcore/repeater-setup',
+    'meshcore/node-id-kollisionen',
     'meshcore/channels',
     'meshcore/regionen',
     'meshcore/paketstruktur',
