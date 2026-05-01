@@ -15,7 +15,7 @@ Weitere Informationen werden hier veröffentlicht, sobald sie vorliegen.
 
 ---
 
-## Sa. 28.11. – So. 29.11.2026 – 10. Notfunkübung des Distrikt Köln-Aachen (G)
+## 28.–29.11.2026 – 10. Notfunkübung Distrikt Köln-Aachen
 
 **Komplexes Übungsszenario** *(zweitägige Großübung)*
 
