@@ -132,7 +132,7 @@ const config: Config = {
         },
         {
           to: '/news',
-          label: 'News',
+          label: 'Neuigkeiten',
           position: 'left',
         },
         {
