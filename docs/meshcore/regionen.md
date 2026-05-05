@@ -39,7 +39,7 @@ In der Mesh Rheinland Community verwenden wir derzeit folgende Regionen:
 - `eifel` – Eifel
 - `koeln` – Köln
 - `leverkusen` – Leverkusen
-- `drielanden` – Dreiländereck NL/BE/DE (Grenzregion zur Gewährleistung reibungsloser Kommunikation zwischen den Niederlanden, Belgien und Deutschland)
+- `drielande` – Dreiländereck NL/BE/DE (Grenzregion zur Gewährleistung reibungsloser Kommunikation zwischen den Niederlanden, Belgien und Deutschland)
 
 Siehe hierzu auch die [Basis-Regionen im MeshCore Wiki DE](https://meshcore-de.fyi/meshcore:allgemeines:regions:basis)
 
@@ -134,8 +134,8 @@ region allowf koeln
 region put leverkusen
 region allowf leverkusen
 
-region put drielanden
-region allowf drielanden
+region put drielande
+region allowf drielande
 
 region save
 ```
