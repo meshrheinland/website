@@ -20,8 +20,8 @@ password MySecret
 set radio 869.618,62.5,8,8
 set dutycycle 10
 
-set advert.interval 240
-set flood.advert.interval 24
+set advert.interval 230
+set flood.advert.interval 25
 
 set txdelay 0.5
 set direct.txdelay 0.3
