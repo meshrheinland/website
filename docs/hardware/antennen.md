@@ -134,6 +134,12 @@ Wer die Antenne in einem Kunststoffrohr oder -gehäuse unterbringt, sollte die A
 - **Yagi** - stärkste Richtwirkung, aufwändigerer Aufbau
 
 Anleitung GP-Antenne für 868 MHz: [DARC OV O38 Bericht](https://www.darc.de/fileadmin/filemounts/distrikte/o/ortsverbaende/38/Downloads/Bericht_868MHz_Antennen_V2.0.pdf)
+<img width="1080" height="1920" alt="WhatsApp Image 2026-05-03 at 11 29 38" src="https://github.com/user-attachments/assets/b7e5c6fc-b685-4169-b1d5-d0b4a9a6f554" />
+<img width="1274" height="3667" alt="JPole_05" src="https://github.com/user-attachments/assets/05ced798-28b9-464c-a1e6-7e9a19985c3c" />
+<img width="4079" height="1559" alt="JPole_04" src="https://github.com/user-attachments/assets/24ddf81d-bab3-472f-a4a8-d08f6a31fdb6" />
+<img width="3603" height="1846" alt="JPole_02" src="https://github.com/user-attachments/assets/03433416-81f2-4f33-bb97-bb16811afe8a" />
+<img width="4571" height="2973" alt="JPole_01" src="https://github.com/user-attachments/assets/3728bcaf-0f35-4d61-ab2a-7aad85c9fa78" />
+<img width="4019" height="1021" alt="JPole_06" src="https://github.com/user-attachments/assets/bf0794f6-0126-42d0-b77d-56fef1697df3" />
 
 ### J-Pole Selbstbau
 
