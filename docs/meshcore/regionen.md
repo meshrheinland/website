@@ -43,7 +43,7 @@ In der Mesh Rheinland Community verwenden wir derzeit folgende Regionen:
 - `drielande` – Dreiländereck NL/BE/DE (Grenzregion zur Gewährleistung reibungsloser Kommunikation zwischen den Niederlanden, Belgien und Deutschland)
 
 :::tip Kompatibilität
-Da noch keine europaweite Einigung auf eine gemeinsame Region existiert, sollten Repeater **beide** Europa-Regionen pflegen: `europe` und `eu`.
+Da noch keine europaweite Einigung auf eine gemeinsame Region existiert, sollten Repeater **beide** Europa-Regionen erhalten: `europe` und `eu`.
 :::
 
 Siehe hierzu auch die [Basis-Regionen im MeshCore Wiki DE](https://meshcore-de.fyi/meshcore:allgemeines:regions:basis)
