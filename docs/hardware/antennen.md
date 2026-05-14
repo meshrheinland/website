@@ -135,6 +135,17 @@ Wer die Antenne in einem Kunststoffrohr oder -gehäuse unterbringt, sollte die A
 
 Anleitung GP-Antenne für 868 MHz: [DARC OV O38 Bericht](https://www.darc.de/fileadmin/filemounts/distrikte/o/ortsverbaende/38/Downloads/Bericht_868MHz_Antennen_V2.0.pdf)
 
+### J-Pole Selbstbau
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem', marginTop: '1rem'}}>
+  <a href="/img/hardware/antennas/jpole-photo.jpg" target="_blank" rel="noopener"><img src="/img/hardware/antennas/jpole-photo.jpg" alt="J-Pole Antenne montiert" style={{width: '100%', height: 'auto', display: 'block'}} /></a>
+  <a href="/img/hardware/antennas/jpole-01.jpg" target="_blank" rel="noopener"><img src="/img/hardware/antennas/jpole-01.jpg" alt="J-Pole Bau 1" style={{width: '100%', height: 'auto', display: 'block'}} /></a>
+  <a href="/img/hardware/antennas/jpole-02.jpg" target="_blank" rel="noopener"><img src="/img/hardware/antennas/jpole-02.jpg" alt="J-Pole Bau 2" style={{width: '100%', height: 'auto', display: 'block'}} /></a>
+  <a href="/img/hardware/antennas/jpole-04.jpg" target="_blank" rel="noopener"><img src="/img/hardware/antennas/jpole-04.jpg" alt="J-Pole Bau 4" style={{width: '100%', height: 'auto', display: 'block'}} /></a>
+  <a href="/img/hardware/antennas/jpole-05.jpg" target="_blank" rel="noopener"><img src="/img/hardware/antennas/jpole-05.jpg" alt="J-Pole Bau 5" style={{width: '100%', height: 'auto', display: 'block'}} /></a>
+  <a href="/img/hardware/antennas/jpole-06.jpg" target="_blank" rel="noopener"><img src="/img/hardware/antennas/jpole-06.jpg" alt="J-Pole Bau 6" style={{width: '100%', height: 'auto', display: 'block'}} /></a>
+</div>
+
 ## Vergleich
 
 | Antenne | Gewinn | Anschluss | Preis | Einsatz |

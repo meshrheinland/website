@@ -23,17 +23,30 @@ Der gewählte Scope beeinflusst nur deine gesendeten Nachrichten. Empfangen kann
 
 ![Region Scopes Illustration](/img/meshcore/region-scopes.png)
 
-*Alice sendet eine Nachricht mit Scope `#de`. Nur Repeater, die `#de` in ihrer Region-Liste haben, leiten die Nachricht weiter. Repeater ohne `#de` in ihrer Liste ignorieren die Nachricht.*
+*Alice sendet eine Nachricht mit Scope `de`. Nur Repeater, die `de` in ihrer Region-Liste haben, leiten die Nachricht weiter. Repeater ohne `de` in ihrer Liste ignorieren die Nachricht.*
 
 ## Regionen in unserer Community
 
 In der Mesh Rheinland Community verwenden wir derzeit folgende Regionen:
 
-- `#de` – Deutschland
-- `#de-nw` – Nordrhein-Westfalen
-- `#rheinland` – Rheinland
-- `#bonn` – Bonn
-- `#koeln` – Köln
+- `europe` – Europa (Standard laut MeshCore Wiki DE)
+- `eu` – Europa (Standard in den Niederlanden)
+- `de` – Deutschland
+- `de-mitte` – Hessen, Thüringen, Sachsen-Anhalt, Nordrhein-Westfalen, Niedersachsen, Bayern, Sachsen
+- `de-west` – Hessen, Niedersachsen, Bremen, Nordrhein-Westfalen, Rheinland-Pfalz, Saarland
+- `de-nw` – Nordrhein-Westfalen
+- `rheinland` – Rheinland
+- `bonn` – Bonn
+- `eifel` – Eifel
+- `koeln` – Köln
+- `leverkusen` – Leverkusen
+- `drielande` – Dreiländereck NL/BE/DE (Grenzregion zur Gewährleistung reibungsloser Kommunikation zwischen den Niederlanden, Belgien und Deutschland)
+
+:::tip Kompatibilität
+Da noch keine europaweite Einigung auf eine gemeinsame Region existiert, sollten Repeater **beide** Europa-Regionen erhalten: `europe` und `eu`.
+:::
+
+Siehe hierzu auch die [Basis-Regionen im MeshCore Wiki DE](https://meshcore-de.fyi/meshcore:allgemeines:regions:basis)
 
 ## Companion-Nutzer: Regionen in der App verwenden
 
@@ -57,7 +70,7 @@ In der Regionen-Ansicht kannst du über das **"+"** oben rechts neue Regionen zu
 
 </div>
 
-*Beispiel: Die Regionen-Liste mit #bonn, #de, #de-nw und #rheinland*
+*Beispiel: Die Regionen-Liste mit bonn, de, de-nw, eifel, koeln, leverkusen und rheinland*
 
 ### Scope einem Kanal zuweisen
 
@@ -69,9 +82,9 @@ Mit einem **Klick auf einen Eintrag** in der Liste aktivierst du den Scope für 
 
 </div>
 
-*Beispiel: Kanal "#bonn" mit aktiviertem Scope #bonn – alle Nachrichten werden nur über Repeater mit #bonn verbreitet*
+*Beispiel: Kanal "#bonn" mit aktiviertem Scope `bonn` – alle Nachrichten werden nur über Repeater mit Region `bonn` verbreitet*
 
-Der aktive Scope wird unterhalb des Kanalnamens angezeigt (z.B. "Region: #bonn").
+Der aktive Scope wird unterhalb des Kanalnamens angezeigt (z.B. "Region: bonn").
 
 ### Scope entfernen
 
@@ -96,20 +109,41 @@ Regionen werden über die CLI des Repeaters konfiguriert (USB, Seriell oder Remo
 ### Beispiel: Alle Rheinland-Regionen anlegen
 
 ```bash
-region put #de
-region allowf #de
+region put europe
+region allowf europe
 
-region put #de-nw
-region allowf #de-nw
+region put eu
+region allowf eu
 
-region put #rheinland
-region allowf #rheinland
+region put de
+region allowf de
 
-region put #bonn
-region allowf #bonn
+region put de-mitte
+region allowf de-mitte
 
-region put #koeln
-region allowf #koeln
+region put de-west
+region allowf de-west
+
+region put de-nw
+region allowf de-nw
+
+region put rheinland
+region allowf rheinland
+
+region put bonn
+region allowf bonn
+
+region put eifel
+region allowf eifel
+
+region put koeln
+region allowf koeln
+
+region put leverkusen
+region allowf leverkusen
+
+region put drielande
+region allowf drielande
 
 region save
 ```
@@ -127,7 +161,7 @@ Nach jeder Änderung an Regionen muss `region save` ausgeführt werden, damit di
 ### Technische Anforderungen
 
 - Maximum 30 Bytes (UTF-8)
-- Nur Kleinbuchstaben, `#`, `$`, Bindestrich
+- Nur Kleinbuchstaben und Bindestriche
 - Maximal 32 Regionen pro Repeater
 - Eindeutigkeit im Netz erforderlich
 
@@ -135,17 +169,17 @@ Nach jeder Änderung an Regionen muss `region save` ausgeführt werden, damit di
 
 Die Community hat erkannt: **„Es wird nicht das eine Schema geben, was jeder versteht."**
 
-Zu feinkörnige Aufteilungen sind kontraproduktiv. Landschaften und Metropolregionen (beispielsweise `#rhein-main`) sind oft sinnvoller als starre Verwaltungsgrenzen.
+Zu feinkörnige Aufteilungen sind kontraproduktiv. Landschaften und Metropolregionen (beispielsweise `rhein-main`) sind oft sinnvoller als starre Verwaltungsgrenzen.
 
 ### Basis-Schema (ISO 3166-2)
 
 Als empfohlenes grundlegendes Schema für Deutschland:
 
-- `#de` – Deutschland (Bundesebene)
-- `#de-bw` – Baden-Württemberg
-- `#de-by` – Bayern
-- `#de-he` – Hessen
-- `#de-nw` – Nordrhein-Westfalen
+- `de` – Deutschland (Bundesebene)
+- `de-bw` – Baden-Württemberg
+- `de-by` – Bayern
+- `de-he` – Hessen
+- `de-nw` – Nordrhein-Westfalen
 - ... (weitere Bundesländer nach ISO 3166-2)
 
 ## Ressourcen

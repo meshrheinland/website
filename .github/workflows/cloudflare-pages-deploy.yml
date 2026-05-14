@@ -1,0 +1,56 @@
+name: Deploy PR Preview
+
+on:
+  workflow_run:
+    workflows: ["Build PR"]
+    types: [completed]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    permissions:
+      actions: read
+      pull-requests: write
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          name: pr-build-${{ github.event.workflow_run.id }}
+          path: build/
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Read PR number
+        id: pr
+        run: echo "number=$(cat build/.PR_NUMBER)" >> $GITHUB_OUTPUT
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build --project-name=meshrheinland --branch=pr-${{ steps.pr.outputs.number }}
+
+      - name: Comment preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = parseInt('${{ steps.pr.outputs.number }}');
+            const url = `https://pr-${pr}.meshrheinland.pages.dev`;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr
+            });
+            const marker = '<!-- cf-preview -->';
+            const body = `${marker}\n**Preview:** ${url}`;
+            const existing = comments.find(c => c.body.includes(marker));
+            if (existing) return;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr,
+              body
+            });
