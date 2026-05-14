@@ -50,10 +50,10 @@ Flashe die **Companion**-Firmware! Repeater und Room Server sind für Infrastruk
 
 Das liegt am sparsamen Umgang mit Adverts in MeshCore:
 
-- **Infrastruktur** (Repeater, Room Server): Sendet automatisch in der Regel alle 3 Stunden Adverts → zeitnah sichtbar in der Kontaktliste
+- **Infrastruktur** (Repeater, Room Server): Sendet automatisch in der Regel alle 50 Stunden Adverts → verzögert sichtbar in der Kontaktliste
 - **Companion-Nodes** (Nutzer): Senden Adverts **nur manuell** bei Betätigung des Buttons "Advert - Flood Routed" in der App
 
-MeshCore zielt auf minimalen Funkverkehr ab. Infrastruktur kündigt sich automatisiert regelmäßig an, Companion-Nodes senden Adverts nur bei Aufforderung, um das Netz nicht zu belasten. Im **Mesh Rheinland** gibt es den **"Advert Sonntag"**, an dem alle Teilnehmer einmal wöchentlich aufgerufen sind, einen Advert zu senden, damit die Community sich gegenseitig sieht.
+MeshCore zielt auf minimalen Funkverkehr ab. Infrastruktur kündigt sich automatisiert regelmäßig an, Companion-Nodes senden Adverts nur bei Aufforderung, um das Netz nicht zu belasten. Im **Mesh Rheinland** gibt es den **"Advert Sonntag"**, an dem alle Teilnehmer einmal wöchentlich aufgerufen sind, einen Advert zu senden, damit die Community sich gegenseitig sieht. In der Regel erfüllen Repeater Betreiber den zeitnahen Wunsch nach einem Advert über unsere WhatsApp Gruppe gerne, fragt  im Mesh nach dem WhatsApp Einladungslink, hier absichtlich nicht Public geteilt um Spammer keine Chance zu geben.
 
 **Wie weiß ich, ob meine Nachricht angekommen ist?**
 
