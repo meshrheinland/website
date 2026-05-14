@@ -145,6 +145,9 @@ region allowf leverkusen
 region put drielande
 region allowf drielande
 
+region home de-nw
+region default de
+
 region save
 ```
 
@@ -153,9 +156,14 @@ region save
 - `region put <name>` – Fügt eine Region zur Liste hinzu
 - `region allowf <name>` – Erlaubt Flood-Weiterleitung für diese Region
 - `region save` – Speichert die Konfiguration dauerhaft
+- `region default <name>` - gibt den Adverts des Repeaters auch den Scope
+- `region home <name>` - wird nicht verwendet, kann aber bereits gesetzt werden
 
 :::tip Region-Verwaltung
 Nach jeder Änderung an Regionen muss `region save` ausgeführt werden, damit die Konfiguration nach einem Neustart erhalten bleibt.
+:::
+
+:::tip Regionen sind in Exports nicht enthalten und werden entsprechend bei einem ext. export / flash / import nicht wieder hergestellt.
 :::
 
 ### Technische Anforderungen
