@@ -163,7 +163,7 @@ region save
 Nach jeder Änderung an Regionen muss `region save` ausgeführt werden, damit die Konfiguration nach einem Neustart erhalten bleibt.
 :::
 
-:::tip Regionen sind in Exports nicht enthalten und werden entsprechend bei einem ext. export / flash / import nicht wieder hergestellt.
+:::tip Regionen sind in Exports nicht enthalten und werden entsprechend bei einem eventuellen Konfig Export / Node Flash / Konfig Import nicht wieder hergestellt. Sichert euch am Besten mit regions eure Einstellungen eures Repeaters.
 :::
 
 ### Technische Anforderungen
