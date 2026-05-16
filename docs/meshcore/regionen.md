@@ -41,6 +41,7 @@ In der Mesh Rheinland Community verwenden wir derzeit folgende Regionen:
 - `koeln` – Köln
 - `leverkusen` – Leverkusen
 - `ruhrgebiet` – Ruhrgebiet
+- `niederrhein` – Niederrhein
 - `drielande` – Dreiländereck NL/BE/DE (Grenzregion zur Gewährleistung reibungsloser Kommunikation zwischen den Niederlanden, Belgien und Deutschland)
 
 :::tip Kompatibilität
@@ -145,6 +146,9 @@ region allowf leverkusen
 
 region put ruhrgebiet
 region allowf ruhrgebiet
+
+region put niederrhein
+region allowf niederrhein
 
 region put drielande
 region allowf drielande
