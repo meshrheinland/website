@@ -46,7 +46,7 @@ Abschließend die Regionen konfigurieren: [Beispiel – alle Rheinland-Regionen 
 Nach dem Flashen kannst du deinen Repeater über die Web-Oberfläche konfigurieren:
 
 1. Verbinde den Repeater per USB mit deinem Computer
-2. Öffne https://config.meshcore.dev
+2. Öffne https://config.meshcore.io
 3. Klicke auf "Connect" und wähle das Gerät aus
 
 ![MeshCore Repeater Konfiguration](/img/meshcore/repeater-config.png)
@@ -129,7 +129,7 @@ Ja, wenn du das Admin-Passwort kennst oder deine Companion-Node freigeschaltet w
 - [MeshCore Flasher](https://flasher.meshcore.io)
 - [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN)
 - [Key Generator](https://gessaman.com/mc-keygen/)
-- [USB Config Interface](https://config.meshcore.dev)
+- [USB Config Interface](https://config.meshcore.io)
 
 **Dokumentation:**
 - [MeshCore Settings Guide](https://www.meshcore.ch/settings)
