@@ -120,10 +120,10 @@ Welche Repeater haben meine gesendete Nachricht gehört und weitergeleitet?
 2. Wähle „Heard Repeats"
 3. Jede Zeile ist ein Repeater, dessen Weiterleitung bei dir ankam
 
-Die **„x hops"**-Angabe zeigt, wie viele Zwischenstationen die Wiederholung des Repeaters auf dem Weg zurück zu dir hatte:
+Die optionale **„x hops"**-Angabe zeigt, wie viele Zwischenstationen die Weiterleitung des Repeaters auf dem Weg zurück zu dir hatte:
 
-- **1 hop** – du hörst diesen Repeater direkt, er ist in direkter Funkreichweite
-- **2+ hops** – die Weiterleitung dieses Repeaters erreichte dich nur über andere Repeater; du kannst ihn hören, erreichst ihn aber nicht direkt
+- **keine Angabe** – du hörst diesen Repeater direkt, seine Weiterleitung erreichte dich ohne Umweg
+- **x hops** – die Weiterleitung erreichte dich über x weitere Repeater; du kannst ihn hören, er ist aber nicht direkt erreichbar
 
 ### Nachrichtenpfad empfangener Nachrichten
 
@@ -146,7 +146,7 @@ Der Pfad wird nur gespeichert, wenn die App **zum Zeitpunkt des Empfangs** mit d
 
 | Funktion | Langer Druck auf | Jede Zeile ist… | „x hops" bedeutet… |
 |----------|-----------------|-----------------|---------------------|
-| Heard Repeats | gesendete Nachricht | ein Repeater, dessen Weiterleitung bei mir ankam | Hops der Weiterleitung zurück zu mir |
+| Heard Repeats | gesendete Nachricht | ein Repeater, dessen Weiterleitung bei mir ankam | fehlt = direkt erreichbar; x hops = nur über Umweg |
 | View Message Paths | empfangene Nachricht | ein Repeater in direkter Hörweite | Hops der Nachricht bis zu diesem Repeater |
 
 Siehst du einen Repeater in „View Message Paths", aber nicht in „Heard Repeats", dann hörst du ihn – er hört dich aber nicht. Das ist ein typisches Zeichen für einen asymmetrischen Link.
