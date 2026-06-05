@@ -95,7 +95,8 @@ Sollte ein Betreten des Room Servers mit bestehendem Pfad nicht mehr möglich se
 Der Login-Request enthält deinen öffentlichen Schlüssel direkt. Der Room Server führt daraus einen individuellen ECDH-Schlüsselaustausch durch – alle Nachrichten zwischen Server und Client sind Ende-zu-Ende verschlüsselt, ohne dass zuvor ein Advert ausgetauscht werden musste.
 :::
 
-:::warning Login-Fehler ohne klare Ursache
+### Login-Fehler ohne klare Ursache
+
 Bei einem fehlgeschlagenen Login erscheint die Meldung **„Failed to log in!"** – aber die App kann nicht unterscheiden, ob das Passwort falsch war oder der Room Server nicht erreichbar ist.
 
 <div style={{textAlign: 'center', maxWidth: '400px', margin: '0 auto'}}>
@@ -109,7 +110,6 @@ Bei Problemen:
 1. Passwort prüfen (`hello` ist das Standard-Passwort öffentlicher Räume)
 2. Näher an einen Repeater gehen (bessere Verbindung)
 3. Login erneut versuchen
-:::
 
 ### Nachrichten schreiben
 
