@@ -8,7 +8,7 @@ Repeater sind für unbemannten Betrieb gedacht. Für normale Nutzung flashe die 
 
 ## CLI Cheat Sheet
 
-Alle Befehle zum Konfigurieren eines Repeaters auf einen Blick. Eingabe über die serielle Console im [MeshCore Flasher](https://flasher.meshcore.dev/) nach dem Flashen.
+Alle Befehle zum Konfigurieren eines Repeaters auf einen Blick. Eingabe über die serielle Console im [MeshCore Flasher](https://flasher.meshcore.io/) nach dem Flashen.
 
 ```bash
 set name DE-NW Bonn-Beuel
@@ -126,7 +126,7 @@ Ja, wenn du das Admin-Passwort kennst oder deine Companion-Node freigeschaltet w
 ## Ressourcen
 
 **Tools:**
-- [MeshCore Flasher](https://flasher.meshcore.dev)
+- [MeshCore Flasher](https://flasher.meshcore.io)
 - [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN)
 - [Key Generator](https://gessaman.com/mc-keygen/)
 - [USB Config Interface](https://config.meshcore.dev)

@@ -34,7 +34,7 @@ Der [MeshCore Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utiliz
 
 ### 3. Key auf dem Repeater setzen
 
-Nach dem Flashen über die serielle Console im [MeshCore Flasher](https://flasher.meshcore.dev/):
+Nach dem Flashen über die serielle Console im [MeshCore Flasher](https://flasher.meshcore.io/):
 
 ```bash
 set prv.key <dein-generierter-private-key>

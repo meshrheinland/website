@@ -22,6 +22,8 @@ const sidebars: SidebarsConfig = {
   meshcoreSidebar: [
     'meshcore/intro',
     'meshcore/companion-setup',
+    'meshcore/firmware-flashen',
+    'meshcore/ota-update-nrf52',
     'meshcore/repeater-setup',
     'meshcore/node-id-kollisionen',
     'meshcore/channels',
