@@ -25,6 +25,7 @@ const sidebars: SidebarsConfig = {
     'meshcore/firmware-flashen',
     'meshcore/ota-update-nrf52',
     'meshcore/repeater-setup',
+    'meshcore/room-server',
     'meshcore/node-id-kollisionen',
     'meshcore/channels',
     'meshcore/regionen',
