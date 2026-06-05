@@ -149,7 +149,7 @@ const config: Config = {
           items: [
             {
               label: 'Web-Flasher',
-              href: 'https://flasher.meshcore.dev',
+              href: 'https://flasher.meshcore.io',
             },
             {
               label: 'Live-Karte',

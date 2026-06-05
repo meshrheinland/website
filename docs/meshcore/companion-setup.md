@@ -19,7 +19,7 @@ Die Repeater im Mesh Rheinland transportieren keinen ungescopten Verkehr mehr. A
 
 ## Schnellstart
 
-1. Flashe die Companion-Firmware auf dein Gerät
+1. Flashe die Companion-Firmware auf dein Gerät ([Anleitung](firmware-flashen))
 2. Verbinde die App (BLE/USB/WiFi)
 3. Stelle die Radio-Einstellungen ein
 4. Konfiguriere Node-Name und Position
