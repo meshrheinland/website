@@ -114,11 +114,32 @@ Unter **Einstellungen → Message Settings** lassen sich zusätzliche Infos unte
 
 ### Heard Repeats anzeigen
 
-Für Details, welche Repeater in Reichweite sind:
+Welche Repeater haben meine Nachricht weitergeleitet?
 
-1. Drücke lange auf eine gesendete Nachricht
-2. Wähle "Heard Repeats"
-3. Siehst du eine Liste der Repeater, die deine Nachricht weitertragen haben
+1. Drücke lange auf eine **gesendete** Nachricht
+2. Wähle „Heard Repeats"
+3. Die Liste zeigt alle Repeater, die deine Nachricht empfangen und weitergeleitet haben
+
+### Nachrichtenpfad empfangener Nachrichten
+
+Über welchen Weg ist eine Nachricht zu mir gelangt?
+
+1. Drücke lange auf eine **empfangene** Nachricht
+2. Wähle „Message Path"
+3. Die Liste zeigt die Repeater, über die die Nachricht zu dir weitergeleitet wurde
+
+:::info App muss verbunden sein
+Der Pfad wird nur gespeichert, wenn die App **zum Zeitpunkt des Empfangs** mit deiner Node verbunden war. Im Hintergrund empfangene Nachrichten zeigen keinen Pfad.
+:::
+
+**Unterschied auf einen Blick:**
+
+| Funktion | Langer Druck auf | Zeigt |
+|----------|-----------------|-------|
+| Heard Repeats | gesendete Nachricht | Repeater, die mich gehört haben |
+| Message Path | empfangene Nachricht | Repeater, über die eine Nachricht ankam |
+
+Beide Funktionen zusammen helfen dir, asymmetrische Links zu erkennen: Wenn du Repeater X im Message Path siehst, aber nicht in Heard Repeats, hört der Repeater dich nicht – nur du ihn.
 
 ## Adverts verstehen
 
