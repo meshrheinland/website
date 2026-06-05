@@ -114,11 +114,41 @@ Unter **Einstellungen → Message Settings** lassen sich zusätzliche Infos unte
 
 ### Heard Repeats anzeigen
 
-Für Details, welche Repeater in Reichweite sind:
+Welche Repeater haben meine gesendete Nachricht gehört und weitergeleitet?
 
-1. Drücke lange auf eine gesendete Nachricht
-2. Wähle "Heard Repeats"
-3. Siehst du eine Liste der Repeater, die deine Nachricht weitertragen haben
+1. Drücke lange auf eine **gesendete** Nachricht
+2. Wähle „Heard Repeats"
+3. Jede Zeile ist ein Repeater, dessen Weiterleitung bei dir ankam
+
+Die optionale **„x hops"**-Angabe zeigt, wie viele Zwischenstationen die Weiterleitung des Repeaters auf dem Weg zurück zu dir hatte:
+
+- **keine Angabe** – du hörst diesen Repeater direkt, seine Weiterleitung erreichte dich ohne Umweg
+- **x hops** – die Weiterleitung erreichte dich über x weitere Repeater; du kannst ihn hören, er ist aber nicht direkt erreichbar
+
+### Nachrichtenpfad empfangener Nachrichten
+
+Über welche Repeater ist eine Flood-Nachricht eines anderen Teilnehmers zu mir gelangt?
+
+1. Drücke lange auf eine **empfangene** Nachricht in einem Kanal
+2. Wähle „View Message Paths"
+3. Jede Zeile ist ein Repeater in direkter Hörweite, von dem du die Nachricht empfangen hast
+
+Die **„x hops"**-Angabe zeigt, wie viele Sprünge die Nachricht innerhalb des Netzes zurücklegte, bevor sie den Repeater erreichte, den du direkt hörst:
+
+- **1 hop** – der Sender hat den Repeater in deiner Hörweite direkt erreicht
+- **2+ hops** – die Nachricht passierte vorher noch weitere Repeater, bevor sie bei dem ankam, den du empfängst
+
+:::info App muss verbunden sein
+Der Pfad wird nur gespeichert, wenn die App **zum Zeitpunkt des Empfangs** mit deiner Node verbunden war. Im Hintergrund empfangene Nachrichten zeigen keinen Pfad.
+:::
+
+**Unterschied auf einen Blick:**
+
+| Funktion | Langer Druck auf | Jede Zeile ist… | „x hops" bedeutet… |
+|----------|-----------------|-----------------|---------------------|
+| Heard Repeats | gesendete Nachricht | ein Repeater, dessen Weiterleitung bei mir ankam | fehlt = direkt erreichbar; x hops = nur über Umweg |
+| View Message Paths | empfangene Nachricht | ein Repeater in direkter Hörweite | Hops der Nachricht bis zu diesem Repeater |
+
 
 ## Adverts verstehen
 
