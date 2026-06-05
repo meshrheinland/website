@@ -149,7 +149,6 @@ Der Pfad wird nur gespeichert, wenn die App **zum Zeitpunkt des Empfangs** mit d
 | Heard Repeats | gesendete Nachricht | ein Repeater, dessen Weiterleitung bei mir ankam | fehlt = direkt erreichbar; x hops = nur über Umweg |
 | View Message Paths | empfangene Nachricht | ein Repeater in direkter Hörweite | Hops der Nachricht bis zu diesem Repeater |
 
-Siehst du einen Repeater in „View Message Paths", aber nicht in „Heard Repeats", dann hörst du ihn – er hört dich aber nicht. Das ist ein typisches Zeichen für einen asymmetrischen Link.
 
 ## Adverts verstehen
 
