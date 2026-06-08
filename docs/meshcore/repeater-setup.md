@@ -32,6 +32,8 @@ set multi.acks 1
 set path.hash.mode 1
 set loop.detect minimal
 
+set int.thresh 1
+
 # Weiter: Regionen konfigurieren (siehe unten)
 ```
 
