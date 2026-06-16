@@ -1,0 +1,149 @@
+---
+description: Wie MeshCore auf dem SX1262 Kollisionen vermeidet, aktuelle Implementierung, Mechanismen und Konfiguration für den simple_repeater.
+tags: [meshcore, lora, sx1262, cad, lbt, kollisionsvermeidung, repeater]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Kollisionsvermeidung in MeshCore
+
+:::info Kontext
+Alle Codeanalysen beziehen sich auf **EU/UK Narrow (SF8, BW 62,5 kHz, CR 4/8)**, Firmware `simple_repeater`, Stand März 2026. Companion-Verhalten wird nicht betrachtet.
+:::
+
+---
+
+## Überblick: Zwei-Schicht-Mechanismus
+
+MeshCore nutzt zwei aufeinander aufbauende Mechanismen, um Kollisionen zu vermeiden:
+
+1. **Zufälliges Backoff** vor jeder Weiterleitung
+2. **Kanalprüfung** beim tatsächlichen Sendezeitpunkt
+
+---
+
+## Schicht 1: Zufälliges Backoff (TX-Delay)
+
+Wenn ein Repeater ein Flood-Paket empfängt und weiterleiten möchte, berechnet er zunächst eine zufällige Verzögerung:
+
+```cpp title="simple_repeater/MyMesh.cpp"
+uint32_t MyMesh::getRetransmitDelay(const mesh::Packet *packet) {
+  uint32_t t = _radio->getEstAirtimeFor(...) * _prefs.tx_delay_factor;
+  return getRNG()->nextInt(0, 5*t + 1);
+}
+```
+
+Das Ergebnis ist ein **kontinuierlich gleichverteilter Zufallswert** aus `[0, 5t]`, kein Slot-System, keine Synchronisation auf Zeitgrenzen. Das entspricht reinem **Pure ALOHA**.
+
+Mit dem Default-Wert `tx_delay_factor = 0,5` und ~443 ms Airtime bei SF8, BW 62,5 kHz, CR 4/8, 40 Byte Payload:
+
+| Parameter | Wert |
+|---|---|
+| Airtime | ≈ 443 ms |
+| `t` = Airtime × 0,5 | ≈ 221 ms |
+| Zufallsfenster `[0, 5t]` | **0 - 1.107 ms** |
+
+:::note Kein Slot-Alignment
+Zwei Repeater können theoretisch 0,1 ms auseinanderliegen. Es gibt keine Mindestabstände zwischen möglichen Sendezeitpunkten, im Gegensatz zu Slotted ALOHA.
+:::
+
+---
+
+## Schicht 2: Kanalprüfung vor TX
+
+Kurz vor dem eigentlichen Sendevorgang prüft der Dispatcher in `checkSend()` ob der Kanal belegt ist:
+
+```cpp title="src/Dispatcher.cpp"
+if (_radio->isReceiving()) {
+  next_tx_time = futureMillis(getCADFailRetryDelay());  // 200 ms
+  return;
+}
+```
+
+`isReceiving()` kombiniert zwei Checks:
+
+```cpp title="src/helpers/radiolib/RadioLibWrappers.h"
+bool isReceiving() override {
+  if (isReceivingPacket()) return true;  // Hardware: Preamble/Header erkannt
+  return isChannelActive();             // Software: RSSI über Schwellwert
+}
+```
+
+### Preamble-IRQ-Erkennung (`isReceivingPacket`)
+
+Der SX1262 läuft dauerhaft im RX-Modus. Wenn ein anderes Gerät zu senden beginnt, setzt der Chip Hardware-IRQ-Flags:
+
+```cpp title="src/helpers/radiolib/CustomSX1262.h"
+bool isReceivingPacket() {
+  uint16_t irq = getIrqFlags();
+  return (irq & SX126X_IRQ_HEADER_VALID) || (irq & SX126X_IRQ_PREAMBLE_DETECTED);
+}
+```
+
+**Wichtige Eigenschaften:**
+- **Passiv und reaktiv**: feuert erst, nachdem der interne Korrelator genug Preamble-Symbole akkumuliert hat
+- **Timing**: bei SF8, BW 62,5 kHz (4,096 ms/Symbol) wird `PREAMBLE_DETECTED` nach ~4-6 Symbolen gesetzt, also **≈ 16-25 ms** nach Sendebeginn des anderen Geräts
+- **Sticky Flags**: einmal gesetzt, bleiben die Flags bis zum nächsten `startReceive()`, schützt also auch Header und Payload
+- **Kein Mid-Packet-Schutz bei verpasster Preamble**: wurde die Preamble überhört (z. B. weil der Node gerade aus TX zurückgekehrt ist und `startReceive()` die Flags resettet), gibt es keinen Schutz für ein laufendes Paket
+
+### RSSI-basierter Interferenz-Check (`isChannelActive`)
+
+```cpp title="src/helpers/radiolib/RadioLibWrappers.cpp"
+bool RadioLibWrapper::isChannelActive() {
+  return _threshold == 0
+    ? false                                          // standardmäßig deaktiviert
+    : getCurrentRSSI() > _noise_floor + _threshold;
+}
+```
+
+:::warning Standardmäßig deaktiviert
+`interference_threshold` ist per Default **0**, der RSSI-Check ist damit komplett abgeschaltet. `isChannelActive()` gibt immer `false` zurück. Aktivierbar mit `set int.thresh <dB>`.
+:::
+
+Der Noise Floor wird aus 64 RSSI-Messungen gemittelt (konvergiert nach einigen Minuten). Ein inhärentes Problem: LoRa kann Signale **unterhalb des Noise Floors** dekodieren (negative SNR). Ein schwaches, aber empfangbares Paket bleibt für den RSSI-Check unsichtbar.
+
+---
+
+## Verhalten bei belegtem Kanal
+
+Schlägt der Check an, wartet der Dispatcher und versucht es neu:
+
+| Situation | Verhalten |
+|---|---|
+| `isReceiving()` = true | Retry nach `getCADFailRetryDelay()` = 200 ms |
+| Kanal > 4 Sek. belegt | Sendet trotzdem (Starvation-Schutz, `ERR_EVENT_CAD_TIMEOUT`) |
+
+---
+
+## Duty Cycle
+
+Nach jeder Sendung erzwingt der Dispatcher eine Pause:
+
+```
+Sendepause = Sendedauer × getAirtimeBudgetFactor()
+Duty Cycle = 1 / (1 + Faktor)
+```
+
+Für Deutschland (868-MHz-Band, max. 10 % DC): `set af 9`.
+
+---
+
+## Konfigurationsübersicht
+
+| CLI-Befehl | Default | Wirkung |
+|---|:---:|---|
+| `set txdelay <f>` | 0,5 | TX-Delay-Faktor. Fenster = `[0, 5 × Airtime × f]`. Max. 2,0 (Cap in Firmware). |
+| `set int.thresh <dB>` | 0 | RSSI-Schwellwert in dB über Noise Floor. `0` = deaktiviert. |
+| `set af <f>` | 2 | Duty-Cycle-Faktor. `9` = max. 10 % DC für DE/868 MHz. |
+
+---
+
+## Bekannte Schwächen
+
+| Problem | Ursache |
+|---|---|
+| Kritisches Fenster ≤ 16-25 ms | `PREAMBLE_DETECTED` braucht ~4-6 Symbole zur Korrelation; zwei Repeater, die innerhalb dieses Fensters starten, kollidieren |
+| Kein Schutz bei verpasster Preamble | LoRa-Signale unterhalb Noise Floor sind per RSSI nicht detektierbar; `isReceivingPacket()` hilft nur wenn Preamble gehört wurde |
+| Pure ALOHA ohne Slots | Beliebige Startzeiten, kein Mindestabstand zwischen TX-Versuchen |
+| AGC-Bug Heltec V4 | Noise Floor wird auf -120 dBm geklemmt, RSSI-Check schlägt nie an ([#1716](https://github.com/meshcore-dev/MeshCore/issues/1716)) |
