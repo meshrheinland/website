@@ -47,7 +47,10 @@ export default function Join(): ReactNode {
             Du hast gerade unsere Einladung empfangen!
           </Heading>
           <p className="hero__subtitle">
-            Willkommen bei Mesh Rheinland. Kommunikation ohne Internet und ohne Mobilfunk.
+            Willkommen bei Mesh Rheinland.
+          </p>
+          <p>
+            Kommunikation ohne Internet und ohne Mobilfunk.<br>
             Wähle dein Protokoll und tritt der passenden WhatsApp-Community bei.
           </p>
         </div>
