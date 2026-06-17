@@ -50,7 +50,7 @@ export default function Join(): ReactNode {
             Willkommen bei Mesh Rheinland.
           </p>
           <p>
-            Kommunikation ohne Internet und ohne Mobilfunk.<br>
+            Kommunikation ohne Internet und ohne Mobilfunk.<br />
             Wähle dein Protokoll und tritt der passenden WhatsApp-Community bei.
           </p>
         </div>
