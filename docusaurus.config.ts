@@ -157,7 +157,7 @@ const config: Config = {
             },
             {
               label: 'Traffic-Analyzer',
-              href: 'https://analyzer.letsmesh.net/packets?region=CGN',
+              href: 'https://corescope.meshrheinland.de/#/packets',
             },
             {
               label: 'WhatsApp Community',

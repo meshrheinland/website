@@ -127,7 +127,7 @@ Ja, wenn du das Admin-Passwort kennst oder deine Companion-Node freigeschaltet w
 
 **Tools:**
 - [MeshCore Flasher](https://flasher.meshcore.io)
-- [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN)
+- [Prefix Analyzer](https://corescope.meshrheinland.de/#/analytics?tab=collisions)
 - [Key Generator](https://gessaman.com/mc-keygen/)
 - [USB Config Interface](https://config.meshcore.io)
 
