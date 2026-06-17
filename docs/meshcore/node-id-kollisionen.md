@@ -23,14 +23,15 @@ Ein bewusstes Prüfen lohnt sich dennoch, insbesondere vor dem Deployment eines 
 
 ### 1. Benachbarte IDs prüfen
 
-Der [MeshCore Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN) zeigt die genutzten Node-Prefixe im Rheinland. Prüfe dort, welche 2-Byte-Prefixe in deiner Region bereits vergeben sind.
+Der [MeshCore Prefix Analyzer](https://corescope.meshrheinland.de/#/analytics?tab=collisions) zeigt die genutzten Node-Prefixe im Netz. Prüfe dort, welche 2-Byte-Prefixe in deiner Region bereits vergeben sind.
 
 ### 2. Key mit gewünschtem Prefix generieren
 
-1. Öffne https://gessaman.com/mc-keygen/
-2. Gib deine gewünschten zwei Hex-Zeichen (1-Byte-Prefix) oder vier Hex-Zeichen (2-Byte-Prefix) ein
-3. Klicke auf "Generate Keys"
-4. Kopiere den generierten Private Key
+1. Öffne https://corescope.meshrheinland.de/#/analytics?tab=prefix-tool
+2. Lass dir einen freien Prefix vorschlagen
+3. Klicke auf "Generate key with this prefix". Du wechselst zum MeshCore Key Generator
+4. Klicke auf "Generate Key"
+5. Kopiere den generierten Private Key
 
 ### 3. Key auf dem Repeater setzen
 
