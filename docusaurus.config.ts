@@ -60,6 +60,23 @@ const config: Config = {
 
   plugins: [
     [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'news',
+        routeBasePath: 'news',
+        path: './news',
+        blogTitle: 'News',
+        blogDescription: 'Neuigkeiten aus der Mesh Rheinland Community',
+        blogSidebarTitle: 'Aktuelle Beiträge',
+        blogSidebarCount: 5,
+        feedOptions: {
+          type: 'all',
+          title: 'Mesh Rheinland News',
+          description: 'Neuigkeiten aus der Mesh Rheinland Community',
+        },
+      },
+    ],
+    [
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
@@ -111,6 +128,11 @@ const config: Config = {
         {
           to: '/notfunk/naechste-uebung',
           label: 'Notfunk',
+          position: 'left',
+        },
+        {
+          to: '/news',
+          label: 'Neuigkeiten',
           position: 'left',
         },
         {
