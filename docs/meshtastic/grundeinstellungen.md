@@ -6,7 +6,7 @@ sidebar_position: 3
 
 Nach dem Flashen der Firmware verbindest du dich per App oder Web‑Client mit deinem Gerät und nimmst die folgenden Einstellungen vor.
 
-:::warning Lokale Vorschriften
+:::warning[Lokale Vorschriften]
 Bitte beachte lokale Funkrichtlinien (z. B. Duty Cycle im 868‑MHz‑Band). Stelle die Region auf EU868 und achte darauf, dass Sendeleistung plus Antennengewinn die erlaubten 27 dBm nicht überschreiten.
 :::
 
@@ -21,7 +21,7 @@ Stelle als Erstes die Region auf **EU868** (Europa/Deutschland):
 
 Im Rheinland nutzen wir das Modem‑Profil **ShortSlow**. Das ist wichtig, denn Geräte mit unterschiedlichen Presets können sich **nicht gegenseitig hören** – ein Gerät auf LongFast und eines auf ShortSlow sprechen aneinander vorbei, als wären sie in getrennten Netzen.
 
-:::warning Nicht der Standard
+:::warning[Nicht der Standard]
 ShortSlow ist nicht die Meshtastic-Standardeinstellung – bitte aktiv umstellen!
 :::
 

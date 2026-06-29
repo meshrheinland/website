@@ -5,7 +5,7 @@ description: Companion-Firmware flashen, Node einrichten und erste Verbindung in
 
 # Companion-Setup
 
-:::warning Wichtige Änderung seit dem 24.04.2026
+:::warning[Wichtige Änderung seit dem 24.04.2026]
 Die Repeater im Mesh Rheinland transportieren keinen ungescopten Verkehr mehr. Aktualisiere deine Firmware auf die neueste Version und stelle sicher, dass du einen **Default Region Scope** gesetzt hast – sonst werden deine Nachrichten nicht weitergetragen.
 :::
 
@@ -45,7 +45,7 @@ Die Einstellungen müssen exakt übereinstimmen, damit die Geräte miteinander k
 - **Spreading Factor**: 8
 - **Coding Rate**: 8
 
-:::info Preset verwenden
+:::info[Preset verwenden]
 Am einfachsten: Wähle das Preset **EU/UK (Narrow)** in den Radio-Einstellungen. Die Parameter werden automatisch korrekt gesetzt.
 :::
 
@@ -70,7 +70,7 @@ Ein Region Scope begrenzt die Weiterleitung deiner Nachrichten auf Repeater, die
 
 </div>
 
-:::tip Regionen pro Kanal
+:::tip[Regionen pro Kanal]
 Der Default Region Scope gilt für alle Kanäle. Für den Einstieg ist das ausreichend – du kannst aber jedem Kanal auch eine eigene Region zuweisen. Wie das geht, erklärt die [Regionen-Seite](regionen).
 :::
 
@@ -138,7 +138,7 @@ Die **„x hops"**-Angabe zeigt, wie viele Sprünge die Nachricht innerhalb des 
 - **1 hop** – der Sender hat den Repeater in deiner Hörweite direkt erreicht
 - **2+ hops** – die Nachricht passierte vorher noch weitere Repeater, bevor sie bei dem ankam, den du empfängst
 
-:::info App muss verbunden sein
+:::info[App muss verbunden sein]
 Der Pfad wird nur gespeichert, wenn die App **zum Zeitpunkt des Empfangs** mit deiner Node verbunden war. Im Hintergrund empfangene Nachrichten zeigen keinen Pfad.
 :::
 
@@ -158,6 +158,6 @@ Der Pfad wird nur gespeichert, wenn die App **zum Zeitpunkt des Empfangs** mit d
 - **Ohne Advert**: Du bist für andere Teilnehmer unsichtbar (Privacy-Feature!)
 - **Mit gelegentlichem Advert**: Du erscheinst auf Netzwerkkarten
 
-:::tip Sichtbarkeit vs. Privatsphäre
+:::tip[Sichtbarkeit vs. Privatsphäre]
 Sendest du als Companion keinen Advert, bist du für andere Teilnehmer unsichtbar. Sende hin und wieder einen Advert, wenn du auf der Netzwerkkarte erscheinen möchtest.
 :::

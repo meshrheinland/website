@@ -22,7 +22,7 @@ Pro Kanal sind Benachrichtigungen individuell konfigurierbar: **Alle Nachrichten
 
 In der Mesh Rheinland Community verwenden wir derzeit folgende Kanäle.
 
-:::info Kanäle sind nicht exklusiv
+:::info[Kanäle sind nicht exklusiv]
 Durch die standardmäßig 64 Hops in MeshCore hat das Mesh eine große Reichweite. Dieselben Kanäle werden häufig auch von anderen Communities genutzt. Diese Übersicht bietet trotzdem einen Einstiegspunkt für neue Teilnehmer und ermöglicht es, Fragen zu unseren Kanälen mit einem Link zu beantworten.
 :::
 

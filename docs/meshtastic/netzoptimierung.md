@@ -4,7 +4,7 @@ unlisted: true
 
 # Netzoptimierung (Experiment)
 
-:::danger Experiment beendet
+:::danger[Experiment beendet]
 **Update 29.11.2025:** Das Experiment wurde beendet. Leider zu viele Probleme bei der Weitergabe der NodeInfos.
 
 **Hauptproblem:** Die aktuelle Firmware erlaubt uns nicht, Telemetrie- und NodeInfo-Frames unterschiedlich zu behandeln. Entweder wird alles transportiert oder nichts. Beides bringt uns leider nicht weiter.
@@ -74,7 +74,7 @@ Der Link enthält bereits optimierte Einstellungen.
 
 ### Schritt 2: Kanalposition festlegen
 
-:::danger Kritisch
+:::danger[Kritisch]
 Die Kanäle M1 und M2 dürfen **NICHT auf Position 0** liegen!
 :::
 
@@ -95,7 +95,7 @@ Von Routern sollten folgende Kanäle **entfernt** werden:
 
 **Ausnahme:** Lokale Kanäle, die nur in deinem Umkreis genutzt werden, können bleiben.
 
-:::warning Position 0 muss belegt sein
+:::warning[Position 0 muss belegt sein]
 Falls du keinen eigenen Kanal brauchst, erstelle einen Platzhalter-Kanal.
 :::
 
@@ -127,7 +127,7 @@ Falls du keinen eigenen Kanal brauchst, erstelle einen Platzhalter-Kanal.
 
 ### Schritt 2: Kanalposition beachten
 
-:::warning Bitte M1_Messages/M2_Tests nicht als primären Kanal nutzen
+:::warning[Bitte M1_Messages/M2_Tests nicht als primären Kanal nutzen]
 Um das Experiment erfolgreich zu machen, ist es wichtig, dass M1_Messages und M2_Tests **nicht auf Position 0** liegen.
 
 **Hintergrund:** Auf dem primären Kanal (Position 0) wird, wenn aktiviert, die **Telemetrie** gesendet. Für das Experiment möchten wir in M1_Messages und M2_Tests aber nur Nachrichtenverkehr, um das Netz zu entlasten.
@@ -142,7 +142,7 @@ Um das Experiment erfolgreich zu machen, ist es wichtig, dass M1_Messages und M2
 | 2 | M2_Tests | Test-Nachrichten |
 | 3+ | Weitere Kanäle | Nach Bedarf |
 
-:::tip User können ShortSlow behalten
+:::tip[User können ShortSlow behalten]
 Als User kannst du weiterhin auf dem ShortSlow-Kanal unterwegs sein. Füge einfach M1_Messages und M2_Tests hinzu.
 :::
 

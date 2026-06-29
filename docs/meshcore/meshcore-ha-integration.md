@@ -10,7 +10,7 @@ Diese Seite beschreibt die Integration von MeshCore in Home Assistant auf Basis 
 
 Die Integration ist eine Custom Integration für Home Assistant und erlaubt Monitoring sowie Steuerung von MeshCore-Nodes über **USB**, **BLE** oder **TCP**.
 
-:::warning Status laut Projekt
+:::warning[Status laut Projekt]
 Die Integration ist laut README noch **Work in Progress**. Die BLE-Verbindung wurde dort als noch nicht umfassend getestet beschrieben.
 :::
 

@@ -18,12 +18,12 @@ Der einfachste Weg zum Erstflashen: Browser, USB-Kabel, fertig.
    - **Repeater** – für unbemannten Infrastrukturbetrieb
    - **Room Server** – für den BBS-Modus
 
-:::danger Companion BLE oder USB?
+:::danger[Companion BLE oder USB?]
 Für die meisten Nutzer ist **Companion Bluetooth** die richtige Wahl. Die USB-Variante enthält kein Bluetooth – wer sie versehentlich flasht, kann sich nicht per App verbinden und muss neu flashen.
 :::
 4. Verbinde das Gerät per USB und starte den Flash-Vorgang
 
-:::info Chrome oder Edge erforderlich
+:::info[Chrome oder Edge erforderlich]
 Der Web-Flasher benötigt WebSerial – das ist nur in Chromium-basierten Browsern verfügbar.
 :::
 
@@ -37,7 +37,7 @@ RAK-Boards erscheinen nach einem normalen Anstecken nicht als Flash-Laufwerk. Um
 2. **Zweimal schnell** die Reset-Taste drücken
 3. Das Gerät erscheint als USB-Massenspeicher und kann über den Web-Flasher oder per direktem Kopieren der `.uf2`-Datei bespielt werden
 
-:::note macOS
+:::note[macOS]
 Wenn macOS meldet, der Kopiervorgang sei fehlgeschlagen, ist das in der Regel trotzdem erfolgreich. Das Gerät startet nach dem Schreibvorgang neu.
 :::
 
@@ -55,7 +55,7 @@ Wer vorher Meshtastic auf einem **nRF52-Gerät** betrieben hat, sollte vor dem e
 2. Klicke auf **Flash Erase** – der Flasher löscht den Speicher direkt
 3. Danach MeshCore wie oben per Web-Flasher installieren
 
-:::warning Nur bei nRF52 nötig
+:::warning[Nur bei nRF52 nötig]
 Bei ESP32-basierten Geräten (Heltec V3, TTGO etc.) gibt es im Web-Flasher eine Checkbox **„Erase device"**. Sie löscht gespeicherte Konfigurationen und entspricht einem Factory Reset – bei einem Firmware-Wechsel empfehlenswert, aber kein eigener Schritt davor nötig.
 :::
 

@@ -42,7 +42,7 @@ set prv.key <dein-generierter-private-key>
 reboot
 ```
 
-:::warning Wichtig
+:::warning[Wichtig]
 Der neue Key wird erst nach einem Neustart aktiv.
 :::
 

@@ -14,7 +14,7 @@ Im Unterschied zu einem Kanal zwischen zwei Companions benötigst du für einen 
 
 Der Room Server ist eine eigene Firmware-Variante. Im [Web-Flasher](https://flasher.meshcore.io) die Variante **Room Server** für das jeweilige Board auswählen und flashen ([Anleitung](firmware-flashen)).
 
-:::warning Companion Bluetooth enthält keinen Room Server
+:::warning[Companion Bluetooth enthält keinen Room Server]
 Room Server und Companion sind getrennte Firmware-Varianten. Ein Companion-Gerät kann nicht als Room Server fungieren.
 :::
 
@@ -54,7 +54,7 @@ set repeat on
 reboot
 ```
 
-:::warning Nicht empfohlen
+:::warning[Nicht empfohlen]
 Der Betrieb als Repeater wird für Room Server offiziell nicht empfohlen:
 
 - **Airtime**: Ein Room Server erzeugt durch Nachrichtenverteilung bereits hohes TX-Volumen. Die 10 % Duty-Cycle-Grenze reicht kaum für beide Aufgaben.
@@ -91,7 +91,7 @@ Ab diesem Zeitpunkt kennt der Server deinen Client. Neue Nachrichten anderer Tei
 
 Sollte ein Betreten des Room Servers mit bestehendem Pfad nicht mehr möglich sein, setze den Pfad per **„Reset Path"** zurück und starte wieder mit **„Log In • Flood"**. Auf diese Weise wird ein neuer Pfad ausgehandelt und mit etwas Glück gelingt die Anmeldung dieses Mal wieder.
 
-:::info Kein Advert nötig
+:::info[Kein Advert nötig]
 Der Login-Request enthält deinen öffentlichen Schlüssel direkt. Der Room Server führt daraus einen individuellen ECDH-Schlüsselaustausch durch – alle Nachrichten zwischen Server und Client sind Ende-zu-Ende verschlüsselt, ohne dass zuvor ein Advert ausgetauscht werden musste.
 :::
 

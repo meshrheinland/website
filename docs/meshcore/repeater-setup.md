@@ -2,7 +2,7 @@
 
 Ein Repeater erweitert die Reichweite des MeshCore-Netzwerks, indem er Nachrichten weiterleitet. Diese Anleitung erklärt die wichtigsten Einstellungen für den Betrieb eines Repeaters.
 
-:::warning Nur für Infrastruktur
+:::warning[Nur für Infrastruktur]
 Repeater sind für unbemannten Betrieb gedacht. Für normale Nutzung flashe die **Companion**-Firmware!
 :::
 
@@ -59,7 +59,7 @@ Nach dem Flashen kannst du deinen Repeater über die Web-Oberfläche konfigurier
 
 **Latitude / Longitude**:
 
-:::warning Standort & Privatsphäre
+:::warning[Standort & Privatsphäre]
 Überlege dir genau, welche Position du angibst. Ein Versatz von einigen Metern mit ähnlichen topologischen Eigenschaften schützt deine Privatsphäre, ohne die Netzwerk-Übersicht zu beeinträchtigen.
 :::
 
@@ -67,7 +67,7 @@ Nach dem Flashen kannst du deinen Repeater über die Web-Oberfläche konfigurier
 
 **Guest password**:
 
-:::tip Offener Zugang empfohlen
+:::tip[Offener Zugang empfohlen]
 Lasse das Feld **leer**, damit sich jeder ohne Passwort anmelden kann. Dies fördert die offene Nutzung des Mesh-Netzwerks.
 :::
 
@@ -85,11 +85,11 @@ Die Radio-Parameter sollten automatisch korrekt gesetzt sein:
 - **TX Power**: 22 dBm
 - **Duty Cycle**: 10%
 
-:::info Duty Cycle
+:::info[Duty Cycle]
 `set dutycycle 10` begrenzt die Sendezeit auf 10 % (ETSI EN300.220-2 für Deutschland).
 :::
 
-:::info Einstellungen speichern
+:::info[Einstellungen speichern]
 Klicke nach allen Änderungen auf "Save settings" am unteren Rand.
 :::
 
@@ -97,7 +97,7 @@ Klicke nach allen Änderungen auf "Save settings" am unteren Rand.
 
 Nach dem Speichern der Einstellungen klicke auf **"Send Advert"**, damit dein Repeater im Netzwerk sichtbar wird.
 
-:::info Erweiterte Konfiguration
+:::info[Erweiterte Konfiguration]
 Für erweiterte Einstellungen, die über die Web-Oberfläche hinausgehen, steht die [Repeater CLI Reference](https://github.com/meshcore-dev/MeshCore/wiki/Repeater-&-Room-Server-CLI-Reference) zur Verfügung. Hierüber lassen sich z.B. Advert-Intervalle, Bridging oder Region-Management detailliert konfigurieren.
 :::
 
@@ -109,7 +109,7 @@ Mehr dazu und eine Schritt-für-Schritt-Anleitung zum Generieren eines Custom Ke
 
 ## Regionen konfigurieren
 
-:::tip Wichtiger letzter Schritt
+:::tip[Wichtiger letzter Schritt]
 Nach der Grundkonfiguration solltest du deinen Repeater mit den passenden Regionen ausstatten. Dies ist für das zukünftige Netzwerk essentiell.
 :::
 

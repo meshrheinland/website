@@ -45,7 +45,7 @@ Für fest installierte Knoten an strategischen Positionen (Dach, Turm, Mast). Re
 
 Rebroadcastet jede Nachricht zuverlässig wie ROUTER, verwendet aber immer den späten Zeitslot, sodass ROUTER und andere höher priorisierte Nodes zuerst senden können. Geeignet für Standorte, die geografisch isolierte Mesh-Segmente anbinden (Tallagen, Funklöcher hinter Hügeln) – aber nur dort, wo kein normaler ROUTER die Verbindung übernehmen kann.
 
-:::warning Airtime beachten
+:::warning[Airtime beachten]
 ROUTER_LATE erhöht die Gesamtairtime spürbar. ChUtil sollte unter 25 % und AirTxUtil unter 7–8 % bleiben. Für Dachknoten oder mobile Geräte ist CLIENT die bessere Wahl.
 :::
 
@@ -53,7 +53,7 @@ ROUTER_LATE erhöht die Gesamtairtime spürbar. ChUtil sollte unter 25 % und Air
 
 Verhält sich identisch zu ROUTER, aber komplett ohne eigenen Traffic – keine Telemetrie, keine Ankündigungen. Taucht nicht in der Nodes-Liste auf und ist damit nicht remote administrierbar.
 
-:::note Deprecated
+:::note[Deprecated]
 REPEATER ist seit Firmware v2.7.11 deprecated. Für neue Installationen ROUTER verwenden.
 :::
 
@@ -71,7 +71,7 @@ Sendet regelmäßig GPS-Koordinaten mit hoher Priorität. Ideal für mobile Eins
 
 ## Hinweise zur Platzierung
 
-:::warning Router und Repeater sparsam einsetzen
+:::warning[Router und Repeater sparsam einsetzen]
 Zu viele Router oder Repeater in unmittelbarer Nähe verursachen Funkkollisionen und unnötigen Hopsverbrauch. Ungünstig platzierte Knoten degradieren das Netz durch asymmetrische Links.
 :::
 
