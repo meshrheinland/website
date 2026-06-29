@@ -34,7 +34,7 @@ graph LR
 
 ## FLOOD-Routing: Schritt für Schritt
 
-:::info Zwei Anwendungsfälle für FLOOD
+:::info[Zwei Anwendungsfälle für FLOOD]
 FLOOD wird für zwei verschiedene Zwecke verwendet:
 1. **Öffentliche Kanalnachrichten**: Broadcast an alle Teilnehmer, **kein** Path Learning
 2. **Private Nachrichten** (erste Nachricht): Path Learning für effiziente Folge-Kommunikation
@@ -93,7 +93,7 @@ Bob empfängt!
 
 Nach dem Empfang einer FLOOD-Nachricht startet ein automatischer Prozess, der **beide Routen gleichzeitig lernt**:
 
-:::warning Payload vs. Path-Header
+:::warning[Payload vs. Path-Header]
 Im PATH-Paket sind zwei verschiedene Routing-Informationen enthalten:
 - **Path-Header** (wächst beim FLOOD): der Reise-Pfad, den *dieses* Paket genommen hat
 - **Payload**: die explizite Route, die der Empfänger für zukünftige DIRECT-Nachrichten nutzen soll
@@ -240,7 +240,7 @@ TX Delay = Zufallszahl(0, 5 × Airtime × tx_delay_factor)
 | **1.0** | 200 ms | 0-1000 ms | Höheres Delay, weniger Kollisionen |
 | **0.0** | 0 ms | 0 ms | TX Delay deaktiviert (nicht empfohlen) |
 
-:::info Anpassung des TX Delay
+:::info[Anpassung des TX Delay]
 Ein höherer `tx_delay_factor` vergrößert den Zufallsbereich und reduziert Kollisionen, erhöht aber die Latenz. Der Default-Wert `0.5` ist für die meisten Netzwerke optimal.
 :::
 

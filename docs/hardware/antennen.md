@@ -124,7 +124,7 @@ Empfehlenswert wenn Störsender in der Nähe sind - der Bandpassfilter schützt 
 
 Selbstgebaute Antennen können sehr gute Ergebnisse liefern, sofern mit einem VNA abgestimmt wird. Beliebte Varianten:
 
-:::tip Abstimmung im Gehäuse vornehmen
+:::tip[Abstimmung im Gehäuse vornehmen]
 Wer die Antenne in einem Kunststoffrohr oder -gehäuse unterbringt, sollte die Abstimmung mit dem VNA **im eingebauten Zustand** durchführen. Das umgebende Kunststoffmaterial erhöht die Dielektrizitätszahl und verschiebt die Resonanzfrequenz je nach Material und Wandstärke nach unten. Eine freistehend auf 868 MHz abgestimmte Antenne kann im Rohr dann auf 840 MHz oder tiefer resonieren.
 :::
 

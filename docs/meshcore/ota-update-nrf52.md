@@ -4,7 +4,7 @@ description: Firmware-Update per Bluetooth (OTA/DFU) für nRF52-basierte MeshCor
 
 # OTA-Update (nRF52)
 
-:::warning Nur für nRF52-basierte Geräte
+:::warning[Nur für nRF52-basierte Geräte]
 Diese Anleitung gilt ausschließlich für Boards mit einem **nRF52**-Chip, z. B. RAK WisBlock oder Xiao nRF52840. ESP32-basierte Geräte (Heltec V3, TTGO etc.) werden anders aktualisiert – dort genügt der Web-Flasher mit aktivierter „Erase device"-Checkbox.
 :::
 
@@ -39,7 +39,7 @@ Der OTA-Modus wird per Remote-Admin aus der App aktiviert:
 
 Die angezeigte MAC-Adresse ist die Bluetooth-Adresse des Repeaters im DFU-Modus – sie wird im nächsten Schritt zur Geräteauswahl benötigt. Erfolgt kein Upload innerhalb des Timeouts, bootet das Gerät automatisch neu und die bestehende Firmware bleibt erhalten.
 
-:::warning Reihenfolge beachten
+:::warning[Reihenfolge beachten]
 Der Befehl lautet `start ota` – nicht `ota start`. Letzteres wird mit `Unknown command` quittiert.
 :::
 
@@ -73,7 +73,7 @@ Für den Upload wird die App **nRF Device Firmware Update** von Nordic Semicondu
 </div>
 </div>
 
-:::tip Warum unterschiedliche Paketanzahlen?
+:::tip[Warum unterschiedliche Paketanzahlen?]
 Die Paketanzahl steuert, wie viele Datenpakete ohne Bestätigung übertragen werden. Die Werte 8 (Xiao) und 10 (RAK) haben sich in der Praxis bewährt – andere Werte können zu fehlgeschlagenen Updates führen.
 :::
 

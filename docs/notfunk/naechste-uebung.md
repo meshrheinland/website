@@ -23,6 +23,6 @@ Weitere Informationen werden hier veröffentlicht, sobald sie vorliegen.
 
 ---
 
-:::info Auf dem Laufenden bleiben
+:::info[Auf dem Laufenden bleiben]
 Ankündigungen erscheinen auch in den WhatsApp-Communities von [Meshtastic](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi) und [MeshCore](https://chat.whatsapp.com/JyNcTcgwlJf6Mhhf7vgYWD).
 :::

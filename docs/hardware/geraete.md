@@ -26,7 +26,7 @@ Empfohlene LoRa-Geräte für Meshtastic und MeshCore im Rheinland.
   <img src="/img/hardware/devices/elecrow-thinknode-m6-back.jpg" alt="Elecrow ThinkNode M6 Rückseite" style={{width: '50%'}} />
 </div>
 
-:::note Hinweis
+:::note[Hinweis]
 Die Hinweise aus dem [Heise‑Artikel](https://www.heise.de/news/Elecrow-ThinkNode-M6-Solarbetriebener-Meshtastic-Knoten-fuer-Ausseneinsatz-11187337.html) beachten. [Herstellerseite](https://www.elecrow.com/thinknode-m6-outdoor-solar-power-for-meshtastic-powered-by-nrf52840-supports-gps.html) - [Wiki](https://www.elecrow.com/pub/wiki/ThinkNode_M6_Outdoor_Solar_Power_for_Meshtastic_Powered_By_nRF52840_Supports_GPS.html) - [Manual](https://www.elecrow.com/download/product/LMM14106D/ThinkNode_M6_Outdoor_Solar_Power_for_Meshtastic_User_Manual.pdf)
 :::
 
@@ -210,7 +210,7 @@ Klassiker mit WiFi – ideal für MQTT-Bridge, Gateway oder feste Installation m
 
 Kompakter GPS-Tracker im Kreditkartenformat mit integriertem 700 mAh Akku und IP65-Schutz. Trotz kleiner, interner Antenne erreicht er überraschend gute Reichweiten und genießt große Beliebtheit. Besonderheit: Integrierte Sensoren für Temperatur, Licht und Bewegung sowie Status-LED, Buzzer und Bedientaster. Wird mit magnetischem Ladekabel geliefert.
 
-:::note Hinweis
+:::note[Hinweis]
 Achte beim Kauf darauf, die „for Meshtastic"-Version zu wählen. [Herstellerseite](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html) · [Wiki](https://wiki.seeedstudio.com/sensecap_t1000_e/) · [Forum](https://forum.seeedstudio.com/t/sensecap-t1000-e-meshtastic-tracker-user-guide/287783)
 :::
 

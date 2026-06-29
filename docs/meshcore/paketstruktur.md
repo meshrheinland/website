@@ -43,7 +43,7 @@ block-beta
 | **Payload** | variabel | Firmware | Das Mesh-Paket (siehe unten) |
 | **CRC-16** | 2 Bytes | LoRa-Chip | Hardware-Checksumme über Payload |
 
-:::tip LoRa-CRC wird automatisch validiert
+:::tip[LoRa-CRC wird automatisch validiert]
 Der LoRa-Chip prüft die CRC-16 automatisch. Nur fehlerfreie Pakete werden an die Firmware übergeben. `setCRC(1)` aktiviert dies in der Firmware.
 :::
 
@@ -175,7 +175,7 @@ Byte  9+:   Payload
 
 ## Längenbestimmung
 
-:::info Keine explizite Payload-Länge
+:::info[Keine explizite Payload-Länge]
 Das Mesh-Protokoll speichert **keine** explizite Payload-Länge. Diese wird implizit berechnet.
 :::
 
@@ -532,6 +532,6 @@ header = (route_type & 0x03)           // Bits 0-1
 | **Header-Größe** | 1 Byte (Route, Type, Version) |
 | **Optionale Felder** | Transport Codes (4 Bytes), Path (0-64 Bytes) |
 
-:::tip Wire-Format ist kompakt
+:::tip[Wire-Format ist kompakt]
 MeshCore nutzt jeden Byte effizient: Keine Padding-Bytes, keine redundanten Längenfelder, keine doppelte Checksumme.
 :::

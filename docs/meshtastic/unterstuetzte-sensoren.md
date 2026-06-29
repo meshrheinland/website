@@ -21,7 +21,7 @@ Das Standard‑Sendeintervall für Telemetrie‑Nachrichten beträgt 30 Minuten.
 
 Das Telemetry‑Modul ist per Voreinstellung aktiv für Gerätemetriken. Umgebungs‑, Luftqualitäts‑ und Gesundheitsmetriken müssen in den Moduleinstellungen aktiviert werden – per App, Web‑Interface oder CLI.
 
-:::note Messintervall
+:::note[Messintervall]
 Für Nodes mit Akku oder Solar empfiehlt es sich, das Sendeintervall großzügig zu wählen (z. B. alle 15–30 Minuten), um die Laufzeit zu verlängern.
 :::
 
@@ -54,7 +54,7 @@ INA219 oder INA260 liefern Strom und Spannung. Das Telemetry‑Modul überträgt
 
 Ein BME280 genügt für Temperatur, Luftfeuchtigkeit, Druck und Höhenschätzung. Bei tragbaren Geräten sind die Temperaturwerte eingeschränkt aussagekräftig, da Körperwärme oder direkte Sonneneinstrahlung die Messung beeinflussen.
 
-:::note Hinweis für mobile Geräte
+:::note[Hinweis für mobile Geräte]
 Sensorwerte können durch **Körperwärme, direkte Sonneneinstrahlung oder Berührung** verfälscht werden.
 :::
 
@@ -62,7 +62,7 @@ Sensorwerte können durch **Körperwärme, direkte Sonneneinstrahlung oder Berü
 
 Temperatur‑ und Feuchtesensoren gehören in ein belüftetes Gehäuse (Stevenson‑Screen), UV‑Sensoren brauchen freie Sicht nach oben, Regenmesser müssen waagerecht stehen.
 
-:::note Kondenswasser
+:::note[Kondenswasser]
 Feuchtigkeit im Gehäuse kann die Sensoren beeinflussen. Gleichzeitig kann der Messwert helfen, Feuchtigkeit im Gehäuse zu identifizieren.
 :::
 

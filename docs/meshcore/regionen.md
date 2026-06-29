@@ -11,7 +11,7 @@ Ein **Scope** ist der geografische Reichweitenwunsch, den ein Nutzer einer Nachr
 - **Repeater-Betreiber** konfigurieren am Repeater, welche Scopes weitergeleitet werden
 - Nur Repeater mit passendem Scope leiten die Nachricht weiter
 
-:::tip Nur für gesendete Nachrichten
+:::tip[Nur für gesendete Nachrichten]
 Der gewählte Scope beeinflusst nur deine gesendeten Nachrichten. Empfangen kannst du alle Nachrichten des Kanals, unabhängig vom Scope.
 :::
 
@@ -44,7 +44,7 @@ In der Mesh Rheinland Community verwenden wir derzeit folgende Regionen:
 - `niederrhein` – Niederrhein
 - `drielande` – Dreiländereck NL/BE/DE (Grenzregion zur Gewährleistung reibungsloser Kommunikation zwischen den Niederlanden, Belgien und Deutschland)
 
-:::tip Kompatibilität
+:::tip[Kompatibilität]
 Da noch keine europaweite Einigung auf eine gemeinsame Region existiert, sollten Repeater **beide** Europa-Regionen erhalten: `europe` und `eu`.
 :::
 
@@ -98,7 +98,7 @@ Um einen Scope von einem Kanal wieder zu entfernen:
 4. Tippe auf die **drei Punkte** oben rechts
 5. Wähle **"Clear Scope"**
 
-:::info Individuelle Anpassung
+:::info[Individuelle Anpassung]
 Die Beispiele zeigen die Rheinland-Regionen. Je nach Standort wirst du andere Regionen verwenden – passe die Liste an deine lokale Community an.
 :::
 
@@ -167,11 +167,11 @@ region save
 - `region default <name>` - gibt den Adverts des Repeaters auch den Scope
 - `region home <name>` - wird nicht verwendet, kann aber bereits gesetzt werden
 
-:::tip Region-Verwaltung
+:::tip[Region-Verwaltung]
 Nach jeder Änderung an Regionen muss `region save` ausgeführt werden, damit die Konfiguration nach einem Neustart erhalten bleibt.
 :::
 
-:::tip Regionen sind in Exports nicht enthalten und werden entsprechend bei einem eventuellen Config Export / Node Flash / Config Import nicht wieder hergestellt. Sichert euch am Besten mit `regions` eure Einstellungen eures Repeaters.
+:::tip[Regionen sind in Exports nicht enthalten und werden entsprechend bei einem eventuellen Config Export / Node Flash / Config Import nicht wieder hergestellt. Sichert euch am Besten mit `regions` eure Einstellungen eures Repeaters.]
 :::
 
 ### Technische Anforderungen

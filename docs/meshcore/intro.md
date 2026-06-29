@@ -26,7 +26,7 @@ MeshCore unterscheidet klar zwischen verschiedenen Rollen:
 - Repeater: Weiterleitung von Nachrichten
 - Room Server: Einfacher BBS-Server für 32 Nachrichten an einer Pinnwand
 
-:::warning Wichtig für neue Nutzer
+:::warning[Wichtig für neue Nutzer]
 Flashe die **Companion**-Firmware! Repeater und Room Server sind für Infrastruktur-Knoten und erlauben keine normale Nutzung als Teilnehmer.
 :::
 

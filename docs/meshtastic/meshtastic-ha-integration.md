@@ -54,7 +54,7 @@ Als Alternative wird in der README die manuelle Ablage unter `custom_components`
 - Für Automationen wird empfohlen, **Device Triggers/Actions** zu bevorzugen.
 - Bei trigger-basierten Antworten sollte eine kurze Verzögerung eingebaut werden, damit Meshtastic nicht während Senden/Empfangen blockiert ist.
 
-:::warning Sicherheitshinweis zum eingebauten Web Client
+:::warning[Sicherheitshinweis zum eingebauten Web Client]
 Laut README kann die aktivierte Web-Client-Proxy-Funktion zu **unauthenticated access** auf Gateway-Nodes führen, wenn Home Assistant aus nicht vertrauenswürdigen Netzen erreichbar ist.
 Aktiviere diese Funktion nur in einer vertrauenswürdigen Umgebung.
 :::
@@ -63,7 +63,7 @@ Aktiviere diese Funktion nur in einer vertrauenswürdigen Umgebung.
 
 Die offizielle Meshtastic-Seite zur MQTT-Integration beschreibt den manuellen Aufbau von MQTT-Entities in Home Assistant.
 
-:::warning Kompatibilität
+:::warning[Kompatibilität]
 Laut offizieller Meshtastic-MQTT-Doku sind **nRF52-Geräte derzeit nicht für Home Assistant** unterstützt (bekanntes JSON-Problem).
 :::
 

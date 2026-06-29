@@ -14,7 +14,7 @@ Für den Start benötigst du:
 - ein USB‑Datenkabel
 - einen PC oder Laptop mit aktuellem Chrome‑ oder Edge‑Browser
 
-:::danger Antenne anschließen
+:::danger[Antenne anschließen]
 Vor der Inbetriebnahme müssen alle Antennen angeschlossen sein, ansonsten kann das Gerät dauerhaft beschädigt werden.
 :::
 
@@ -28,7 +28,7 @@ Verbinde das Gerät per USB mit deinem Computer und öffne im Browser den [Mesht
 2. **Firmware:** Wähle die passende Firmware für dein Gerät. Für Einsteiger empfiehlt sich die aktuelle Beta‑Version, da diese stabil läuft und neue Funktionen enthält.
 3. **Flash:** Starte den Flash‑Vorgang, um die Firmware auf dein Gerät zu übertragen.
 
-:::info Hinweis
+:::info[Hinweis]
 Am unteren Rand der Seite findest du hilfreiche Links, unter anderem zu den Spracheinstellungen.
 
 Nach dem Flashen startet das Gerät einmal neu. Warte einige Sekunden, bis es im Web‑Client erscheint. Möchtest du stattdessen mit der App oder dem CLI fortfahren, folge der entsprechenden Anleitung weiter unten.
