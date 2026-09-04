@@ -2,24 +2,24 @@
 sidebar_position: 1
 sidebar_label: Nächste Notfunkübung
 title: Nächste Notfunkübung
-description: Ankündigung der nächsten Notfunkübung für die Mesh-Rheinland-Community im Großraum Bonn.
+description: Ankündigung der nächsten Notfunkübung für die Mesh-Rheinland-Community im Großraum Köln/Bonn.
 ---
 
 # Nächste Notfunkübung
 
 ## Do. 10.09.2026 – Bundesweiter Warntag
 
-**Kleine Notfunkübung im Großraum Bonn**
+**Kleine Notfunkübung im Großraum Köln/Bonn**
 
 Liebe Funkamateure und Hobbyfunker,
 
-anlässlich des **Bundesweiten Warntags** findet am **Donnerstag, den 10. September 2026** eine kleine lokale Notfunkübung im Großraum Bonn statt.
+anlässlich des **Bundesweiten Warntags** findet am **Donnerstag, den 10. September 2026** eine kleine lokale Notfunkübung im Großraum Köln/Bonn statt.
 
 Gegen **11:00 Uhr** ertönen die Sirenen – die Übung selbst findet am Abend statt, damit möglichst viele nach Feierabend mitmachen können.
 
 ## Teilnahme und Funkbereiche
 
-**Großraum Bonn:**
+**Großraum Köln/Bonn:**
 - Bonner Notfunkrelais **DBØDBN** der IGFS im Siebengebirge <span className="tag-gray">(2m FM, 145,575&nbsp;MHz, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)</span>
 - MeshCore <span className="tag-gray">(Kanal: #emergency, LoRa `EU/UK (Narrow)`)</span>
 
@@ -75,7 +75,7 @@ Im Anschluss werten wir aus, **wie viele Aufgaben angefragt** und **wie viele Au
 
 ## Wer kann teilnehmen?
 
-Alle Funkamateure und Hobbyfunker im Großraum Bonn sind willkommen – unabhängig von Erfahrung oder Ausrüstung. Die Übung dient der Vorbereitung auf echte Notfallsituationen und dem Austausch untereinander.
+Alle Funkamateure und Hobbyfunker im Großraum Köln/Bonn sind willkommen – unabhängig von Erfahrung oder Ausrüstung. Die Übung dient der Vorbereitung auf echte Notfallsituationen und dem Austausch untereinander.
 
 ---
 

@@ -59,7 +59,7 @@ function EventBanner(): ReactNode {
             {label} Notfunkübung – Bundesweiter Warntag, 10. September 2026
           </p>
           <p style={{margin: '0 0 0.75rem', opacity: 0.9}}>
-            DBØDBN & MeshCore im Einsatz – Großraum Bonn, ab 18:30 Uhr
+            DBØDBN & MeshCore im Einsatz – Großraum Köln/Bonn, ab 18:30 Uhr
           </p>
           <Link
             className="button button--lg"
