@@ -35,13 +35,13 @@ Gegen **11:00 Uhr** ertönen die Sirenen – die Übung selbst findet am Abend s
 Anders als bei den bisherigen Übungen arbeiten wir diesmal mit einem festen **Nachrichtenwechsel** aus vier Nachrichten. Nicht die Aufgabe selbst steht im Vordergrund, sondern der vollständige und sauber adressierte Ablauf von der Anfrage bis zur Bestätigung.
 :::
 
-Die Leitstelle meldet sich auf dem Kanal **#emergency** als **`@LST1`**. Jede Nachricht beginnt mit der Anrede des Gegenübers (`@LST1` bzw. `@Teilnehmer`), damit die einzelnen Kommunikationsstränge im Kanal auseinandergehalten werden können. Die Leitstelle vergibt zu jeder Aufgabe eine **Aufgabennummer** (z. B. `A1`), die in allen folgenden Nachrichten mitgeführt wird.
+Die Leitstelle meldet sich auf dem Kanal **#emergency** als **`@LST-BN`**. Jede Nachricht beginnt mit der Anrede des Gegenübers (`@LST-BN` bzw. `@Teilnehmer`), damit die einzelnen Kommunikationsstränge im Kanal auseinandergehalten werden können. Die Leitstelle vergibt zu jeder Aufgabe eine **Aufgabennummer** (z. B. `A1`), die in allen folgenden Nachrichten mitgeführt wird.
 
 1. **Aufgabe anfordern**
 
    Fordert bei der Leitstelle eine Aufgabe an:
 
-   > `@LST1 Aufgabe?`
+   > `@LST-BN Aufgabe?`
 
 2. **Aufgabe erhalten**
 
@@ -53,7 +53,7 @@ Die Leitstelle meldet sich auf dem Kanal **#emergency** als **`@LST1`**. Jede Na
 
    Antwortet der Leitstelle mit Aufgabennummer, Aufgabe und Lösung:
 
-   > `@LST1 A1: 1+1=2`
+   > `@LST-BN A1: 1+1=2`
 
 4. **Bestätigung**
 
@@ -61,7 +61,7 @@ Die Leitstelle meldet sich auf dem Kanal **#emergency** als **`@LST1`**. Jede Na
 
    > `@Teilnehmer: A1: ACK!`
 
-Damit ist der Nachrichtenwechsel abgeschlossen. Anschließend könnt ihr mit `@LST1 Aufgabe?` die nächste Aufgabe anfordern – so oft ihr möchtet.
+Damit ist der Nachrichtenwechsel abgeschlossen. Anschließend könnt ihr mit `@LST-BN Aufgabe?` die nächste Aufgabe anfordern – so oft ihr möchtet.
 
 :::tip
 Es geht **nicht** um die Mathematik, sondern um den vollständigen Nachrichtenwechsel.
