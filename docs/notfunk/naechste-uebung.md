@@ -19,8 +19,6 @@ Gegen **11:00 Uhr** ertönen die Sirenen – die Übung selbst findet am Abend s
 
 ## Teilnahme und Funkbereiche
 
-<img src="/img/darc-notfunk-logo.png" alt="DARC Notfunk Logo" className="logo-float-right" />
-
 **Großraum Bonn:**
 - Bonner Notfunkrelais **DBØDBN** der IGFS im Siebengebirge <span className="tag-gray">(2m FM, 145,575&nbsp;MHz, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)</span>
 - MeshCore <span className="tag-gray">(Kanal: #emergency, LoRa `EU/UK (Narrow)`)</span>
