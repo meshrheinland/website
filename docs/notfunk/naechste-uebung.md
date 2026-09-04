@@ -59,7 +59,7 @@ Die Leitstelle meldet sich auf dem Kanal **#emergency** als **`@LST-BN`**. Jede 
 
    Die Leitstelle bestätigt den Empfang:
 
-   > `@Teilnehmer: A1: ACK!`
+   > `@Teilnehmer: A1: Verstanden!`
 
 Damit ist der Nachrichtenwechsel abgeschlossen. Anschließend könnt ihr mit `@LST-BN Aufgabe?` die nächste Aufgabe anfordern – so oft ihr möchtet.
 
@@ -69,7 +69,7 @@ Es geht **nicht** um die Mathematik, sondern um den vollständigen Nachrichtenwe
 
 ## Auswertung
 
-Im Anschluss werten wir aus, **wie viele Aufgaben angefragt** und **wie viele Aufgaben erfolgreich gelöst** wurden – also wie viele Nachrichtenwechsel bis zur Bestätigung mit `ACK!` vollständig durchliefen. Betrachtet werden dabei die einzelnen Kommunikationsstränge je Teilnehmer.
+Im Anschluss werten wir aus, **wie viele Aufgaben angefragt** und **wie viele Aufgaben erfolgreich gelöst** wurden – also wie viele Nachrichtenwechsel bis zur Bestätigung mit `Verstanden!` vollständig durchliefen. Betrachtet werden dabei die einzelnen Kommunikationsstränge je Teilnehmer.
 
 ---
 
