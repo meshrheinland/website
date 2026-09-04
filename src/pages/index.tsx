@@ -28,7 +28,7 @@ function HomepageHeader() {
   );
 }
 
-const EVENT_DATE = new Date('2026-03-12T00:00:00');
+const EVENT_DATE = new Date('2026-09-10T00:00:00');
 
 function getEventLabel(): string | null {
   const today = new Date();
@@ -56,14 +56,14 @@ function EventBanner(): ReactNode {
       <div className="container">
         <div style={{textAlign: 'center'}}>
           <p style={{fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 0.25rem'}}>
-            {label} Notfunkübung DARC Distrikt G – Warntag NRW, 12. März 2026
+            {label} Notfunkübung – Bundesweiter Warntag, 10. September 2026
           </p>
           <p style={{margin: '0 0 0.75rem', opacity: 0.9}}>
-            Meshtastic & MeshCore im Einsatz – Großraum Bonn, ab 10:50 Uhr
+            DBØDBN & MeshCore im Einsatz – Großraum Bonn, ab 18:30 Uhr
           </p>
           <Link
             className="button button--lg"
-            to="/naechste-notfunk-uebung"
+            to="/notfunk/naechste-uebung"
             style={{background: '#fff', color: '#c0392b', fontWeight: 'bold'}}>
             Alle Infos zur Übung →
           </Link>
@@ -79,6 +79,7 @@ export default function Home(): ReactNode {
     <Layout
       title="LoRa-Mesh-Community im Rheinland"
       description="LoRa-Mesh-Community im Rheinland und Umgebung. Kommunikation ohne Internet und Mobilfunk – Schnellstart, regionale Einstellungen und häufige Fragen.">
+      <EventBanner />
       <HomepageHeader />
       <main>
         <HomepageFeatures />
