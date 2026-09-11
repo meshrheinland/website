@@ -74,7 +74,7 @@ Im Median dauerte es rund **30 Sekunden** von der Anfrage bis zur Aufgabe, rund 
 - **Alle 40 eingegangenen Lösungen waren richtig** – eine davon nach eigener Korrektur.
 - Nahezu alle Lösungen trugen Anrede und Aufgabennummer. Dadurch ließen sich die Stränge auch im dichten Verkehr eindeutig zuordnen.
 - Nachrichten erreichten die Leitstelle über im Median 6 und maximal 21 Hops.
-- Mehr als vier von fünf Nachrichten der Leitstelle wurden nachweislich von mindestens einem Repeater weitergegeben.
+- 116 der 139 Nachrichten der Leitstelle (83&nbsp;%) wurden nachweislich von mindestens einem Repeater weitergegeben.
 
 #### Was sich gezeigt hat
 
@@ -97,7 +97,7 @@ Im Median dauerte es rund **30 Sekunden** von der Anfrage bis zur Aufgabe, rund 
 
 ### Fazit
 
-Der neue Ablauf mit festem Nachrichtenwechsel hat sich bewährt: Zwei von drei vergebenen Aufgaben liefen vollständig bis zur Bestätigung durch – bei rund 300 Nachrichten in 50 Minuten und deutlich mehr Stationen als im März. Gleichzeitig hat die Übung gezeigt, dass im Mesh Nachrichten verloren gehen und Wiederholungen zum Ablauf gehören – und dass die Leitstelle in Spitzenzeiten einen verlässlichen Überblick über offene Anfragen braucht. Herzlichen Dank an alle Teilnehmer!
+Der neue Ablauf mit festem Nachrichtenwechsel hat sich bewährt: Von den 59 verschickten Aufgaben durchliefen 39 (66&nbsp;%) den vollständigen Nachrichtenwechsel von der Anfrage bis zur Bestätigung durch die Leitstelle – bei rund 300 Nachrichten in 50 Minuten und deutlich mehr Stationen als im März. Gleichzeitig hat die Übung gezeigt, dass im Mesh Nachrichten verloren gehen und Wiederholungen zum Ablauf gehören – und dass die Leitstelle in Spitzenzeiten einen verlässlichen Überblick über offene Anfragen braucht. Herzlichen Dank an alle Teilnehmer!
 
 ---
 
