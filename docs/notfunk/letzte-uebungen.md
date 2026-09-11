@@ -9,6 +9,103 @@ description: Übersicht vergangener Notfunkübungen im Rheinland mit einklappbar
 
 Hier findet ihr die letzten Notfunkübungen im Rheinland. Jede Übung hat einen eigenen einklappbaren Detailblock, sodass sich neue Termine einfach ergänzen lassen.
 
+<details open>
+   <summary>
+      <strong>Großraum Köln/Bonn am 10. September 2026 (Bundesweiter Warntag)</strong>
+   </summary>
+
+Liebe Funkamateure und Hobbyfunker,
+
+anlässlich des **Bundesweiten Warntags** findet am **Donnerstag, den 10. September 2026** eine kleine lokale Notfunkübung im Großraum Köln/Bonn statt.
+
+Gegen **11:00 Uhr** ertönen die Sirenen – die Übung selbst findet am Abend statt, damit möglichst viele nach Feierabend mitmachen können.
+
+## Teilnahme und Funkbereiche
+
+**Großraum Köln/Bonn:**
+- Bonner Notfunkrelais **DBØDBN** der IGFS im Siebengebirge <span className="tag-gray">(2m FM, 145,575&nbsp;MHz, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)</span>
+- MeshCore <span className="tag-gray">(Kanal: #emergency, LoRa `EU/UK (Narrow)`)</span>
+
+## Zeitplan
+
+**18:30 – 19:00 Uhr:** Sprechfunk über das Bonner Notfunkrelais **DBØDBN** (145,575&nbsp;MHz, FM, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS) – Test der Einstellungen und Austausch von Rapporten
+
+**19:00 – 20:00 Uhr:** **MeshCore**, Kanal: #emergency – Übungsverkehr nach [Übungsablauf Option B](#uebungsablauf-option-b)
+
+---
+
+## Auswertung
+
+### Sprechfunk auf DBØDBN
+
+Der Betrieb auf **DBØDBN** verlief geordnet. Insgesamt meldeten sich **12 Teilnehmer** herein. Erprobt wurden die Funktion der Geräte, eine saubere Modulation und der Einsatz von CTCSS. Kleinere Verbesserungen konnten bereits während der Übung vorgenommen werden.
+
+### MeshCore
+
+Grundlage ist der Mitschnitt der Leitstelle **LST-BN** auf dem Kanal #emergency ab Übungsbeginn um **19:00 Uhr**. Anfragen, die vorher eingingen, wurden nicht mitgezählt. Betrachtet wurden die einzelnen Kommunikationsstränge je Station – von der Anfrage über Aufgabe und Lösung bis zur Bestätigung durch die Leitstelle.
+
+:::note[Sicht der Leitstelle]
+Kanalnachrichten werden in MeshCore ohne Empfangsbestätigung übertragen – was unterwegs verloren geht, taucht im Mitschnitt nicht auf. Ob eine Aufgabe bei einer Station angekommen ist, lässt sich deshalb nur indirekt ablesen: Fragt eine Station erneut nach einer Aufgabe, ohne die bereits verschickte zu lösen, ist diese offensichtlich nicht angekommen. Die Laufzeiten im Netz wurden dabei berücksichtigt: Eine Anfrage, die sich unterwegs mit einer gerade verschickten Aufgabe gekreuzt hat, zählt nicht als Verlust.
+:::
+
+Mit **40 Stationen**, die im Kanal aktiv waren, war die Beteiligung deutlich größer als bei der Übung im März. 38 Stationen forderten Aufgaben an, an 34 Stationen verschickte die Leitstelle mindestens eine Aufgabe und **25 Stationen** schlossen mindestens einen Nachrichtenwechsel vollständig ab. Zwischen 19:00 und 19:50 Uhr liefen rund 300 Nachrichten über den Kanal – im Schnitt etwa alle zehn Sekunden eine.
+
+| Kennzahl | Anzahl |
+|---|---|
+| Aufgabenanfragen (`Aufgabe?`) | 78 |
+| Verschickte Aufgaben | 59 |
+| Lösungen bei der Leitstelle eingegangen | 40 (68&nbsp;%) |
+| **Vollständige Nachrichtenwechsel** (bis zur Bestätigung) | **39 (66&nbsp;%)** |
+
+Hinter den 78 Anfragen stecken nicht 78 Aufgabenwünsche. Aus Sicht der Leitstelle schlüsseln sie sich so auf:
+
+| Art der Anfrage | Anzahl |
+|---|---|
+| Erste Anfrage einer Station | 36 |
+| Neue Anfrage nach gelöster Aufgabe | 21 |
+| Erneute Anfrage, weil die verschickte Aufgabe nicht ankam | 12 |
+| Erneute Anfrage, weil die Leitstelle noch nicht reagiert hatte | 5 |
+| Erneute Anfrage, die sich unterwegs mit einer Aufgabe gekreuzt hat | 4 |
+
+Im Median dauerte es rund **30 Sekunden** von der Anfrage bis zur Aufgabe, rund **1:40 Minuten** bis die Lösung bei der Leitstelle eintraf und rund **20 Sekunden** bis zur Bestätigung.
+
+#### Was gut funktionierte
+
+- **Alle 40 eingegangenen Lösungen waren richtig** – eine davon nach eigener Korrektur.
+- Nahezu alle Lösungen trugen Anrede und Aufgabennummer. Dadurch ließen sich die Stränge auch im dichten Verkehr eindeutig zuordnen.
+- Nachrichten erreichten die Leitstelle über im Median 6 und maximal 21 Hops.
+- Mehr als vier von fünf Nachrichten der Leitstelle wurden nachweislich von mindestens einem Repeater weitergegeben.
+
+#### Was sich gezeigt hat
+
+- **Bestätigungen kamen offenbar nicht immer an.** In 8 Strängen wurde die Lösung mehrfach gesendet, einmal sogar sechsmal. Insgesamt gingen 58 Lösungsnachrichten für 40 Aufgaben ein – jede Wiederholung zog eine weitere Bestätigung nach sich und belastete das Netz zusätzlich.
+- **Aufgaben gingen unterwegs verloren.** 8 Stationen fragten erneut nach einer Aufgabe, obwohl die Leitstelle ihnen bereits eine verschickt hatte – eine davon erst nach Ende der Aufgabenvergabe. Insgesamt kamen so mindestens 13 Aufgaben-Nachrichten nachweislich nicht an, 8 davon, obwohl Repeater sie weitergegeben hatten. Am stärksten betroffen war eine Station, die 14-mal anfragte: Eine ihrer Aufgaben wurde sechsmal verschickt, bis die Lösung eintraf. 7 der 8 Stationen lösten dennoch mindestens eine Aufgabe.
+- **Einzelne Anfragen gingen im Betrieb unter.** Von den 73 Anfragen während der Aufgabenvergabe blieben 3 ohne Antwort, eine davon kurz vor Schluss. Eine Station erhielt dadurch überhaupt keine Aufgabe. Drei weitere Stationen wurden erst nach 7 bis 8 Minuten und erneuter Anfrage versorgt – ihre Anfragen fielen in die Zeit, in der die Leitstelle eine nicht angekommene Aufgabe immer wieder verschickte. Nach Ende der Aufgabenvergabe um 19:46 Uhr fragten noch fünf Stationen an.
+- **19 Aufgaben blieben ohne Lösung bei der Leitstelle.** 8 davon kamen nachweislich nicht an, eine kam an, wurde aber ohne Aufgabennummer beantwortet. Bei den übrigen 10 bleibt offen, ob die Aufgabe oder die Lösung verloren ging oder die Station nicht mehr aktiv war; drei davon wurden erst in den letzten sechs Minuten der Aufgabenvergabe verschickt. Vier Aufgaben wurden von keinem Repeater weitergegeben und haben die Umgebung der Leitstelle vermutlich nie verlassen. Umgekehrt war bei jeder beantworteten Aufgabe mindestens eine Weitergabe zu hören.
+- Fünf Aufgabennummern wurden an zwei verschiedene Stationen vergeben. Dank der Anrede blieben die Stränge unterscheidbar, eindeutige Nummern erleichtern aber die Auswertung.
+- In vier Strängen wurde bestätigt, ohne dass eine passende Lösung im Mitschnitt vorliegt. Eine eingegangene Lösung blieb unbestätigt.
+- Zwei Stationen wurden von der Leitstelle auf einen fehlenden oder falschen Region-Scope hingewiesen.
+- An einem Repeater wurde während der Übung eine Auslastung von 9,8&nbsp;% beobachtet – üblich sind zu dieser Uhrzeit 6–7&nbsp;%.
+
+#### Für die nächste Übung
+
+- Aufgabennummern fortlaufend und nur einmal vergeben.
+- **Leitstelle:** Anfragen und verschickte Aufgaben je Station mitschreiben, damit in Spitzenzeiten keine Anfrage untergeht. Fragt eine Station erneut, die noch offene Aufgabe mit derselben Nummer wiederholen.
+- **Teilnehmer:** Kommt nach zwei bis drei Minuten keine Aufgabe oder Bestätigung an, die Nachricht wiederholen – in einem verlustbehafteten Netz gehört das dazu. Vorher lohnt sich etwas Geduld: Über viele Hops kann eine Nachricht deutlich länger unterwegs sein.
+- Den Region-Scope vor der Übung prüfen und klar kommunizieren.
+- Den Kanal während des Übungsverkehrs möglichst nur für Übungsnachrichten nutzen.
+
+### Fazit
+
+Der neue Ablauf mit festem Nachrichtenwechsel hat sich bewährt: Zwei von drei vergebenen Aufgaben liefen vollständig bis zur Bestätigung durch – bei rund 300 Nachrichten in 50 Minuten und deutlich mehr Stationen als im März. Gleichzeitig hat die Übung gezeigt, dass im Mesh Nachrichten verloren gehen und Wiederholungen zum Ablauf gehören – und dass die Leitstelle in Spitzenzeiten einen verlässlichen Überblick über offene Anfragen braucht. Herzlichen Dank an alle Teilnehmer!
+
+---
+
+*Mathias, DL3KE*<br/>
+*Notfunkreferent im DARC Distrikt G, Notfunk Bonn*
+
+</details>
+
 <details>
    <summary>
       <strong>Bonn am 12. März 2026 (Landesweiter Warntag NRW)</strong>
@@ -166,3 +263,41 @@ Die Leitstelle ist auf dem Kanal **emergency** erreichbar. Der Ablauf orientiert
    Die Leitstelle bestätigt die Abmeldung.
 
 ---
+
+## Übungsablauf Option B {/* #uebungsablauf-option-b */}
+
+:::info[Fester Nachrichtenwechsel]
+Bei diesem Ablauf arbeiten wir mit einem festen **Nachrichtenwechsel** aus vier Nachrichten. Nicht die Aufgabe selbst steht im Vordergrund, sondern der vollständige und sauber adressierte Ablauf von der Anfrage bis zur Bestätigung. Eingesetzt wurde er erstmals bei der Übung am 10. September 2026 auf MeshCore.
+:::
+
+Die Leitstelle meldet sich auf dem Kanal **#emergency** als **`@LST-BN`**. Jede Nachricht beginnt mit der Anrede des Gegenübers (`@LST-BN` bzw. `@Teilnehmer`), damit die einzelnen Kommunikationsstränge im Kanal auseinandergehalten werden können. Die Leitstelle vergibt zu jeder Aufgabe eine **Aufgabennummer** (z. B. `A1`), die in allen folgenden Nachrichten mitgeführt wird.
+
+1. **Aufgabe anfordern**
+
+   Fordert bei der Leitstelle eine Aufgabe an:
+
+   > `@LST-BN Aufgabe?`
+
+2. **Aufgabe erhalten**
+
+   Die Leitstelle antwortet mit der Aufgabennummer und der Aufgabe:
+
+   > `@Teilnehmer A1: 1+1?`
+
+3. **Aufgabe lösen**
+
+   Antwortet der Leitstelle mit Aufgabennummer, Aufgabe und Lösung:
+
+   > `@LST-BN A1: 1+1=2`
+
+4. **Bestätigung**
+
+   Die Leitstelle bestätigt den Empfang:
+
+   > `@Teilnehmer: A1: Verstanden!`
+
+Damit ist der Nachrichtenwechsel abgeschlossen. Anschließend könnt ihr mit `@LST-BN Aufgabe?` die nächste Aufgabe anfordern – so oft ihr möchtet.
+
+:::tip
+Es geht **nicht** um die Mathematik, sondern um den vollständigen Nachrichtenwechsel.
+:::
