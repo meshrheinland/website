@@ -1,0 +1,27 @@
+# MeshCore Companion Nodes: Offline-Nachrichtenpuffer
+
+Ein **MeshCore Bluetooth Companion Node** empfängt LoRa-Nachrichten auch dann weiter, wenn das Handy mit der MeshCore-App gerade nicht verbunden ist. Der Companion ist dabei nicht nur ein „Bluetooth-Modem“, sondern der eigentliche LoRa-Client.
+
+Beim erneuten Verbinden per Bluetooth meldet der Companion der App, dass Nachrichten warten. Die App ruft diese Nachrichten dann nacheinander vom Gerät ab.
+
+Wichtig: Ein Companion Node ist **kein Repeater** und kein dauerhafter Nachrichtenserver. Er speichert eingehende Nachrichten nur begrenzt zwischen.
+
+---
+
+## Wie viele Nachrichten werden zwischengespeichert?
+
+Für die gängigen MeshCore-Companion-Builds der folgenden Geräte ist die Offline-Queue aktuell auf **256 Nachrichten** gesetzt.
+
+| Gerät | Companion-Variante | Offline-Puffer |
+|---|---:|---:|
+| LILYGO T-Echo | BLE Companion | 256 Nachrichten |
+| LILYGO T-Echo | USB Companion | 256 Nachrichten |
+| Heltec LoRa 32 V3 | BLE Companion | 256 Nachrichten |
+| Heltec LoRa 32 V3 | WiFi Companion | 256 Nachrichten |
+| SenseCAP T-1000E | BLE Companion | 256 Nachrichten |
+| SenseCAP T-1000E | USB Companion | 256 Nachrichten |
+
+Diese Zahl ist **nicht geschätzt**, sondern ergibt sich aus den Firmware-Build-Parametern der MeshCore-Firmware. Dort ist für diese Targets jeweils gesetzt:
+
+```ini
+-D OFFLINE_QUEUE_SIZE=256
