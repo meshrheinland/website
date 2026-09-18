@@ -1,6 +1,5 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
@@ -28,58 +27,12 @@ function HomepageHeader() {
   );
 }
 
-const EVENT_DATE = new Date('2026-09-10T00:00:00');
-
-function getEventLabel(): string | null {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const diffDays = Math.round(
-    (EVENT_DATE.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
-  );
-  if (diffDays > 7 || diffDays < -1) return null;
-  if (diffDays === 1) return 'Morgen:';
-  if (diffDays === 0) return 'Heute:';
-  if (diffDays === -1) return 'Gestern:';
-  return `In ${diffDays} Tagen:`;
-}
-
-function EventBanner(): ReactNode {
-  const label = getEventLabel();
-  if (!label) return null;
-
-  return (
-    <div style={{
-      background: 'linear-gradient(135deg, #c0392b 0%, #922b21 100%)',
-      color: '#fff',
-      padding: '1.5rem 2rem',
-    }}>
-      <div className="container">
-        <div style={{textAlign: 'center'}}>
-          <p style={{fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 0.25rem'}}>
-            {label} Notfunkübung – Bundesweiter Warntag, 10. September 2026
-          </p>
-          <p style={{margin: '0 0 0.75rem', opacity: 0.9}}>
-            DBØDBN & MeshCore im Einsatz – Großraum Köln/Bonn, ab 18:30 Uhr
-          </p>
-          <Link
-            className="button button--lg"
-            to="/notfunk/naechste-uebung"
-            style={{background: '#fff', color: '#c0392b', fontWeight: 'bold'}}>
-            Alle Infos zur Übung →
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title="LoRa-Mesh-Community im Rheinland"
       description="LoRa-Mesh-Community im Rheinland und Umgebung. Kommunikation ohne Internet und Mobilfunk – Schnellstart, regionale Einstellungen und häufige Fragen.">
-      <EventBanner />
       <HomepageHeader />
       <main>
         <HomepageFeatures />
