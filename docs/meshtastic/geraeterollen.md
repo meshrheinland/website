@@ -79,7 +79,7 @@ Zu viele Router oder Repeater in unmittelbarer Nähe verursachen Funkkollisionen
 - **ROUTER** und **REPEATER** nur an Standorten mit echter Infrastrukturrolle (Höhe, Reichweite, Dauerbetrieb)
 - **CLIENT\_MUTE** wenn mehrere Geräte am selben Standort betrieben werden
 
-Fragen zur Rollenwahl? Frag in der [WhatsApp-Community](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi).
+Fragen zur Rollenwahl? Frag in der [WhatsApp-Community](https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw).
 
 ## Quellen
 

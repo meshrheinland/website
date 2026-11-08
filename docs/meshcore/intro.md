@@ -34,7 +34,7 @@ Flashe die **Companion**-Firmware! Repeater und Room Server sind für Infrastruk
 
 ## Community & Karte
 
-- WhatsApp Community: [MeshCore Rheinland](https://chat.whatsapp.com/JyNcTcgwlJf6Mhhf7vgYWD)
+- WhatsApp Community: [Mesh Rheinland](https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw)
 - [Live-Karte](https://corescope.meshrheinland.de/#/live)
 - [MeshCore Flasher](https://flasher.meshcore.io/)
 

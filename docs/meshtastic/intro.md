@@ -15,7 +15,7 @@ Die Mesh‑Rheinland‑Community nutzt Meshtastic als Basis für ein wachsendes 
 
 - Region/Band: European Union 868MHz (EU868)
 - Modem‑Preset: Kurze Reichweite - Langsam (**ShortSlow**)
-- WhatsApp Community: [Meshtastic Rheinland](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi) mit über 200 Mitgliedern
+- WhatsApp Community: [Mesh Rheinland](https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw) mit über 500 Mitgliedern
 
 ## Community Mesh Rheinland
 
@@ -27,7 +27,7 @@ Wenn du sehen möchtest, wo im Rheinland bereits Meshtastic‑Knoten aktiv sind,
 
 Tritt unserer WhatsApp‑Community bei: Scanne einfach den QR‑Code und komm direkt dazu. Dort verabreden wir Treffen, teilen Tipps, unterstützen dich bei der Auswahl der passenden Hardware und helfen uns gegenseitig weiter.
 
-[![WhatsApp Community](/img/meshtastic/whatsapp-community-invite.svg)](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi)
+[![WhatsApp Community](/img/meshtastic/whatsapp-community-invite.svg)](https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw)
 
 ## Nächster Schritt
 
