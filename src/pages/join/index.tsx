@@ -4,8 +4,7 @@ import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
-const MESHTASTIC_URL = 'https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi';
-const MESHCORE_URL = 'https://chat.whatsapp.com/JyNcTcgwlJf6Mhhf7vgYWD';
+const WHATSAPP_URL = 'https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw';
 
 function QrCode({url}: {url: string}): ReactNode {
   return (
@@ -18,10 +17,10 @@ function QrCode({url}: {url: string}): ReactNode {
   );
 }
 
-function Protocol({title, url, docsPath}: {title: string; url: string; docsPath: string}): ReactNode {
+function JoinCommunity({url}: {url: string}): ReactNode {
   return (
-    <div className="col col--6 text--center" style={{padding: '1.5rem 1rem'}}>
-      <Heading as="h2">{title}</Heading>
+    <div className="col col--12 text--center" style={{padding: '1.5rem 1rem'}}>
+      <Heading as="h2">WhatsApp-Community</Heading>
       <div style={{display: 'flex', justifyContent: 'center', margin: '1.25rem 0'}}>
         <QrCode url={url} />
       </div>
@@ -29,7 +28,7 @@ function Protocol({title, url, docsPath}: {title: string; url: string; docsPath:
         WhatsApp-Community beitreten
       </a>
       <p style={{marginTop: '1rem'}}>
-        <Link to={docsPath}>Zur Dokumentation</Link>
+        Zur Dokumentation: <Link to="/meshtastic/intro">Meshtastic</Link> · <Link to="/meshcore/intro">MeshCore</Link>
       </p>
     </div>
   );
@@ -39,7 +38,7 @@ export default function Join(): ReactNode {
   return (
     <Layout
       title="Mesh Rheinland - Community beitreten"
-      description="Du hast unsere Einladung empfangen. Tritt unserer Meshtastic- oder MeshCore-Community im Rheinland bei."
+      description="Du hast unsere Einladung empfangen. Tritt unserer Meshtastic- und MeshCore-Community im Rheinland bei."
 >
       <header className="hero hero--primary">
         <div className="container">
@@ -51,7 +50,7 @@ export default function Join(): ReactNode {
           </p>
           <p>
             Kommunikation ohne Internet und ohne Mobilfunk.<br />
-            Wähle dein Protokoll und tritt der passenden WhatsApp-Community bei.
+            Tritt unserer WhatsApp-Community bei.
           </p>
         </div>
       </header>
@@ -89,8 +88,7 @@ export default function Join(): ReactNode {
         <div className="container" style={{padding: '1rem 0 2.5rem'}}>
           <hr />
           <div className="row">
-            <Protocol title="Meshtastic" url={MESHTASTIC_URL} docsPath="/meshtastic/intro" />
-            <Protocol title="MeshCore" url={MESHCORE_URL} docsPath="/meshcore/intro" />
+            <JoinCommunity url={WHATSAPP_URL} />
           </div>
           <p className="text--center" style={{marginTop: '2rem'}}>
             Du hast diese Einladung ungebeten empfangen oder bevorzugst eine andere Plattform als WhatsApp?

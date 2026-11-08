@@ -140,7 +140,7 @@ const config: Config = {
             },
             {
               label: 'WhatsApp Community',
-              href: 'https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi',
+              href: 'https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw',
             },
           ],
         },
@@ -161,7 +161,7 @@ const config: Config = {
             },
             {
               label: 'WhatsApp Community',
-              href: 'https://chat.whatsapp.com/JyNcTcgwlJf6Mhhf7vgYWD',
+              href: 'https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw',
             },
           ],
         },

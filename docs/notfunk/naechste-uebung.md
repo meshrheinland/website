@@ -26,5 +26,5 @@ Alle Funkamateure und Hobbyfunker im Großraum Köln/Bonn sind willkommen – un
 ---
 
 :::info[Auf dem Laufenden bleiben]
-Ankündigungen erscheinen auch in den WhatsApp-Communities von [Meshtastic](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi) und [MeshCore](https://chat.whatsapp.com/JyNcTcgwlJf6Mhhf7vgYWD).
+Ankündigungen erscheinen auch in unserer [WhatsApp-Community](https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw).
 :::

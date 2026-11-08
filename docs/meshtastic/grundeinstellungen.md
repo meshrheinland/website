@@ -80,7 +80,7 @@ Antenne möglichst hoch und frei platzieren, Router‑Knoten strategisch setzen.
 
 **Probleme beim Einstieg?**
 
-Frag in der [WhatsApp‑Gruppe](https://chat.whatsapp.com/CRYnRrAzhYeDlQEJQZQpKi) – dort helfen über 200 Mitglieder gerne weiter.
+Frag in der [WhatsApp‑Gruppe](https://chat.whatsapp.com/KA9PjvctofoGZnTIKB8oRw) – dort helfen über 500 Mitglieder gerne weiter.
 
 ## Offizielle Ressourcen
 
