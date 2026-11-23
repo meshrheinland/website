@@ -57,10 +57,10 @@ function EventBanner(): ReactNode {
       <div className="container">
         <div style={{textAlign: 'center'}}>
           <p style={{fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 0.25rem'}}>
-            {label} Große Notfunkübung Distrikt Köln-Aachen, 28.–29. November 2026
+            {label} Notfunkübung Distrikt G, 28.–29. November 2026
           </p>
           <p style={{margin: '0 0 0.75rem', opacity: 0.9}}>
-            Komplexes Übungsszenario – zweitägige Großübung
+            MeshCore, DBØDBN, DLØOV & Winlink im Einsatz – Großraum Köln/Bonn, ab 10:00 Uhr
           </p>
           <Link
             className="button button--lg"
