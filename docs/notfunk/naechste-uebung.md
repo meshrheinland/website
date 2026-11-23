@@ -22,7 +22,7 @@ Ziel der Übung ist es, im Katastrophenfall so viele Stationen wie möglich in d
 **Großraum Köln/Bonn:**
 - Bonner Notfunkrelais **DBØDBN** der IGFS im Siebengebirge <span className="tag-gray">(2m FM, 145,575&nbsp;MHz, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)</span>
 - Leitstelle **DLØOV** auf der Burg Limperich <span className="tag-gray">(2m FM, 144,675&nbsp;MHz, Simplex)</span>
-- Winlink <span className="tag-gray">(DL4FP@winlink.org)</span>
+- Winlink <span className="tag-gray">(DL4FP@winlink.org, DG5CW@winlink.org)</span>
 - MeshCore <span className="tag-gray">(Kanal: #emergency, Scope: `rheinland`, LoRa `EU/UK (Narrow)`)</span>
 
 ## Zeitplan
@@ -44,7 +44,7 @@ Ziel der Übung ist es, im Katastrophenfall so viele Stationen wie möglich in d
 **13:30 – 14:00 Uhr:** Sprechfunk auf **144,675&nbsp;MHz** (FM, Simplex)
 
 :::info[Winlink]
-An beiden Tagen ist zusätzlich unsere Winlink-Station unter **DL4FP@winlink.org** QRV.
+An beiden Tagen sind zusätzlich unsere Winlink-Stationen unter **DL4FP@winlink.org** und **DG5CW@winlink.org** QRV.
 :::
 
 ## Übungsablauf auf MeshCore
