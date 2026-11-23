@@ -60,7 +60,7 @@ function EventBanner(): ReactNode {
             {label} Notfunkübung Distrikt G, 28.–29. November 2026
           </p>
           <p style={{margin: '0 0 0.75rem', opacity: 0.9}}>
-            MeshCore, DBØDBN, DLØOV & Winlink im Einsatz – Großraum Köln/Bonn, ab 10:00 Uhr
+            MeshCore, DBØDBN, DLØOV, Winlink & VarAC im Einsatz – Großraum Köln/Bonn, ab 10:00 Uhr
           </p>
           <Link
             className="button button--lg"
