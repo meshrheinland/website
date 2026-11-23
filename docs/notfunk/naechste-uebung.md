@@ -13,7 +13,7 @@ description: Ankündigung der nächsten Notfunkübung für die Mesh-Rheinland-Co
 
 Liebe Funkamateure und Hobbyfunker,
 
-am **Wochenende, den 28. und 29. November 2026** findet eine zweitägige Notfunkübung des **DARC Distrikts G** statt. Im Großraum Köln/Bonn sind wir an beiden Tagen auf mehreren Kommunikationswegen aktiv – über Relais, Simplex, Winlink und MeshCore.
+am **Wochenende, den 28. und 29. November 2026** findet eine zweitägige Notfunkübung des **DARC Distrikts G** statt. Im Großraum Köln/Bonn sind wir an beiden Tagen auf mehreren Kommunikationswegen aktiv – über Relais, Simplex, Winlink, VarAC und MeshCore.
 
 Ziel der Übung ist es, im Katastrophenfall so viele Stationen wie möglich in der Luft zu haben. Es werden **keine simulierten Notmeldungen** abgesetzt.
 
@@ -22,7 +22,8 @@ Ziel der Übung ist es, im Katastrophenfall so viele Stationen wie möglich in d
 **Großraum Köln/Bonn:**
 - Bonner Notfunkrelais **DBØDBN** der IGFS im Siebengebirge <span className="tag-gray">(2m FM, 145,575&nbsp;MHz, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)</span>
 - Leitstelle **DLØOV** auf der Burg Limperich <span className="tag-gray">(2m FM, 144,675&nbsp;MHz, Simplex)</span>
-- Winlink <span className="tag-gray">(DL4FP@winlink.org, DG5CW@winlink.org)</span>
+- Winlink <span className="tag-gray">(DL4FP@winlink.org, DG5CW@winlink.org, DL3KAV@winlink.org)</span>
+- VarAC <span className="tag-gray">(DL3KAV)</span>
 - MeshCore <span className="tag-gray">(Kanal: #emergency, Scope: `rheinland`, LoRa `EU/UK (Narrow)`)</span>
 
 ## Zeitplan
@@ -43,8 +44,8 @@ Ziel der Übung ist es, im Katastrophenfall so viele Stationen wie möglich in d
 
 **13:30 – 14:00 Uhr:** Sprechfunk auf **144,675&nbsp;MHz** (FM, Simplex)
 
-:::info[Winlink]
-An beiden Tagen sind zusätzlich unsere Winlink-Stationen unter **DL4FP@winlink.org** und **DG5CW@winlink.org** QRV.
+:::info[Winlink und VarAC]
+An beiden Tagen sind zusätzlich unsere Winlink-Stationen unter **DL4FP@winlink.org**, **DG5CW@winlink.org** und **DL3KAV@winlink.org** QRV. **DL3KAV** ist außerdem über **VarAC** erreichbar.
 :::
 
 ## Übungsablauf auf MeshCore
