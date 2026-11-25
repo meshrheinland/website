@@ -50,3 +50,23 @@
     padding: 0;
   }
 }
+
+.tag-license {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 0 0.4em;
+  border: 1px solid var(--ifm-color-warning-dark);
+  border-radius: 4px;
+  color: var(--ifm-color-warning-darkest);
+  background: var(--ifm-color-warning-contrast-background);
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+[data-theme='dark'] .tag-license {
+  color: var(--ifm-color-warning-lightest);
+  border-color: var(--ifm-color-warning);
+}

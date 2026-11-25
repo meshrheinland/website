@@ -19,12 +19,16 @@ Ziel der Übung ist es, im Katastrophenfall so viele Stationen wie möglich in d
 
 ## Teilnahme und Funkbereiche
 
-**Großraum Köln/Bonn:**
-- Bonner Notfunkrelais **DBØDBN** der IGFS im Siebengebirge <span className="tag-gray">(2m FM, 145,575&nbsp;MHz, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)</span>
-- Leitstelle **DLØOV** auf der Burg Limperich <span className="tag-gray">(2m FM, 144,675&nbsp;MHz, Simplex)</span>
-- Winlink <span className="tag-gray">(DL4FP und DG5CW)</span>
-- VarAC <span className="tag-gray">(DL3KAV, 40m, 7,105&nbsp;MHz)</span>
+Im Großraum Köln/Bonn sind wir auf folgenden Wegen aktiv:
+
+**Für alle (lizenzfrei):**
 - MeshCore <span className="tag-gray">(Kanal: #emergency, Scope: `rheinland`, LoRa `EU/UK (Narrow)`)</span>
+
+**Nur für Funkamateure mit Rufzeichen:**
+- Bonner Notfunkrelais **DBØDBN** der IGFS im Siebengebirge <span className="tag-gray">(2m FM, 145,575&nbsp;MHz, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)</span> <span className="tag-license">Amateurfunklizenz</span>
+- Leitstelle **DLØOV** auf der Burg Limperich <span className="tag-gray">(2m FM, 144,675&nbsp;MHz, Simplex)</span> <span className="tag-license">Amateurfunklizenz</span>
+- Winlink <span className="tag-gray">(DL4FP und DG5CW)</span> <span className="tag-license">Amateurfunklizenz</span>
+- VarAC <span className="tag-gray">(DL3KAV, 40m, 7,105&nbsp;MHz)</span> <span className="tag-license">Amateurfunklizenz</span>
 
 ## Zeitplan
 
@@ -32,20 +36,20 @@ Ziel der Übung ist es, im Katastrophenfall so viele Stationen wie möglich in d
 
 **10:00 – 11:00 Uhr:** **MeshCore**, Kanal: #emergency, Scope: `rheinland` – Übungsverkehr nach [Übungsablauf Option B](./letzte-uebungen.md#uebungsablauf-option-b)
 
-**12:00 – 12:30 Uhr:** Sprechfunk über das Bonner Notfunkrelais **DBØDBN** (145,575&nbsp;MHz, FM, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS) – Verbindungstest
+**12:00 – 12:30 Uhr:** Sprechfunk über das Bonner Notfunkrelais **DBØDBN** (145,575&nbsp;MHz, FM, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS) – Verbindungstest <span className="tag-license">Amateurfunklizenz</span>
 
-**12:30 – 13:00 Uhr:** Sprechfunk mit der Leitstelle **DLØOV** auf der Burg Limperich (144,675&nbsp;MHz, FM, Simplex) – Verbindungs- und Antennentest
+**12:30 – 13:00 Uhr:** Sprechfunk mit der Leitstelle **DLØOV** auf der Burg Limperich (144,675&nbsp;MHz, FM, Simplex) – Verbindungs- und Antennentest <span className="tag-license">Amateurfunklizenz</span>
 
 ### Sonntag, 29. November 2026
 
 **10:00 – 11:00 Uhr:** **MeshCore**, Kanal: #emergency, Scope: `rheinland` – Übungsverkehr nach [Übungsablauf Option B](./letzte-uebungen.md#uebungsablauf-option-b)
 
-**13:00 – 13:30 Uhr:** Sprechfunk über das Bonner Notfunkrelais **DBØDBN** (145,575&nbsp;MHz, FM, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)
+**13:00 – 13:30 Uhr:** Sprechfunk über das Bonner Notfunkrelais **DBØDBN** (145,575&nbsp;MHz, FM, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS) <span className="tag-license">Amateurfunklizenz</span>
 
-**13:30 – 14:00 Uhr:** Sprechfunk auf **144,675&nbsp;MHz** (FM, Simplex)
+**13:30 – 14:00 Uhr:** Sprechfunk auf **144,675&nbsp;MHz** (FM, Simplex) <span className="tag-license">Amateurfunklizenz</span>
 
 :::info[Winlink und VarAC]
-An beiden Tagen sind zusätzlich unsere Stationen im Winlink-Netz erreichbar: **DL4FP@winlink.org** und **DG5CW@winlink.org**.
+An beiden Tagen sind zusätzlich unsere Stationen im Winlink-Netz erreichbar (nur für Funkamateure mit passender Lizenz): **DL4FP@winlink.org** und **DG5CW@winlink.org**.
 
 **DL3KAV** ist außerdem über **VarAC** auf **7,105&nbsp;MHz** erreichbar. Für den Verbindungstest genügt ein Ping.
 :::
@@ -98,7 +102,9 @@ Im Anschluss werten wir aus, **wie viele Aufgaben angefragt** und **wie viele Au
 
 ## Wer kann teilnehmen?
 
-Die Teilnahme ist offen für alle: Alle Funkamateure und Hobbyfunker im Großraum Köln/Bonn sind willkommen – unabhängig von Erfahrung oder Ausrüstung. Die Übung dient der Vorbereitung auf echte Notfallsituationen und dem Austausch untereinander.
+Am **MeshCore-Teil** kann jeder teilnehmen – auch ohne Amateurfunklizenz. Alle Funkamateure und Hobbyfunker im Großraum Köln/Bonn sind willkommen, unabhängig von Erfahrung oder Ausrüstung.
+
+Sprechfunk über **DBØDBN** und **DLØOV** sowie **Winlink** und **VarAC** sind **Funkamateuren mit passender Lizenzklasse** vorbehalten. Ohne Lizenz dürft ihr dort gerne mithören. Die Übung dient der Vorbereitung auf echte Notfallsituationen und dem Austausch untereinander.
 
 ---
 
