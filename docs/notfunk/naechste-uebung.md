@@ -19,12 +19,16 @@ Ziel der Übung ist es, im Katastrophenfall so viele Stationen wie möglich in d
 
 ## Teilnahme und Funkbereiche
 
-**Großraum Köln/Bonn:**
+Im Großraum Köln/Bonn sind wir auf folgenden Wegen aktiv:
+
+**Für alle (lizenzfrei):**
+- MeshCore <span className="tag-gray">(Kanal: #emergency, Scope: `rheinland`, LoRa `EU/UK (Narrow)`)</span>
+
+**Nur für Funkamateure mit Rufzeichen und passender Lizenz:**
 - Bonner Notfunkrelais **DBØDBN** der IGFS im Siebengebirge <span className="tag-gray">(2m FM, 145,575&nbsp;MHz, Ablage&nbsp;−0,6&nbsp;MHz, 103,5&nbsp;Hz&nbsp;CTCSS)</span>
 - Leitstelle **DLØOV** auf der Burg Limperich <span className="tag-gray">(2m FM, 144,675&nbsp;MHz, Simplex)</span>
 - Winlink <span className="tag-gray">(DL4FP und DG5CW)</span>
 - VarAC <span className="tag-gray">(DL3KAV, 40m, 7,105&nbsp;MHz)</span>
-- MeshCore <span className="tag-gray">(Kanal: #emergency, Scope: `rheinland`, LoRa `EU/UK (Narrow)`)</span>
 
 ## Zeitplan
 
