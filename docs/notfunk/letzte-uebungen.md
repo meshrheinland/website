@@ -11,6 +11,79 @@ Hier findet ihr die letzten Notfunkübungen im Rheinland. Jede Übung hat einen 
 
 <details open>
    <summary>
+      <strong>Großraum Köln/Bonn am 28. und 29. November 2026 (Notfunkübung Distrikt G)</strong>
+   </summary>
+
+Am **Wochenende, den 28. und 29. November 2026** fand eine zweitägige Notfunkübung des **DARC Distrikts G** statt. Im Großraum Köln/Bonn waren wir an beiden Tagen auf mehreren Kommunikationswegen aktiv – über Relais, Simplex, Winlink, VarAC und MeshCore. Ziel war es, möglichst viele Stationen in die Luft zu bringen.
+
+## Auswertung
+
+### MeshCore am Samstag, 28. November
+
+**10:00 – 11:00 Uhr:** **MeshCore**, Kanal: #emergency, Scope: `rheinland` – Übungsverkehr nach [Übungsablauf Option B](#uebungsablauf-option-b)
+
+Grundlage ist der Mitschnitt der Leitstelle **LST-BN** auf dem Kanal #emergency zwischen **10:00 und 11:00 Uhr**. Anfragen, die vorher oder nachher eingingen, wurden nicht mitgezählt. Betrachtet wurden wie im September die einzelnen Kommunikationsstränge je Station – von der Anfrage über Aufgabe und Lösung bis zur Bestätigung durch die Leitstelle.
+
+:::note[Sicht der Leitstelle]
+Kanalnachrichten werden in MeshCore ohne Empfangsbestätigung übertragen – was unterwegs verloren geht, taucht im Mitschnitt nicht auf. Ob eine Aufgabe bei einer Station angekommen ist, lässt sich deshalb nur indirekt ablesen: Fragt eine Station erneut nach einer Aufgabe, ohne die bereits verschickte zu lösen, ist diese offensichtlich nicht angekommen. Eine Anfrage, die sich unterwegs mit einer gerade verschickten Aufgabe gekreuzt hat, zählt nicht als Verlust.
+:::
+
+Mit **46 Stationen**, die im Kanal aktiv waren, lag die Beteiligung noch einmal über der Übung im September. 43 Stationen forderten Aufgaben an, **alle 43** erhielten mindestens eine Aufgabe und **35 Stationen** schlossen mindestens einen Nachrichtenwechsel vollständig ab. In der Stunde liefen 326 Nachrichten über den Kanal – im Schnitt etwa alle elf Sekunden eine.
+
+| Kennzahl | Samstag | zum Vergleich: September |
+|---|---|---|
+| Aufgabenanfragen (`Aufgabe?`) | 88 | 78 |
+| Verschickte Aufgaben | 82 | 59 |
+| Lösungen bei der Leitstelle eingegangen | 62 (76&nbsp;%) | 40 (68&nbsp;%) |
+| **Vollständige Nachrichtenwechsel** (bis zur Bestätigung) | **60 (73&nbsp;%)** | **39 (66&nbsp;%)** |
+
+Aus Sicht der Leitstelle schlüsseln sich die 88 Anfragen so auf:
+
+| Art der Anfrage | Anzahl |
+|---|---|
+| Erste Anfrage einer Station | 43 |
+| Neue Anfrage nach gelöster Aufgabe | 30 |
+| Erneute Anfrage, weil die verschickte Aufgabe nicht ankam | 11 |
+| Erneute Anfrage, weil die Leitstelle noch nicht reagiert hatte | 1 |
+| Erneute Anfrage, die sich unterwegs mit einer Aufgabe gekreuzt hat | 3 |
+
+Im Median dauerte es rund **15 Sekunden** von der Anfrage bis zur Aufgabe (September: 30 Sekunden), rund **1:50 Minuten** bis die Lösung bei der Leitstelle eintraf und rund **20 Sekunden** bis zur Bestätigung.
+
+#### Was gut funktionierte
+
+- **Die Vorschläge aus dem September wurden umgesetzt.** Die Aufgabennummern liefen fortlaufend von A1 bis A83 und wurden nie doppelt vergeben. Fragte eine Station erneut an, verschickte die Leitstelle die noch offene Aufgabe mit derselben Nummer.
+- **Kaum eine Anfrage ging unter.** Nur eine der 88 Anfragen blieb ohne Antwort; die Station fragte nach gut vier Minuten erneut und wurde versorgt. Alle anderen Anfragen beantwortete die Leitstelle innerhalb von gut zwei Minuten.
+- **Die Teilnehmer wiederholten ihre Nachrichten** und vermerkten das meist auch gleich (`3. Wiederholung`, `5th try`). So konnte die Leitstelle die Stränge auch dann zuordnen, wenn frühere Versuche nie angekommen waren.
+- Weniger doppelte Lösungen als im September: Nur in 4 Strängen ging die Lösung zweimal ein (September: 8 Stränge, einmal sechsfach). Insgesamt kamen 67 Lösungsnachrichten für 62 Aufgaben an.
+- Nachrichten erreichten die Leitstelle über im Median 5 und maximal 17 Hops. Laut Zeitstempel der Geräte waren sie im Median rund 15 Sekunden unterwegs, über 17 Hops gut eine Minute.
+- 156 der 162 Nachrichten der Leitstelle (96&nbsp;%) wurden nachweislich von mindestens einem Repeater weitergegeben (September: 83&nbsp;%).
+
+#### Was sich gezeigt hat
+
+- **Lösungen gingen auf dem Weg zur Leitstelle verloren.** In 12 Strängen war die erste Lösung, die bei der Leitstelle ankam, laut Vermerk der Teilnehmer bereits eine Wiederholung – in fünf Fällen erst der vierte Versuch oder ein späterer. Ohne die Wiederholungen wären diese Stränge offen geblieben.
+- **Aufgaben gingen unterwegs verloren.** 11 Aufgaben kamen nachweislich nicht an, 9 davon, obwohl Repeater sie weitergegeben hatten. Die beiden Aufgaben, die von keinem Repeater weitergegeben wurden, kamen beide nicht an. Umgekehrt war bei jeder beantworteten Aufgabe mindestens eine Weitergabe zu hören. Am stärksten betroffen war die Station mit den meisten Hops: Ihre Aufgabe wurde dreimal verschickt, eine Lösung kam nie an.
+- **20 Aufgaben blieben ohne Lösung bei der Leitstelle.** 11 davon kamen nachweislich nicht an. Bei den übrigen 9 bleibt offen, ob die Aufgabe oder die Lösung verloren ging oder die Station nicht mehr aktiv war; 5 davon wurden erst in den letzten sechs Minuten verschickt.
+- **Falsche Aufgabennummern.** Zweimal wurde eine Lösung mit falscher Aufgabennummer geschickt (z.&nbsp;B. `A6` statt `A67`) – einmal korrigierte die Station selbst, das andere Mal blieb die Lösung unbestätigt. Eine weitere Lösung blieb ohne Bestätigung.
+- **Region-Scope:** 137 der 164 eingegangenen Nachrichten (84&nbsp;%) trugen den Scope `rheinland`, die übrigen `de-nw`, `de` oder gar keinen. Die Leitstelle erinnerte mehrfach an die Einstellung und sprach eine Station direkt an. Auch Nachrichten mit anderem Scope erreichten die Leitstelle; fünf Stationen, die ausschließlich mit `de` oder `de-nw` sendeten, schlossen sogar Nachrichtenwechsel ab. Verlassen sollte man sich darauf nicht – welche Scopes ein Repeater weiterleitet, hängt von seiner Konfiguration ab (siehe [Regionen](../meshcore/regionen.md)).
+- Zwischendurch veröffentlichte die Leitstelle Listen offener Aufgaben. Darin stand einmal eine Aufgabe, die bereits bestätigt war – die betroffene Station meldete sich daraufhin selbst.
+- Nach Ende der Übung um 11:00 Uhr fragten noch fünf Stationen an.
+
+#### Für Sonntag
+
+- **Teilnehmer:** Weiter wiederholen, wenn nach zwei bis drei Minuten keine Aufgabe oder Bestätigung kommt, und die Wiederholung vermerken. Über viele Hops lohnt sich vorher etwas Geduld – dreimal kreuzte sich eine erneute Anfrage mit der bereits verschickten Aufgabe.
+- **Teilnehmer:** Die Aufgabennummer aus der Aufgabe genau übernehmen.
+- **Teilnehmer:** Den Scope `rheinland` vor Übungsbeginn prüfen – wie das geht, steht auf der [Regionen-Seite](../meshcore/regionen.md).
+- **Leitstelle:** Jede eingegangene Lösung bestätigen.
+- **Leitstelle:** In den letzten Minuten kommen neue Aufgaben kaum noch zurück. Das Ende der Aufgabenvergabe einige Minuten vor Schluss ansagen.
+
+### Zwischenfazit
+
+Der feste Nachrichtenwechsel hat sich auch bei größerer Beteiligung bewährt: Von 82 verschickten Aufgaben durchliefen 60 (73&nbsp;%) den vollständigen Nachrichtenwechsel – bei 326 Nachrichten in einer Stunde und mehr Stationen als je zuvor. Die Leitstelle behielt auch in Spitzenzeiten den Überblick, und die Teilnehmer gingen routiniert mit Verlusten im Netz um. Herzlichen Dank an alle Teilnehmer! Die Auswertung vom Sonntag folgt.
+
+</details>
+
+<details>
+   <summary>
       <strong>Großraum Köln/Bonn am 10. September 2026 (Bundesweiter Warntag)</strong>
    </summary>
 
